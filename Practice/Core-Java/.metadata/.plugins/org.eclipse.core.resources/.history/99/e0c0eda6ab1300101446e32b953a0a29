@@ -1,0 +1,34 @@
+package Assignment04;
+
+import java.util.Scanner;
+
+public class XYZ1 {
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		
+		System.out.println("Enter employee :->");
+		int size=s.nextInt();
+		
+		Employee1 [] emp=new Employee1[size];
+		
+		for(int i=0;i<emp.length;i++)
+		{
+			System.out.println("Enter Employee ID:->");
+			int empID=s.nextInt();
+			
+			System.out.println("Enter Employee Name:->");
+			String name=s.next();
+			
+			
+			System.out.println("Enter Salary:->");
+			float salary=s.nextFloat();
+			
+			emp[i]=new Employee1(empID,name,salary);
+		}
+		
+		Employee1 em=new Employee1();
+		
+		em.toString();
+	}
+
+}

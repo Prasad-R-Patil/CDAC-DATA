@@ -1,0 +1,17 @@
+Create a class CricketTeam with following attributes:
+	name (String)
+	matchesPlayed (int)
+	matchesWon (int)
+
+Write a main program that builds an array of CricketTeam for
+3 elements, accepts an input from end user for all 3 teams
+and writes the entire array to some file.
+(Hint: Use Serialization)
+
+Write another main program that loads the information from 
+that file and displays the names of the teams of which the
+performance is Excellent.
+
+A performance is Excellent if the WIN Percentage is 70 and
+above.
+(Hint: Use Deserialization)

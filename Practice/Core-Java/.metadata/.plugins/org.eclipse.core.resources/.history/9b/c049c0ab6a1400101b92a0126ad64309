@@ -1,0 +1,35 @@
+package Assignment_05;
+
+public class Sevings extends Bank{
+
+	public Sevings() {
+		super();
+		
+	}
+
+	public Sevings(long accountNo, String name, float balance, String branch) {
+		super(accountNo, name, balance, branch);
+		
+	}
+	
+	public void display(Bank[] b) {
+		
+		
+		for(int i=0;i<b.length;i++)
+		{
+			
+			if(balance>=5000)
+			{
+				System.out.println("Sevings = [ Account No-"+b[i].accountNo+" Name-"+b[i].name+" Balance-"+b[i].balance+" Branch-"+b[i].branch);
+				
+				System.out.println("Seavings Account was Created...!");
+			}
+			else
+			{
+				System.out.println("Account not Created(Minimum Balance less than 5000)");
+			}
+		
+		}
+	}
+
+}

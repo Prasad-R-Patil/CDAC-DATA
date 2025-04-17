@@ -1,0 +1,23 @@
+Time Limit: 45 Minutes
+
+Create a file work_duration.txt that maintains a data about work done by a specific worker 
+for the 5 days of a week in the format <<hours>>:<<minutes>>
+E.g.
+
+5:25
+6:30
+5:45
+7:15
+9:20
+
+Write a program that fetches a data from the file and shows total duration of work done by
+that worker in terms of hours and minutes.
+
+E.g.
+As per the sample data, total hours = 32 and total minutes = 135 (2 hours and 15 minutes)
+
+Hence the output should be:
+Total duration: 34 hours and 15 minutes.
+
+(Hint: Use String class appropriate method and an appropriate wrapper class)
+	

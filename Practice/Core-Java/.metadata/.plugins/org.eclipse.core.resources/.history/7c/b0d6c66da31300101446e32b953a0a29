@@ -1,0 +1,45 @@
+package Assignment04;
+
+public class Employee extends Taxable {
+	protected int empId;
+	protected String name;
+	protected float salary;
+	
+	
+	public Employee()
+	{}
+	
+	
+	
+	public Employee(int empID,String name,float salary)
+	{
+		this.empId=empId;
+		this.name=name;
+		this.salary=salary;
+	}
+	
+	
+	
+	
+	
+	
+	
+	public void incomeTax()
+	{
+		float tax=((salary*12)*incomeTax)/100;
+		System.out.println("Income Tax is"+tax);
+	}
+
+
+
+	@Override
+	public void calTax() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+}

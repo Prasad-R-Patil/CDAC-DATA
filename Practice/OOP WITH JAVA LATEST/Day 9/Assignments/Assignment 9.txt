@@ -1,0 +1,8 @@
+Time Limit: 20 Minutes
+
+Write a program to accept a source file name and a target file name as 
+command line arguments and copy the contents from source file to target file. 
+(Hint: Use StringBuilder with appropriate methods)
+
+Display appropriate message if the source file does not exist.
+	

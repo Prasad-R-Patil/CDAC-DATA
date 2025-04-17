@@ -1,0 +1,40 @@
+Extra Assignments on Exception Handling:
+
+1. 
+Create a class MathOperation with following attributes:
+	operation (String) e.g. "Addition", "Subtraction" etc
+	firstNumber (int)
+	secondNumber (int)
+
+	provide an instance method perform() to perform
+	one of the 4 mathematical operations based upon 
+	the 'operation' value.
+
+	Write a main program that accepts 3 command line 
+	arguments:
+	1st 2 arguments are 2 numbers and the 3rd argument
+	is the name of the operation: 
+	ADD, SUBTRACT, MULTIPLY, DIVIDE
+
+	The program must perform the following:
+	A) Handle ArrayIndex... exception for insufficient
+		values
+	B) Handle Arithmetic...exception in case of 
+		division operation
+	C) Throw an exception of type Exception with some 
+		message if the operation name is invalid
+		and catch that exception appropriately.
+-------------------------------------------------------------
+2.
+Modify the Shirts assignment as per the following:
+Create a user defined exception: ShirtTypeNotFoundException
+
+Modify the method printAllShirts(String type) in such a way 
+that it fires the exception ShirtTypeNotFoundException if the 
+Shirt with the specified type is not found. 
+
+This method must insist the caller to handle the exception.
+
+
+
+	

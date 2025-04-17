@@ -1,0 +1,23 @@
+package bank;
+
+public abstract class Bank {
+	protected long accountNo;
+	protected String name;
+	protected float balance;
+	protected String branch;
+	
+	public Bank() {}
+	
+	public Bank(long accountNo, String name, float balance, String branch) {
+		
+		this.accountNo = accountNo;
+		this.name = name;
+		this.balance = balance;
+		this.branch = branch;
+	}
+	
+	
+	
+	
+
+}

@@ -1,0 +1,28 @@
+Time Limit: 45 Minutes
+Create a class User with following attributes:
+	userName (String)
+	password (String)
+Create a class UserDetails with following attributes:
+	firstName (String)
+	lastName (String)
+	age (int)
+
+Create a class UserCollection with following attribute:
+	static Map<User, UserDetails> userData;
+
+Implement a 'static' block in the class to initialize the map: 'userData'
+with some key-value pairs.
+
+Implement a method as per the following: 
+	UserDetails getUserDetails(User key)
+
+Write a main program that accepts a User Input as credentials
+ (Username and Password)
+
+The program must perform following operations:
+	1. Display all the details of the user if the user is valid
+	2. If invalid, fire an exception InvalidUserException and
+		display appropriate message.
+
+(Note: The exception must be a checked exception
+	

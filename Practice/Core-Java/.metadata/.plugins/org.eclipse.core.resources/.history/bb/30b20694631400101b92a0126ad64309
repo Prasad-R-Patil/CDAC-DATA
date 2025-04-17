@@ -1,0 +1,55 @@
+package bank;
+
+public abstract class Bank {
+	protected long accountNo;
+	protected String name;
+	protected float balance;
+	protected String branch;
+	
+	public Bank() {}
+	
+	public Bank(long accountNo, String name, float balance, String branch) {
+		
+		this.accountNo = accountNo;
+		this.name = name;
+		this.balance = balance;
+		this.branch = branch;
+	}
+	
+	
+	
+	
+	public long getAccountNo() {
+		return accountNo;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public float getBalance() {
+		return balance;
+	}
+
+	public String getBranch() {
+		return branch;
+	}
+
+	public void display(Bank[] b) {
+		for(int i=0;i<b.length;i++)
+		{
+			System.out.println("Sevings = [ Account No-"+b[i].accountNo+" Name-"+b[i].name+" Balance-"+b[i].balance+" Branch-"+b[i].branch);
+		}
+	}
+	
+	
+	public void BankTBal()
+	{
+		
+		
+	}
+	
+	
+	
+
+}

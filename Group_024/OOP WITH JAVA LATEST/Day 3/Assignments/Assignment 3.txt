@@ -1,0 +1,19 @@
+Time Limit: 30 Minutes
+
+Create a class City with following attributes:
+	String name
+	int population
+
+Create another class CityProcessor with following methods:
+	public static float getAvgPopulation(City [] )
+	public static String[] getBigCityNames(City []) 
+(Can make use of "!= null" condition)
+
+The first method must return the average population.
+The second method must return the names of the big cities.
+(A city having population > 40 lakhs is a big city)
+
+Write a main program to test the functionality.
+
+
+	

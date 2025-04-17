@@ -1,0 +1,133 @@
+Session 01 -
+
+Assignments #1:
+
+
+  1. Play with the demo code ( ConstDemo.cpp)  by initializing different values to const and constexpr note down the findings
+
+  2. Write a small program to demonstrate const and constexpr for calculating area of a circle.
+
+
+Assignment #2:
+
+ 1. Program to check datatype size and limits in C++
+
+Assignment #3:
+
+  1. Find out if some more functions are supported for string in C++
+
+  2. A Word is said to be Magic Word if it satisfies following properties
+
+       i. The word has at least six characters.
+      ii. The word has even number of characters.
+     iii. The word has first letter 'Z' or 'z'.
+      iv. The word has last and First letter same.
+       v. The word has two halves which are same.
+
+     Write a program to take a word from user and print the total number of
+     properties the word satisfies.
+
+     Print "MAGIC Word" if word satisfies all the given properties.
+
+
+Assignment #4:
+
+ 1. Observe output of following codes :
+#include<iostream>
+using namespace std;
+int main()
+{
+	int x=8;
+	cout<<" x= "<<x;
+	cout<<" x= "<<x++;	//postfix increment
+	cout<<" x= "<<x;
+	cout<<" x= "<<x--;	//postfix decrement
+	cout<<" x= "<<x;
+
+	cout<<"\n x= "<<x;
+	cout<<" x= "<<++x;	//prefix increment
+	cout<<" x= "<<x;
+	cout<<" x= "<<--x;	//prefix decrement
+	cout<<" x= "<<x;
+	return 0;
+}
+
+2. Observe output and play with the code.
+
+ #include<iostream>
+using namespace std;
+int main()
+{
+        int a,b,c,d,e,f,g,h,k;
+	a=8, b=4, c=2, d=1, e=5, f=20;
+	cout<<"\t"<< a+b-(c+d)*3%e+f/9;
+	a=17, b=5, c=6, d=3, e=5;
+	cout<<"\t"<<a%6-b/2+(c*d-5)/e;
+	a=4, b=5, c=6, d=3, e=5, f=10;
+	cout<<"\t"<<a*b-c/d;
+	a=8, b=5, c=8, d=3, e=65, f=10, g=2, h=5, k=2;
+	cout<<"\t"<<(a-b+c/d);
+	int r1 = a-b+c/d ;
+	int r2 = (e/f-g+h%k);
+        cout<<"\t"<<(r1 == r2);  //remove (   ) and check
+	a=8, b=3, c=2, d=3, e=2, f=11;
+	cout<<"\n"<<a-b||(a-b*c)+d&&e-f%3;
+	return 0;
+}
+
+
+3. Observe output and play with the code.
+
+#include<iostream>
+using namespace std;
+int main(void)
+{
+	int a=9,b=15,c=16,d=12,e,f;
+	e = !(a<b || b<c);
+	f = (a>b) ? a-b: b-a;
+	cout<<" e = "<<e <<" f = "<< f;
+	return 0;
+}
+
+
+4. Observe output and play with the code.
+
+#include<iostream>
+using namespace std;
+int main(void)
+{
+    int x,y,z,k=10;
+    k+=(x=5, y=x+2, z=x+y);
+	cout<<"\n x = "<<x <<" y = "<< y <<" z = "<<z<< " k = "<<k;
+    return 0;
+}
+ 
+
+Assignment #5 : Basic assignments on condition and loops :
+
+1. Print table of a given number.
+2. Take a number from user and print it is prime or not
+3. Take a number from user and print sum of its digits.
+4. Take a number from user and print it is perfect number or not.
+5. Menu driven program for small hotel menu and print total bill amount, when user enter Exit choice.
+6. An electricity board charges the following rates to domestic users to discourage large consumption of energy:
+	For the first 50 units    -  8.50/- per unit
+	For next 200 units       -  13.00/- per unit
+	Beyond 250 units        -  18.25/- per unit
+All users are charged a minimum of Rs. 850.00. If the total amount is more than Rs. 1500.00 then an additional surcharge of 15% is added.
+
+Write a program to take number of units consumed and print Total Bill Amount.
+
+Assignment #6 : Basic assignments on nested loops :
+
+1. Take range of numbers from user and print tables of all numbers within the given range.
+2. Print all prime numbers between given range.
+3. Basic pattern printing programs : separate file is shared. 
+4. Menu driven program for small hotel menu with sub menu and print total bill amount, when user enter Exit choice.
+5. Take a range of numbers and print all perfect numbers within the given range.
+
+
+ 
+
+
+

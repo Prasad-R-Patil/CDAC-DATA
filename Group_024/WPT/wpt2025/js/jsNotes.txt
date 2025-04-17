@@ -1,0 +1,88 @@
+17/4/25
+
+Javascript: 
+-it is use to add functionality into webapp.
+-it is loosly typed language.
+-it inter preted language.
+
+*there are two ways to use Javascript
+1.internal Javascript: in html file we use script tag in that we wrire js code.
+2.external Javascript in this we creatw a sepreate js file and import it in html file by using script tag.
+
+*how to get or display output in javascript.
+1.document.write(): it will display output on browser. it will display output same line.
+2.window.alert(): in will generare popup window and display output in it.
+3.console.log():it will display output in browser console or in terminal.
+4.innerHTML (DOM):it is use to insert data inside an element by using its id.
+
+*Variable in javascript 
+*in Javascript there are three ways to create variable 
+var,let,const 
+
+Q.why javascript is called as loosly typed. 
+Q.what is hoisting.
+-it is default javascript behaviour which moves variable declaration at top. this we can use variable first and then declare it.
+
+Q.differance between var let and const.
+
+var : it create function scope variable.
+     -we can use variable before declaration of it.
+     -we can redeclare variable
+
+let : it create block scrope variable.
+    -we can not use variable before declaration of it.
+    -we can not redeclare variable.
+
+const : it values will never change at run time.
+       -when we declare we have initiLIZE AT SAME TIME.   
+
+
+2009(ES5 ECMA5), 2015(ES6)
+
+*function in javascript
+-it is block of code which is use to perform perticular tas.
+-function will execute only when we call it.
+-function can reuse multiple time.
+
+*array:
+-it is use to store multiple values with same data type.
+-in array data store on index basis.
+-array index always from zero index.
+-it is denoted by [];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

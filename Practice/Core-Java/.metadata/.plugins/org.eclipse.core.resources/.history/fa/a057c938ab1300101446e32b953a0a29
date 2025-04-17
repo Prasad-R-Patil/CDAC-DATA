@@ -1,0 +1,21 @@
+package Assignment04;
+
+import java.util.Scanner;
+
+public class XYZ1 {
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		
+		System.out.println("Enter employee :->");
+		int size=s.nextInt();
+		
+		Employee [] emp=new Employee[size];
+		
+		for(int i=0;i<emp.length;i++)
+		{
+			System.out.println("Enter Employee ID:->");
+			
+		}
+	}
+
+}

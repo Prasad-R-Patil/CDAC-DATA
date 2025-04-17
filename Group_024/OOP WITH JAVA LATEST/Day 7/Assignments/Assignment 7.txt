@@ -1,0 +1,20 @@
+Time Limit: 45 Minutes
+
+Create a class Person with following attributes:
+	name (String)
+	emailAddress (String)
+	age (int)
+
+Create user defined exception classes as per the following:
+	InvalidEmailAddressException
+	InvalidAgeException
+
+Write a main program to create 2 objects of a Person class and display the information.
+The program must throw 1st exception if the email address does not contain '@' and '.' 
+characters and 2nd exception if the age is below 18.
+
+Display appropriate error messages.
+(Note: Both the exceptions must be checked exceptions)
+(Use String class contains() method)
+	
+

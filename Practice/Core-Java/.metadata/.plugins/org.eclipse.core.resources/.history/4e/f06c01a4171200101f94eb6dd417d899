@@ -1,0 +1,26 @@
+package Assignment04;
+
+public class Factorial extends Processor {
+
+	protected int fact=1;
+	
+	public Factorial(int data)
+	{
+		this.data=data;
+	}
+	@Override
+	public void Process() {
+		
+		for(int i=1;i<=data;i++)
+		{
+			 fact=i*i;
+		}
+		
+	}
+	
+	public void showData()
+	{
+		System.out.println("Factorial is :->"+fact);
+	}
+
+}

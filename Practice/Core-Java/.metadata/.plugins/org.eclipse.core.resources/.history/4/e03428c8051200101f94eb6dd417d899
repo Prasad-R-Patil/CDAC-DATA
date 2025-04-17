@@ -1,0 +1,11 @@
+package session_06;
+
+public class A extends Coffee{
+	
+	@Override
+	public void Test()
+	{
+		
+	}
+
+}

@@ -1,0 +1,36 @@
+Time Limit: 20 Minutes
+
+Create a class Account with following attributes:
+	accountNo (int)
+	name (String)
+	balance (float)
+
+Add following methods in the existing Account class:
+	public void deposit(float)
+	public void withdraw(float)
+	public void transferFunds(Account toAccount,float amountToTransfer)
+
+Write a main program that builds 2 Account objects and 
+tests the functionality.
+
+Expectation: 
+
+Account a1 = new Account(..., ..., 100000);
+Account a2 = new Account(..., ..., 50000);
+
+a1.transferFunds(a2, 25000);
+
+a1 ---> 75000
+a2 ---> 75000
+
+
+
+
+
+
+
+
+
+
+	
+

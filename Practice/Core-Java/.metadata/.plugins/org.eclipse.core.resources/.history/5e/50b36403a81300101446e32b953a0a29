@@ -1,0 +1,36 @@
+package Assignment04;
+
+public class Product extends Taxable {
+	protected int pId;
+	protected float price;
+	protected int quantity;
+	
+	
+	public Product()
+	{
+		
+	}
+	
+	public Product(int pId,float price,int quantity)
+	{
+		this.pId=pId;
+		this.price=price;
+		this.quantity=quantity;
+		
+	}
+	
+	
+	
+	
+	public void salestax()
+	{
+		
+	}
+
+	@Override
+	public void calTax() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

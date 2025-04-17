@@ -1,0 +1,23 @@
+package session_10;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class Filehandel {
+	
+	public static void main(String[] args) throws IOException {
+		int no=65;
+		
+		FileOutputStream  fos=null;
+		
+		
+		fos=new FileOutputStream("abc.txt");
+		
+		fos.write(no);
+		
+		System.out.println("Success");
+		
+		fos.close();
+	}
+
+}

@@ -1,0 +1,16 @@
+package bank;
+
+public class Current extends Bank {
+
+	public Current() {
+		super();
+		
+	}
+
+	public Current(long accountNo, String name, float balance, String branch) {
+		super(accountNo, name, balance, branch);
+		
+	}
+	
+
+}

@@ -1,0 +1,30 @@
+package campus.academics;
+
+import campus.data.Person;
+
+public class Faculty extends Person {
+	
+	protected int facultyId;
+	protected String facultyName;
+	protected int salary;
+	protected String branch;
+	
+	public Faculty() {
+		super();
+		
+	}
+	
+	public Faculty(int facultyId, String name, int salary, String branch,String nm,int age,String add) {
+		super(nm,age,add);
+		this.facultyId = facultyId;
+		this.facultyName = name;
+		this.salary = salary;
+		this.branch = branch;
+	}
+	
+	
+	
+	
+	
+
+}

@@ -1,0 +1,28 @@
+package campus.academics;
+
+public class Student {
+	protected int rollNo;
+	protected String branch;
+	protected int semister;
+	
+	
+	public Student() {
+		super();
+		
+	}
+	
+	public Student(int rollNo, String branch, int semister) {
+		super();
+		this.rollNo = rollNo;
+		this.branch = branch;
+		this.semister = semister;
+	}
+
+
+
+
+	
+	
+	
+
+}

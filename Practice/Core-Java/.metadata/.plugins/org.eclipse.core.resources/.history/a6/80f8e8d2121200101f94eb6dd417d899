@@ -1,0 +1,20 @@
+package Assignment04;
+
+public class Factorial extends Processor {
+
+	protected int fact;
+	@Override
+	public void Process() {
+		// TODO Auto-generated method stub
+		for(int i=1;i<data;i++)
+		{
+			 fact=i*i;
+		}
+	}
+	
+	public void showData()
+	{
+		System.out.println("Factorial is "+fact);
+	}
+
+}

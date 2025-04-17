@@ -1,0 +1,59 @@
+package Assignment04;
+
+import java.util.Scanner;
+
+public class XYZ {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        
+        // Handling employees
+        System.out.println("Enter the number of employees:");
+        int empCount = s.nextInt();
+        Employee[] employees = new Employee[empCount];
+
+        for (int i = 0; i < empCount; i++) {
+            System.out.println("Enter Employee ID:");
+            int empId = s.nextInt();
+
+            System.out.println("Enter Employee Name:");
+            String name = s.next();
+
+            System.out.println("Enter Salary:");
+            float salary = s.nextFloat();
+
+            employees[i] = new Employee(empId, name, salary);
+        }
+
+        System.out.println("\nEmployee Details and Tax Calculation:");
+        for (Employee emp : employees) {
+            emp.display();
+            emp.calTax();
+        }
+
+        // Handling products
+        System.out.println("\nEnter the number of products:");
+        int prodCount = s.nextInt();
+        Product[] products = new Product[prodCount];
+
+        for (int i = 0; i < prodCount; i++) {
+            System.out.println("Enter Product ID:");
+            int pId = s.nextInt();
+
+            System.out.println("Enter Product Price:");
+            float price = s.nextFloat();
+
+            System.out.println("Enter Quantity:");
+            int quantity = s.nextInt();
+
+            products[i] = new Product(pId, price, quantity);
+        }
+
+        System.out.println("\nProduct Details and Tax Calculation:");
+        for (Product prod : products) {
+            prod.display();
+            prod.calTax();
+        }
+
+        s.close();
+    }
+}

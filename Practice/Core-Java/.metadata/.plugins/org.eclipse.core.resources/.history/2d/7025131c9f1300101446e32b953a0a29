@@ -1,0 +1,30 @@
+package Assignment04;
+
+public class Product {
+	protected int pId;
+	protected float price;
+	protected int quantity;
+	
+	
+	public Product()
+	{
+		
+	}
+	
+	public Product(int pId,float price,int quantity)
+	{
+		this.pId=pId;
+		this.price=price;
+		this.quantity=quantity;
+		
+	}
+	
+	
+	
+	
+	public void salestax()
+	{
+		
+	}
+
+}

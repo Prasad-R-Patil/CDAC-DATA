@@ -1,0 +1,9 @@
+package campus;
+
+public class CampusApp {
+	
+	public static void main(String[] args) {
+		
+	}
+
+}

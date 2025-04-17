@@ -1,0 +1,21 @@
+package bank;
+
+public class Sevings extends Bank{
+
+	public Sevings() {
+		super();
+		
+	}
+
+	public Sevings(long accountNo, String name, float balance, String branch) {
+		super(accountNo, name, balance, branch);
+		
+	}
+
+	@Override
+	public void display() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

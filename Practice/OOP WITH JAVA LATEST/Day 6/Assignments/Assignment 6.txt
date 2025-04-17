@@ -1,0 +1,35 @@
+Time Limit: 45 Minutes
+
+Create a class Department with following attributes:
+	name (String)
+	location (String)
+Create a class Employee with following attributes:
+	empNo (int)
+	name (String)
+	salary (float)
+	department (Department)
+Create an interface EmployeeProcessor with following 
+method declaration:
+	float processEmployees(Employee [], String);
+Create 2 implementation classes for the interface
+EmployeeProcessor as per the following:
+
+1. Class names will be of your choice
+2. First implementation class must return the sum of salaries
+	of the employees as per the department name
+3. Second implementation class must return the number of
+	employees as per the department location
+
+Create a class EmployeeOperation with following attributes:
+	allEmployees (Employee [])
+	operationResult (float)
+	processor (EmployeeProcessor)
+
+	Implement a method: 
+	public void perform() in such a way that it must perform
+	the operation using the 'processor' and store the result
+	into the permanent field 'operationResult'.
+
+Write a main program to print the result of EmployeeOperation
+	
+	

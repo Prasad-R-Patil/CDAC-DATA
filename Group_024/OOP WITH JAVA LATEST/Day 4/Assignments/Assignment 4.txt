@@ -1,0 +1,27 @@
+Time Limit: 30 Minutes
+Create a class Event with following attributes:
+	int eventId;
+	String eventName;
+	float baseFare; 10000
+
+Create a subclass OvernightEvent from Event with following attributes:
+	int days;		4
+	int ratePerDay;		5000
+	int roomCount;		5
+	int farePerRoom;	3000    expected o/p 75k
+
+Create another subclass OnedayEvent from Event with following attributes:
+	int hours; 4
+	int ratePerHour; 2000
+	int extraHours; (500) 2		expected o/p 19k
+Override a method float getTotalFare() in all 3 classes
+
+
+Write a main program that builds at least 1 object each of types: 
+OvernightEvent and OnedayEvent and calculates the total fare.
+
+(Note: farePerRoom is for 1 night and no. of nights is 1 less than the no 
+of days of event. The rate per extraHour is of your choice.) 
+
+
+	

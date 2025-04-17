@@ -1,0 +1,37 @@
+package Assignment_05;
+
+public class Current extends Bank {
+
+	public Current() {
+		super();
+		
+	}
+
+	public Current(long accountNo, String name, float balance, String branch) {
+		super(accountNo, name, balance, branch);
+		
+	}
+
+	@Override
+	public void display(Bank[] b) {
+		
+		for(int i=0;i<b.length;i++)
+		{
+			
+			if(b[i].getBalance()>=1000)
+			{
+				System.out.println("Current = [ Account No-"+b[i].accountNo+" Name-"+b[i].name+" Balance-"+b[i].balance+" Branch-"+b[i].branch);
+				
+				System.out.println("Current Account was Created...!");
+			}
+			else
+			{
+				System.out.println("Account not Created(Minimum Balance less than 1000)");
+			}
+		
+		}
+		
+	}
+	
+
+}

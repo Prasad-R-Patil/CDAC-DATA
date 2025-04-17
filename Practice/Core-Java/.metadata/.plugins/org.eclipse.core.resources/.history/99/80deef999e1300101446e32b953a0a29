@@ -1,0 +1,19 @@
+package Assignment04;
+
+public class Employee {
+	protected int empId;
+	protected String name;
+	protected float salary;
+	
+	
+	
+	
+	
+	
+	
+	public void incomeTax()
+	{
+		
+	}
+
+}

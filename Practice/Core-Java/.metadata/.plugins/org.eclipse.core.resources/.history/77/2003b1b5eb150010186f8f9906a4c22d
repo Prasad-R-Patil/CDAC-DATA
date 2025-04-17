@@ -1,0 +1,23 @@
+package campus;
+
+import java.util.Scanner;
+
+import campus.academics.*;
+import campus.data.*;
+
+public class CampusApp {
+	
+	public void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		int size=s.nextInt();
+		
+		
+		Student[] stud=new Student[size];
+		
+		
+		
+		
+		
+	}
+
+}

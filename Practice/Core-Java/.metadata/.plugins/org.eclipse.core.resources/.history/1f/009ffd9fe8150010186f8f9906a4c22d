@@ -1,0 +1,26 @@
+package campus.academics;
+
+public class Faculty {
+	
+	protected int facultyId;
+	protected String name;
+	protected int salary;
+	protected String branch;
+	public Faculty() {
+		super();
+		
+	}
+	public Faculty(int facultyId, String name, int salary, String branch) {
+		super();
+		this.facultyId = facultyId;
+		this.name = name;
+		this.salary = salary;
+		this.branch = branch;
+	}
+	
+	
+	
+	
+	
+
+}

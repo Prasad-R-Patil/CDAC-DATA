@@ -1,0 +1,86 @@
+15/4/2025
+
+
+CSS: it is use to design an make website responsive.
+    -latest version of css is css-3
+    -css stand Cascading Style Sheet.
+
+*there are three ways to use css with html 
+Q.What are types of css.
+1. inline css : in starting tag we use style attribute and write property and value in it.
+2. internal css: in html page we use style tag abd in that we write css code.
+       syntax:   selector{
+                      property:value;
+                      property:value;
+                     property:value;
+                    }
+3. external css: in this we create a seperae css file and import it in html file in head part by using link tag.
+
+syntax:   selector{
+                      property:value;
+                      property:value;
+                     property:value;
+                    }
+
+*Selector in css: selecting an element.
+1. element name Selector: in this we use element name to apply css propery
+2. group Selector : in this we make group of element name by using comma.
+3. id selector(#): it is use when we have to apply css property to an single element.
+4. class selector(.):it is use when we have to apply css class to multiple element.
+5. universal seector(*): it is use when when we have to apply css to all element availble in html file.
+
+*bordrer : a line drown around an element.
+*Border style 
+*border short hand property
+
+Imp 
+*Box Model : it contain four point in it.
+1.content : it can be any text or image
+2.padding : it is use to clear area between content and element border.
+3.borer : a line drown arounfd an element.
+4.margin :it is use to clear area outside element border.
+
+*box-shadow
+*text-shadow
+
+display:flex;
+-it is ise to manage element layout in website for different screen width
+-display flex property we apply to parent element.
+
+*box-sizing : it include element border size and padding size in its actual width. 
+
+float: it is use to bring element side by side 
+float:left,right,none;
+
+*media query: itis use to apply different style rule to an element according to diferent screen width.
+
+syntax: @media screen and (break-point){
+        css property
+}
+
+
+in break point we use two property
+-max-width: css property will be applicable from 0px to its max-width.
+
+-min-width:css property will be applicable from  its min-width to highest.
+
+screen width >=1200px  xl 
+screen width >=992px   lg 
+screen width >=768px   md
+screen width >=576px   sm
+screen width <576px    xsm 
+
+*position: it is use to move element after applying,left,right,top,bottom value.
+1-position:static; (default value)
+2-position:relative; element can move after apllying left,right,top,buttom property. 
+
+3-position:absolute; when we have child element according to its parent element. to parent we apply position:relative and to child element we apply position:absolute.
+
+4-position:fixed; it is use to fixed element on screen window.
+
+5.position:sticky; it it use when we have stick element at pertular place
+
+*z-index: it is use to decide stack priority of an element
+it has two value , 1 means hight and -1 low
+
+*opacity: it is use to make element backgroud transparent its value vary in between 0 and 1.  

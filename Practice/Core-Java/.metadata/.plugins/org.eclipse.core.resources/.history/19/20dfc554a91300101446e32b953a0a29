@@ -1,0 +1,28 @@
+package Assignment04;
+
+public class Product extends Taxable {
+    protected int pId;
+    protected float price;
+    protected int quantity;
+
+    // Default constructor
+    public Product() {}
+
+    // Parameterized constructor
+    public Product(int pId, float price, int quantity) {
+        this.pId = pId;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    @Override
+    public void calTax() {
+        float tax = (price * quantity * salesTax) / 100;
+        System.out.println("Sales Tax for Product ID: " + pId + " is " + tax);
+    }
+
+    // Method to display product details
+    public void display() {
+        System.out.println("Product ID: " + pId + ", Price: " + price + ", Quantity: " + quantity);
+    }
+}

@@ -1,0 +1,2142 @@
+mysql> show tables;
++---------------------+
+| Tables_in_group024  |
++---------------------+
+| a                   |
+| a1                  |
+| agent               |
+| andor               |
+| b                   |
+| blanktablea         |
+| blanktableb         |
+| blog                |
+| bonus               |
+| books               |
+| candidate           |
+| client              |
+| coalesce            |
+| comments            |
+| company             |
+| customer            |
+| customers           |
+| demodept1           |
+| demodept2           |
+| dept                |
+| dept1               |
+| docs                |
+| doctor              |
+| doctorvisits        |
+| dummy               |
+| duplicate           |
+| emp                 |
+| emp1                |
+| emp2                |
+| emp_attendance      |
+| emp_cards           |
+| emp_phone           |
+| empj                |
+| envelope            |
+| food                |
+| fullname            |
+| hobby               |
+| item                |
+| job_list            |
+| key_parts           |
+| labtestlist         |
+| leadtable           |
+| licence             |
+| location            |
+| mass_table          |
+| medicinelist        |
+| menucard            |
+| nearest             |
+| new                 |
+| newbooks            |
+| nullif              |
+| numbers             |
+| numberstring        |
+| ord                 |
+| orderdetails        |
+| orders              |
+| overtime            |
+| patient             |
+| phonecall           |
+| pivot_table         |
+| plumber             |
+| plumber_service_map |
+| points              |
+| price               |
+| product             |
+| product_sales       |
+| products            |
+| quarterly_revenue   |
+| r                   |
+| r1                  |
+| r2                  |
+| races               |
+| regexpr             |
+| replacedept         |
+| revenue             |
+| rockets             |
+| runners             |
+| runningserver       |
+| sales               |
+| sales_channel       |
+| salespeople         |
+| salesperson         |
+| salgrade            |
+| server              |
+| service             |
+| seta                |
+| setb                |
+| shop                |
+| softdrink           |
+| sort                |
+| sourcenames         |
+| stadium             |
+| states              |
+| station             |
+| status              |
+| stringnumber        |
+| student             |
+| tablea              |
+| tableaa             |
+| tableb              |
+| tablebb             |
+| targetnames         |
+| tasks               |
+| teacher             |
+| temp1               |
+| traintimetable      |
+| transactions        |
+| vote_response       |
+| votes               |
+| warehouse           |
+| yearly_revenue      |
+| z                   |
++---------------------+
+112 rows in set (0.01 sec)
+
+mysql> select *from emp;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | NULL |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+28 rows in set (0.00 sec)
+
+mysql> select ename from emp;
++----------+
+| ename    |
++----------+
+| GITA     |
+| VRUSHALI |
+| SHARMIN  |
+| BANDISH  |
+| SMITH    |
+| AARAV    |
+| THOMAS   |
+| ALLEN    |
+| WARD     |
+| JONES    |
+| MARTIN   |
+| BLAKE    |
+| CLARK    |
+| SCOTT    |
+| KING     |
+| FRED     |
+| TURNER   |
+| ADAMS    |
+| JAMES    |
+| FORD     |
+| HOFFMAN  |
+| GRASS    |
+| MILLER   |
+| AARUSH   |
+| ALEX     |
+| NATASHA  |
+| SANGITA  |
+| SUPRIYA  |
++----------+
+28 rows in set (0.00 sec)
+
+mysql> select ename,job from emp;
++----------+---------------------+
+| ename    | job                 |
++----------+---------------------+
+| GITA     | Compliance officers |
+| VRUSHALI | Compliance officers |
+| SHARMIN  | Public Relation     |
+| BANDISH  | Public Relation     |
+| SMITH    | CLERK               |
+| AARAV    | CLERK               |
+| THOMAS   | CLERK               |
+| ALLEN    | SALESMAN            |
+| WARD     | SALESMAN            |
+| JONES    | MANAGER             |
+| MARTIN   | SALESMAN            |
+| BLAKE    | MANAGER             |
+| CLARK    | MANAGER             |
+| SCOTT    | ANALYST             |
+| KING     | PRESIDENT           |
+| FRED     | vice PRESIDENT      |
+| TURNER   | SALESMAN            |
+| ADAMS    | CLERK               |
+| JAMES    | CLERK               |
+| FORD     | ANALYST             |
+| HOFFMAN  | MANAGER             |
+| GRASS    | SALESMAN            |
+| MILLER   | CLERK               |
+| AARUSH   | SALESMAN            |
+| ALEX     | MANAGER             |
+| NATASHA  | CLERK               |
+| SANGITA  | Compliance officers |
+| SUPRIYA  | ANALYST             |
++----------+---------------------+
+28 rows in set (0.00 sec)
+
+mysql> desc dept;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| DEPTNO    | int         | NO   | PRI | NULL    |       |
+| DNAME     | varchar(12) | YES  |     | NULL    |       |
+| LOC       | varchar(10) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| STARTEDON | varchar(10) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select dname from dept;
++------------+
+| dname      |
++------------+
+| ACCOUNTING |
+| RESEARCH   |
+| SALES      |
+| OPERATIONS |
+| HR         |
++------------+
+5 rows in set (0.00 sec)
+
+mysql> select ename from emp where job = 'MANAGER';
++---------+
+| ename   |
++---------+
+| JONES   |
+| BLAKE   |
+| CLARK   |
+| HOFFMAN |
+| ALEX    |
++---------+
+5 rows in set (0.00 sec)
+
+mysql> select ename,job from emp where job = 'MANAGER';
++---------+---------+
+| ename   | job     |
++---------+---------+
+| JONES   | MANAGER |
+| BLAKE   | MANAGER |
+| CLARK   | MANAGER |
+| HOFFMAN | MANAGER |
+| ALEX    | MANAGER |
++---------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select ename,sal from emp where sal>=3000;
++---------+------+
+| ename   | sal  |
++---------+------+
+| AARAV   | 3350 |
+| SCOTT   | 3000 |
+| KING    | 5000 |
+| FRED    | 5000 |
+| FORD    | 3000 |
+| HOFFMAN | 4150 |
++---------+------+
+6 rows in set (0.00 sec)
+
+mysql> select ename from emp where ename like '_%a';
++---------+
+| ename   |
++---------+
+| GITA    |
+| NATASHA |
+| SANGITA |
+| SUPRIYA |
++---------+
+4 rows in set (0.00 sec)
+
+mysql> select ename from emp where enamelike '_%a';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''_%a'' at line 1
+mysql> select ename from emp where ename like '_a%';
++---------+
+| ename   |
++---------+
+| BANDISH |
+| AARAV   |
+| WARD    |
+| MARTIN  |
+| JAMES   |
+| AARUSH  |
+| NATASHA |
+| SANGITA |
++---------+
+8 rows in set (0.00 sec)
+
+mysql> desc dept;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| DEPTNO    | int         | NO   | PRI | NULL    |       |
+| DNAME     | varchar(12) | YES  |     | NULL    |       |
+| LOC       | varchar(10) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| STARTEDON | varchar(10) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select *from emp;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | NULL |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+28 rows in set (0.00 sec)
+
+mysql> select empno,ename,sal from emp;
++-------+----------+------+
+| empno | ename    | sal  |
++-------+----------+------+
+|  6001 | GITA     | 1750 |
+|  6129 | VRUSHALI | 1750 |
+|  6473 | SHARMIN  | 1750 |
+|  6781 | BANDISH  | 1750 |
+|  7369 | SMITH    |  800 |
+|  7415 | AARAV    | 3350 |
+|  7421 | THOMAS   | 1750 |
+|  7499 | ALLEN    | 1600 |
+|  7521 | WARD     | 1250 |
+|  7566 | JONES    | 2975 |
+|  7654 | MARTIN   | 1250 |
+|  7698 | BLAKE    | 2850 |
+|  7782 | CLARK    | 2450 |
+|  7788 | SCOTT    | 3000 |
+|  7839 | KING     | 5000 |
+|  7840 | FRED     | 5000 |
+|  7844 | TURNER   | 1500 |
+|  7876 | ADAMS    | 1100 |
+|  7900 | JAMES    |  950 |
+|  7902 | FORD     | 3000 |
+|  7919 | HOFFMAN  | 4150 |
+|  7920 | GRASS    | 2575 |
+|  7934 | MILLER   | 1300 |
+|  7945 | AARUSH   | 1350 |
+|  7949 | ALEX     | 1250 |
+|  8433 | NATASHA  | 1750 |
+|  9400 | SANGITA  | 1750 |
+|  9473 | SUPRIYA  | 1750 |
++-------+----------+------+
+28 rows in set (0.00 sec)
+
+mysql> show tables;
++---------------------+
+| Tables_in_group024  |
++---------------------+
+| a                   |
+| a1                  |
+| agent               |
+| andor               |
+| b                   |
+| blanktablea         |
+| blanktableb         |
+| blog                |
+| bonus               |
+| books               |
+| candidate           |
+| client              |
+| coalesce            |
+| comments            |
+| company             |
+| customer            |
+| customers           |
+| demodept1           |
+| demodept2           |
+| dept                |
+| dept1               |
+| docs                |
+| doctor              |
+| doctorvisits        |
+| dummy               |
+| duplicate           |
+| emp                 |
+| emp1                |
+| emp2                |
+| emp_attendance      |
+| emp_cards           |
+| emp_phone           |
+| empj                |
+| envelope            |
+| food                |
+| fullname            |
+| hobby               |
+| item                |
+| job_list            |
+| key_parts           |
+| labtestlist         |
+| leadtable           |
+| licence             |
+| location            |
+| mass_table          |
+| medicinelist        |
+| menucard            |
+| nearest             |
+| new                 |
+| newbooks            |
+| nullif              |
+| numbers             |
+| numberstring        |
+| ord                 |
+| orderdetails        |
+| orders              |
+| overtime            |
+| patient             |
+| phonecall           |
+| pivot_table         |
+| plumber             |
+| plumber_service_map |
+| points              |
+| price               |
+| product             |
+| product_sales       |
+| products            |
+| quarterly_revenue   |
+| r                   |
+| r1                  |
+| r2                  |
+| races               |
+| regexpr             |
+| replacedept         |
+| revenue             |
+| rockets             |
+| runners             |
+| runningserver       |
+| sales               |
+| sales_channel       |
+| salespeople         |
+| salesperson         |
+| salgrade            |
+| server              |
+| service             |
+| seta                |
+| setb                |
+| shop                |
+| softdrink           |
+| sort                |
+| sourcenames         |
+| stadium             |
+| states              |
+| station             |
+| status              |
+| stringnumber        |
+| student             |
+| tablea              |
+| tableaa             |
+| tableb              |
+| tablebb             |
+| targetnames         |
+| tasks               |
+| teacher             |
+| temp1               |
+| traintimetable      |
+| transactions        |
+| vote_response       |
+| votes               |
+| warehouse           |
+| yearly_revenue      |
+| z                   |
++---------------------+
+112 rows in set (0.01 sec)
+
+mysql> desc dept;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| DEPTNO    | int         | NO   | PRI | NULL    |       |
+| DNAME     | varchar(12) | YES  |     | NULL    |       |
+| LOC       | varchar(10) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| STARTEDON | varchar(10) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> select *from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
++--------+------------+----------+------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select empno,ename,startedon,job from emp where deptno = 10;
+ERROR 1054 (42S22): Unknown column 'startedon' in 'field list'
+mysql> desc emp;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| EMPNO     | int         | NO   | PRI | NULL    |       |
+| ENAME     | varchar(12) | YES  |     | NULL    |       |
+| GENDER    | char(1)     | YES  |     | NULL    |       |
+| JOB       | varchar(20) | YES  |     | NULL    |       |
+| MGR       | int         | YES  | MUL | NULL    |       |
+| HIREDATE  | date        | YES  |     | NULL    |       |
+| SAL       | int         | YES  |     | NULL    |       |
+| COMM      | int         | YES  |     | NULL    |       |
+| DEPTNO    | int         | NO   | MUL | NULL    |       |
+| BONUSID   | int         | YES  |     | NULL    |       |
+| USER NAME | varchar(20) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| PHONE     | varchar(45) | YES  |     | NULL    |       |
+| isActive  | tinyint(1)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+14 rows in set (0.01 sec)
+
+mysql> select empno,ename,hiredate,job from emp where deptno = 10;
++-------+--------+------------+-----------+
+| empno | ename  | hiredate   | job       |
++-------+--------+------------+-----------+
+|  7415 | AARAV  | 1981-12-31 | CLERK     |
+|  7421 | THOMAS | 1981-07-19 | CLERK     |
+|  7782 | CLARK  | 1981-06-09 | MANAGER   |
+|  7839 | KING   | 1981-11-17 | PRESIDENT |
+|  7934 | MILLER | 1982-01-23 | CLERK     |
++-------+--------+------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> select empno,ename,hiredate,job,deptno from emp where deptno = 10;
++-------+--------+------------+-----------+--------+
+| empno | ename  | hiredate   | job       | deptno |
++-------+--------+------------+-----------+--------+
+|  7415 | AARAV  | 1981-12-31 | CLERK     |     10 |
+|  7421 | THOMAS | 1981-07-19 | CLERK     |     10 |
+|  7782 | CLARK  | 1981-06-09 | MANAGER   |     10 |
+|  7839 | KING   | 1981-11-17 | PRESIDENT |     10 |
+|  7934 | MILLER | 1982-01-23 | CLERK     |     10 |
++-------+--------+------------+-----------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select *from emp where sal>=2000;
++-------+---------+--------+----------------+------+------------+------+------+--------+---------+------------+------------+------------+----------+
+| EMPNO | ENAME   | GENDER | JOB            | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME  | PWD        | PHONE      | isActive |
++-------+---------+--------+----------------+------+------------+------+------+--------+---------+------------+------------+------------+----------+
+|  7415 | AARAV   | M      | CLERK          | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV      | NULL       | 7032300084 |        0 |
+|  7566 | JONES   | M      | MANAGER        | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB  | a12recmpm  | 7132300039 |        1 |
+|  7698 | BLAKE   | M      | MANAGER        | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN    | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK   | M      | MANAGER        | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK      | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT   | M      | ANALYST        | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND | a12recmpm  | NULL       |        1 |
+|  7839 | KING    | M      | PRESIDENT      | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING       | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED    | M      | vice PRESIDENT | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE | a12recmpm  | NULL       |        1 |
+|  7902 | FORD    | M      | ANALYST        | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO    | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN | M      | MANAGER        | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL   | sales@2017 | NULL       |        1 |
+|  7920 | GRASS   | M      | SALESMAN       | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS      | sales@2017 | NULL       |        1 |
++-------+---------+--------+----------------+------+------------+------+------+--------+---------+------------+------------+------------+----------+
+10 rows in set (0.00 sec)
+
+mysql> select ename from emp where deptno = 10,20 and ename like 'a%_%b';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',20 and ename like 'a%_%b'' at line 1
+mysql> select ename from emp where deptno = 10,20 ename like 'a%';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',20 ename like 'a%'' at line 1
+mysql> select ename from emp where deptno = 10 and 20 ename like 'a%';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ename like 'a%'' at line 1
+mysql> select ename from emp where deptno = 10 and deptno = 20, ename like 'a%';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', ename like 'a%'' at line 1
+mysql> select ename from emp where deptno = 10 and deptno = 20 ename like 'a%';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ename like 'a%'' at line 1
+mysql> select ename from emp where ename like 'A%B';
+Empty set (0.00 sec)
+
+mysql> select ename from emp where deptno =10 ename like 'A%B';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ename like 'A%B'' at line 1
+mysql> select ename from emp where deptno =10, ename like 'A%B';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', ename like 'A%B'' at line 1
+mysql> select ename from emp where deptno =10, ename like 'A%'
+    -> ^C
+mysql> select ename from emp where deptno =10, ename like 'A%';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', ename like 'A%'' at line 1
+mysql> select ename,hiredate from emp where hiredate=1990-12-21;
+Empty set, 1 warning (0.00 sec)
+
+mysql> desc emp;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| EMPNO     | int         | NO   | PRI | NULL    |       |
+| ENAME     | varchar(12) | YES  |     | NULL    |       |
+| GENDER    | char(1)     | YES  |     | NULL    |       |
+| JOB       | varchar(20) | YES  |     | NULL    |       |
+| MGR       | int         | YES  | MUL | NULL    |       |
+| HIREDATE  | date        | YES  |     | NULL    |       |
+| SAL       | int         | YES  |     | NULL    |       |
+| COMM      | int         | YES  |     | NULL    |       |
+| DEPTNO    | int         | NO   | MUL | NULL    |       |
+| BONUSID   | int         | YES  |     | NULL    |       |
+| USER NAME | varchar(20) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| PHONE     | varchar(45) | YES  |     | NULL    |       |
+| isActive  | tinyint(1)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+14 rows in set (0.01 sec)
+
+mysql> select *from emp;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | NULL |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+28 rows in set (0.01 sec)
+
+mysql> desc emp;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| EMPNO     | int         | NO   | PRI | NULL    |       |
+| ENAME     | varchar(12) | YES  |     | NULL    |       |
+| GENDER    | char(1)     | YES  |     | NULL    |       |
+| JOB       | varchar(20) | YES  |     | NULL    |       |
+| MGR       | int         | YES  | MUL | NULL    |       |
+| HIREDATE  | date        | YES  |     | NULL    |       |
+| SAL       | int         | YES  |     | NULL    |       |
+| COMM      | int         | YES  |     | NULL    |       |
+| DEPTNO    | int         | NO   | MUL | NULL    |       |
+| BONUSID   | int         | YES  |     | NULL    |       |
+| USER NAME | varchar(20) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| PHONE     | varchar(45) | YES  |     | NULL    |       |
+| isActive  | tinyint(1)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+14 rows in set (0.00 sec)
+
+mysql> select job as gm from emp;
++---------------------+
+| gm                  |
++---------------------+
+| Compliance officers |
+| Compliance officers |
+| Public Relation     |
+| Public Relation     |
+| CLERK               |
+| CLERK               |
+| CLERK               |
+| SALESMAN            |
+| SALESMAN            |
+| MANAGER             |
+| SALESMAN            |
+| MANAGER             |
+| MANAGER             |
+| ANALYST             |
+| PRESIDENT           |
+| vice PRESIDENT      |
+| SALESMAN            |
+| CLERK               |
+| CLERK               |
+| ANALYST             |
+| MANAGER             |
+| SALESMAN            |
+| CLERK               |
+| SALESMAN            |
+| MANAGER             |
+| CLERK               |
+| Compliance officers |
+| ANALYST             |
++---------------------+
+28 rows in set (0.00 sec)
+
+mysql> select job as R1, comm as R2, ename as R3 from emp;
++---------------------+------+----------+
+| R1                  | R2   | R3       |
++---------------------+------+----------+
+| Compliance officers | NULL | GITA     |
+| Compliance officers | NULL | VRUSHALI |
+| Public Relation     | NULL | SHARMIN  |
+| Public Relation     | NULL | BANDISH  |
+| CLERK               | NULL | SMITH    |
+| CLERK               | NULL | AARAV    |
+| CLERK               | NULL | THOMAS   |
+| SALESMAN            |  300 | ALLEN    |
+| SALESMAN            |  500 | WARD     |
+| MANAGER             | NULL | JONES    |
+| SALESMAN            | 1400 | MARTIN   |
+| MANAGER             | NULL | BLAKE    |
+| MANAGER             | NULL | CLARK    |
+| ANALYST             | NULL | SCOTT    |
+| PRESIDENT           | NULL | KING     |
+| vice PRESIDENT      | NULL | FRED     |
+| SALESMAN            |    0 | TURNER   |
+| CLERK               | NULL | ADAMS    |
+| CLERK               | NULL | JAMES    |
+| ANALYST             | NULL | FORD     |
+| MANAGER             | NULL | HOFFMAN  |
+| SALESMAN            | 2700 | GRASS    |
+| CLERK               | NULL | MILLER   |
+| SALESMAN            | 2700 | AARUSH   |
+| MANAGER             |  500 | ALEX     |
+| CLERK               | NULL | NATASHA  |
+| Compliance officers | NULL | SANGITA  |
+| ANALYST             | NULL | SUPRIYA  |
++---------------------+------+----------+
+28 rows in set (0.00 sec)
+
+mysql> desc emp;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| EMPNO     | int         | NO   | PRI | NULL    |       |
+| ENAME     | varchar(12) | YES  |     | NULL    |       |
+| GENDER    | char(1)     | YES  |     | NULL    |       |
+| JOB       | varchar(20) | YES  |     | NULL    |       |
+| MGR       | int         | YES  | MUL | NULL    |       |
+| HIREDATE  | date        | YES  |     | NULL    |       |
+| SAL       | int         | YES  |     | NULL    |       |
+| COMM      | int         | YES  |     | NULL    |       |
+| DEPTNO    | int         | NO   | MUL | NULL    |       |
+| BONUSID   | int         | YES  |     | NULL    |       |
+| USER NAME | varchar(20) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| PHONE     | varchar(45) | YES  |     | NULL    |       |
+| isActive  | tinyint(1)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+14 rows in set (0.00 sec)
+
+mysql> show tables;
++---------------------+
+| Tables_in_group024  |
++---------------------+
+| a                   |
+| a1                  |
+| agent               |
+| andor               |
+| b                   |
+| blanktablea         |
+| blanktableb         |
+| blog                |
+| bonus               |
+| books               |
+| candidate           |
+| client              |
+| coalesce            |
+| comments            |
+| company             |
+| customer            |
+| customers           |
+| demodept1           |
+| demodept2           |
+| dept                |
+| dept1               |
+| docs                |
+| doctor              |
+| doctorvisits        |
+| dummy               |
+| duplicate           |
+| emp                 |
+| emp1                |
+| emp2                |
+| emp_attendance      |
+| emp_cards           |
+| emp_phone           |
+| empj                |
+| envelope            |
+| food                |
+| fullname            |
+| hobby               |
+| item                |
+| job_list            |
+| key_parts           |
+| labtestlist         |
+| leadtable           |
+| licence             |
+| location            |
+| mass_table          |
+| medicinelist        |
+| menucard            |
+| nearest             |
+| new                 |
+| newbooks            |
+| nullif              |
+| numbers             |
+| numberstring        |
+| ord                 |
+| orderdetails        |
+| orders              |
+| overtime            |
+| patient             |
+| phonecall           |
+| pivot_table         |
+| plumber             |
+| plumber_service_map |
+| points              |
+| price               |
+| product             |
+| product_sales       |
+| products            |
+| quarterly_revenue   |
+| r                   |
+| r1                  |
+| r2                  |
+| races               |
+| regexpr             |
+| replacedept         |
+| revenue             |
+| rockets             |
+| runners             |
+| runningserver       |
+| sales               |
+| sales_channel       |
+| salespeople         |
+| salesperson         |
+| salgrade            |
+| server              |
+| service             |
+| seta                |
+| setb                |
+| shop                |
+| softdrink           |
+| sort                |
+| sourcenames         |
+| stadium             |
+| states              |
+| station             |
+| status              |
+| stringnumber        |
+| student             |
+| tablea              |
+| tableaa             |
+| tableb              |
+| tablebb             |
+| targetnames         |
+| tasks               |
+| teacher             |
+| temp1               |
+| traintimetable      |
+| transactions        |
+| vote_response       |
+| votes               |
+| warehouse           |
+| yearly_revenue      |
+| z                   |
++---------------------+
+112 rows in set (0.01 sec)
+
+mysql> desc emp1;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| EMPNO    | int         | NO   | PRI | NULL    |       |
+| ENAME    | varchar(12) | YES  |     | NULL    |       |
+| JOB      | varchar(20) | YES  |     | NULL    |       |
+| MGR      | int         | YES  | MUL | NULL    |       |
+| HIREDATE | datetime    | YES  |     | NULL    |       |
+| SAL      | float(7,2)  | YES  |     | NULL    |       |
+| COMM     | float(7,2)  | YES  |     | NULL    |       |
+| DEPTNO   | int         | NO   | MUL | NULL    |       |
+| HOBBYID  | int         | YES  |     | NULL    |       |
+| BONUSID  | int         | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+10 rows in set (0.00 sec)
+
+mysql> desc emp2;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| EMPNO    | int         | NO   | PRI | NULL    |       |
+| ENAME    | varchar(12) | YES  |     | NULL    |       |
+| JOB      | varchar(20) | YES  |     | NULL    |       |
+| HIREDATE | datetime    | YES  |     | NULL    |       |
+| SAL      | float(7,2)  | YES  |     | NULL    |       |
+| COMM     | float(7,2)  | YES  |     | NULL    |       |
+| DEPTNO   | int         | NO   | MUL | NULL    |       |
+| HOBBYID  | int         | YES  |     | NULL    |       |
+| BONUSID  | int         | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+9 rows in set (0.01 sec)
+
+mysql> select empno,ename,job,sal from emp where deptno=10;
++-------+--------+-----------+------+
+| empno | ename  | job       | sal  |
++-------+--------+-----------+------+
+|  7415 | AARAV  | CLERK     | 3350 |
+|  7421 | THOMAS | CLERK     | 1750 |
+|  7782 | CLARK  | MANAGER   | 2450 |
+|  7839 | KING   | PRESIDENT | 5000 |
+|  7934 | MILLER | CLERK     | 1300 |
++-------+--------+-----------+------+
+5 rows in set (0.00 sec)
+
+mysql> select empno,ename,job,sal,deptno from emp where deptno=10;
++-------+--------+-----------+------+--------+
+| empno | ename  | job       | sal  | deptno |
++-------+--------+-----------+------+--------+
+|  7415 | AARAV  | CLERK     | 3350 |     10 |
+|  7421 | THOMAS | CLERK     | 1750 |     10 |
+|  7782 | CLARK  | MANAGER   | 2450 |     10 |
+|  7839 | KING   | PRESIDENT | 5000 |     10 |
+|  7934 | MILLER | CLERK     | 1300 |     10 |
++-------+--------+-----------+------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select *from emp1;
++-------+-------------+--------------------+------+---------------------+----------+---------+--------+---------+---------+
+| EMPNO | ENAME       | JOB                | MGR  | HIREDATE            | SAL      | COMM    | DEPTNO | HOBBYID | BONUSID |
++-------+-------------+--------------------+------+---------------------+----------+---------+--------+---------+---------+
+|  1000 | Alice       | Manager            | 7839 | 1983-08-12 19:35:00 |  9000.00 |    NULL |    150 |      13 |       1 |
+|  1001 | Victor      | Assistant Manager  | 1000 | 1983-12-25 11:35:00 |  8000.00 |    NULL |    150 |      13 |       4 |
+|  1002 | Jack        | Assistant          | 1001 | 1983-12-25 11:35:00 |  7000.00 |    NULL |    150 |    NULL |       4 |
+|  1003 | William     | Assistant          | 1001 | 1984-12-30 12:00:02 |  7000.79 |    NULL |    150 |      13 |       1 |
+|  1004 | Rose        | Assistant Manager  | 1000 | 1985-01-30 12:24:00 |  8000.48 |    NULL |    150 |    NULL |       7 |
+|  1005 | Kate        | Assistant Analyst  | 7388 | 1985-01-30 12:24:00 |  3000.00 |    NULL |    160 |    NULL |       9 |
+|  1006 | William     | Salesman           | 7388 | 1980-02-13 21:00:00 | 23700.00 | 1200.00 |    160 |    NULL |       8 |
+|  1007 | Matthew     | Salesman           | 1005 | 1980-02-28 21:00:07 |  4700.00 | 1200.00 |    160 |      13 |       3 |
+|  1008 | MAI         | SALESGIRL          | 1000 | 2001-12-25 11:35:00 |  8000.00 |  111.00 |    150 |       8 |       2 |
+|  1009 | ZARIA       | SALESGIRL          | 1001 | 2002-12-25 11:35:00 |  7000.00 |  555.00 |    150 |       8 |       6 |
+|  1010 | MAYA        | SALESGIRL          | 1001 | 2003-12-30 12:00:00 |  7000.15 |  120.79 |    150 |       8 |       7 |
+|  1011 | ROSE        | SALESGIRL          | 1000 | 2004-01-30 12:24:09 | 18000.00 |  250.00 |    150 |       8 |       3 |
+|  1012 | KATE        | SALESGIRL          | 7388 | 2005-01-30 12:24:00 |  3000.00 |  900.00 |    160 |       8 |       9 |
+|  1013 | TINA        | SALESGIRL          | 7388 | 2006-02-13 21:00:00 | 13700.00 | 2400.00 |    160 |       8 |      10 |
+|  1014 | MARY        | SALESGIRL          | 1005 | 2007-02-28 21:00:00 | 20000.00 | 1550.00 |    160 |       8 |       1 |
+|  1015 | TESSA       | SALESGIRL          | 1005 | 2008-02-28 21:00:00 | 14700.00 | 1100.00 |    160 |       8 |       5 |
+|  1016 | STEVEN      | Assistant          | 1004 | 1983-01-12 18:35:07 | -9500.00 |    NULL |     40 |    NULL |    NULL |
+|  2099 | SHERLOCK    | CLERK              | 8009 | 1982-01-23 20:22:00 |  1600.00 |    NULL |     40 |       5 |       6 |
+|  2877 | STEPHEN     | ASSISTANT          | 7788 | 1983-01-12 18:35:00 |  1100.00 |    NULL |     40 |       5 |       3 |
+|  3000 | Aaron       | Salesman           | 7877 | 1981-11-17 04:29:24 |  4500.00 | 1200.73 |     60 |       5 |       4 |
+|  3001 | Alexander   | Manager            | 7369 | 1981-05-01 05:12:43 |  2950.00 |    NULL |     90 |       9 |       1 |
+|  3002 | Brooke      | Clerk              | 5002 | 1981-06-09 02:17:12 |  2222.00 |    NULL |     50 |       6 |       3 |
+|  3003 | Bruce       | Personal Assistant | 5002 | 1981-04-02 12:35:19 |  4975.30 |    NULL |    120 |       2 |       5 |
+|  3189 | Eli         | Personal Assistant | 3001 | 1981-12-03 09:35:00 |  5400.00 |    NULL |     30 |       2 |       1 |
+|  3244 | shelley     | manager            | 7839 | 1981-12-03 11:00:00 |  6000.99 |    NULL |    170 |       2 |       4 |
+|  3267 | Clive       | Assistant          | 5002 | 1981-02-20 07:40:00 |  3600.00 |    NULL |     50 |       9 |       8 |
+|  3467 | Christopher | Personal Assistant | 7844 | 1981-09-28 14:26:00 |  4250.98 |    NULL |    190 |       6 |       7 |
+|  3598 | Dirk        | Assistant          | 7698 | 1981-09-08 08:15:00 |  1500.00 |    NULL |     60 |    NULL |       6 |
+|  3745 | ely         | assistant          | 7788 | 1981-02-22 10:10:00 |  5250.00 |    NULL |    150 |      12 |       2 |
+|  4934 | SHERLOCK    | CLERK              | 8009 | 1982-01-23 20:20:00 |  1600.00 |    NULL |     40 |       2 |       1 |
+|  5001 | AARON       | SALESMAN           | 7902 | 1981-11-17 04:29:24 |  4500.00 | 1200.40 |     60 |       6 |       9 |
+|  5002 | ALEXANDER   | MANAGER            | 7369 | 1981-05-01 05:12:43 |  2950.00 |    NULL |     70 |       7 |      10 |
+|  5003 | BROOKE      | CLERK              | 5002 | 1981-06-09 02:17:12 |  2222.00 |    NULL |    100 |       8 |      10 |
+|  6001 | BRUCE       | PERSONAL ASSISTANT | 5002 | 1981-04-02 12:35:19 |  4975.00 |    NULL |     80 |       9 |       6 |
+|  6002 | CHRISTOPHER | PERSONAL ASSISTANT | 7844 | 1981-09-28 14:26:00 |  4250.00 |    NULL |    180 |      10 |       3 |
+|  6003 | CLIVE       | ASSISTANT          | 7698 | 1981-02-20 07:40:00 |  3600.00 |    NULL |    120 |       1 |       1 |
+|  6342 | joel        | clerk              | 8009 | 1982-01-23 22:20:00 | -1600.00 |    NULL |     50 |    NULL |    NULL |
+|  6345 | jay         | analyst            | 8009 | 1982-12-09 17:12:00 | -3100.00 |    NULL |     50 |    NULL |    NULL |
+|  6774 | joe         | assistant          | 7788 | 1983-01-13 18:33:00 | -1100.00 |    NULL |    190 |      12 |    NULL |
+|  6843 | matthew     | assistant          | 7788 | 1983-01-12 19:35:00 | -1100.00 |    NULL |    100 |    NULL |    NULL |
+|  6980 | louis       | clerk              | 8009 | 1982-01-23 21:22:00 | -1600.00 |    NULL |     30 |    NULL |    NULL |
+|  7005 | DIRK        | ASSISTANT          | 7698 | 1981-09-08 08:15:00 |  1500.00 |    NULL |     60 |      10 |       6 |
+|  7006 | ELI         | PERSONAL ASSISTANT | 7521 | 1981-12-03 09:35:00 |  5400.00 |    NULL |     70 |       2 |       7 |
+|  7007 | ELY         | ASSISTANT          | 7788 | 1981-02-22 10:10:00 |  5250.70 |    NULL |    140 |       2 |       7 |
+|  7369 | SMITH       | CLERK              | 7902 | 1980-12-17 17:36:00 |   800.00 |    NULL |     20 |    NULL |       1 |
+|  7388 | TROY        | ANALYST            | 8009 | 1982-12-09 16:12:00 |  4100.00 |    NULL |    160 |       5 |       5 |
+|  7499 | ALLEN       | SALESMAN           | 7698 | 1981-02-20 07:30:00 |  1600.00 |  300.00 |     30 |       5 |       8 |
+|  7521 | WARD        | SALESMAN           | 7698 | 1981-02-22 10:15:00 |  1250.00 |  500.00 |     30 |       1 |       3 |
+|  7566 | JONES       | MANAGER            | 7839 | 1981-04-02 12:45:19 |  2975.00 |    NULL |     20 |       4 |       7 |
+|  7654 | MARTIN      | SALESMAN           | 7698 | 1981-09-28 14:26:00 |  1250.00 | 1400.00 |     30 |       2 |       4 |
+|  7698 | BLAKE       | MANAGER            | 7839 | 1981-05-01 05:54:43 |  2850.00 |    NULL |     30 |       2 |       3 |
+|  7782 | CLARK       | MANAGER            | 7839 | 1981-06-09 02:12:12 |  2450.00 |    NULL |     10 |       3 |       5 |
+|  7788 | SCOTT       | ANALYST            | 7566 | 1982-12-09 16:12:00 |  3000.00 |    NULL |     20 |       2 |       1 |
+|  7839 | KING        | PRESIDENT          | NULL | 1981-11-17 04:20:24 |  5000.00 |    NULL |     10 |       1 |       1 |
+|  7844 | TURNER      | SALESMAN           | 7698 | 1981-09-08 08:45:00 |  1500.00 |    0.00 |     30 |    NULL |      10 |
+|  7876 | ADAMS       | CLERK              | 7788 | 1983-01-12 18:33:00 |  1100.00 |    NULL |     20 |       3 |       4 |
+|  7877 | STEPHEN     | ASSISTANT          | 7788 | 1983-01-12 18:33:00 |  1100.00 |    NULL |    130 |       5 |       9 |
+|  7900 | JAMES       | CLERK              | 7698 | 1981-12-03 09:25:00 |   950.00 |    NULL |     30 |       3 |       8 |
+|  7902 | FORD        | ANALYST            | 7566 | 1981-12-03 11:00:00 |  3000.00 |    NULL |     20 |    NULL |       2 |
+|  7934 | MILLER      | CLERK              | 7782 | 1982-01-23 20:20:00 |  1300.00 |    NULL |     10 |       4 |       3 |
+|  8003 | THOMAS      | PERSONAL ASSISTANT | 8009 | 1980-12-17 17:36:00 |  4900.00 |    NULL |     50 |    NULL |       2 |
+|  8009 | SHELLEY     | MANAGER            | 7839 | 1981-12-03 11:00:00 |  6000.00 |    NULL |    180 |    NULL |       1 |
+|  9277 | stephen     | assistant          | 3467 | 1983-01-12 18:35:00 |  1100.00 |    NULL |    110 |    NULL |       4 |
+|  9341 | thomas      | personal assistant | 9822 | 1980-12-17 17:36:00 |  4900.00 |    NULL |    200 |    NULL |       1 |
+|  9434 | sherlock    | clerk              | 9874 | 1982-01-23 20:22:00 |  1600.00 |    NULL |     40 |    NULL |       5 |
+|  9452 | sherlock    | clerk              | 9822 | 1982-01-23 20:20:00 |  1600.00 |    NULL |    130 |    NULL |       4 |
+|  9822 | troy        | analyst            | 3000 | 1982-12-09 16:12:00 |  3100.00 |    NULL |     40 |       9 |       6 |
+|  9874 | stephen     | assistant          | 3001 | 1983-01-12 18:33:00 |  1100.00 |    NULL |    170 |    NULL |       9 |
++-------+-------------+--------------------+------+---------------------+----------+---------+--------+---------+---------+
+68 rows in set (0.00 sec)
+
+mysql> select *from emp2;
++-------+-------------+--------------------+---------------------+----------+---------+--------+---------+---------+
+| EMPNO | ENAME       | JOB                | HIREDATE            | SAL      | COMM    | DEPTNO | HOBBYID | BONUSID |
++-------+-------------+--------------------+---------------------+----------+---------+--------+---------+---------+
+|  1000 | Alice       | Manager            | 1983-08-12 19:35:00 |  9000.00 |    NULL |    150 |      13 |       1 |
+|  1001 | Victor      | Assistant Manager  | 1983-12-25 11:35:00 |  8000.00 |    NULL |    150 |      13 |       4 |
+|  1002 | Jack        | Assistant          | 1983-12-25 11:35:00 |  7000.00 |    NULL |    150 |    NULL |       4 |
+|  1003 | William     | Assistant          | 1984-12-30 12:00:02 |  7000.79 |    NULL |    150 |      13 |       1 |
+|  1004 | Rose        | Assistant Manager  | 1985-01-30 12:24:00 |  8000.48 |    NULL |    150 |    NULL |       7 |
+|  1005 | Kate        | Assistant Analyst  | 1985-01-30 12:24:00 |  3000.00 |    NULL |    160 |    NULL |       9 |
+|  1006 | William     | Salesman           | 1980-02-13 21:00:00 | 23700.00 | 1200.00 |    160 |    NULL |       8 |
+|  1007 | Matthew     | Salesman           | 1980-02-28 21:00:07 |  4700.00 | 1200.00 |    160 |      13 |       3 |
+|  1008 | MAI         | SALESGIRL          | 2001-12-25 11:35:00 |  8000.00 |  111.00 |    150 |       8 |       2 |
+|  1009 | ZARIA       | SALESGIRL          | 2002-12-25 11:35:00 |  7000.00 |  555.00 |    150 |       8 |       6 |
+|  1010 | MAYA        | SALESGIRL          | 2003-12-30 12:00:00 |  7000.15 |  120.79 |    150 |       8 |       7 |
+|  1011 | ROSE        | SALESGIRL          | 2004-01-30 12:24:09 | 18000.00 |  250.00 |    150 |       8 |       3 |
+|  1012 | KATE        | SALESGIRL          | 2005-01-30 12:24:00 |  3000.00 |  900.00 |    160 |       8 |       9 |
+|  1013 | TINA        | SALESGIRL          | 2006-02-13 21:00:00 | 13700.00 | 2400.00 |    160 |       8 |      10 |
+|  1014 | MARY        | SALESGIRL          | 2007-02-28 21:00:00 | 20000.00 | 1550.00 |    160 |       8 |       1 |
+|  1015 | TESSA       | SALESGIRL          | 2008-02-28 21:00:00 | 14700.00 | 1100.00 |    160 |       8 |       5 |
+|  1016 | STEVEN      | Assistant          | 1983-01-12 18:35:07 | -9500.00 |    NULL |     40 |    NULL |    NULL |
+|  2099 | SHERLOCK    | CLERK              | 1982-01-23 20:22:00 |  1600.00 |    NULL |     40 |       5 |       6 |
+|  2877 | STEPHEN     | ASSISTANT          | 1983-01-12 18:35:00 |  1100.00 |    NULL |     40 |       5 |       3 |
+|  3000 | Aaron       | Salesman           | 1981-11-17 04:29:24 |  4500.00 | 1200.73 |     60 |       5 |       4 |
+|  3001 | Alexander   | Manager            | 1981-05-01 05:12:43 |  2950.00 |    NULL |     90 |       9 |       1 |
+|  3002 | Brooke      | Clerk              | 1981-06-09 02:17:12 |  2222.00 |    NULL |     50 |       6 |       3 |
+|  3003 | Bruce       | Personal Assistant | 1981-04-02 12:35:19 |  4975.30 |    NULL |    120 |       2 |       5 |
+|  3189 | Eli         | Personal Assistant | 1981-12-03 09:35:00 |  5400.00 |    NULL |     30 |       2 |       1 |
+|  3244 | shelley     | manager            | 1981-12-03 11:00:00 |  6000.99 |    NULL |    170 |       2 |       4 |
+|  3267 | Clive       | Assistant          | 1981-02-20 07:40:00 |  3600.00 |    NULL |     50 |       9 |       8 |
+|  3467 | Christopher | Personal Assistant | 1981-09-28 14:26:00 |  4250.98 |    NULL |    190 |       6 |       7 |
+|  3598 | Dirk        | Assistant          | 1981-09-08 08:15:00 |  1500.00 |    NULL |     60 |    NULL |       6 |
+|  3745 | ely         | assistant          | 1981-02-22 10:10:00 |  5250.00 |    NULL |    150 |      12 |       2 |
+|  4934 | SHERLOCK    | CLERK              | 1982-01-23 20:20:00 |  1600.00 |    NULL |     40 |       2 |       1 |
+|  5001 | AARON       | SALESMAN           | 1981-11-17 04:29:24 |  4500.00 | 1200.40 |     60 |       6 |       9 |
+|  5002 | ALEXANDER   | MANAGER            | 1981-05-01 05:12:43 |  2950.00 |    NULL |     70 |       7 |      10 |
+|  5003 | BROOKE      | CLERK              | 1981-06-09 02:17:12 |  2222.00 |    NULL |    100 |       8 |      10 |
+|  6001 | BRUCE       | PERSONAL ASSISTANT | 1981-04-02 12:35:19 |  4975.00 |    NULL |     80 |       9 |       6 |
+|  6002 | CHRISTOPHER | PERSONAL ASSISTANT | 1981-09-28 14:26:00 |  4250.00 |    NULL |    180 |      10 |       3 |
+|  6003 | CLIVE       | ASSISTANT          | 1981-02-20 07:40:00 |  3600.00 |    NULL |    120 |       1 |       1 |
+|  6342 | joel        | clerk              | 1982-01-23 22:20:00 | -1600.00 |    NULL |     50 |    NULL |    NULL |
+|  6345 | jay         | analyst            | 1982-12-09 17:12:00 | -3100.00 |    NULL |     50 |    NULL |    NULL |
+|  6774 | joe         | assistant          | 1983-01-13 18:33:00 | -1100.00 |    NULL |    190 |      12 |    NULL |
+|  6843 | matthew     | assistant          | 1983-01-12 19:35:00 | -1100.00 |    NULL |    100 |    NULL |    NULL |
+|  6980 | louis       | clerk              | 1982-01-23 21:22:00 | -1600.00 |    NULL |     30 |    NULL |    NULL |
+|  7005 | DIRK        | ASSISTANT          | 1981-09-08 08:15:00 |  1500.00 |    NULL |     60 |      10 |       6 |
+|  7006 | ELI         | PERSONAL ASSISTANT | 1981-12-03 09:35:00 |  5400.00 |    NULL |     70 |       2 |       7 |
+|  7007 | ELY         | ASSISTANT          | 1981-02-22 10:10:00 |  5250.70 |    NULL |    140 |       2 |       7 |
+|  7369 | SMITH       | CLERK              | 1980-12-17 17:36:00 |   800.00 |    NULL |     20 |    NULL |       1 |
+|  7388 | TROY        | ANALYST            | 1982-12-09 16:12:00 |  4100.00 |    NULL |    160 |       5 |       5 |
+|  7499 | ALLEN       | SALESMAN           | 1981-02-20 07:30:00 |  1600.00 |  300.00 |     30 |       5 |       8 |
+|  7521 | WARD        | SALESMAN           | 1981-02-22 10:15:00 |  1250.00 |  500.00 |     30 |       1 |       3 |
+|  7566 | JONES       | MANAGER            | 1981-04-02 12:45:19 |  2975.00 |    NULL |     20 |       4 |       7 |
+|  7654 | MARTIN      | SALESMAN           | 1981-09-28 14:26:00 |  1250.00 | 1400.00 |     30 |       2 |       4 |
+|  7698 | BLAKE       | MANAGER            | 1981-05-01 05:54:43 |  2850.00 |    NULL |     30 |       2 |       3 |
+|  7782 | CLARK       | MANAGER            | 1981-06-09 02:12:12 |  2450.00 |    NULL |     10 |       3 |       5 |
+|  7788 | SCOTT       | ANALYST            | 1982-12-09 16:12:00 |  3000.00 |    NULL |     20 |       2 |       1 |
+|  7839 | KING        | PRESIDENT          | 1981-11-17 04:20:24 |  5000.00 |    NULL |     10 |       1 |       1 |
+|  7844 | TURNER      | SALESMAN           | 1981-09-08 08:45:00 |  1500.00 |    0.00 |     30 |    NULL |      10 |
+|  7876 | ADAMS       | CLERK              | 1983-01-12 18:33:00 |  1100.00 |    NULL |     20 |       3 |       4 |
+|  7877 | STEPHEN     | ASSISTANT          | 1983-01-12 18:33:00 |  1100.00 |    NULL |    130 |       5 |       9 |
+|  7900 | JAMES       | CLERK              | 1981-12-03 09:25:00 |   950.00 |    NULL |     30 |       3 |       8 |
+|  7902 | FORD        | ANALYST            | 1981-12-03 11:00:00 |  3000.00 |    NULL |     20 |    NULL |       2 |
+|  7934 | MILLER      | CLERK              | 1982-01-23 20:20:00 |  1300.00 |    NULL |     10 |       4 |       3 |
+|  8003 | THOMAS      | PERSONAL ASSISTANT | 1980-12-17 17:36:00 |  4900.00 |    NULL |     50 |    NULL |       2 |
+|  8009 | SHELLEY     | MANAGER            | 1981-12-03 11:00:00 |  6000.00 |    NULL |    180 |    NULL |       1 |
+|  9277 | stephen     | assistant          | 1983-01-12 18:35:00 |  1100.00 |    NULL |    110 |    NULL |       4 |
+|  9341 | thomas      | personal assistant | 1980-12-17 17:36:00 |  4900.00 |    NULL |    200 |    NULL |       1 |
+|  9434 | sherlock    | clerk              | 1982-01-23 20:22:00 |  1600.00 |    NULL |     40 |    NULL |       5 |
+|  9452 | sherlock    | clerk              | 1982-01-23 20:20:00 |  1600.00 |    NULL |    130 |    NULL |       4 |
+|  9822 | troy        | analyst            | 1982-12-09 16:12:00 |  3100.00 |    NULL |     40 |       9 |       6 |
+|  9874 | stephen     | assistant          | 1983-01-12 18:33:00 |  1100.00 |    NULL |    170 |    NULL |       9 |
++-------+-------------+--------------------+---------------------+----------+---------+--------+---------+---------+
+68 rows in set (0.00 sec)
+
+mysql> select *from empj
+    -> ^C
+mysql> select *from empj;
++----+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+
+| id | document                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | insertedDate        |
++----+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+
+|  1 | {"job": "president", "mgr": null, "sal": 5000, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "93478"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["blue", "black"], "empid": 1020, "ename": "king", "fruit": [], "deptno": 10, "gender": "male", "address": {"coord": [-73.856077, 40.848447], "street": "Morris Park Ave", "zipcode": "10462", "building": "1007"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1981-11-17T00:00:00.000Z"}, "isDocActive": false}                                                                                                                                                                                                                                                               | 2025-03-04 14:34:23 |
+|  2 | {"job": "manager", "mgr": 1020, "sal": 3400, "comm": null, "cards": [{"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}, {"PAN": {"PAN-No": "smh838", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"aadhar": {"isActive": true, "aadhar-No": "43564"}}], "color": ["red", "cyan", "gray"], "empid": 1021, "ename": "smith", "fruit": ["grapes", "Orange"], "deptno": 10, "gender": "male", "address": {"coord": [-73.961704, 40.662942], "street": "Flatbush Avenue", "zipcode": "11225", "building": "469"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1981-05-01T00:00:00.000Z"}, "isDocActive": false}                                                                                                                                                                                                                                          | 2025-03-04 14:34:23 |
+|  3 | {"job": "manager", "mgr": 1020, "sal": 4700, "comm": null, "cards": [{"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"aadhar": {"isActive": true, "aadhar-No": "73826"}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Red", "Blue", "Green", "Yellow"], "empid": 1022, "ename": "james", "fruit": ["Indian Fig"], "deptno": 20, "gender": "male", "address": {"coord": [-73.98513559999999, 40.7676919], "street": "West   57 Street", "zipcode": "10019", "building": "351"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1981-07-09T00:00:00.000Z"}, "isDocActive": true}                                                                                                                                                                                                                           | 2025-03-04 14:34:23 |
+|  4 | {"job": "accountant", "mgr": 1022, "sal": 2700, "comm": null, "cards": [{"voter": {"voterID": "Ind03o3", "isActive": true}}, {"aadhar": {"isActive": true, "aadhar-No": "12321"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Air Force Blue", "Apple Green"], "empid": 1023, "ename": "jack", "fruit": ["Orange"], "deptno": 30, "gender": "male", "address": {"coord": [-73.98241999999999, 40.579505], "street": "Stillwell Avenue", "zipcode": "11224", "building": "2780"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1981-04-02T00:00:00.000Z"}, "isDocActive": false}                                                                                                                                                                                                                             | 2025-03-04 14:34:23 |
+|  5 | {"job": "salesman", "mgr": 1023, "sal": 2500, "comm": 350, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "93872"}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}], "color": ["Ash Grey", "White"], "empid": 1023, "ename": "scott", "fruit": [], "deptno": 30, "gender": "male", "address": {"coord": [-73.8601152, 40.7311739], "street": "63 Road", "zipcode": "11374", "building": "97-22"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1981-09-28T00:00:00.000Z"}, "isDocActive": false}                                                                                                                                                                                                                                                                 | 2025-03-04 14:34:23 |
+|  6 | {"job": "salesman", "mgr": 1023, "sal": 2900, "comm": 735, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "72877"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Banana Yellow"], "empid": 1024, "ename": "martin", "fruit": [], "deptno": 30, "gender": "male", "address": {"coord": [-73.8803827, 40.7643124], "street": "Astoria Boulevard", "zipcode": "11369", "building": "8825"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1981-02-20T00:00:00.000Z"}, "isDocActive": true}                                                                                                                                                                                                                                                            | 2025-03-04 14:34:23 |
+|  7 | {"job": "salesman", "mgr": 1023, "sal": 3200, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "77876"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Apple Green", "Ash Grey"], "empid": 1025, "ename": "crow", "fruit": [], "deptno": 20, "gender": "male", "address": {"coord": [-74.1377286, 40.6119572], "street": "Victory Boulevard", "zipcode": "10314", "building": "2206"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1981-09-08T00:00:00.000Z"}, "isDocActive": false}                                                                                                                                                                                                                                                  | 2025-03-04 14:34:23 |
+|  8 | {"job": "clerk", "mgr": 1024, "sal": 1200, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "12321"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Brass", "Bright Green"], "empid": 1026, "ename": "blake", "fruit": [], "deptno": 30, "gender": "male", "address": {"coord": [-73.9068506, 40.6199034], "street": "Avenue U", "zipcode": "11234", "building": "7114"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1981-12-03T00:00:00.000Z"}, "isDocActive": false}                                                                                                                                                                                                                                                               | 2025-03-04 14:34:23 |
+|  9 | {"job": "clerk", "mgr": 1024, "sal": 1500, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "83972"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Charcoal", "Cherry"], "empid": 1027, "ename": "richards", "fruit": [], "deptno": 10, "gender": "male", "address": {"coord": [-74.00528899999999, 40.628886], "street": "11 Avenue", "zipcode": "11219", "building": "6409"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1981-02-22T00:00:00.000Z"}, "isDocActive": false}                                                                                                                                                                                                                                                        | 2025-03-04 14:34:23 |
+| 10 | {"job": "analyst", "mgr": 1025, "sal": 3500, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "92783"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Brown"], "empid": 1028, "ename": "peter", "fruit": ["banana", "Jackfruit"], "deptno": 30, "gender": "male", "address": {"coord": [-73.9482609, 40.6408271], "street": "Nostrand Avenue", "zipcode": "11226", "building": "1839"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1981-12-03T00:00:00.000Z"}, "isDocActive": true}                                                                                                                                                                                                                                                  | 2025-03-04 14:34:23 |
+| 11 | {"job": "manager", "mgr": 1020, "sal": 4900, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "73122"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Copper"], "empid": 1029, "ename": "bob", "fruit": [], "deptno": 30, "gender": "male", "address": {"coord": [-73.8786113, 40.8502883], "street": "Southern Boulevard", "zipcode": "10460", "building": "2300"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1980-12-17T00:00:00.000Z"}, "isDocActive": false}                                                                                                                                                                                                                                                                    | 2025-03-04 14:34:23 |
+| 12 | {"job": "programmer", "mgr": 1020, "sal": 2900, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "73822"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}], "color": ["Coral"], "empid": 1030, "ename": "saleel", "fruit": ["Dates", "Orange"], "deptno": 10, "gender": "male", "address": {"coord": [-73.9973325, 40.61174889999999], "street": "18 Avenue", "zipcode": "11214", "building": "7715"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1982-12-09T00:00:00.000Z"}, "isDocActive": false}                                                                                                                                                                                                                                                | 2025-03-04 14:34:23 |
+| 13 | {"job": "programmer", "mgr": 1020, "sal": 4999, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "16523"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Cream"], "empid": 1031, "ename": "sharmin", "fruit": ["Indian Fig"], "deptno": 40, "gender": "female", "address": {"coord": [-73.871194, 40.6730975], "street": "Sutter Avenue", "zipcode": "11208", "building": "1269"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1983-01-12T00:00:00.000Z"}, "isDocActive": false}                                                                                                                                                                                                                                                      | 2025-03-04 14:34:23 |
+| 14 | {"job": "analyst", "mgr": 1030, "sal": 4999, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "22343"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Iceberg"], "empid": 1032, "ename": "vrushali", "fruit": ["Orange", "Papaya", "Kiwi"], "deptno": 20, "gender": "female", "address": {"coord": [-73.96926909999999, 40.7685235], "street": "East   66 Street", "zipcode": "10065", "building": "1"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1982-02-23T00:00:00.000Z"}, "isDocActive": true}                                                                                                                                                                                                                                 | 2025-03-04 14:34:23 |
+| 15 | {"job": "salesman", "mgr": 1029, "sal": 2200, "comm": 0, "cards": [{"voter": {"voterID": "Ind03o3", "isActive": true}}, {"aadhar": {"isActive": true, "aadhar-No": "93824"}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}], "color": ["Bright Green"], "empid": 1033, "ename": "vasant", "fruit": [], "deptno": 40, "gender": "male", "address": {"coord": [-73.9653967, 40.6064339], "street": "Kings Highway", "zipcode": "11223", "building": "705"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1982-02-24T00:00:00.000Z"}, "isDocActive": false}                                                                                                                                                                                                                                                                   | 2025-03-04 14:34:23 |
+| 16 | {"job": "salesman", "mgr": 1029, "sal": 2200, "comm": 250, "cards": [{"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"aadhar": {"isActive": true, "aadhar-No": "19826"}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"debit": {"bank": "BOI", "isActive": true}}], "color": ["India Green"], "empid": 1034, "ename": "vasu", "fruit": ["Dates"], "deptno": 40, "gender": "male", "address": {"coord": [-73.97822040000001, 40.6435254], "street": "Church Avenue", "zipcode": "11218", "building": "203"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1980-02-14T00:00:00.000Z"}, "isDocActive": false}                                                                                                                                                                                                        | 2025-03-04 14:34:23 |
+| 17 | {"job": "clerk", "mgr": 1029, "sal": 1200, "comm": null, "cards": [{"credit": {"bank": "SBI", "isActive": true}}, {"aadhar": {"isActive": true, "aadhar-No": "00998"}}, {"OCI": {"state": "NJ", "country": "usa", "isActive": true}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Indian Red"], "empid": 1035, "ename": "rahul", "fruit": ["Lychee", "Indian Fig"], "deptno": 40, "gender": "male", "address": {"coord": [-73.7032601, 40.7386417], "street": "Hillside Avenue", "zipcode": "11004", "building": "265-15"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1981-12-31T00:00:00.000Z"}, "isDocActive": false}                                                                                                                              | 2025-03-04 14:34:23 |
+| 18 | {"job": "administrator", "mgr": 1031, "sal": 3400, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "55622"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"OCI": {"state": "NJ", "country": "usa", "isActive": true}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Indian Yellow"], "empid": 1036, "ename": "raju", "fruit": ["Crab apples"], "deptno": 50, "gender": "male", "address": {"coord": [-74.0259567, 40.6353674], "street": "3 Avenue", "zipcode": "11209", "building": "6909"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1983-06-15T00:00:00.000Z"}, "isDocActive": true}                                                                                                                                                                                      | 2025-03-04 14:34:23 |
+| 19 | {"job": "clerk", "mgr": 1031, "sal": 1400, "comm": null, "cards": [{"ATM": {"to": "2025:12:21", "bank": "canara", "from": "2021-10-20", "isActive": true}}, {"aadhar": {"isActive": true, "aadhar-No": "00983"}}, {"ATM": {"to": "2027:12:21", "bank": "BOI", "from": "2021-10-04", "isActive": true}}, {"OCI": {"state": "CA", "country": "usa", "isActive": true}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Lemon"], "empid": 1037, "ename": "ramu", "fruit": ["Jackfruit", "banana", "Apple"], "deptno": 50, "gender": "male", "address": {"coord": [-73.95171, 40.767461], "street": "East   74 Street", "zipcode": "10021", "building": "522"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1983-07-12T00:00:00.000Z"}, "isDocActive": false} | 2025-03-04 14:34:23 |
+| 20 | {"job": "administrator", "mgr": 1030, "sal": 4200, "comm": null, "cards": [{"OCI": {"state": "IN", "country": "usa", "isActive": true}}, {"aadhar": {"isActive": true, "aadhar-No": "00098"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Apple Green"], "empid": 1038, "ename": "neel", "fruit": [], "deptno": 10, "gender": "male", "address": {"coord": [-73.9829239, 40.6580753], "street": "Prospect Park West", "zipcode": "11215", "building": "284"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1983-03-14T00:00:00.000Z"}, "isDocActive": true}                                                                                                                                                                                            | 2025-03-04 14:34:23 |
+| 21 | {"job": "analyst", "mgr": 1022, "sal": 3700, "comm": null, "cards": [{"ATM": {"to": "2027:12:21", "bank": "BOI", "from": "2021-10-04", "isActive": true}}, {"OCI": {"state": "NY", "country": "usa", "isActive": true}}, {"debit": {"to": "2027:12:21", "bank": "BOI", "from": "2021-10-04", "isActive": true}}, {"aadhar": {"isActive": true, "aadhar-No": "66675"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Cherry", "Charcoal"], "empid": 1039, "ename": "saleel", "fruit": [], "deptno": 50, "gender": "male", "address": {"coord": [-73.839297, 40.78147], "street": "20 Avenue", "zipcode": "11356", "building": "129-08"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1982-12-09T00:00:00.000Z"}, "isDocActive": false}                   | 2025-03-04 14:34:23 |
+| 22 | {"job": "administrator", "mgr": 1029, "sal": 3500, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "66623"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Indian Red"], "empid": 1040, "ename": "amit", "fruit": ["Crab apples"], "phone": [85088422.0, {"$numberLong": "9822884228"}], "deptno": 50, "gender": "male", "address": {"coord": [-73.9925306, 40.7309346], "street": "Broadway", "zipcode": "10003", "building": "759"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1982-12-08T00:00:00.000Z"}, "isDocActive": false}                                                                                                                                                                                                 | 2025-03-04 14:34:23 |
+| 23 | {"job": "programmer", "mgr": 1021, "sal": 3500, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "77767"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Air Force Blue"], "empid": 1041, "ename": "dinesh", "fruit": [], "phone": [85088422.0, {"$numberLong": "9822884228"}], "deptno": 50, "gender": "male", "skills": {"web": ["php", "java", "jquery"], "languages": ["C++", "JAVA"]}, "address": {"coord": [-73.94024739999999, 40.7623288], "street": "10 Street", "zipcode": "11106", "building": "3406"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1982-12-09T00:00:00.000Z"}, "isDocActive": true}                                                                                                                       | 2025-03-04 14:34:23 |
+| 24 | {"job": "administrator", "mgr": 1029, "sal": 3500, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "77787"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Orange"], "empid": 1042, "ename": "amit", "fruit": [], "phone": ["9850884228", "9822884228"], "deptno": 50, "gender": "male", "address": {"coord": [-73.976112, 40.786714], "street": "Amsterdam Avenue", "zipcode": "10024", "building": "502"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1981-11-03T00:00:00.000Z"}, "isDocActive": false}                                                                                                                                                                                                                           | 2025-03-04 14:34:23 |
+| 25 | {"job": "programmer", "mgr": 1021, "sal": 3500, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "77789"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Navy Blue"], "empid": 1043, "ename": "dinesh", "fruit": [], "phone": ["020-25420200", {"$numberLong": "9822336644"}], "deptno": 50, "gender": "male", "skills": {"web": ["php", "java", "jquery"], "languages": ["C++", "JAVA"]}, "address": {"coord": [-73.96805719999999, 40.7925587], "street": "Columbus Avenue", "zipcode": "10025", "building": "730"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1981-11-04T00:00:00.000Z"}, "isDocActive": false}                                                                                                                  | 2025-03-04 14:34:23 |
+| 26 | {"job": "programmer", "mgr": 1021, "sal": 2400, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "55543"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Lime"], "empid": 1044, "ename": "rudra", "fruit": ["Indian Fig"], "phone": "020-25420212", "deptno": 50, "gender": "male", "skills": {"web": ["php", "java", "jquery"], "database": ["oracle", "ms-sql server", "mongodb"]}, "address": {"coord": [-73.996984, 40.72589], "street": "West Houston Street", "zipcode": "10012", "building": "18"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1981-11-04T00:00:00.000Z"}, "isDocActive": false}                                                                                                                              | 2025-03-04 14:34:23 |
+| 27 | {"job": "programmer", "mgr": 1023, "sal": 3600, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "55565"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["White"], "empid": 1045, "ename": "pankaj", "fruit": ["Peach"], "phone": "022-2548345", "deptno": 40, "gender": "male", "skills": {"database": "ms-sql server", "language": ".NET"}, "address": {"coord": [-73.9634876, 40.6940001], "street": "Myrtle Avenue", "zipcode": "11205", "building": "531"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1980-02-17T00:00:00.000Z"}, "isDocActive": false}                                                                                                                                                                         | 2025-03-04 14:34:23 |
+| 28 | {"job": "programmer", "mgr": 1029, "sal": 2300, "comm": 1200, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "83722"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Navy Blue"], "empid": 1046, "ename": "anoop", "fruit": [], "phone": "022-2548345", "deptno": 50, "gender": "male", "skills": {"web": ["json", "jquery", "javascript"], "database": "oracle", "language": [".NET", "java"]}, "address": {"coord": [-73.8642349, 40.75356], "street": "37 Avenue", "zipcode": "11368", "building": "103-05"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1980-02-17T00:00:00.000Z"}, "isDocActive": false}                                                                                                                                    | 2025-03-04 14:34:23 |
+| 29 | {"job": "programmer", "mgr": 1039, "sal": 1300, "comm": 1200, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "99890"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Coral", "Cream"], "empid": 1047, "ename": "nitish", "fruit": [], "phone": "022-2548345", "deptno": 50, "gender": "male", "skills": {"web": ["json", "jquery", "javascript", "php"], "database": {"nosql": ["mongodb", "hive"], "rdbms": ["oracle", "db2"]}, "language": [".NET", "java"]}, "address": {"coord": [-74.0085357, 40.70620539999999], "street": "Wall Street", "zipcode": "10005", "building": "60"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1980-03-14T00:00:00.000Z"}, "isDocActive": true}                                                               | 2025-03-04 14:34:23 |
+| 30 | {"job": "programmer", "mgr": 1039, "sal": 1800, "comm": 1400, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "99099"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Orange"], "empid": 1048, "ename": "neel", "fruit": [], "phone": "022-2534565", "deptno": 50, "gender": "male", "skills": {"database": {"nosql": ["mongodb", "hive", "hbase"], "rdbms": ["oracle", "db2"]}, "language": "ruby"}, "address": {"coord": [-73.9246028, 40.6522396], "street": "East   56 Street", "zipcode": "11203", "building": "195"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1980-03-14T00:00:00.000Z"}, "isDocActive": false}                                                                                                                          | 2025-03-04 14:34:23 |
+| 31 | {"da": 1200, "hra": 1500, "job": "auditor", "mgr": 1020, "sal": 3200, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "55434"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Sky Blue", "Navy Blue", "Blue"], "empid": 1049, "ename": "arjun", "fruit": ["Lychee"], "deptno": 20, "gender": "male", "address": {"coord": [-74.00920839999999, 40.7132925], "street": "Church Street", "zipcode": "10007", "building": "107"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1984-05-05T00:00:00.000Z"}, "isDocActive": true}                                                                                                                                                                                                          | 2025-03-04 14:34:23 |
+| 32 | {"da": 900, "hra": 1000, "job": "auditor", "mgr": 1047, "sal": 3800, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "44445"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Snow White"], "empid": 1050, "ename": "amol", "fruit": ["Orange"], "deptno": 20, "gender": "male", "address": {"coord": [-73.84856870000002, 40.8903781], "street": "East 233 Street", "zipcode": "10466", "building": "1006"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1984-05-06T00:00:00.000Z"}, "isDocActive": false}                                                                                                                                                                                                                           | 2025-03-04 14:34:23 |
+| 33 | {"da": 1500, "hra": 1000, "job": "auditor", "mgr": 1040, "sal": 3100, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "99983"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["White"], "empid": 1051, "ename": "sangita", "fruit": ["Papaya"], "deptno": 20, "gender": "female", "address": {"coord": [-73.991495, 40.692273], "street": "Court Street", "zipcode": "11201", "building": "56"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1984-03-30T00:00:00.000Z"}, "isDocActive": false}                                                                                                                                                                                                                                        | 2025-03-04 14:34:23 |
+| 34 | {"da": 1700, "hra": 1300, "job": "writer", "mgr": 1049, "sal": 2150, "comm": 750, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "44460"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Indian Red"], "empid": 1052, "ename": "gita", "fruit": ["Kiwi"], "deptno": 40, "gender": "female", "address": {"coord": [-74.0228449, 40.6281815], "street": "5 Avenue", "zipcode": "11209", "building": "7615"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1984-03-29T00:00:00.000Z"}, "language": ["english", "hindi"], "isDocActive": true}                                                                                                                                                                                                         | 2025-03-04 14:34:23 |
+| 35 | {"da": 1100, "hra": 1100, "job": "writer", "mgr": 1049, "sal": 3755, "comm": 750, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "12233"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Snow White"], "empid": 1053, "ename": "sita", "fruit": ["Guava"], "deptno": 40, "gender": "female", "address": {"coord": [-73.9998042, 40.7251256], "street": "Prince Street", "zipcode": "10012", "building": "120"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1984-03-30T00:00:00.000Z"}, "language": ["english", "hindi", "marathi"], "isDocActive": false}                                                                                                                                                                                        | 2025-03-04 14:34:23 |
+| 36 | {"job": "Computer Programmer", "mgr": 1039, "sal": 3500, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "33434"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["India Green"], "empid": 2001, "ename": "pinky", "fruit": ["banana", "Jackfruit"], "deptno": 10, "gender": "female", "address": {"coord": [-73.8893654, 40.81376179999999], "street": "238 Spofford Ave", "zipcode": "10474", "building": "1236"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1983-07-17T00:00:00.000Z"}, "isDocActive": true}                                                                                                                                                                                                                      | 2025-03-04 14:34:23 |
+| 37 | {"job": "Computer Programmer", "mgr": 1037, "sal": 5500, "comm": null, "cards": [{"aadhar": {"isActive": true, "aadhar-No": "55565"}}, {"PAN": {"PAN-No": "Kinj093", "isActive": false}}, {"voter": {"voterID": "Ind03o3", "isActive": true}}, {"licence": {"isActive": true, "issueDate": "2020-01-01", "expireDate": "2040-01-01", "licence-No": "LMV9478"}}], "color": ["Violet"], "empid": 2002, "ename": "priti", "fruit": [], "deptno": 20, "gender": "female", "address": {"coord": [-73.990494, 40.7569545], "street": "8 Avenue", "zipcode": "10018", "building": "625"}, "canVote": true, "canDrive": true, "hiredate": {"$date": "1983-07-17T00:00:00.000Z"}, "isDocActive": false}                                                                                                                                                                                                                                                                | 2025-03-04 14:34:23 |
++----+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+
+37 rows in set (0.01 sec)
+
+mysql> show tables;
++---------------------+
+| Tables_in_group024  |
++---------------------+
+| a                   |
+| a1                  |
+| agent               |
+| andor               |
+| b                   |
+| blanktablea         |
+| blanktableb         |
+| blog                |
+| bonus               |
+| books               |
+| candidate           |
+| client              |
+| coalesce            |
+| comments            |
+| company             |
+| customer            |
+| customers           |
+| demodept1           |
+| demodept2           |
+| dept                |
+| dept1               |
+| docs                |
+| doctor              |
+| doctorvisits        |
+| dummy               |
+| duplicate           |
+| emp                 |
+| emp1                |
+| emp2                |
+| emp_attendance      |
+| emp_cards           |
+| emp_phone           |
+| empj                |
+| envelope            |
+| food                |
+| fullname            |
+| hobby               |
+| item                |
+| job_list            |
+| key_parts           |
+| labtestlist         |
+| leadtable           |
+| licence             |
+| location            |
+| mass_table          |
+| medicinelist        |
+| menucard            |
+| nearest             |
+| new                 |
+| newbooks            |
+| nullif              |
+| numbers             |
+| numberstring        |
+| ord                 |
+| orderdetails        |
+| orders              |
+| overtime            |
+| patient             |
+| phonecall           |
+| pivot_table         |
+| plumber             |
+| plumber_service_map |
+| points              |
+| price               |
+| product             |
+| product_sales       |
+| products            |
+| quarterly_revenue   |
+| r                   |
+| r1                  |
+| r2                  |
+| races               |
+| regexpr             |
+| replacedept         |
+| revenue             |
+| rockets             |
+| runners             |
+| runningserver       |
+| sales               |
+| sales_channel       |
+| salespeople         |
+| salesperson         |
+| salgrade            |
+| server              |
+| service             |
+| seta                |
+| setb                |
+| shop                |
+| softdrink           |
+| sort                |
+| sourcenames         |
+| stadium             |
+| states              |
+| station             |
+| status              |
+| stringnumber        |
+| student             |
+| tablea              |
+| tableaa             |
+| tableb              |
+| tablebb             |
+| targetnames         |
+| tasks               |
+| teacher             |
+| temp1               |
+| traintimetable      |
+| transactions        |
+| vote_response       |
+| votes               |
+| warehouse           |
+| yearly_revenue      |
+| z                   |
++---------------------+
+112 rows in set (0.01 sec)
+
+mysql> desc emp;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| EMPNO     | int         | NO   | PRI | NULL    |       |
+| ENAME     | varchar(12) | YES  |     | NULL    |       |
+| GENDER    | char(1)     | YES  |     | NULL    |       |
+| JOB       | varchar(20) | YES  |     | NULL    |       |
+| MGR       | int         | YES  | MUL | NULL    |       |
+| HIREDATE  | date        | YES  |     | NULL    |       |
+| SAL       | int         | YES  |     | NULL    |       |
+| COMM      | int         | YES  |     | NULL    |       |
+| DEPTNO    | int         | NO   | MUL | NULL    |       |
+| BONUSID   | int         | YES  |     | NULL    |       |
+| USER NAME | varchar(20) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| PHONE     | varchar(45) | YES  |     | NULL    |       |
+| isActive  | tinyint(1)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+14 rows in set (0.00 sec)
+
+mysql> select *from emp;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | NULL |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+28 rows in set (0.01 sec)
+
+mysql> select sal from emp where sal>=3000;
++------+
+| sal  |
++------+
+| 3350 |
+| 3000 |
+| 5000 |
+| 5000 |
+| 3000 |
+| 4150 |
++------+
+6 rows in set (0.00 sec)
+
+mysql> select ename,sal from emp where sal>=3000;
++---------+------+
+| ename   | sal  |
++---------+------+
+| AARAV   | 3350 |
+| SCOTT   | 3000 |
+| KING    | 5000 |
+| FRED    | 5000 |
+| FORD    | 3000 |
+| HOFFMAN | 4150 |
++---------+------+
+6 rows in set (0.00 sec)
+
+mysql> select ename,sal from emp where sal>=3000 sal like descending;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sal like descending' at line 1
+mysql> select ename,sal from emp where sal>=3000 sal like desc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sal like desc' at line 1
+mysql> select ename,sal from emp where sal>=3000 sal like 'desc';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sal like 'desc'' at line 1
+mysql> select ename,sal from emp order by sal desc where sal>=3000
+    -> ^C
+mysql> select ename,sal from emp order by sal desc where sal>=3000 ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where sal>=3000' at line 1
+mysql> select ename,sal from emp where sal>=3000  order by sal desc ;
++---------+------+
+| ename   | sal  |
++---------+------+
+| KING    | 5000 |
+| FRED    | 5000 |
+| HOFFMAN | 4150 |
+| AARAV   | 3350 |
+| SCOTT   | 3000 |
+| FORD    | 3000 |
++---------+------+
+6 rows in set (0.00 sec)
+
+mysql> select ename from emp where ename like 'f%';
++-------+
+| ename |
++-------+
+| FRED  |
+| FORD  |
++-------+
+2 rows in set (0.00 sec)
+
+mysql> select ename from emp where ename like 'f';
+Empty set (0.00 sec)
+
+mysql> select ename from emp where ename like '%f';
+Empty set (0.00 sec)
+
+mysql> select ename from emp where ename like 'f%f';
+Empty set (0.00 sec)
+
+mysql> select ename from emp where ename like 'f%';
++-------+
+| ename |
++-------+
+| FRED  |
+| FORD  |
++-------+
+2 rows in set (0.00 sec)
+
+mysql> desc dept;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| DEPTNO    | int         | NO   | PRI | NULL    |       |
+| DNAME     | varchar(12) | YES  |     | NULL    |       |
+| LOC       | varchar(10) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| STARTEDON | varchar(10) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> select loc as Location, dname as Department Names from dept;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Names from dept' at line 1
+mysql> select loc as 'Location', dname as 'Department Names' from dept;
++----------+------------------+
+| Location | Department Names |
++----------+------------------+
+| NEW YORK | ACCOUNTING       |
+| DALLAS   | RESEARCH         |
+| CHICAGO  | SALES            |
+| BOSTON   | OPERATIONS       |
+| PUNE     | HR               |
++----------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> select dname,deptno from dept where order by desc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by desc' at line 1
+mysql> select dname,deptno from dept order by desc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'desc' at line 1
+mysql> select dname,deptno from dept;
++------------+--------+
+| dname      | deptno |
++------------+--------+
+| ACCOUNTING |     10 |
+| RESEARCH   |     20 |
+| SALES      |     30 |
+| OPERATIONS |     40 |
+| HR         |     50 |
++------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select dname,deptno from deptno;
+ERROR 1146 (42S02): Table 'group024.deptno' doesn't exist
+mysql> select dname,deptno from dept order by descno;
+ERROR 1054 (42S22): Unknown column 'descno' in 'order clause'
+mysql> select dname,deptno from dept order by deptno desc;
++------------+--------+
+| dname      | deptno |
++------------+--------+
+| HR         |     50 |
+| OPERATIONS |     40 |
+| SALES      |     30 |
+| RESEARCH   |     20 |
+| ACCOUNTING |     10 |
++------------+--------+
+5 rows in set (0.00 sec)
+
+mysql> desc emp;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| EMPNO     | int         | NO   | PRI | NULL    |       |
+| ENAME     | varchar(12) | YES  |     | NULL    |       |
+| GENDER    | char(1)     | YES  |     | NULL    |       |
+| JOB       | varchar(20) | YES  |     | NULL    |       |
+| MGR       | int         | YES  | MUL | NULL    |       |
+| HIREDATE  | date        | YES  |     | NULL    |       |
+| SAL       | int         | YES  |     | NULL    |       |
+| COMM      | int         | YES  |     | NULL    |       |
+| DEPTNO    | int         | NO   | MUL | NULL    |       |
+| BONUSID   | int         | YES  |     | NULL    |       |
+| USER NAME | varchar(20) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| PHONE     | varchar(45) | YES  |     | NULL    |       |
+| isActive  | tinyint(1)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+14 rows in set (0.01 sec)
+
+mysql>
+Microsoft Windows [Version 10.0.19045.5487]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\group024>mysql --host=192.168.100.80 --port=3306 --user=group024 --password=welcome
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 627
+Server version: 8.0.41 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use group042;
+ERROR 1044 (42000): Access denied for user 'group024'@'%' to database 'group042'
+mysql> use group024;
+Database changed
+mysql> show tables;
++---------------------+
+| Tables_in_group024  |
++---------------------+
+| a                   |
+| a1                  |
+| agent               |
+| andor               |
+| b                   |
+| blanktablea         |
+| blanktableb         |
+| blog                |
+| bonus               |
+| books               |
+| candidate           |
+| client              |
+| coalesce            |
+| comments            |
+| company             |
+| customer            |
+| customers           |
+| demodept1           |
+| demodept2           |
+| dept                |
+| dept1               |
+| docs                |
+| doctor              |
+| doctorvisits        |
+| dummy               |
+| duplicate           |
+| emp                 |
+| emp1                |
+| emp2                |
+| emp_attendance      |
+| emp_cards           |
+| emp_phone           |
+| empj                |
+| envelope            |
+| food                |
+| fullname            |
+| hobby               |
+| item                |
+| job_list            |
+| key_parts           |
+| labtestlist         |
+| leadtable           |
+| licence             |
+| location            |
+| mass_table          |
+| medicinelist        |
+| menucard            |
+| nearest             |
+| new                 |
+| newbooks            |
+| nullif              |
+| numbers             |
+| numberstring        |
+| ord                 |
+| orderdetails        |
+| orders              |
+| overtime            |
+| patient             |
+| phonecall           |
+| pivot_table         |
+| plumber             |
+| plumber_service_map |
+| points              |
+| price               |
+| product             |
+| product_sales       |
+| products            |
+| quarterly_revenue   |
+| r                   |
+| r1                  |
+| r2                  |
+| races               |
+| regexpr             |
+| replacedept         |
+| revenue             |
+| rockets             |
+| runners             |
+| runningserver       |
+| sales               |
+| sales_channel       |
+| salespeople         |
+| salesperson         |
+| salgrade            |
+| server              |
+| service             |
+| seta                |
+| setb                |
+| shop                |
+| softdrink           |
+| sort                |
+| sourcenames         |
+| stadium             |
+| states              |
+| station             |
+| status              |
+| stringnumber        |
+| student             |
+| tablea              |
+| tableaa             |
+| tableb              |
+| tablebb             |
+| targetnames         |
+| tasks               |
+| teacher             |
+| temp1               |
+| traintimetable      |
+| transactions        |
+| vote_response       |
+| votes               |
+| warehouse           |
+| yearly_revenue      |
+| z                   |
++---------------------+
+112 rows in set (0.01 sec)
+
+mysql>  select ename,sal,comm from emp where comm>0 and order by sal desc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by sal desc' at line 1
+mysql>  select ename,sal,comm from emp where comm>0 and order by sal ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by sal' at line 1
+mysql>  select ename,sal,comm from emp where comm>0 or order by sal desc;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'order by sal desc' at line 1
+mysql>  select ename,sal,comm from emp where comm>0  order by sal desc;
++--------+------+------+
+| ename  | sal  | comm |
++--------+------+------+
+| GRASS  | 2575 | 2700 |
+| ALLEN  | 1600 |  300 |
+| AARUSH | 1350 | 2700 |
+| WARD   | 1250 |  500 |
+| MARTIN | 1250 | 1400 |
+| ALEX   | 1250 |  500 |
++--------+------+------+
+6 rows in set (0.01 sec)
+
+mysql>  select ename,sal,comm from emp where comm>0  order by sal,comm  desc;
++--------+------+------+
+| ename  | sal  | comm |
++--------+------+------+
+| MARTIN | 1250 | 1400 |
+| WARD   | 1250 |  500 |
+| ALEX   | 1250 |  500 |
+| AARUSH | 1350 | 2700 |
+| ALLEN  | 1600 |  300 |
+| GRASS  | 2575 | 2700 |
++--------+------+------+
+6 rows in set (0.00 sec)
+
+mysql>  select ename,sal,comm from emp where comm>0  order by sal and comm  desc;
++--------+------+------+
+| ename  | sal  | comm |
++--------+------+------+
+| ALLEN  | 1600 |  300 |
+| WARD   | 1250 |  500 |
+| MARTIN | 1250 | 1400 |
+| GRASS  | 2575 | 2700 |
+| AARUSH | 1350 | 2700 |
+| ALEX   | 1250 |  500 |
++--------+------+------+
+6 rows in set (0.00 sec)
+
+mysql> select ename from emp ename like '__A%';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'like '__A%'' at line 1
+mysql> select ename from emp where ename like '__A%';
++---------+
+| ename   |
++---------+
+| SHARMIN |
+| BLAKE   |
+| CLARK   |
+| ADAMS   |
+| GRASS   |
++---------+
+5 rows in set (0.00 sec)
+
+mysql> select ename from emp where mrg=7782 ;
+ERROR 1054 (42S22): Unknown column 'mrg' in 'where clause'
+mysql> desc emp;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| EMPNO     | int         | NO   | PRI | NULL    |       |
+| ENAME     | varchar(12) | YES  |     | NULL    |       |
+| GENDER    | char(1)     | YES  |     | NULL    |       |
+| JOB       | varchar(20) | YES  |     | NULL    |       |
+| MGR       | int         | YES  | MUL | NULL    |       |
+| HIREDATE  | date        | YES  |     | NULL    |       |
+| SAL       | int         | YES  |     | NULL    |       |
+| COMM      | int         | YES  |     | NULL    |       |
+| DEPTNO    | int         | NO   | MUL | NULL    |       |
+| BONUSID   | int         | YES  |     | NULL    |       |
+| USER NAME | varchar(20) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| PHONE     | varchar(45) | YES  |     | NULL    |       |
+| isActive  | tinyint(1)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+14 rows in set (0.00 sec)
+
+mysql> select ename from emp where mgr=7782 ;
++--------+
+| ename  |
++--------+
+| MILLER |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select ename from emp where mgr=7782 and deptno=30;
+Empty set (0.00 sec)
+
+mysql> select ename,sal,job from emp where job='clerk' or job='analyst' and sal!=1000 and sal!=3000 and sal!=5000;
++---------+------+---------+
+| ename   | sal  | job     |
++---------+------+---------+
+| SMITH   |  800 | CLERK   |
+| AARAV   | 3350 | CLERK   |
+| THOMAS  | 1750 | CLERK   |
+| ADAMS   | 1100 | CLERK   |
+| JAMES   |  950 | CLERK   |
+| MILLER  | 1300 | CLERK   |
+| NATASHA | 1750 | CLERK   |
+| SUPRIYA | 1750 | ANALYST |
++---------+------+---------+
+8 rows in set (0.00 sec)
+
+mysql> select ename,sal,comm from emp where where comm>((sal*10)/100);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where comm>((sal*10)/100)' at line 1
+mysql> select ename,sal,comm from emp where comm>((sal*10)/100);
++--------+------+------+
+| ename  | sal  | comm |
++--------+------+------+
+| ALLEN  | 1600 |  300 |
+| WARD   | 1250 |  500 |
+| MARTIN | 1250 | 1400 |
+| GRASS  | 2575 | 2700 |
+| AARUSH | 1350 | 2700 |
+| ALEX   | 1250 |  500 |
++--------+------+------+
+6 rows in set (0.00 sec)
+
+mysql> select ename,sal,comm from emp where comm>((sal*1.1)/100);
++--------+------+------+
+| ename  | sal  | comm |
++--------+------+------+
+| ALLEN  | 1600 |  300 |
+| WARD   | 1250 |  500 |
+| MARTIN | 1250 | 1400 |
+| GRASS  | 2575 | 2700 |
+| AARUSH | 1350 | 2700 |
+| ALEX   | 1250 |  500 |
++--------+------+------+
+6 rows in set (0.00 sec)
+
+mysql> select ename,sal,comm from emp where comm=((sal*1.1)/100);
+Empty set (0.00 sec)
+
+mysql> select ename,sal from emp where sal=(((sal*12)*1.1)/100);
+Empty set (0.00 sec)
+
+mysql> select ename,sal,(((sal*12)*1.1)/100) as ryt from emp;
++----------+------+-----------+
+| ename    | sal  | ryt       |
++----------+------+-----------+
+| GITA     | 1750 | 231.00000 |
+| VRUSHALI | 1750 | 231.00000 |
+| SHARMIN  | 1750 | 231.00000 |
+| BANDISH  | 1750 | 231.00000 |
+| SMITH    |  800 | 105.60000 |
+| AARAV    | 3350 | 442.20000 |
+| THOMAS   | 1750 | 231.00000 |
+| ALLEN    | 1600 | 211.20000 |
+| WARD     | 1250 | 165.00000 |
+| JONES    | 2975 | 392.70000 |
+| MARTIN   | 1250 | 165.00000 |
+| BLAKE    | 2850 | 376.20000 |
+| CLARK    | 2450 | 323.40000 |
+| SCOTT    | 3000 | 396.00000 |
+| KING     | 5000 | 660.00000 |
+| FRED     | 5000 | 660.00000 |
+| TURNER   | 1500 | 198.00000 |
+| ADAMS    | 1100 | 145.20000 |
+| JAMES    |  950 | 125.40000 |
+| FORD     | 3000 | 396.00000 |
+| HOFFMAN  | 4150 | 547.80000 |
+| GRASS    | 2575 | 339.90000 |
+| MILLER   | 1300 | 171.60000 |
+| AARUSH   | 1350 | 178.20000 |
+| ALEX     | 1250 | 165.00000 |
+| NATASHA  | 1750 | 231.00000 |
+| SANGITA  | 1750 | 231.00000 |
+| SUPRIYA  | 1750 | 231.00000 |
++----------+------+-----------+
+28 rows in set (0.00 sec)
+
+mysql> select ename,sal,round((((sal*12)*1.1)/100),2) as ryt from emp;
++----------+------+--------+
+| ename    | sal  | ryt    |
++----------+------+--------+
+| GITA     | 1750 | 231.00 |
+| VRUSHALI | 1750 | 231.00 |
+| SHARMIN  | 1750 | 231.00 |
+| BANDISH  | 1750 | 231.00 |
+| SMITH    |  800 | 105.60 |
+| AARAV    | 3350 | 442.20 |
+| THOMAS   | 1750 | 231.00 |
+| ALLEN    | 1600 | 211.20 |
+| WARD     | 1250 | 165.00 |
+| JONES    | 2975 | 392.70 |
+| MARTIN   | 1250 | 165.00 |
+| BLAKE    | 2850 | 376.20 |
+| CLARK    | 2450 | 323.40 |
+| SCOTT    | 3000 | 396.00 |
+| KING     | 5000 | 660.00 |
+| FRED     | 5000 | 660.00 |
+| TURNER   | 1500 | 198.00 |
+| ADAMS    | 1100 | 145.20 |
+| JAMES    |  950 | 125.40 |
+| FORD     | 3000 | 396.00 |
+| HOFFMAN  | 4150 | 547.80 |
+| GRASS    | 2575 | 339.90 |
+| MILLER   | 1300 | 171.60 |
+| AARUSH   | 1350 | 178.20 |
+| ALEX     | 1250 | 165.00 |
+| NATASHA  | 1750 | 231.00 |
+| SANGITA  | 1750 | 231.00 |
+| SUPRIYA  | 1750 | 231.00 |
++----------+------+--------+
+28 rows in set (0.00 sec)
+
+mysql> select ename,(sal*12),comm from emp;
++----------+----------+------+
+| ename    | (sal*12) | comm |
++----------+----------+------+
+| GITA     |    21000 | NULL |
+| VRUSHALI |    21000 | NULL |
+| SHARMIN  |    21000 | NULL |
+| BANDISH  |    21000 | NULL |
+| SMITH    |     9600 | NULL |
+| AARAV    |    40200 | NULL |
+| THOMAS   |    21000 | NULL |
+| ALLEN    |    19200 |  300 |
+| WARD     |    15000 |  500 |
+| JONES    |    35700 | NULL |
+| MARTIN   |    15000 | 1400 |
+| BLAKE    |    34200 | NULL |
+| CLARK    |    29400 | NULL |
+| SCOTT    |    36000 | NULL |
+| KING     |    60000 | NULL |
+| FRED     |    60000 | NULL |
+| TURNER   |    18000 |    0 |
+| ADAMS    |    13200 | NULL |
+| JAMES    |    11400 | NULL |
+| FORD     |    36000 | NULL |
+| HOFFMAN  |    49800 | NULL |
+| GRASS    |    30900 | 2700 |
+| MILLER   |    15600 | NULL |
+| AARUSH   |    16200 | 2700 |
+| ALEX     |    15000 |  500 |
+| NATASHA  |    21000 | NULL |
+| SANGITA  |    21000 | NULL |
+| SUPRIYA  |    21000 | NULL |
++----------+----------+------+
+28 rows in set (0.00 sec)
+
+mysql> select ename as NAME,(sal*12) as Annual_Salary,comm as Commission from emp;
++----------+---------------+------------+
+| NAME     | Annual_Salary | Commission |
++----------+---------------+------------+
+| GITA     |         21000 |       NULL |
+| VRUSHALI |         21000 |       NULL |
+| SHARMIN  |         21000 |       NULL |
+| BANDISH  |         21000 |       NULL |
+| SMITH    |          9600 |       NULL |
+| AARAV    |         40200 |       NULL |
+| THOMAS   |         21000 |       NULL |
+| ALLEN    |         19200 |        300 |
+| WARD     |         15000 |        500 |
+| JONES    |         35700 |       NULL |
+| MARTIN   |         15000 |       1400 |
+| BLAKE    |         34200 |       NULL |
+| CLARK    |         29400 |       NULL |
+| SCOTT    |         36000 |       NULL |
+| KING     |         60000 |       NULL |
+| FRED     |         60000 |       NULL |
+| TURNER   |         18000 |          0 |
+| ADAMS    |         13200 |       NULL |
+| JAMES    |         11400 |       NULL |
+| FORD     |         36000 |       NULL |
+| HOFFMAN  |         49800 |       NULL |
+| GRASS    |         30900 |       2700 |
+| MILLER   |         15600 |       NULL |
+| AARUSH   |         16200 |       2700 |
+| ALEX     |         15000 |        500 |
+| NATASHA  |         21000 |       NULL |
+| SANGITA  |         21000 |       NULL |
+| SUPRIYA  |         21000 |       NULL |
++----------+---------------+------------+
+28 rows in set (0.00 sec)
+
+mysql> select ename as NAME,(sal*12) as Annual_Salary,comm as Commission from emp where sal>comm;
++--------+---------------+------------+
+| NAME   | Annual_Salary | Commission |
++--------+---------------+------------+
+| ALLEN  |         19200 |        300 |
+| WARD   |         15000 |        500 |
+| TURNER |         18000 |          0 |
+| ALEX   |         15000 |        500 |
++--------+---------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select ename as NAME,(sal*12) as Annual_Salary,comm as Commission from emp where sal>comm order by Annual_Salary desc;
++--------+---------------+------------+
+| NAME   | Annual_Salary | Commission |
++--------+---------------+------------+
+| ALLEN  |         19200 |        300 |
+| TURNER |         18000 |          0 |
+| WARD   |         15000 |        500 |
+| ALEX   |         15000 |        500 |
++--------+---------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select ename,job from emp where job='salesman' or job='manager';
++---------+----------+
+| ename   | job      |
++---------+----------+
+| ALLEN   | SALESMAN |
+| WARD    | SALESMAN |
+| JONES   | MANAGER  |
+| MARTIN  | SALESMAN |
+| BLAKE   | MANAGER  |
+| CLARK   | MANAGER  |
+| TURNER  | SALESMAN |
+| HOFFMAN | MANAGER  |
+| GRASS   | SALESMAN |
+| AARUSH  | SALESMAN |
+| ALEX    | MANAGER  |
++---------+----------+
+11 rows in set (0.00 sec)
+
+mysql> select ename,job from emp where job='salesman' or job='manager' ename like '%s';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ename like '%s'' at line 1
+mysql> select ename,job from emp where job='salesman' or job='manager' and ename like '%s';
++--------+----------+
+| ename  | job      |
++--------+----------+
+| ALLEN  | SALESMAN |
+| WARD   | SALESMAN |
+| JONES  | MANAGER  |
+| MARTIN | SALESMAN |
+| TURNER | SALESMAN |
+| GRASS  | SALESMAN |
+| AARUSH | SALESMAN |
++--------+----------+
+7 rows in set (0.00 sec)
+
+mysql> select ename,job from emp where job='salesman' or job='manager' and ename like '%S';
++--------+----------+
+| ename  | job      |
++--------+----------+
+| ALLEN  | SALESMAN |
+| WARD   | SALESMAN |
+| JONES  | MANAGER  |
+| MARTIN | SALESMAN |
+| TURNER | SALESMAN |
+| GRASS  | SALESMAN |
+| AARUSH | SALESMAN |
++--------+----------+
+7 rows in set (0.00 sec)
+
+mysql> select ename,job from emp where job='salesman' or job='manager' or ename like '%S';
++---------+----------+
+| ename   | job      |
++---------+----------+
+| THOMAS  | CLERK    |
+| ALLEN   | SALESMAN |
+| WARD    | SALESMAN |
+| JONES   | MANAGER  |
+| MARTIN  | SALESMAN |
+| BLAKE   | MANAGER  |
+| CLARK   | MANAGER  |
+| TURNER  | SALESMAN |
+| ADAMS   | CLERK    |
+| JAMES   | CLERK    |
+| HOFFMAN | MANAGER  |
+| GRASS   | SALESMAN |
+| AARUSH  | SALESMAN |
+| ALEX    | MANAGER  |
++---------+----------+
+14 rows in set (0.00 sec)
+
+mysql> select ename,job from emp where job='salesman' or job='manager' in ename like '%S';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ename like '%S'' at line 1
+mysql> select ename,job from emp where job='salesman' or job='manager'  ename like '_%S';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ename like '_%S'' at line 1
+mysql> select ename,job from emp where job='salesman' or job='manager' , ename like '%S';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ', ename like '%S'' at line 1
+mysql> select ename,job from emp where job='salesman' or job='manager' and ename like '%S';
++--------+----------+
+| ename  | job      |
++--------+----------+
+| ALLEN  | SALESMAN |
+| WARD   | SALESMAN |
+| JONES  | MANAGER  |
+| MARTIN | SALESMAN |
+| TURNER | SALESMAN |
+| GRASS  | SALESMAN |
+| AARUSH | SALESMAN |
++--------+----------+
+7 rows in set (0.00 sec)
+
+mysql> select ename,job from emp where job='salesman' or job='manager';
++---------+----------+
+| ename   | job      |
++---------+----------+
+| ALLEN   | SALESMAN |
+| WARD    | SALESMAN |
+| JONES   | MANAGER  |
+| MARTIN  | SALESMAN |
+| BLAKE   | MANAGER  |
+| CLARK   | MANAGER  |
+| TURNER  | SALESMAN |
+| HOFFMAN | MANAGER  |
+| GRASS   | SALESMAN |
+| AARUSH  | SALESMAN |
+| ALEX    | MANAGER  |
++---------+----------+
+11 rows in set (0.00 sec)
+
+mysql> select ename,job from emp where( job='salesman' or job='manager') and ename like '%S';
++-------+----------+
+| ename | job      |
++-------+----------+
+| JONES | MANAGER  |
+| GRASS | SALESMAN |
++-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select ename,job from emp where job in ('salesman','manager') and ename like '%S';
++-------+----------+
+| ename | job      |
++-------+----------+
+| JONES | MANAGER  |
+| GRASS | SALESMAN |
++-------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select ename,sal from emp where sal>1000 and sal<2200;
++----------+------+
+| ename    | sal  |
++----------+------+
+| GITA     | 1750 |
+| VRUSHALI | 1750 |
+| SHARMIN  | 1750 |
+| BANDISH  | 1750 |
+| THOMAS   | 1750 |
+| ALLEN    | 1600 |
+| WARD     | 1250 |
+| MARTIN   | 1250 |
+| TURNER   | 1500 |
+| ADAMS    | 1100 |
+| MILLER   | 1300 |
+| AARUSH   | 1350 |
+| ALEX     | 1250 |
+| NATASHA  | 1750 |
+| SANGITA  | 1750 |
+| SUPRIYA  | 1750 |
++----------+------+
+16 rows in set (0.00 sec)
+
+mysql> select ename,sal,job from emp where job='clerks';
+Empty set (0.00 sec)
+
+mysql> select job from emp;
++---------------------+
+| job                 |
++---------------------+
+| Compliance officers |
+| Compliance officers |
+| Public Relation     |
+| Public Relation     |
+| CLERK               |
+| CLERK               |
+| CLERK               |
+| SALESMAN            |
+| SALESMAN            |
+| MANAGER             |
+| SALESMAN            |
+| MANAGER             |
+| MANAGER             |
+| ANALYST             |
+| PRESIDENT           |
+| vice PRESIDENT      |
+| SALESMAN            |
+| CLERK               |
+| CLERK               |
+| ANALYST             |
+| MANAGER             |
+| SALESMAN            |
+| CLERK               |
+| SALESMAN            |
+| MANAGER             |
+| CLERK               |
+| Compliance officers |
+| ANALYST             |
++---------------------+
+28 rows in set (0.00 sec)
+
+mysql> select ename,sal,job from emp where job='clerk';
++---------+------+-------+
+| ename   | sal  | job   |
++---------+------+-------+
+| SMITH   |  800 | CLERK |
+| AARAV   | 3350 | CLERK |
+| THOMAS  | 1750 | CLERK |
+| ADAMS   | 1100 | CLERK |
+| JAMES   |  950 | CLERK |
+| MILLER  | 1300 | CLERK |
+| NATASHA | 1750 | CLERK |
++---------+------+-------+
+7 rows in set (0.00 sec)
+
+mysql>

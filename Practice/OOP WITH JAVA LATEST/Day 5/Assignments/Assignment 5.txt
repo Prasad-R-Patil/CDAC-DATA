@@ -1,0 +1,34 @@
+Time Limit: 30 Minutes
+
+Create a class Shirt with following attributes:
+	String brandName (E.g. Zodiac, Peter England, Arrow etc.)
+	String color
+	String type	(E.g. Checks, Lining, Plain etc)
+	int price
+
+Create another class ShirtCollection with following attribute and methods:
+	public static Shirt shirts[]
+	public static void setShirts(Shirt [] shirts)
+	public static void showAllShirts(String type)
+	public static void 
+		showAllShirts(int minPrice, int maxPrice)
+	public static boolean isShirtAvailable(Shirt shirt)
+
+ 
+
+Write a main program that accepts a command line argument for
+the type of the shirt and displays all the data about the shirts
+that match with that type.
+
+Write another main program that accepts command line arguments
+for a price range (min limit and max limit) of the shirt
+and display all the data about the shirts having prices within
+that range
+
+Write one more main program that accepts command line arguments
+for all the shirt details: 
+	brandName, color, type, price
+and indicates whether the shirt is available or not
+
+
+	

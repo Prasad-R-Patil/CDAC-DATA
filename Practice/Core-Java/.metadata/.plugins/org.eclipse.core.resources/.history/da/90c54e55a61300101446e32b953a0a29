@@ -1,0 +1,68 @@
+package Assignment04;
+
+import java.util.Scanner;
+
+public class XYZ {
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter Employee:->");
+		int size=s.nextInt();
+		
+		Taxable[] emp=new Employee[size];
+		
+		for(int i=0;i<emp.length;i++)
+		{
+			System.out.println("Enter Empid:->");
+			int empId=s.nextInt();
+			
+			
+			System.out.println("Enter Employee Name:->");
+			String name=s.next();
+			
+			
+			System.out.println("Enter Salary :->");
+			float salary=s.nextFloat();
+			
+			emp[i]=new Employee(empId,name,salary);
+		}
+		
+		
+		for(int i=0;i<emp.length;i++)
+		{
+			System.out.println(emp[i]);
+		}
+		
+		/*
+		System.out.println("Enter Product :->");
+		int pros=s.nextInt();
+		
+		Product[] pro=new Product[pros];
+		
+		for(int i=0;i<pro.length;i++)
+		{
+			System.out.println("Enter Product Id:->");
+			int pId=s.nextInt();
+			
+			System.out.println("Enter Product Price:->");
+			float price=s.nextFloat();
+			
+			
+			System.out.println("Enter Quantity:->");
+			int quantity=s.nextInt();
+			
+			pro[i]=new Product(pId,price,quantity);
+		}
+		
+		
+		for(int i=0;i<pro.length;i++)
+		{
+			System.out.println(pro[i]);
+		}
+		*/
+		Taxable em=new Employee();
+		em.calTax(emp);
+		
+		
+	}
+
+}

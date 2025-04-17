@@ -1,0 +1,13 @@
+package Assignment04;
+
+public abstract class Taxable {
+	protected  float salesTax=7.0f;
+	protected float incomeTax=19.5f;
+	
+	
+	
+	
+	public abstract void calTax();
+
+
+}

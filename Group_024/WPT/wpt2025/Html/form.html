@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <form>
+        <div>
+            <label for="txtone">Enter Your FullName:</label>
+            <input type="text" name="fname" id="txtone" placeholder="enter your fname" minlength="3" maxlength="25"
+                pattern="^[a-zA-Z ]{3,20}$" autofocus required>
+        </div><br>
+        <div>
+            <label for="txt2">Enter Your Password:</label>
+            <input type="password" name="mypass" id="txt2" required>
+        </div> <br>
+        <div>
+            <label for="txt3">Enter Your Email:</label>
+            <input type="email" name="myemail" id="txt3" required>
+        </div> <br>
+        <div>
+            <label for="txt4">Enter Your Contact:</label>
+            <input type="tel" name="contact" id="txt4" pattern="^[0-9]{10,11}$" required>
+        </div><br>
+        <div>
+            <label for="txt5">Select Your DOB:</label>
+            <input type="date" name="dob" id="txt5" required>
+        </div> <br>
+        <div>
+            <label for="txt6">Enter Your Age:</label>
+            <input type="number" name="age" id="txt6" min="18" max="60" required>
+        </div><br>
+        <div>
+            <label for="">Select Your gender:</label>
+            <input type="radio" name="gender" value="male">Male
+            <input type="radio" name="gender" value="female">Female
+            <input type="radio" name="gender" value="transgender">Transgender
+        </div><br>
+        <div>
+            <label for="">Select Your Qualification:</label>
+            <input type="checkbox" name="edu" value="ssc">SSC
+            <input type="checkbox" name="edu" value="hsc">HSC
+            <input type="checkbox" name="edu" value="ug">UG
+            <input type="checkbox" name="edu" value="pg">PG
+        </div><br>
+        <div>
+            <label for="">Select Your Course:</label>
+            <select name="course" required>
+                   <option value="">Please select your course</option>
+                   <option value="react">React</option>
+                   <option value="angular">Angular</option>
+                   <option value="java">Java</option>
+                   <option value="Nodejs">Nodejs</option>
+                   <option value="Python">Python</option>
+            </select>
+        </div><br>
+        <div>
+         <label for="">Course fees:</label>
+         <input type="text" name="fees" value="10000" disabled readonly>
+        </div><br>
+        <div>
+            <label for="">Enter Your feedback:</label>
+            <textarea name="feedback" id=""></textarea>
+        </div>
+
+        <button type="submit">submit</button>
+        <button type="reset">Reset</button>
+    </form>
+
+
+</body>
+
+</html>

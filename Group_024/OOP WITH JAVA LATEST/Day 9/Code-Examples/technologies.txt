@@ -1,0 +1,4 @@
+List of technologies:
+Java: A platform independent language
+Angular: A Java Script based framework
+React: A Java Script based library

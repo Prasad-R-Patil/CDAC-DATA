@@ -1,0 +1,142 @@
+create table customer1 (customer_id int primary key,first_name varchar(20),last_name varchar(20),address varchar(50),state varchar(30));  
+
+ insert into customer1 values (1,'john','Snow','123 Main St,Anytown,CA 90210','CAA'); 
+ 
+ insert into customer1 values (2,'Shubham','Smith','456 Elm St,Springfield,CL 62704','CLI'),(3,'Yash','Williams','789 Maple Ave,Miami,FL 33133','FLO'),(4,'David','Warner','100 Oak St,Austin,TX 78704','MTX'),(5,'David','Warner','100 Oak St,Austin,TX 78704','MTX');
+ 
+  create table product1(product_id int primary key,name varchar(20),category varchar(20),price float,stoct_quantity int,discount_per int);                                                                   
+   insert into product1 values(1,'Laptop',' Electronics',129,10,0),(2,'Headphones','Electronics',79.99,0,10),(3,'T-Shirt','Clothing',19.99,50,0),(4,'Jeans','Clothing',39.99,30,30),(5,'Book','Books',14.99,15,0) ; 
+   
+    create table Order1 (order_id int primary key,cust_id int,order_date date,status varchar (30), FOREIGN KEY (cust_id) REFERENCES customer1 (customer_id));
+
+
+alter table order1 add column Total_amount int;
+
+
+insert into order1 values (1,1,'2024-04-15','pending',209.98),(2,3,'2024-04-12','Shipped',49.99),(3,2,'2024-04-10','Completed',179.95);  
+
+create table order_line_item(line_item_id int primary key,order_id int,product_id int,quantity int,unit_price float,discount float,FOREIGN KEY (order_id) REFERENCES order1 (order_id),FOREIGN KEY (product_id) REFERENCES product1 (product_id));
+
+insert into order_line_item values   (1,1,1,1,129,0.00),(2,1,2,2,79.99,7.90),(3,2,3,1,19.99,0.00),(4,3,4,5,39.99,15.90);
+
+------------------------------------------------------------------------------------------------
+Q1. -->>
+
+Select * from customer1 where state like 'C%A';
+
++-------------+------------+-----------+------------------------------+-------+
+| customer_id | first_name | last_name | address                      | state |
++-------------+------------+-----------+------------------------------+-------+
+|           1 | john       | Snow      | 123 Main St,Anytown,CA 90210 | CAA   |
++-------------+------------+-----------+------------------------------+-------+
+1 row in set (0.00 sec)
+
+---------------------------------------------------------------------------------------------------
+
+Q2. -->>
+
+select o.order_id,p.* from order1 o join order_line_item ol on o.order_id=ol.order_id join product1 p on ol.product_id=p.product_id where p.stoct_quantity=0;
+
++----------+------------+------------+-------------+-------+----------------+--------------+
+| order_id | product_id | name       | category    | price | stoct_quantity | discount_per |
++----------+------------+------------+-------------+-------+----------------+--------------+
+|        1 |          2 | Headphones | Electronics | 79.99 |              0 |           10 |
++----------+------------+------------+-------------+-------+----------------+--------------+
+1 row in set (0.00 sec)
+
+--------------------------------------------------------------------------------------------------
+Q3.---->>
+
+ select c.customer_id,c.first_name from customer1 c join order1 o on c.customer_id=o.cust_id where status in ('pending','shipped');
+ 
+ +-------------+------------+
+| customer_id | first_name |
++-------------+------------+
+|           1 | john       |
+|           3 | Yash       |
++-------------+------------+
+2 rows in set (0.00 sec)
+
+
+--------------------------------------------------------------------------------------------------Q4.---->>
+
+ select count(price),round(sum(price)),sum(discount_per) from product1 group by category;
++--------------+-------------------+-------------------+
+| count(price) | round(sum(price)) | sum(discount_per) |
++--------------+-------------------+-------------------+
+|            2 |               209 |                10 |
+|            2 |                60 |                30 |
+|            1 |                15 |                 0 |
++--------------+-------------------+-------------------+
+3 rows in set (0.00 sec)
+
+--------------------------------------------------------------------------------------------------Q5.---->>
+ select c.customer_id,round(ol.quantity*ol.unit_price) from order1 o join order_line_item ol on o.order_id=ol.order_id join customer1 c on o.cust_id=c.customer_id   ;
++-------------+----------------------------------+
+| customer_id | round(ol.quantity*ol.unit_price) |
++-------------+----------------------------------+
+|           1 |                              129 |
+|           1 |                              160 |
+|           2 |                              200 |
+|           3 |                               20 |
++-------------+----------------------------------+
+4 rows in set (0.01 sec)
+
+--------------------------------------------------------------------------------------------------Q6.---->>
+
+select c.customer_id,round(ol.quantity*ol.unit_price) abc from order1 o join order_line_item ol on o.order_id=ol.order_id join customer1 c on o.cust_id=c.customer_id order by abc desc  limit 2 ;
++-------------+------+
+| customer_id | abc  |
++-------------+------+
+|           2 |  200 |
+|           1 |  160 |
++-------------+------+
+2 rows in set (0.00 sec)
+
+--------------------------------------------------------------------------------------------------Q7.---->>
+
+select c.customer_id,o.order_date from customer1 c join order1 o on c.customer_id=o.cust_id;
++-------------+------------+
+| customer_id | order_date |
++-------------+------------+
+|           1 | 2024-04-15 |
+|           3 | 2024-04-12 |
+|           2 | 2024-04-10 |
++-------------+------------+
+3 rows in set (0.00 sec)
+
+--------------------------------------------------------------------------------------------------Q8.---->>
+update product1 set price=117 ,discount_per=10 where product_id=1;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from product1;
++------------+------------+-------------+-------+----------------+--------------+
+| product_id | name       | category    | price | stoct_quantity | discount_per |
++------------+------------+-------------+-------+----------------+--------------+
+|          1 | Laptop     | Electronics |   117 |             10 |           10 |
+|          2 | Headphones | Electronics | 79.99 |              0 |           10 |
+|          3 | T-Shirt    | Clothing    | 19.99 |             50 |            0 |
+|          4 | Jeans      | Clothing    | 39.99 |             30 |           30 |
+|          5 | Book       | Books       | 14.99 |             15 |            0 |
++------------+------------+-------------+-------+----------------+--------------+
+5 rows in set (0.00 sec)
+
+
+--------------------------------------------------------------------------------------------------Q9.---->>
+
+ alter table order_line_item add column totalprice float ;
+  update order_line_item set totalprice=unit_price*quantity;
+Query OK, 4 rows affected (0.01 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> select *from order_line_item;
++--------------+----------+------------+----------+------------+----------+------------+
+| line_item_id | order_id | product_id | quantity | unit_price | discount | totalprice |
++--------------+----------+------------+----------+------------+----------+------------+
+|            1 |        1 |          1 |        1 |        129 |        0 |        129 |
+|            2 |        1 |          2 |        2 |      79.99 |      7.9 |     159.98 |
+|            3 |        2 |          3 |        1 |      19.99 |        0 |      19.99 |
+|            4 |        3 |          4 |        5 |      39.99 |     15.9 |     199.95 |
++--------------+----------+------------+----------+------------+----------+------------+
+4 rows in set (0.00 sec)

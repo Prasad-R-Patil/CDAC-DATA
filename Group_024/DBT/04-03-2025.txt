@@ -1,0 +1,3214 @@
+
+Microsoft Windows [Version 10.0.26100.3323]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\SALEEL>mysql --user=root --password=root db1
+mysql: [Warning] Using a password on the command line interface can be insecure.
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 14
+Server version: 8.1.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> desc emp;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| EMPNO     | int         | NO   | PRI | NULL    |       |
+| ENAME     | varchar(12) | YES  | UNI | NULL    |       |
+| GENDER    | char(1)     | YES  |     | NULL    |       |
+| JOB       | varchar(20) | YES  | MUL | NULL    |       |
+| MGR       | int         | YES  | MUL | NULL    |       |
+| HIREDATE  | date        | YES  |     | NULL    |       |
+| SAL       | int         | YES  |     | NULL    |       |
+| COMM      | int         | YES  |     | NULL    |       |
+| DEPTNO    | int         | NO   | MUL | NULL    |       |
+| BONUSID   | int         | YES  |     | NULL    |       |
+| USER NAME | varchar(20) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| PHONE     | varchar(45) | YES  |     | NULL    |       |
+| isActive  | tinyint(1)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+14 rows in set (0.27 sec)
+
+mysql>
+mysql> select * from emp;
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+| EMPNO | ENAME    | GENDER | JOB                 | MGR  | HIREDATE   | SAL  | COMM | DEPTNO | BONUSID | USER NAME    | PWD        | PHONE      | isActive |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+|  6001 | GITA     | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | GITA         | sales@2017 | NULL       |        1 |
+|  6129 | VRUSHALI | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | VRUSHALI     | PUN@8877   | NULL       |        1 |
+|  6473 | SHARMIN  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | SHARMIN      | a12recmpm  | NULL       |        1 |
+|  6781 | BANDISH  | F      | Public Relation     | 7920 | 1981-07-19 | 1750 | NULL |     20 |       1 | BANDISH      | a12recmpm  | NULL       |        1 |
+|  7369 | SMITH    | M      | CLERK               | 7902 | 1980-12-17 |  800 | NULL |     20 |       2 | TRITONE      | a12recmpm  | 7032300023 |        0 |
+|  7415 | AARAV    | M      | CLERK               | 7902 | 1981-12-31 | 3350 | NULL |     10 |    NULL | AARAV        | NULL       | 7032300084 |        0 |
+|  7421 | THOMAS   | M      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     10 |       1 | THOMAS       | r50mpm     | 7032300011 |        0 |
+|  7499 | ALLEN    | M      | SALESMAN            | 7698 | 1981-02-20 | 1600 |  300 |     30 |       4 | ALWAYS TESTE | sales@2017 | 7032300096 |        1 |
+|  7521 | WARD     | M      | SALESMAN            | 7698 | 1981-02-22 | 1250 |  500 |     30 |       1 | WARD         | sales@2017 | 7132300034 |        1 |
+|  7566 | JONES    | M      | MANAGER             | 7839 | 1981-04-02 | 2975 | NULL |     20 |       4 | HONEYCOMB    | a12recmpm  | 7132300039 |        1 |
+|  7654 | MARTIN   | M      | SALESMAN            | 7698 | 1981-09-28 | 1250 | 1400 |     30 |       6 | LIFE RACER   | sales@2017 | 7132300050 |        1 |
+|  7698 | BLAKE    | M      | MANAGER             | 7839 | 1981-05-01 | 2850 | NULL |     30 |       1 | BIG BEN      | sales@2017 | 7132300027 |        1 |
+|  7782 | CLARK    | M      | MANAGER             | 7839 | 1981-06-09 | 2450 | NULL |     10 |       3 | CLARK        | r50mpm     | 7032300001 |        1 |
+|  7788 | SCOTT    | M      | ANALYST             | 7566 | 1982-12-09 | 3000 | NULL |     20 |       3 | WHITE SAND   | a12recmpm  | NULL       |        1 |
+|  7839 | KING     | M      | PRESIDENT           | NULL | 1981-11-17 | 5000 | NULL |     10 |       1 | KING         | r50mpm     | 7132300081 |        1 |
+|  7840 | FRED     | M      | vice PRESIDENT      | 7839 | 1983-08-09 | 5000 | NULL |     20 |       1 | SAND STONE   | a12recmpm  | NULL       |        1 |
+|  7844 | TURNER   | M      | SALESMAN            | 7698 | 1981-09-08 | 1500 |    0 |     30 |       5 | SAND DUST    | sales@2017 | NULL       |        1 |
+|  7876 | ADAMS    | M      | CLERK               | 7788 | 1983-01-12 | 1100 | NULL |     20 |       1 | CRAZY ANYONE | a12recmpm  | 7132300086 |        1 |
+|  7900 | JAMES    | M      | CLERK               | 7698 | 1981-12-03 |  950 | NULL |     30 |       2 | CRAZY LEADER | sales@2017 | 7132300042 |        1 |
+|  7902 | FORD     | M      | ANALYST             | 7566 | 1981-12-03 | 3000 | NULL |     20 |       4 | CONBRIO      | a12recmpm  | NULL       |        0 |
+|  7919 | HOFFMAN  | M      | MANAGER             | 7566 | 1982-03-24 | 4150 | NULL |     30 |       3 | INTERVAL     | sales@2017 | NULL       |        1 |
+|  7920 | GRASS    | M      | SALESMAN            | 7919 | 1980-02-14 | 2575 | 2700 |     30 |       5 | GRASS        | sales@2017 | NULL       |        1 |
+|  7934 | MILLER   | M      | CLERK               | 7782 | 1982-01-23 | 1300 | NULL |     10 |       2 | QUARTERNOTE  | r50mpm     | 7132300055 |        0 |
+|  7945 | AARUSH   | M      | SALESMAN            | 7902 | 1980-02-14 | 1350 | 2700 |     30 |    NULL | AARUSH       | ABCDEF     | NULL       |        0 |
+|  7949 | ALEX     | M      | MANAGER             | 7698 | 1982-01-24 | 1250 |  500 |     30 |       5 | QUARTERREST  | sales@2017 | 7156567183 |        1 |
+|  8433 | NATASHA  | F      | CLERK               | 7920 | 1981-07-19 | 1750 | NULL |     30 |       1 | NATASHA      | sales@2017 | NULL       |        1 |
+|  9400 | SANGITA  | F      | Compliance officers | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SANGITA      | NULL       | NULL       |        1 |
+|  9473 | SUPRIYA  | F      | ANALYST             | 7920 | 1981-07-19 | 1750 | NULL |     50 |       1 | SUPRIYA      | XYZ@1234   | NULL       |        1 |
++-------+----------+--------+---------------------+------+------------+------+------+--------+---------+--------------+------------+------------+----------+
+28 rows in set (0.02 sec)
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
++--------+------------+----------+------------+------------+
+4 rows in set (0.12 sec)
+
+mysql> desc emp;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| EMPNO     | int         | NO   | PRI | NULL    |       |
+| ENAME     | varchar(12) | YES  | UNI | NULL    |       |
+| GENDER    | char(1)     | YES  |     | NULL    |       |
+| JOB       | varchar(20) | YES  | MUL | NULL    |       |
+| MGR       | int         | YES  | MUL | NULL    |       |
+| HIREDATE  | date        | YES  |     | NULL    |       |
+| SAL       | int         | YES  |     | NULL    |       |
+| COMM      | int         | YES  |     | NULL    |       |
+| DEPTNO    | int         | NO   | MUL | NULL    |       |
+| BONUSID   | int         | YES  |     | NULL    |       |
+| USER NAME | varchar(20) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| PHONE     | varchar(45) | YES  |     | NULL    |       |
+| isActive  | tinyint(1)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+14 rows in set (0.00 sec)
+
+mysql>
+mysql> select empno, ename, gender, sal from emp;
++-------+----------+--------+------+
+| empno | ename    | gender | sal  |
++-------+----------+--------+------+
+|  6001 | GITA     | F      | 1750 |
+|  6129 | VRUSHALI | F      | 1750 |
+|  6473 | SHARMIN  | F      | 1750 |
+|  6781 | BANDISH  | F      | 1750 |
+|  7369 | SMITH    | M      |  800 |
+|  7415 | AARAV    | M      | 3350 |
+|  7421 | THOMAS   | M      | 1750 |
+|  7499 | ALLEN    | M      | 1600 |
+|  7521 | WARD     | M      | 1250 |
+|  7566 | JONES    | M      | 2975 |
+|  7654 | MARTIN   | M      | 1250 |
+|  7698 | BLAKE    | M      | 2850 |
+|  7782 | CLARK    | M      | 2450 |
+|  7788 | SCOTT    | M      | 3000 |
+|  7839 | KING     | M      | 5000 |
+|  7840 | FRED     | M      | 5000 |
+|  7844 | TURNER   | M      | 1500 |
+|  7876 | ADAMS    | M      | 1100 |
+|  7900 | JAMES    | M      |  950 |
+|  7902 | FORD     | M      | 3000 |
+|  7919 | HOFFMAN  | M      | 4150 |
+|  7920 | GRASS    | M      | 2575 |
+|  7934 | MILLER   | M      | 1300 |
+|  7945 | AARUSH   | M      | 1350 |
+|  7949 | ALEX     | M      | 1250 |
+|  8433 | NATASHA  | F      | 1750 |
+|  9400 | SANGITA  | F      | 1750 |
+|  9473 | SUPRIYA  | F      | 1750 |
++-------+----------+--------+------+
+28 rows in set (0.00 sec)
+
+mysql> select empno as Employee Number, ename, gender, sal from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Number, ename, gender, sal from emp' at line 1
+mysql>
+mysql>
+mysql>
+mysql> select empno as 'Employee Number', ename, gender, sal from emp;
++-----------------+----------+--------+------+
+| Employee Number | ename    | gender | sal  |
++-----------------+----------+--------+------+
+|            6001 | GITA     | F      | 1750 |
+|            6129 | VRUSHALI | F      | 1750 |
+|            6473 | SHARMIN  | F      | 1750 |
+|            6781 | BANDISH  | F      | 1750 |
+|            7369 | SMITH    | M      |  800 |
+|            7415 | AARAV    | M      | 3350 |
+|            7421 | THOMAS   | M      | 1750 |
+|            7499 | ALLEN    | M      | 1600 |
+|            7521 | WARD     | M      | 1250 |
+|            7566 | JONES    | M      | 2975 |
+|            7654 | MARTIN   | M      | 1250 |
+|            7698 | BLAKE    | M      | 2850 |
+|            7782 | CLARK    | M      | 2450 |
+|            7788 | SCOTT    | M      | 3000 |
+|            7839 | KING     | M      | 5000 |
+|            7840 | FRED     | M      | 5000 |
+|            7844 | TURNER   | M      | 1500 |
+|            7876 | ADAMS    | M      | 1100 |
+|            7900 | JAMES    | M      |  950 |
+|            7902 | FORD     | M      | 3000 |
+|            7919 | HOFFMAN  | M      | 4150 |
+|            7920 | GRASS    | M      | 2575 |
+|            7934 | MILLER   | M      | 1300 |
+|            7945 | AARUSH   | M      | 1350 |
+|            7949 | ALEX     | M      | 1250 |
+|            8433 | NATASHA  | F      | 1750 |
+|            9400 | SANGITA  | F      | 1750 |
+|            9473 | SUPRIYA  | F      | 1750 |
++-----------------+----------+--------+------+
+28 rows in set (0.00 sec)
+
+mysql> select empno as 'Employee Number', ename Employee_Name, gender, sal from emp;
++-----------------+---------------+--------+------+
+| Employee Number | Employee_Name | gender | sal  |
++-----------------+---------------+--------+------+
+|            6001 | GITA          | F      | 1750 |
+|            6129 | VRUSHALI      | F      | 1750 |
+|            6473 | SHARMIN       | F      | 1750 |
+|            6781 | BANDISH       | F      | 1750 |
+|            7369 | SMITH         | M      |  800 |
+|            7415 | AARAV         | M      | 3350 |
+|            7421 | THOMAS        | M      | 1750 |
+|            7499 | ALLEN         | M      | 1600 |
+|            7521 | WARD          | M      | 1250 |
+|            7566 | JONES         | M      | 2975 |
+|            7654 | MARTIN        | M      | 1250 |
+|            7698 | BLAKE         | M      | 2850 |
+|            7782 | CLARK         | M      | 2450 |
+|            7788 | SCOTT         | M      | 3000 |
+|            7839 | KING          | M      | 5000 |
+|            7840 | FRED          | M      | 5000 |
+|            7844 | TURNER        | M      | 1500 |
+|            7876 | ADAMS         | M      | 1100 |
+|            7900 | JAMES         | M      |  950 |
+|            7902 | FORD          | M      | 3000 |
+|            7919 | HOFFMAN       | M      | 4150 |
+|            7920 | GRASS         | M      | 2575 |
+|            7934 | MILLER        | M      | 1300 |
+|            7945 | AARUSH        | M      | 1350 |
+|            7949 | ALEX          | M      | 1250 |
+|            8433 | NATASHA       | F      | 1750 |
+|            9400 | SANGITA       | F      | 1750 |
+|            9473 | SUPRIYA       | F      | 1750 |
++-----------------+---------------+--------+------+
+28 rows in set (0.00 sec)
+
+mysql> select empno as 'Employee Number', ename Employee_Name, gender 1234, sal from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1234, sal from emp' at line 1
+mysql> select empno as 'Employee Number', ename Employee_Name, gender '1234', sal from emp;
++-----------------+---------------+------+------+
+| Employee Number | Employee_Name | 1234 | sal  |
++-----------------+---------------+------+------+
+|            6001 | GITA          | F    | 1750 |
+|            6129 | VRUSHALI      | F    | 1750 |
+|            6473 | SHARMIN       | F    | 1750 |
+|            6781 | BANDISH       | F    | 1750 |
+|            7369 | SMITH         | M    |  800 |
+|            7415 | AARAV         | M    | 3350 |
+|            7421 | THOMAS        | M    | 1750 |
+|            7499 | ALLEN         | M    | 1600 |
+|            7521 | WARD          | M    | 1250 |
+|            7566 | JONES         | M    | 2975 |
+|            7654 | MARTIN        | M    | 1250 |
+|            7698 | BLAKE         | M    | 2850 |
+|            7782 | CLARK         | M    | 2450 |
+|            7788 | SCOTT         | M    | 3000 |
+|            7839 | KING          | M    | 5000 |
+|            7840 | FRED          | M    | 5000 |
+|            7844 | TURNER        | M    | 1500 |
+|            7876 | ADAMS         | M    | 1100 |
+|            7900 | JAMES         | M    |  950 |
+|            7902 | FORD          | M    | 3000 |
+|            7919 | HOFFMAN       | M    | 4150 |
+|            7920 | GRASS         | M    | 2575 |
+|            7934 | MILLER        | M    | 1300 |
+|            7945 | AARUSH        | M    | 1350 |
+|            7949 | ALEX          | M    | 1250 |
+|            8433 | NATASHA       | F    | 1750 |
+|            9400 | SANGITA       | F    | 1750 |
+|            9473 | SUPRIYA       | F    | 1750 |
++-----------------+---------------+------+------+
+28 rows in set (0.00 sec)
+
+mysql> select empno, ename sal from emp;
++-------+----------+
+| empno | sal      |
++-------+----------+
+|  7415 | AARAV    |
+|  7945 | AARUSH   |
+|  7876 | ADAMS    |
+|  7949 | ALEX     |
+|  7499 | ALLEN    |
+|  6781 | BANDISH  |
+|  7698 | BLAKE    |
+|  7782 | CLARK    |
+|  7902 | FORD     |
+|  7840 | FRED     |
+|  6001 | GITA     |
+|  7920 | GRASS    |
+|  7919 | HOFFMAN  |
+|  7900 | JAMES    |
+|  7566 | JONES    |
+|  7839 | KING     |
+|  7654 | MARTIN   |
+|  7934 | MILLER   |
+|  8433 | NATASHA  |
+|  9400 | SANGITA  |
+|  7788 | SCOTT    |
+|  6473 | SHARMIN  |
+|  7369 | SMITH    |
+|  9473 | SUPRIYA  |
+|  7421 | THOMAS   |
+|  7844 | TURNER   |
+|  6129 | VRUSHALI |
+|  7521 | WARD     |
++-------+----------+
+28 rows in set (0.01 sec)
+
+mysql> select empno, ename, sal from emp;
++-------+----------+------+
+| empno | ename    | sal  |
++-------+----------+------+
+|  6001 | GITA     | 1750 |
+|  6129 | VRUSHALI | 1750 |
+|  6473 | SHARMIN  | 1750 |
+|  6781 | BANDISH  | 1750 |
+|  7369 | SMITH    |  800 |
+|  7415 | AARAV    | 3350 |
+|  7421 | THOMAS   | 1750 |
+|  7499 | ALLEN    | 1600 |
+|  7521 | WARD     | 1250 |
+|  7566 | JONES    | 2975 |
+|  7654 | MARTIN   | 1250 |
+|  7698 | BLAKE    | 2850 |
+|  7782 | CLARK    | 2450 |
+|  7788 | SCOTT    | 3000 |
+|  7839 | KING     | 5000 |
+|  7840 | FRED     | 5000 |
+|  7844 | TURNER   | 1500 |
+|  7876 | ADAMS    | 1100 |
+|  7900 | JAMES    |  950 |
+|  7902 | FORD     | 3000 |
+|  7919 | HOFFMAN  | 4150 |
+|  7920 | GRASS    | 2575 |
+|  7934 | MILLER   | 1300 |
+|  7945 | AARUSH   | 1350 |
+|  7949 | ALEX     | 1250 |
+|  8433 | NATASHA  | 1750 |
+|  9400 | SANGITA  | 1750 |
+|  9473 | SUPRIYA  | 1750 |
++-------+----------+------+
+28 rows in set (0.00 sec)
+
+mysql> select empno, ename saleel from emp;
++-------+----------+
+| empno | saleel   |
++-------+----------+
+|  7415 | AARAV    |
+|  7945 | AARUSH   |
+|  7876 | ADAMS    |
+|  7949 | ALEX     |
+|  7499 | ALLEN    |
+|  6781 | BANDISH  |
+|  7698 | BLAKE    |
+|  7782 | CLARK    |
+|  7902 | FORD     |
+|  7840 | FRED     |
+|  6001 | GITA     |
+|  7920 | GRASS    |
+|  7919 | HOFFMAN  |
+|  7900 | JAMES    |
+|  7566 | JONES    |
+|  7839 | KING     |
+|  7654 | MARTIN   |
+|  7934 | MILLER   |
+|  8433 | NATASHA  |
+|  9400 | SANGITA  |
+|  7788 | SCOTT    |
+|  6473 | SHARMIN  |
+|  7369 | SMITH    |
+|  9473 | SUPRIYA  |
+|  7421 | THOMAS   |
+|  7844 | TURNER   |
+|  6129 | VRUSHALI |
+|  7521 | WARD     |
++-------+----------+
+28 rows in set (0.00 sec)
+
+mysql> select empno, ename saleel, sal saleel from emp;
++-------+----------+--------+
+| empno | saleel   | saleel |
++-------+----------+--------+
+|  6001 | GITA     |   1750 |
+|  6129 | VRUSHALI |   1750 |
+|  6473 | SHARMIN  |   1750 |
+|  6781 | BANDISH  |   1750 |
+|  7369 | SMITH    |    800 |
+|  7415 | AARAV    |   3350 |
+|  7421 | THOMAS   |   1750 |
+|  7499 | ALLEN    |   1600 |
+|  7521 | WARD     |   1250 |
+|  7566 | JONES    |   2975 |
+|  7654 | MARTIN   |   1250 |
+|  7698 | BLAKE    |   2850 |
+|  7782 | CLARK    |   2450 |
+|  7788 | SCOTT    |   3000 |
+|  7839 | KING     |   5000 |
+|  7840 | FRED     |   5000 |
+|  7844 | TURNER   |   1500 |
+|  7876 | ADAMS    |   1100 |
+|  7900 | JAMES    |    950 |
+|  7902 | FORD     |   3000 |
+|  7919 | HOFFMAN  |   4150 |
+|  7920 | GRASS    |   2575 |
+|  7934 | MILLER   |   1300 |
+|  7945 | AARUSH   |   1350 |
+|  7949 | ALEX     |   1250 |
+|  8433 | NATASHA  |   1750 |
+|  9400 | SANGITA  |   1750 |
+|  9473 | SUPRIYA  |   1750 |
++-------+----------+--------+
+28 rows in set (0.00 sec)
+
+mysql> select 1+1;
++-----+
+| 1+1 |
++-----+
+|   2 |
++-----+
+1 row in set (0.01 sec)
+
+mysql> select 1+1 R1;
++----+
+| R1 |
++----+
+|  2 |
++----+
+1 row in set (0.00 sec)
+
+mysql> select 1+1 R1, saleel;
+ERROR 1054 (42S22): Unknown column 'saleel' in 'field list'
+mysql> select 1+1 R1, ename saleel from emp;
++----+----------+
+| R1 | saleel   |
++----+----------+
+|  2 | AARAV    |
+|  2 | AARUSH   |
+|  2 | ADAMS    |
+|  2 | ALEX     |
+|  2 | ALLEN    |
+|  2 | BANDISH  |
+|  2 | BLAKE    |
+|  2 | CLARK    |
+|  2 | FORD     |
+|  2 | FRED     |
+|  2 | GITA     |
+|  2 | GRASS    |
+|  2 | HOFFMAN  |
+|  2 | JAMES    |
+|  2 | JONES    |
+|  2 | KING     |
+|  2 | MARTIN   |
+|  2 | MILLER   |
+|  2 | NATASHA  |
+|  2 | SANGITA  |
+|  2 | SCOTT    |
+|  2 | SHARMIN  |
+|  2 | SMITH    |
+|  2 | SUPRIYA  |
+|  2 | THOMAS   |
+|  2 | TURNER   |
+|  2 | VRUSHALI |
+|  2 | WARD     |
++----+----------+
+28 rows in set (0.00 sec)
+
+mysql> select 1+1 R1, ename saleel, -1 from emp;
++----+----------+----+
+| R1 | saleel   | -1 |
++----+----------+----+
+|  2 | AARAV    | -1 |
+|  2 | AARUSH   | -1 |
+|  2 | ADAMS    | -1 |
+|  2 | ALEX     | -1 |
+|  2 | ALLEN    | -1 |
+|  2 | BANDISH  | -1 |
+|  2 | BLAKE    | -1 |
+|  2 | CLARK    | -1 |
+|  2 | FORD     | -1 |
+|  2 | FRED     | -1 |
+|  2 | GITA     | -1 |
+|  2 | GRASS    | -1 |
+|  2 | HOFFMAN  | -1 |
+|  2 | JAMES    | -1 |
+|  2 | JONES    | -1 |
+|  2 | KING     | -1 |
+|  2 | MARTIN   | -1 |
+|  2 | MILLER   | -1 |
+|  2 | NATASHA  | -1 |
+|  2 | SANGITA  | -1 |
+|  2 | SCOTT    | -1 |
+|  2 | SHARMIN  | -1 |
+|  2 | SMITH    | -1 |
+|  2 | SUPRIYA  | -1 |
+|  2 | THOMAS   | -1 |
+|  2 | TURNER   | -1 |
+|  2 | VRUSHALI | -1 |
+|  2 | WARD     | -1 |
++----+----------+----+
+28 rows in set (0.01 sec)
+
+mysql> select 1+1 R1, ename saleel, -1, sharmin from emp;
+ERROR 1054 (42S22): Unknown column 'sharmin' in 'field list'
+mysql>
+mysql>
+mysql> select 1+1 R1, ename saleel, -1, "sharmin" from emp;
++----+----------+----+---------+
+| R1 | saleel   | -1 | sharmin |
++----+----------+----+---------+
+|  2 | AARAV    | -1 | sharmin |
+|  2 | AARUSH   | -1 | sharmin |
+|  2 | ADAMS    | -1 | sharmin |
+|  2 | ALEX     | -1 | sharmin |
+|  2 | ALLEN    | -1 | sharmin |
+|  2 | BANDISH  | -1 | sharmin |
+|  2 | BLAKE    | -1 | sharmin |
+|  2 | CLARK    | -1 | sharmin |
+|  2 | FORD     | -1 | sharmin |
+|  2 | FRED     | -1 | sharmin |
+|  2 | GITA     | -1 | sharmin |
+|  2 | GRASS    | -1 | sharmin |
+|  2 | HOFFMAN  | -1 | sharmin |
+|  2 | JAMES    | -1 | sharmin |
+|  2 | JONES    | -1 | sharmin |
+|  2 | KING     | -1 | sharmin |
+|  2 | MARTIN   | -1 | sharmin |
+|  2 | MILLER   | -1 | sharmin |
+|  2 | NATASHA  | -1 | sharmin |
+|  2 | SANGITA  | -1 | sharmin |
+|  2 | SCOTT    | -1 | sharmin |
+|  2 | SHARMIN  | -1 | sharmin |
+|  2 | SMITH    | -1 | sharmin |
+|  2 | SUPRIYA  | -1 | sharmin |
+|  2 | THOMAS   | -1 | sharmin |
+|  2 | TURNER   | -1 | sharmin |
+|  2 | VRUSHALI | -1 | sharmin |
+|  2 | WARD     | -1 | sharmin |
++----+----------+----+---------+
+28 rows in set (0.00 sec)
+
+mysql> select 1+1 R1, ename saleel, -1, "sharmin" 123 from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '123 from emp' at line 1
+mysql> select 1+1 R1, ename saleel, -1, "sharmin" '123' from emp;
++----+----------+----+------------+
+| R1 | saleel   | -1 | sharmin    |
++----+----------+----+------------+
+|  2 | AARAV    | -1 | sharmin123 |
+|  2 | AARUSH   | -1 | sharmin123 |
+|  2 | ADAMS    | -1 | sharmin123 |
+|  2 | ALEX     | -1 | sharmin123 |
+|  2 | ALLEN    | -1 | sharmin123 |
+|  2 | BANDISH  | -1 | sharmin123 |
+|  2 | BLAKE    | -1 | sharmin123 |
+|  2 | CLARK    | -1 | sharmin123 |
+|  2 | FORD     | -1 | sharmin123 |
+|  2 | FRED     | -1 | sharmin123 |
+|  2 | GITA     | -1 | sharmin123 |
+|  2 | GRASS    | -1 | sharmin123 |
+|  2 | HOFFMAN  | -1 | sharmin123 |
+|  2 | JAMES    | -1 | sharmin123 |
+|  2 | JONES    | -1 | sharmin123 |
+|  2 | KING     | -1 | sharmin123 |
+|  2 | MARTIN   | -1 | sharmin123 |
+|  2 | MILLER   | -1 | sharmin123 |
+|  2 | NATASHA  | -1 | sharmin123 |
+|  2 | SANGITA  | -1 | sharmin123 |
+|  2 | SCOTT    | -1 | sharmin123 |
+|  2 | SHARMIN  | -1 | sharmin123 |
+|  2 | SMITH    | -1 | sharmin123 |
+|  2 | SUPRIYA  | -1 | sharmin123 |
+|  2 | THOMAS   | -1 | sharmin123 |
+|  2 | TURNER   | -1 | sharmin123 |
+|  2 | VRUSHALI | -1 | sharmin123 |
+|  2 | WARD     | -1 | sharmin123 |
++----+----------+----+------------+
+28 rows in set (0.00 sec)
+
+mysql> select "sharmin" '123';
++------------+
+| sharmin    |
++------------+
+| sharmin123 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select "sharmin" '123', ename 'R1' from emp;
++------------+----------+
+| sharmin    | R1       |
++------------+----------+
+| sharmin123 | AARAV    |
+| sharmin123 | AARUSH   |
+| sharmin123 | ADAMS    |
+| sharmin123 | ALEX     |
+| sharmin123 | ALLEN    |
+| sharmin123 | BANDISH  |
+| sharmin123 | BLAKE    |
+| sharmin123 | CLARK    |
+| sharmin123 | FORD     |
+| sharmin123 | FRED     |
+| sharmin123 | GITA     |
+| sharmin123 | GRASS    |
+| sharmin123 | HOFFMAN  |
+| sharmin123 | JAMES    |
+| sharmin123 | JONES    |
+| sharmin123 | KING     |
+| sharmin123 | MARTIN   |
+| sharmin123 | MILLER   |
+| sharmin123 | NATASHA  |
+| sharmin123 | SANGITA  |
+| sharmin123 | SCOTT    |
+| sharmin123 | SHARMIN  |
+| sharmin123 | SMITH    |
+| sharmin123 | SUPRIYA  |
+| sharmin123 | THOMAS   |
+| sharmin123 | TURNER   |
+| sharmin123 | VRUSHALI |
+| sharmin123 | WARD     |
++------------+----------+
+28 rows in set (0.00 sec)
+
+mysql> select "sharmin" '123', 'ename' 'R1' from emp;
++------------+---------+
+| sharmin    | ename   |
++------------+---------+
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
+| sharmin123 | enameR1 |
++------------+---------+
+28 rows in set (0.00 sec)
+
+mysql> select "sharmin" '123', 'ename' 'R1' 'R2' from emp;
++------------+-----------+
+| sharmin    | ename     |
++------------+-----------+
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
+| sharmin123 | enameR1R2 |
++------------+-----------+
+28 rows in set (0.00 sec)
+
+mysql> select "sharmin" '123', `ename` 'R1' from emp;
++------------+----------+
+| sharmin    | R1       |
++------------+----------+
+| sharmin123 | AARAV    |
+| sharmin123 | AARUSH   |
+| sharmin123 | ADAMS    |
+| sharmin123 | ALEX     |
+| sharmin123 | ALLEN    |
+| sharmin123 | BANDISH  |
+| sharmin123 | BLAKE    |
+| sharmin123 | CLARK    |
+| sharmin123 | FORD     |
+| sharmin123 | FRED     |
+| sharmin123 | GITA     |
+| sharmin123 | GRASS    |
+| sharmin123 | HOFFMAN  |
+| sharmin123 | JAMES    |
+| sharmin123 | JONES    |
+| sharmin123 | KING     |
+| sharmin123 | MARTIN   |
+| sharmin123 | MILLER   |
+| sharmin123 | NATASHA  |
+| sharmin123 | SANGITA  |
+| sharmin123 | SCOTT    |
+| sharmin123 | SHARMIN  |
+| sharmin123 | SMITH    |
+| sharmin123 | SUPRIYA  |
+| sharmin123 | THOMAS   |
+| sharmin123 | TURNER   |
+| sharmin123 | VRUSHALI |
+| sharmin123 | WARD     |
++------------+----------+
+28 rows in set (0.00 sec)
+
+mysql> select "sharmin" '123', `ename` 'R1' from `emp`;
++------------+----------+
+| sharmin    | R1       |
++------------+----------+
+| sharmin123 | AARAV    |
+| sharmin123 | AARUSH   |
+| sharmin123 | ADAMS    |
+| sharmin123 | ALEX     |
+| sharmin123 | ALLEN    |
+| sharmin123 | BANDISH  |
+| sharmin123 | BLAKE    |
+| sharmin123 | CLARK    |
+| sharmin123 | FORD     |
+| sharmin123 | FRED     |
+| sharmin123 | GITA     |
+| sharmin123 | GRASS    |
+| sharmin123 | HOFFMAN  |
+| sharmin123 | JAMES    |
+| sharmin123 | JONES    |
+| sharmin123 | KING     |
+| sharmin123 | MARTIN   |
+| sharmin123 | MILLER   |
+| sharmin123 | NATASHA  |
+| sharmin123 | SANGITA  |
+| sharmin123 | SCOTT    |
+| sharmin123 | SHARMIN  |
+| sharmin123 | SMITH    |
+| sharmin123 | SUPRIYA  |
+| sharmin123 | THOMAS   |
+| sharmin123 | TURNER   |
+| sharmin123 | VRUSHALI |
+| sharmin123 | WARD     |
++------------+----------+
+28 rows in set (0.00 sec)
+
+mysql> select "sharmin" '123', `ename` 'R1' from 'emp';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''emp'' at line 1
+mysql>
+mysql>
+mysql>
+mysql> select 'saleel';
++--------+
+| saleel |
++--------+
+| saleel |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select 'saleel' select;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'select' at line 1
+mysql> select 'saleel' selectt;
++---------+
+| selectt |
++---------+
+| saleel  |
++---------+
+1 row in set (0.01 sec)
+
+mysql> select 'saleel' R1, 'saleel' '123';
++--------+-----------+
+| R1     | saleel    |
++--------+-----------+
+| saleel | saleel123 |
++--------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select 'saleel' R1, 'saleel' 'R1';
++--------+----------+
+| R1     | saleel   |
++--------+----------+
+| saleel | saleelR1 |
++--------+----------+
+1 row in set (0.00 sec)
+
+mysql> select 'saleel' `R1`, 'saleel' 'R1';
++--------+----------+
+| R1     | saleel   |
++--------+----------+
+| saleel | saleelR1 |
++--------+----------+
+1 row in set (0.00 sec)
+
+mysql> select 'saleel' 'R1';
++----------+
+| saleel   |
++----------+
+| saleelR1 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select 'saleel' as 'R1';
++--------+
+| R1     |
++--------+
+| saleel |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select 'saleel' as `R1`;
++--------+
+| R1     |
++--------+
+| saleel |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select 'saleel' `R1`;
++--------+
+| R1     |
++--------+
+| saleel |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select 1000 + 1;
++----------+
+| 1000 + 1 |
++----------+
+|     1001 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select 1000 + '1';
++------------+
+| 1000 + '1' |
++------------+
+|       1001 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select 'a1'  + 1 ;
++-----------+
+| 'a1'  + 1 |
++-----------+
+|         1 |
++-----------+
+1 row in set, 1 warning (0.01 sec)
+
+mysql> select '2a1'  + 1 ;
++------------+
+| '2a1'  + 1 |
++------------+
+|          3 |
++------------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> select ename from emp;
++----------+
+| ename    |
++----------+
+| AARAV    |
+| AARUSH   |
+| ADAMS    |
+| ALEX     |
+| ALLEN    |
+| BANDISH  |
+| BLAKE    |
+| CLARK    |
+| FORD     |
+| FRED     |
+| GITA     |
+| GRASS    |
+| HOFFMAN  |
+| JAMES    |
+| JONES    |
+| KING     |
+| MARTIN   |
+| MILLER   |
+| NATASHA  |
+| SANGITA  |
+| SCOTT    |
+| SHARMIN  |
+| SMITH    |
+| SUPRIYA  |
+| THOMAS   |
+| TURNER   |
+| VRUSHALI |
+| WARD     |
++----------+
+28 rows in set (0.00 sec)
+
+mysql> select ename,sal from emp;
++----------+------+
+| ename    | sal  |
++----------+------+
+| GITA     | 1750 |
+| VRUSHALI | 1750 |
+| SHARMIN  | 1750 |
+| BANDISH  | 1750 |
+| SMITH    |  800 |
+| AARAV    | 3350 |
+| THOMAS   | 1750 |
+| ALLEN    | 1600 |
+| WARD     | 1250 |
+| JONES    | 2975 |
+| MARTIN   | 1250 |
+| BLAKE    | 2850 |
+| CLARK    | 2450 |
+| SCOTT    | 3000 |
+| KING     | 5000 |
+| FRED     | 5000 |
+| TURNER   | 1500 |
+| ADAMS    | 1100 |
+| JAMES    |  950 |
+| FORD     | 3000 |
+| HOFFMAN  | 4150 |
+| GRASS    | 2575 |
+| MILLER   | 1300 |
+| AARUSH   | 1350 |
+| ALEX     | 1250 |
+| NATASHA  | 1750 |
+| SANGITA  | 1750 |
+| SUPRIYA  | 1750 |
++----------+------+
+28 rows in set (0.00 sec)
+
+mysql> select ename,sal, sal + 1000 NewSalary from emp;
++----------+------+-----------+
+| ename    | sal  | NewSalary |
++----------+------+-----------+
+| GITA     | 1750 |      2750 |
+| VRUSHALI | 1750 |      2750 |
+| SHARMIN  | 1750 |      2750 |
+| BANDISH  | 1750 |      2750 |
+| SMITH    |  800 |      1800 |
+| AARAV    | 3350 |      4350 |
+| THOMAS   | 1750 |      2750 |
+| ALLEN    | 1600 |      2600 |
+| WARD     | 1250 |      2250 |
+| JONES    | 2975 |      3975 |
+| MARTIN   | 1250 |      2250 |
+| BLAKE    | 2850 |      3850 |
+| CLARK    | 2450 |      3450 |
+| SCOTT    | 3000 |      4000 |
+| KING     | 5000 |      6000 |
+| FRED     | 5000 |      6000 |
+| TURNER   | 1500 |      2500 |
+| ADAMS    | 1100 |      2100 |
+| JAMES    |  950 |      1950 |
+| FORD     | 3000 |      4000 |
+| HOFFMAN  | 4150 |      5150 |
+| GRASS    | 2575 |      3575 |
+| MILLER   | 1300 |      2300 |
+| AARUSH   | 1350 |      2350 |
+| ALEX     | 1250 |      2250 |
+| NATASHA  | 1750 |      2750 |
+| SANGITA  | 1750 |      2750 |
+| SUPRIYA  | 1750 |      2750 |
++----------+------+-----------+
+28 rows in set (0.00 sec)
+
+mysql> select ename,sal, comm from emp;
++----------+------+------+
+| ename    | sal  | comm |
++----------+------+------+
+| GITA     | 1750 | NULL |
+| VRUSHALI | 1750 | NULL |
+| SHARMIN  | 1750 | NULL |
+| BANDISH  | 1750 | NULL |
+| SMITH    |  800 | NULL |
+| AARAV    | 3350 | NULL |
+| THOMAS   | 1750 | NULL |
+| ALLEN    | 1600 |  300 |
+| WARD     | 1250 |  500 |
+| JONES    | 2975 | NULL |
+| MARTIN   | 1250 | 1400 |
+| BLAKE    | 2850 | NULL |
+| CLARK    | 2450 | NULL |
+| SCOTT    | 3000 | NULL |
+| KING     | 5000 | NULL |
+| FRED     | 5000 | NULL |
+| TURNER   | 1500 |    0 |
+| ADAMS    | 1100 | NULL |
+| JAMES    |  950 | NULL |
+| FORD     | 3000 | NULL |
+| HOFFMAN  | 4150 | NULL |
+| GRASS    | 2575 | 2700 |
+| MILLER   | 1300 | NULL |
+| AARUSH   | 1350 | 2700 |
+| ALEX     | 1250 |  500 |
+| NATASHA  | 1750 | NULL |
+| SANGITA  | 1750 | NULL |
+| SUPRIYA  | 1750 | NULL |
++----------+------+------+
+28 rows in set (0.00 sec)
+
+mysql> select ename,sal, comm, sal + comm from emp;
++----------+------+------+------------+
+| ename    | sal  | comm | sal + comm |
++----------+------+------+------------+
+| GITA     | 1750 | NULL |       NULL |
+| VRUSHALI | 1750 | NULL |       NULL |
+| SHARMIN  | 1750 | NULL |       NULL |
+| BANDISH  | 1750 | NULL |       NULL |
+| SMITH    |  800 | NULL |       NULL |
+| AARAV    | 3350 | NULL |       NULL |
+| THOMAS   | 1750 | NULL |       NULL |
+| ALLEN    | 1600 |  300 |       1900 |
+| WARD     | 1250 |  500 |       1750 |
+| JONES    | 2975 | NULL |       NULL |
+| MARTIN   | 1250 | 1400 |       2650 |
+| BLAKE    | 2850 | NULL |       NULL |
+| CLARK    | 2450 | NULL |       NULL |
+| SCOTT    | 3000 | NULL |       NULL |
+| KING     | 5000 | NULL |       NULL |
+| FRED     | 5000 | NULL |       NULL |
+| TURNER   | 1500 |    0 |       1500 |
+| ADAMS    | 1100 | NULL |       NULL |
+| JAMES    |  950 | NULL |       NULL |
+| FORD     | 3000 | NULL |       NULL |
+| HOFFMAN  | 4150 | NULL |       NULL |
+| GRASS    | 2575 | 2700 |       5275 |
+| MILLER   | 1300 | NULL |       NULL |
+| AARUSH   | 1350 | 2700 |       4050 |
+| ALEX     | 1250 |  500 |       1750 |
+| NATASHA  | 1750 | NULL |       NULL |
+| SANGITA  | 1750 | NULL |       NULL |
+| SUPRIYA  | 1750 | NULL |       NULL |
++----------+------+------+------------+
+28 rows in set (0.00 sec)
+
+mysql> select comm, ifnull(comm,-1) from emp;
++------+-----------------+
+| comm | ifnull(comm,-1) |
++------+-----------------+
+| NULL |              -1 |
+| NULL |              -1 |
+| NULL |              -1 |
+| NULL |              -1 |
+| NULL |              -1 |
+| NULL |              -1 |
+| NULL |              -1 |
+|  300 |             300 |
+|  500 |             500 |
+| NULL |              -1 |
+| 1400 |            1400 |
+| NULL |              -1 |
+| NULL |              -1 |
+| NULL |              -1 |
+| NULL |              -1 |
+| NULL |              -1 |
+|    0 |               0 |
+| NULL |              -1 |
+| NULL |              -1 |
+| NULL |              -1 |
+| NULL |              -1 |
+| 2700 |            2700 |
+| NULL |              -1 |
+| 2700 |            2700 |
+|  500 |             500 |
+| NULL |              -1 |
+| NULL |              -1 |
+| NULL |              -1 |
++------+-----------------+
+28 rows in set (0.00 sec)
+
+mysql> select ename,sal, comm, sal + comm R1 from emp;
++----------+------+------+------+
+| ename    | sal  | comm | R1   |
++----------+------+------+------+
+| GITA     | 1750 | NULL | NULL |
+| VRUSHALI | 1750 | NULL | NULL |
+| SHARMIN  | 1750 | NULL | NULL |
+| BANDISH  | 1750 | NULL | NULL |
+| SMITH    |  800 | NULL | NULL |
+| AARAV    | 3350 | NULL | NULL |
+| THOMAS   | 1750 | NULL | NULL |
+| ALLEN    | 1600 |  300 | 1900 |
+| WARD     | 1250 |  500 | 1750 |
+| JONES    | 2975 | NULL | NULL |
+| MARTIN   | 1250 | 1400 | 2650 |
+| BLAKE    | 2850 | NULL | NULL |
+| CLARK    | 2450 | NULL | NULL |
+| SCOTT    | 3000 | NULL | NULL |
+| KING     | 5000 | NULL | NULL |
+| FRED     | 5000 | NULL | NULL |
+| TURNER   | 1500 |    0 | 1500 |
+| ADAMS    | 1100 | NULL | NULL |
+| JAMES    |  950 | NULL | NULL |
+| FORD     | 3000 | NULL | NULL |
+| HOFFMAN  | 4150 | NULL | NULL |
+| GRASS    | 2575 | 2700 | 5275 |
+| MILLER   | 1300 | NULL | NULL |
+| AARUSH   | 1350 | 2700 | 4050 |
+| ALEX     | 1250 |  500 | 1750 |
+| NATASHA  | 1750 | NULL | NULL |
+| SANGITA  | 1750 | NULL | NULL |
+| SUPRIYA  | 1750 | NULL | NULL |
++----------+------+------+------+
+28 rows in set (0.00 sec)
+
+mysql> select ename,sal, comm, sal + ifnull(comm,0) R1 from emp;
++----------+------+------+------+
+| ename    | sal  | comm | R1   |
++----------+------+------+------+
+| GITA     | 1750 | NULL | 1750 |
+| VRUSHALI | 1750 | NULL | 1750 |
+| SHARMIN  | 1750 | NULL | 1750 |
+| BANDISH  | 1750 | NULL | 1750 |
+| SMITH    |  800 | NULL |  800 |
+| AARAV    | 3350 | NULL | 3350 |
+| THOMAS   | 1750 | NULL | 1750 |
+| ALLEN    | 1600 |  300 | 1900 |
+| WARD     | 1250 |  500 | 1750 |
+| JONES    | 2975 | NULL | 2975 |
+| MARTIN   | 1250 | 1400 | 2650 |
+| BLAKE    | 2850 | NULL | 2850 |
+| CLARK    | 2450 | NULL | 2450 |
+| SCOTT    | 3000 | NULL | 3000 |
+| KING     | 5000 | NULL | 5000 |
+| FRED     | 5000 | NULL | 5000 |
+| TURNER   | 1500 |    0 | 1500 |
+| ADAMS    | 1100 | NULL | 1100 |
+| JAMES    |  950 | NULL |  950 |
+| FORD     | 3000 | NULL | 3000 |
+| HOFFMAN  | 4150 | NULL | 4150 |
+| GRASS    | 2575 | 2700 | 5275 |
+| MILLER   | 1300 | NULL | 1300 |
+| AARUSH   | 1350 | 2700 | 4050 |
+| ALEX     | 1250 |  500 | 1750 |
+| NATASHA  | 1750 | NULL | 1750 |
+| SANGITA  | 1750 | NULL | 1750 |
+| SUPRIYA  | 1750 | NULL | 1750 |
++----------+------+------+------+
+28 rows in set (0.00 sec)
+
+mysql> select 2*0;
++-----+
+| 2*0 |
++-----+
+|   0 |
++-----+
+1 row in set (0.00 sec)
+
+mysql> select 2/0;
++------+
+| 2/0  |
++------+
+| NULL |
++------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> selectdatabase();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'selectdatabase()' at line 1
+mysql> select database();
++------------+
+| database() |
++------------+
+| db1        |
++------------+
+1 row in set (0.02 sec)
+
+mysql> desc dept;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| DEPTNO    | int         | NO   | PRI | NULL    |       |
+| DNAME     | varchar(12) | YES  |     | NULL    |       |
+| LOC       | varchar(10) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| STARTEDON | varchar(10) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> use x;
+Database changed
+mysql> desc dept;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| DEPTNO    | int         | NO   | PRI | NULL    |       |
+| DNAME     | varchar(12) | YES  |     | NULL    |       |
+| LOC       | varchar(10) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| STARTEDON | varchar(10) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.02 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| a                  |
+| amit               |
+| b                  |
+| db1                |
+| db2                |
+| db4                |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| x                  |
+| z                  |
+| z1                 |
+| z2                 |
++--------------------+
+14 rows in set (0.03 sec)
+
+mysql> use z2;
+Database changed
+mysql> desc dept;
+ERROR 1146 (42S02): Table 'z2.dept' doesn't exist
+mysql> desc db1.dept;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| DEPTNO    | int         | NO   | PRI | NULL    |       |
+| DNAME     | varchar(12) | YES  |     | NULL    |       |
+| LOC       | varchar(10) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| STARTEDON | varchar(10) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select ifnull(199, 1);
++----------------+
+| ifnull(199, 1) |
++----------------+
+|            199 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select ifnull(null, 1);
++-----------------+
+| ifnull(null, 1) |
++-----------------+
+|               1 |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> select comm from emp;
+ERROR 1146 (42S02): Table 'z2.emp' doesn't exist
+mysql> select comm from db1.emp;
++------+
+| comm |
++------+
+| NULL |
+| NULL |
+| NULL |
+| NULL |
+| NULL |
+| NULL |
+| NULL |
+|  300 |
+|  500 |
+| NULL |
+| 1400 |
+| NULL |
+| NULL |
+| NULL |
+| NULL |
+| NULL |
+|    0 |
+| NULL |
+| NULL |
+| NULL |
+| NULL |
+| 2700 |
+| NULL |
+| 2700 |
+|  500 |
+| NULL |
+| NULL |
+| NULL |
++------+
+28 rows in set (0.00 sec)
+
+mysql> use db1;
+Database changed
+mysql> select comm from emp;
++------+
+| comm |
++------+
+| NULL |
+| NULL |
+| NULL |
+| NULL |
+| NULL |
+| NULL |
+| NULL |
+|  300 |
+|  500 |
+| NULL |
+| 1400 |
+| NULL |
+| NULL |
+| NULL |
+| NULL |
+| NULL |
+|    0 |
+| NULL |
+| NULL |
+| NULL |
+| NULL |
+| 2700 |
+| NULL |
+| 2700 |
+|  500 |
+| NULL |
+| NULL |
+| NULL |
++------+
+28 rows in set (0.00 sec)
+
+mysql> select job, comm from emp;
++---------------------+------+
+| job                 | comm |
++---------------------+------+
+| Compliance officers | NULL |
+| Compliance officers | NULL |
+| Public Relation     | NULL |
+| Public Relation     | NULL |
+| CLERK               | NULL |
+| CLERK               | NULL |
+| CLERK               | NULL |
+| SALESMAN            |  300 |
+| SALESMAN            |  500 |
+| MANAGER             | NULL |
+| SALESMAN            | 1400 |
+| MANAGER             | NULL |
+| MANAGER             | NULL |
+| ANALYST             | NULL |
+| PRESIDENT           | NULL |
+| vice PRESIDENT      | NULL |
+| SALESMAN            |    0 |
+| CLERK               | NULL |
+| CLERK               | NULL |
+| ANALYST             | NULL |
+| MANAGER             | NULL |
+| SALESMAN            | 2700 |
+| CLERK               | NULL |
+| SALESMAN            | 2700 |
+| MANAGER             |  500 |
+| CLERK               | NULL |
+| Compliance officers | NULL |
+| ANALYST             | NULL |
++---------------------+------+
+28 rows in set (0.00 sec)
+
+mysql> select job, comm, ifnull(comm, 'N/A') from emp;
++---------------------+------+---------------------+
+| job                 | comm | ifnull(comm, 'N/A') |
++---------------------+------+---------------------+
+| Compliance officers | NULL | N/A                 |
+| Compliance officers | NULL | N/A                 |
+| Public Relation     | NULL | N/A                 |
+| Public Relation     | NULL | N/A                 |
+| CLERK               | NULL | N/A                 |
+| CLERK               | NULL | N/A                 |
+| CLERK               | NULL | N/A                 |
+| SALESMAN            |  300 | 300                 |
+| SALESMAN            |  500 | 500                 |
+| MANAGER             | NULL | N/A                 |
+| SALESMAN            | 1400 | 1400                |
+| MANAGER             | NULL | N/A                 |
+| MANAGER             | NULL | N/A                 |
+| ANALYST             | NULL | N/A                 |
+| PRESIDENT           | NULL | N/A                 |
+| vice PRESIDENT      | NULL | N/A                 |
+| SALESMAN            |    0 | 0                   |
+| CLERK               | NULL | N/A                 |
+| CLERK               | NULL | N/A                 |
+| ANALYST             | NULL | N/A                 |
+| MANAGER             | NULL | N/A                 |
+| SALESMAN            | 2700 | 2700                |
+| CLERK               | NULL | N/A                 |
+| SALESMAN            | 2700 | 2700                |
+| MANAGER             |  500 | 500                 |
+| CLERK               | NULL | N/A                 |
+| Compliance officers | NULL | N/A                 |
+| ANALYST             | NULL | N/A                 |
++---------------------+------+---------------------+
+28 rows in set (0.00 sec)
+
+mysql> select if(10=10, 'Good', 'Bad');
++--------------------------+
+| if(10=10, 'Good', 'Bad') |
++--------------------------+
+| Good                     |
++--------------------------+
+1 row in set (0.00 sec)
+
+mysql> select if(10=100, 'Good', 'Bad');
++---------------------------+
+| if(10=100, 'Good', 'Bad') |
++---------------------------+
+| Bad                       |
++---------------------------+
+1 row in set (0.00 sec)
+
+mysql> select comm, if(comm >0, comm+100, 500) from emp;
++------+----------------------------+
+| comm | if(comm >0, comm+100, 500) |
++------+----------------------------+
+| NULL |                        500 |
+| NULL |                        500 |
+| NULL |                        500 |
+| NULL |                        500 |
+| NULL |                        500 |
+| NULL |                        500 |
+| NULL |                        500 |
+|  300 |                        400 |
+|  500 |                        600 |
+| NULL |                        500 |
+| 1400 |                       1500 |
+| NULL |                        500 |
+| NULL |                        500 |
+| NULL |                        500 |
+| NULL |                        500 |
+| NULL |                        500 |
+|    0 |                        500 |
+| NULL |                        500 |
+| NULL |                        500 |
+| NULL |                        500 |
+| NULL |                        500 |
+| 2700 |                       2800 |
+| NULL |                        500 |
+| 2700 |                       2800 |
+|  500 |                        600 |
+| NULL |                        500 |
+| NULL |                        500 |
+| NULL |                        500 |
++------+----------------------------+
+28 rows in set (0.00 sec)
+
+mysql> select 100 > 20;
++----------+
+| 100 > 20 |
++----------+
+|        1 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select 100 > 7720;
++------------+
+| 100 > 7720 |
++------------+
+|          0 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select 'a' = 'A';
++-----------+
+| 'a' = 'A' |
++-----------+
+|         1 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select 'a' = binary 'A';
++------------------+
+| 'a' = binary 'A' |
++------------------+
+|                0 |
++------------------+
+1 row in set, 1 warning (0.02 sec)
+
+mysql> SELECT deptno, IF(deptno = 10, 'Sales', IF(deptno = 20 , 'Purchase' ,'N/A')) R1 FROM emp;
++--------+----------+
+| deptno | R1       |
++--------+----------+
+|     10 | Sales    |
+|     10 | Sales    |
+|     10 | Sales    |
+|     10 | Sales    |
+|     10 | Sales    |
+|     20 | Purchase |
+|     20 | Purchase |
+|     20 | Purchase |
+|     20 | Purchase |
+|     20 | Purchase |
+|     20 | Purchase |
+|     20 | Purchase |
+|     20 | Purchase |
+|     30 | N/A      |
+|     30 | N/A      |
+|     30 | N/A      |
+|     30 | N/A      |
+|     30 | N/A      |
+|     30 | N/A      |
+|     30 | N/A      |
+|     30 | N/A      |
+|     30 | N/A      |
+|     30 | N/A      |
+|     30 | N/A      |
+|     30 | N/A      |
+|     50 | N/A      |
+|     50 | N/A      |
+|     50 | N/A      |
++--------+----------+
+28 rows in set (0.00 sec)
+
+mysql> SELECT deptno, IF(deptno = 10, 'Sales', IF(deptno = 20 , 'Purchase' ,'no department')
+) R1 FROM emp;
++--------+---------------+
+| deptno | R1            |
++--------+---------------+
+|     10 | Sales         |
+|     10 | Sales         |
+|     10 | Sales         |
+|     10 | Sales         |
+|     10 | Sales         |
+|     20 | Purchase      |
+|     20 | Purchase      |
+|     20 | Purchase      |
+|     20 | Purchase      |
+|     20 | Purchase      |
+|     20 | Purchase      |
+|     20 | Purchase      |
+|     20 | Purchase      |
+|     30 | no department |
+|     30 | no department |
+|     30 | no department |
+|     30 | no department |
+|     30 | no department |
+|     30 | no department |
+|     30 | no department |
+|     30 | no department |
+|     30 | no department |
+|     30 | no department |
+|     30 | no department |
+|     30 | no department |
+|     50 | no department |
+|     50 | no department |
+|     50 | no department |
++--------+---------------+
+28 rows in set (0.00 sec)
+
+mysql> SELECT deptno, IF(deptno = 10, 'Sales', IF(deptno = 20 , 'Purchase' ,'no department')) FROM emp;
++--------+-------------------------------------------------------------------------+
+| deptno | IF(deptno = 10, 'Sales', IF(deptno = 20 , 'Purchase' ,'no department')) |
++--------+-------------------------------------------------------------------------+
+|     10 | Sales                                                                   |
+|     10 | Sales                                                                   |
+|     10 | Sales                                                                   |
+|     10 | Sales                                                                   |
+|     10 | Sales                                                                   |
+|     20 | Purchase                                                                |
+|     20 | Purchase                                                                |
+|     20 | Purchase                                                                |
+|     20 | Purchase                                                                |
+|     20 | Purchase                                                                |
+|     20 | Purchase                                                                |
+|     20 | Purchase                                                                |
+|     20 | Purchase                                                                |
+|     30 | no department                                                           |
+|     30 | no department                                                           |
+|     30 | no department                                                           |
+|     30 | no department                                                           |
+|     30 | no department                                                           |
+|     30 | no department                                                           |
+|     30 | no department                                                           |
+|     30 | no department                                                           |
+|     30 | no department                                                           |
+|     30 | no department                                                           |
+|     30 | no department                                                           |
+|     30 | no department                                                           |
+|     50 | no department                                                           |
+|     50 | no department                                                           |
+|     50 | no department                                                           |
++--------+-------------------------------------------------------------------------+
+28 rows in set (0.00 sec)
+
+mysql> SELECT deptno, IF(deptno = 10, 'Sales', IF(deptno = 20 , 'Purchase' ,'no department')) R1 FROM emp;
++--------+---------------+
+| deptno | R1            |
++--------+---------------+
+|     10 | Sales         |
+|     10 | Sales         |
+|     10 | Sales         |
+|     10 | Sales         |
+|     10 | Sales         |
+|     20 | Purchase      |
+|     20 | Purchase      |
+|     20 | Purchase      |
+|     20 | Purchase      |
+|     20 | Purchase      |
+|     20 | Purchase      |
+|     20 | Purchase      |
+|     20 | Purchase      |
+|     30 | no department |
+|     30 | no department |
+|     30 | no department |
+|     30 | no department |
+|     30 | no department |
+|     30 | no department |
+|     30 | no department |
+|     30 | no department |
+|     30 | no department |
+|     30 | no department |
+|     30 | no department |
+|     30 | no department |
+|     50 | no department |
+|     50 | no department |
+|     50 | no department |
++--------+---------------+
+28 rows in set (0.00 sec)
+
+mysql> select nullif(1,1);
++-------------+
+| nullif(1,1) |
++-------------+
+|        NULL |
++-------------+
+1 row in set (0.01 sec)
+
+mysql> select nullif(100,1);
++---------------+
+| nullif(100,1) |
++---------------+
+|           100 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> select case 10 when 10 then 'Good' else 'Bad';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql> select case 10 when 10 then 'Good' else 'Bad' end;
++--------------------------------------------+
+| case 10 when 10 then 'Good' else 'Bad' end |
++--------------------------------------------+
+| Good                                       |
++--------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select case 100 when 10 then 'Good' else 'Bad' end;
++---------------------------------------------+
+| case 100 when 10 then 'Good' else 'Bad' end |
++---------------------------------------------+
+| Bad                                         |
++---------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> select deptno from emp;
++--------+
+| deptno |
++--------+
+|     10 |
+|     10 |
+|     10 |
+|     10 |
+|     10 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     20 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     30 |
+|     50 |
+|     50 |
+|     50 |
++--------+
+28 rows in set (0.00 sec)
+
+mysql> select deptno, case deptno when 10 then 'Good' else 'Bad' end  R1 from emp;
++--------+------+
+| deptno | R1   |
++--------+------+
+|     10 | Good |
+|     10 | Good |
+|     10 | Good |
+|     10 | Good |
+|     10 | Good |
+|     20 | Bad  |
+|     20 | Bad  |
+|     20 | Bad  |
+|     20 | Bad  |
+|     20 | Bad  |
+|     20 | Bad  |
+|     20 | Bad  |
+|     20 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     50 | Bad  |
+|     50 | Bad  |
+|     50 | Bad  |
++--------+------+
+28 rows in set (0.01 sec)
+
+mysql> select deptno, case deptno when 10 then 'Good' when 20 then 'OK' else 'Bad' end  R1 f
+rom emp;
++--------+------+
+| deptno | R1   |
++--------+------+
+|     10 | Good |
+|     10 | Good |
+|     10 | Good |
+|     10 | Good |
+|     10 | Good |
+|     20 | OK   |
+|     20 | OK   |
+|     20 | OK   |
+|     20 | OK   |
+|     20 | OK   |
+|     20 | OK   |
+|     20 | OK   |
+|     20 | OK   |
+|     30 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     30 | Bad  |
+|     50 | Bad  |
+|     50 | Bad  |
+|     50 | Bad  |
++--------+------+
+28 rows in set (0.00 sec)
+
+mysql> select deptno, case deptno when 10 then 'Good' when 20 then 'OK' when 30 then 'Fine'
+else 'Bad' end  R1 from emp;
++--------+------+
+| deptno | R1   |
++--------+------+
+|     10 | Good |
+|     10 | Good |
+|     10 | Good |
+|     10 | Good |
+|     10 | Good |
+|     20 | OK   |
+|     20 | OK   |
+|     20 | OK   |
+|     20 | OK   |
+|     20 | OK   |
+|     20 | OK   |
+|     20 | OK   |
+|     20 | OK   |
+|     30 | Fine |
+|     30 | Fine |
+|     30 | Fine |
+|     30 | Fine |
+|     30 | Fine |
+|     30 | Fine |
+|     30 | Fine |
+|     30 | Fine |
+|     30 | Fine |
+|     30 | Fine |
+|     30 | Fine |
+|     30 | Fine |
+|     50 | Bad  |
+|     50 | Bad  |
+|     50 | Bad  |
++--------+------+
+28 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql> select case when sal < 2000 then 'Good' else 'Bad' end R1 from emp;
++------+
+| R1   |
++------+
+| Good |
+| Good |
+| Good |
+| Good |
+| Good |
+| Bad  |
+| Good |
+| Good |
+| Good |
+| Bad  |
+| Good |
+| Bad  |
+| Bad  |
+| Bad  |
+| Bad  |
+| Bad  |
+| Good |
+| Good |
+| Good |
+| Bad  |
+| Bad  |
+| Bad  |
+| Good |
+| Good |
+| Good |
+| Good |
+| Good |
+| Good |
++------+
+28 rows in set (0.00 sec)
+
+mysql> select sal, case when sal < 2000 then 'Good' else 'Bad' end R1 from emp;
++------+------+
+| sal  | R1   |
++------+------+
+| 1750 | Good |
+| 1750 | Good |
+| 1750 | Good |
+| 1750 | Good |
+|  800 | Good |
+| 3350 | Bad  |
+| 1750 | Good |
+| 1600 | Good |
+| 1250 | Good |
+| 2975 | Bad  |
+| 1250 | Good |
+| 2850 | Bad  |
+| 2450 | Bad  |
+| 3000 | Bad  |
+| 5000 | Bad  |
+| 5000 | Bad  |
+| 1500 | Good |
+| 1100 | Good |
+|  950 | Good |
+| 3000 | Bad  |
+| 4150 | Bad  |
+| 2575 | Bad  |
+| 1300 | Good |
+| 1350 | Good |
+| 1250 | Good |
+| 1750 | Good |
+| 1750 | Good |
+| 1750 | Good |
++------+------+
+28 rows in set (0.00 sec)
+
+mysql> select sal, case when sal> 100 and sal <1200 then 'Good' else 'Bad' end R1 from emp;
++------+------+
+| sal  | R1   |
++------+------+
+| 1750 | Bad  |
+| 1750 | Bad  |
+| 1750 | Bad  |
+| 1750 | Bad  |
+|  800 | Good |
+| 3350 | Bad  |
+| 1750 | Bad  |
+| 1600 | Bad  |
+| 1250 | Bad  |
+| 2975 | Bad  |
+| 1250 | Bad  |
+| 2850 | Bad  |
+| 2450 | Bad  |
+| 3000 | Bad  |
+| 5000 | Bad  |
+| 5000 | Bad  |
+| 1500 | Bad  |
+| 1100 | Good |
+|  950 | Good |
+| 3000 | Bad  |
+| 4150 | Bad  |
+| 2575 | Bad  |
+| 1300 | Bad  |
+| 1350 | Bad  |
+| 1250 | Bad  |
+| 1750 | Bad  |
+| 1750 | Bad  |
+| 1750 | Bad  |
++------+------+
+28 rows in set (0.00 sec)
+
+mysql> select * from transactions;
++-----+--------+---------------------+------+--------+
+| _id | custId | transactionDate     | type | amount |
++-----+--------+---------------------+------+--------+
+|   1 |   1002 | 2021-01-01 10:24:34 | c    |  30000 |
+|   2 |   1001 | 2021-01-01 12:45:13 | c    |  30000 |
+|   3 |   1003 | 2021-01-01 14:00:04 | c    |  30000 |
+|   4 |   1002 | 2021-01-01 12:24:34 | c    | 370000 |
+|   5 |   1001 | 2021-01-01 14:45:13 | c    | 370000 |
+|   6 |   1003 | 2021-01-01 15:00:04 | c    | 370000 |
+|   7 |   1002 | 2021-01-01 10:24:34 | d    |   7000 |
+|   8 |   1001 | 2021-01-01 12:45:13 | d    |   7500 |
+|   9 |   1003 | 2021-01-01 14:00:04 | d    |   7000 |
+|  10 |   1001 | 2021-01-01 11:20:10 | d    |   2000 |
+|  11 |   1002 | 2021-02-12 12:00:42 | d    |   4000 |
+|  12 |   1001 | 2021-02-23 10:24:34 | d    |   1500 |
+|  13 |   1003 | 2021-01-12 09:23:09 | d    |   1000 |
+|  14 |   1001 | 2021-02-28 11:43:13 | c    |    500 |
+|  15 |   1002 | 2021-03-13 12:23:31 | d    |    500 |
+|  16 |   1002 | 2021-03-01 11:20:43 | c    |   1500 |
+|  17 |   1003 | 2021-02-24 11:34:32 | c    |    200 |
+|  18 |   1002 | 2021-04-30 14:20:32 | d    |   6000 |
+|  19 |   1001 | 2021-02-27 11:43:10 | d    |   2000 |
+|  20 |   1001 | 2021-03-17 09:15:23 | c    |   1200 |
+|  21 |   1003 | 2021-04-06 09:13:22 | d    |   4500 |
+|  22 |   1003 | 2021-02-04 11:32:43 | d    |   4200 |
+|  23 |   1001 | 2021-05-14 10:17:10 | c    |    600 |
+|  24 |   1003 | 2021-02-07 14:45:33 | c    |    400 |
+|  25 |   1002 | 2021-04-29 15:53:23 | c    |   1200 |
+|  26 |   1002 | 2021-06-23 09:53:54 | c    |   1600 |
+|  27 |   1003 | 2021-03-06 11:50:34 | d    |   3000 |
+|  28 |   1002 | 2021-04-30 14:20:33 | d    |   3000 |
+|  29 |   1001 | 2021-05-14 10:17:13 | c    |    600 |
+|  30 |   1003 | 2021-01-01 14:00:05 | d    |   7000 |
+|  31 |   1002 | 2021-06-23 09:53:57 | c    |    250 |
+|  32 |   1001 | 2021-05-14 10:17:18 | d    |   5600 |
+|  33 |   1003 | 2021-03-06 11:50:37 | c    |    200 |
++-----+--------+---------------------+------+--------+
+33 rows in set (0.01 sec)
+
+mysql> select 1000 + 2000;
++-------------+
+| 1000 + 2000 |
++-------------+
+|        3000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select 3000 -500;
++-----------+
+| 3000 -500 |
++-----------+
+|      2500 |
++-----------+
+1 row in set (0.01 sec)
+
+mysql> select * from r1;
++------+
+| c1   |
++------+
+|    1 |
+|    2 |
+|    3 |
+|    4 |
++------+
+4 rows in set (0.04 sec)
+
+mysql> select * from r2;
++------+------+
+| c1   | c2   |
++------+------+
+|    1 | a    |
+|    2 | b    |
+|    1 | c    |
+|    3 | d    |
+|    2 | e    |
+|    1 | f    |
++------+------+
+6 rows in set (0.04 sec)
+
+mysql> sow tables;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'sow tables' at line 1
+mysql> show tables;
++---------------------+
+| Tables_in_db1       |
++---------------------+
+| a                   |
+| a1                  |
+| a2                  |
+| a3                  |
+| agent               |
+| andor               |
+| b                   |
+| blanktablea         |
+| blanktableb         |
+| blog                |
+| bonus               |
+| books               |
+| candidate           |
+| client              |
+| coalesce            |
+| comments            |
+| company             |
+| crossjoin           |
+| customer            |
+| customers           |
+| demodept1           |
+| demodept2           |
+| dept                |
+| dept1               |
+| docs                |
+| doctor              |
+| doctorvisits        |
+| dummy               |
+| duplicate           |
+| emp                 |
+| emp1                |
+| emp2                |
+| emp_attendance      |
+| emp_cards           |
+| emp_phone           |
+| empj                |
+| empll               |
+| empll1              |
+| envelope            |
+| food                |
+| fullname            |
+| hobby               |
+| item                |
+| job_list            |
+| key_parts           |
+| labtestlist         |
+| leadtable           |
+| licence             |
+| location            |
+| mass_table          |
+| medicinelist        |
+| menucard            |
+| nearest             |
+| new                 |
+| newbooks            |
+| nullif              |
+| numbers             |
+| numberstring        |
+| ord                 |
+| orderdetails        |
+| orders              |
+| overtime            |
+| patient             |
+| phonecall           |
+| pivot_table         |
+| plumber             |
+| plumber_service_map |
+| points              |
+| price               |
+| product             |
+| product_sales       |
+| products            |
+| quarterly_revenue   |
+| r                   |
+| r1                  |
+| r2                  |
+| races               |
+| regexpr             |
+| replacedept         |
+| revenue             |
+| rockets             |
+| runners             |
+| runningserver       |
+| sales               |
+| sales_channel       |
+| salespeople         |
+| salesperson         |
+| salgrade            |
+| server              |
+| service             |
+| seta                |
+| setb                |
+| shop                |
+| softdrink           |
+| sort                |
+| sourcenames         |
+| stadium             |
+| states              |
+| station             |
+| status              |
+| stringnumber        |
+| studentx            |
+| tablea              |
+| tableaa             |
+| tableb              |
+| tablebb             |
+| targetnames         |
+| tasks               |
+| temp1               |
+| test                |
+| traintimetable      |
+| transactions        |
+| vote_response       |
+| votes               |
+| warehouse           |
+| yearly_revenue      |
+| z                   |
++---------------------+
+117 rows in set (0.03 sec)
+
+mysql> select * from r;
++------+
+| c1   |
++------+
+|   -2 |
+|    1 |
+|    2 |
+|   -1 |
+|    3 |
+|   -2 |
+|    1 |
+|    2 |
+|    1 |
++------+
+9 rows in set (0.05 sec)
+
+mysql> select -2 + 1 + 2;
++------------+
+| -2 + 1 + 2 |
++------------+
+|          1 |
++------------+
+1 row in set (0.01 sec)
+
+mysql> select -2 + 1 + 2 + -1 +3;
++--------------------+
+| -2 + 1 + 2 + -1 +3 |
++--------------------+
+|                  3 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from transactions;
++-----+--------+---------------------+------+--------+
+| _id | custId | transactionDate     | type | amount |
++-----+--------+---------------------+------+--------+
+|   1 |   1002 | 2021-01-01 10:24:34 | c    |  30000 |
+|   2 |   1001 | 2021-01-01 12:45:13 | c    |  30000 |
+|   3 |   1003 | 2021-01-01 14:00:04 | c    |  30000 |
+|   4 |   1002 | 2021-01-01 12:24:34 | c    | 370000 |
+|   5 |   1001 | 2021-01-01 14:45:13 | c    | 370000 |
+|   6 |   1003 | 2021-01-01 15:00:04 | c    | 370000 |
+|   7 |   1002 | 2021-01-01 10:24:34 | d    |   7000 |
+|   8 |   1001 | 2021-01-01 12:45:13 | d    |   7500 |
+|   9 |   1003 | 2021-01-01 14:00:04 | d    |   7000 |
+|  10 |   1001 | 2021-01-01 11:20:10 | d    |   2000 |
+|  11 |   1002 | 2021-02-12 12:00:42 | d    |   4000 |
+|  12 |   1001 | 2021-02-23 10:24:34 | d    |   1500 |
+|  13 |   1003 | 2021-01-12 09:23:09 | d    |   1000 |
+|  14 |   1001 | 2021-02-28 11:43:13 | c    |    500 |
+|  15 |   1002 | 2021-03-13 12:23:31 | d    |    500 |
+|  16 |   1002 | 2021-03-01 11:20:43 | c    |   1500 |
+|  17 |   1003 | 2021-02-24 11:34:32 | c    |    200 |
+|  18 |   1002 | 2021-04-30 14:20:32 | d    |   6000 |
+|  19 |   1001 | 2021-02-27 11:43:10 | d    |   2000 |
+|  20 |   1001 | 2021-03-17 09:15:23 | c    |   1200 |
+|  21 |   1003 | 2021-04-06 09:13:22 | d    |   4500 |
+|  22 |   1003 | 2021-02-04 11:32:43 | d    |   4200 |
+|  23 |   1001 | 2021-05-14 10:17:10 | c    |    600 |
+|  24 |   1003 | 2021-02-07 14:45:33 | c    |    400 |
+|  25 |   1002 | 2021-04-29 15:53:23 | c    |   1200 |
+|  26 |   1002 | 2021-06-23 09:53:54 | c    |   1600 |
+|  27 |   1003 | 2021-03-06 11:50:34 | d    |   3000 |
+|  28 |   1002 | 2021-04-30 14:20:33 | d    |   3000 |
+|  29 |   1001 | 2021-05-14 10:17:13 | c    |    600 |
+|  30 |   1003 | 2021-01-01 14:00:05 | d    |   7000 |
+|  31 |   1002 | 2021-06-23 09:53:57 | c    |    250 |
+|  32 |   1001 | 2021-05-14 10:17:18 | d    |   5600 |
+|  33 |   1003 | 2021-03-06 11:50:37 | c    |    200 |
++-----+--------+---------------------+------+--------+
+33 rows in set (0.00 sec)
+
+mysql> select custId,transactionDate, case type when 'c' then amount when 'd' then -amount e
+nd R1 from transactions;
++--------+---------------------+--------+
+| custId | transactionDate     | R1     |
++--------+---------------------+--------+
+|   1002 | 2021-01-01 10:24:34 |  30000 |
+|   1001 | 2021-01-01 12:45:13 |  30000 |
+|   1003 | 2021-01-01 14:00:04 |  30000 |
+|   1002 | 2021-01-01 12:24:34 | 370000 |
+|   1001 | 2021-01-01 14:45:13 | 370000 |
+|   1003 | 2021-01-01 15:00:04 | 370000 |
+|   1002 | 2021-01-01 10:24:34 |  -7000 |
+|   1001 | 2021-01-01 12:45:13 |  -7500 |
+|   1003 | 2021-01-01 14:00:04 |  -7000 |
+|   1001 | 2021-01-01 11:20:10 |  -2000 |
+|   1002 | 2021-02-12 12:00:42 |  -4000 |
+|   1001 | 2021-02-23 10:24:34 |  -1500 |
+|   1003 | 2021-01-12 09:23:09 |  -1000 |
+|   1001 | 2021-02-28 11:43:13 |    500 |
+|   1002 | 2021-03-13 12:23:31 |   -500 |
+|   1002 | 2021-03-01 11:20:43 |   1500 |
+|   1003 | 2021-02-24 11:34:32 |    200 |
+|   1002 | 2021-04-30 14:20:32 |  -6000 |
+|   1001 | 2021-02-27 11:43:10 |  -2000 |
+|   1001 | 2021-03-17 09:15:23 |   1200 |
+|   1003 | 2021-04-06 09:13:22 |  -4500 |
+|   1003 | 2021-02-04 11:32:43 |  -4200 |
+|   1001 | 2021-05-14 10:17:10 |    600 |
+|   1003 | 2021-02-07 14:45:33 |    400 |
+|   1002 | 2021-04-29 15:53:23 |   1200 |
+|   1002 | 2021-06-23 09:53:54 |   1600 |
+|   1003 | 2021-03-06 11:50:34 |  -3000 |
+|   1002 | 2021-04-30 14:20:33 |  -3000 |
+|   1001 | 2021-05-14 10:17:13 |    600 |
+|   1003 | 2021-01-01 14:00:05 |  -7000 |
+|   1002 | 2021-06-23 09:53:57 |    250 |
+|   1001 | 2021-05-14 10:17:18 |  -5600 |
+|   1003 | 2021-03-06 11:50:37 |    200 |
++--------+---------------------+--------+
+33 rows in set (0.01 sec)
+
+mysql>
+mysql>
+mysql> select now();
++---------------------+
+| now()               |
++---------------------+
+| 2025-03-04 11:39:18 |
++---------------------+
+1 row in set (0.01 sec)
+
+mysql> use z1;
+Database changed
+mysql> create table t1(c1 datetime);
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> desc t1;
++-------+----------+------+-----+---------+-------+
+| Field | Type     | Null | Key | Default | Extra |
++-------+----------+------+-----+---------+-------+
+| c1    | datetime | YES  |     | NULL    |       |
++-------+----------+------+-----+---------+-------+
+1 row in set (0.00 sec)
+
+mysql> insert into t1 values(now());
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from t1;
++---------------------+
+| c1                  |
++---------------------+
+| 2025-03-04 11:40:48 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select now();
++---------------------+
+| now()               |
++---------------------+
+| 2025-03-04 11:41:04 |
++---------------------+
+1 row in set (0.00 sec)
+
+mysql> select currdate
+    -> ;
+ERROR 1054 (42S22): Unknown column 'currdate' in 'field list'
+mysql> select current_date;
++--------------+
+| current_date |
++--------------+
+| 2025-03-04   |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select curdate;
+ERROR 1054 (42S22): Unknown column 'curdate' in 'field list'
+mysql> select curdate();
++------------+
+| curdate()  |
++------------+
+| 2025-03-04 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select curdate(), curdate() + interval 3 day R1;
++------------+------------+
+| curdate()  | R1         |
++------------+------------+
+| 2025-03-04 | 2025-03-07 |
++------------+------------+
+1 row in set (0.00 sec)
+
+mysql> select curdate(), curdate() + interval 1 month R1;
++------------+------------+
+| curdate()  | R1         |
++------------+------------+
+| 2025-03-04 | 2025-04-04 |
++------------+------------+
+1 row in set (0.00 sec)
+
+mysql> select now(), now() + interval 1 day_hour R1;
++---------------------+---------------------+
+| now()               | R1                  |
++---------------------+---------------------+
+| 2025-03-04 11:47:33 | 2025-03-04 12:47:33 |
++---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> select now(), now() + interval 1 1 day_hour R1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1 day_hour R1' at line 1
+mysql> select now(), now() + interval 1,1 day_hour R1;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ',1 day_hour R1' at line 1
+mysql> select now(), now() + interval '1 1' day_hour R1;
++---------------------+---------------------+
+| now()               | R1                  |
++---------------------+---------------------+
+| 2025-03-04 11:49:09 | 2025-03-05 12:49:09 |
++---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> select now(), now() + interval '6 2' day_hour R1;
++---------------------+---------------------+
+| now()               | R1                  |
++---------------------+---------------------+
+| 2025-03-04 11:49:42 | 2025-03-10 13:49:42 |
++---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> select now(), now() + interval '1 1' day_minute R1;
++---------------------+---------------------+
+| now()               | R1                  |
++---------------------+---------------------+
+| 2025-03-04 11:51:20 | 2025-03-04 12:52:20 |
++---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql>
+mysql> select now(), now() + interval '1 0:1' day_minute R1;
++---------------------+---------------------+
+| now()               | R1                  |
++---------------------+---------------------+
+| 2025-03-04 11:52:30 | 2025-03-05 11:53:30 |
++---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> select now(), now() + interval '0 0:1' day_minute R1;
++---------------------+---------------------+
+| now()               | R1                  |
++---------------------+---------------------+
+| 2025-03-04 11:52:57 | 2025-03-04 11:53:57 |
++---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> select hiredate from emp;
++------------+
+| hiredate   |
++------------+
+| 1981-07-19 |
+| 1981-07-19 |
+| 1981-07-19 |
+| 1981-07-19 |
+| 1980-12-17 |
+| 1981-12-31 |
+| 1981-07-19 |
+| 1981-02-20 |
+| 1981-02-22 |
+| 1981-04-02 |
+| 1981-09-28 |
+| 1981-05-01 |
+| 1981-06-09 |
+| 1982-12-09 |
+| 1981-11-17 |
+| 1983-08-09 |
+| 1981-09-08 |
+| 1983-01-12 |
+| 1981-12-03 |
+| 1981-12-03 |
+| 1982-03-24 |
+| 1980-02-14 |
+| 1982-01-23 |
+| 1980-02-14 |
+| 1982-01-24 |
+| 1981-07-19 |
+| 1981-07-19 |
+| 1981-07-19 |
++------------+
+28 rows in set (0.04 sec)
+
+mysql> select hiredate, extract (month from hiredate) R1 from emp;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'from hiredate) R1 from emp' at line 1
+mysql> select hiredate, extract(month from hiredate) R1 from emp;
++------------+------+
+| hiredate   | R1   |
++------------+------+
+| 1981-07-19 |    7 |
+| 1981-07-19 |    7 |
+| 1981-07-19 |    7 |
+| 1981-07-19 |    7 |
+| 1980-12-17 |   12 |
+| 1981-12-31 |   12 |
+| 1981-07-19 |    7 |
+| 1981-02-20 |    2 |
+| 1981-02-22 |    2 |
+| 1981-04-02 |    4 |
+| 1981-09-28 |    9 |
+| 1981-05-01 |    5 |
+| 1981-06-09 |    6 |
+| 1982-12-09 |   12 |
+| 1981-11-17 |   11 |
+| 1983-08-09 |    8 |
+| 1981-09-08 |    9 |
+| 1983-01-12 |    1 |
+| 1981-12-03 |   12 |
+| 1981-12-03 |   12 |
+| 1982-03-24 |    3 |
+| 1980-02-14 |    2 |
+| 1982-01-23 |    1 |
+| 1980-02-14 |    2 |
+| 1982-01-24 |    1 |
+| 1981-07-19 |    7 |
+| 1981-07-19 |    7 |
+| 1981-07-19 |    7 |
++------------+------+
+28 rows in set (0.00 sec)
+
+mysql> desc emp;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| EMPNO     | int         | NO   | PRI | NULL    |       |
+| ENAME     | varchar(12) | YES  |     | NULL    |       |
+| GENDER    | char(1)     | YES  |     | NULL    |       |
+| JOB       | varchar(20) | YES  | MUL | NULL    |       |
+| MGR       | int         | YES  | MUL | NULL    |       |
+| HIREDATE  | date        | YES  |     | NULL    |       |
+| SAL       | int         | YES  |     | NULL    |       |
+| COMM      | int         | YES  |     | NULL    |       |
+| DEPTNO    | int         | NO   | MUL | NULL    |       |
+| BONUSID   | int         | YES  |     | NULL    |       |
+| USER NAME | varchar(20) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| PHONE     | varchar(45) | YES  |     | NULL    |       |
+| isActive  | tinyint(1)  | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+14 rows in set (0.00 sec)
+
+mysql> select hiredate, extract(quarter from hiredate) R1 from emp;
++------------+------+
+| hiredate   | R1   |
++------------+------+
+| 1981-07-19 |    3 |
+| 1981-07-19 |    3 |
+| 1981-07-19 |    3 |
+| 1981-07-19 |    3 |
+| 1980-12-17 |    4 |
+| 1981-12-31 |    4 |
+| 1981-07-19 |    3 |
+| 1981-02-20 |    1 |
+| 1981-02-22 |    1 |
+| 1981-04-02 |    2 |
+| 1981-09-28 |    3 |
+| 1981-05-01 |    2 |
+| 1981-06-09 |    2 |
+| 1982-12-09 |    4 |
+| 1981-11-17 |    4 |
+| 1983-08-09 |    3 |
+| 1981-09-08 |    3 |
+| 1983-01-12 |    1 |
+| 1981-12-03 |    4 |
+| 1981-12-03 |    4 |
+| 1982-03-24 |    1 |
+| 1980-02-14 |    1 |
+| 1982-01-23 |    1 |
+| 1980-02-14 |    1 |
+| 1982-01-24 |    1 |
+| 1981-07-19 |    3 |
+| 1981-07-19 |    3 |
+| 1981-07-19 |    3 |
++------------+------+
+28 rows in set (0.00 sec)
+
+mysql>
+mysql> select last_date(now());
+ERROR 1305 (42000): FUNCTION z1.last_date does not exist
+mysql> select last_day(now());
++-----------------+
+| last_day(now()) |
++-----------------+
+| 2025-03-31      |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> select ename, hiredate, minthname(hiredate) R1 from emp;
+ERROR 1305 (42000): FUNCTION z1.minthname does not exist
+mysql> select ename, hiredate, monthname(hiredate) R1 from emp;
++----------+------------+-----------+
+| ename    | hiredate   | R1        |
++----------+------------+-----------+
+| GITA     | 1981-07-19 | July      |
+| VRUSHALI | 1981-07-19 | July      |
+| SHARMIN  | 1981-07-19 | July      |
+| BANDISH  | 1981-07-19 | July      |
+| SMITH    | 1980-12-17 | December  |
+| AARAV    | 1981-12-31 | December  |
+| THOMAS   | 1981-07-19 | July      |
+| ALLEN    | 1981-02-20 | February  |
+| WARD     | 1981-02-22 | February  |
+| JONES    | 1981-04-02 | April     |
+| MARTIN   | 1981-09-28 | September |
+| BLAKE    | 1981-05-01 | May       |
+| CLARK    | 1981-06-09 | June      |
+| SCOTT    | 1982-12-09 | December  |
+| KING     | 1981-11-17 | November  |
+| FRED     | 1983-08-09 | August    |
+| TURNER   | 1981-09-08 | September |
+| ADAMS    | 1983-01-12 | January   |
+| JAMES    | 1981-12-03 | December  |
+| FORD     | 1981-12-03 | December  |
+| HOFFMAN  | 1982-03-24 | March     |
+| GRASS    | 1980-02-14 | February  |
+| MILLER   | 1982-01-23 | January   |
+| AARUSH   | 1980-02-14 | February  |
+| ALEX     | 1982-01-24 | January   |
+| NATASHA  | 1981-07-19 | July      |
+| SANGITA  | 1981-07-19 | July      |
+| SUPRIYA  | 1981-07-19 | July      |
++----------+------------+-----------+
+28 rows in set (0.02 sec)
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
++--------+------------+----------+------------+------------+
+5 rows in set (0.05 sec)
+
+mysql> desc dept;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| DEPTNO    | int         | NO   | PRI | NULL    |       |
+| DNAME     | varchar(12) | YES  |     | NULL    |       |
+| LOC       | varchar(10) | YES  |     | NULL    |       |
+| PWD       | varchar(20) | YES  |     | NULL    |       |
+| STARTEDON | varchar(10) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
++--------+------------+----------+------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select STARTEDON, extract(month from STARTEDON)from dept;
++------------+-------------------------------+
+| STARTEDON  | extract(month from STARTEDON) |
++------------+-------------------------------+
+| 24/03/1989 |                          NULL |
+| 12/04/1989 |                          NULL |
+| 13/04/1989 |                          NULL |
+| 12/07/1989 |                          NULL |
+| 22/12/1989 |                          NULL |
++------------+-------------------------------+
+5 rows in set, 5 warnings (0.00 sec)
+
+mysql> select STARTEDON from dept;
++------------+
+| STARTEDON  |
++------------+
+| 24/03/1989 |
+| 12/04/1989 |
+| 13/04/1989 |
+| 12/07/1989 |
+| 22/12/1989 |
++------------+
+5 rows in set (0.00 sec)
+
+mysql> select STARTEDON, str_to_date(STARTEDON, '%d/%m/%Y') R1 from dept;
++------------+------------+
+| STARTEDON  | R1         |
++------------+------------+
+| 24/03/1989 | 1989-03-24 |
+| 12/04/1989 | 1989-04-12 |
+| 13/04/1989 | 1989-04-13 |
+| 12/07/1989 | 1989-07-12 |
+| 22/12/1989 | 1989-12-22 |
++------------+------------+
+5 rows in set (0.01 sec)
+
+mysql> select now(), date_formate(now(), '%D') R1;
+ERROR 1305 (42000): FUNCTION z1.date_formate does not exist
+mysql> select now(), date_format(now(), '%D') R1;
++---------------------+------+
+| now()               | R1   |
++---------------------+------+
+| 2025-03-04 12:26:43 | 4th  |
++---------------------+------+
+1 row in set (0.01 sec)
+
+mysql> select now(), date_format(now(), '%D %a %b %c') R1;
++---------------------+---------------+
+| now()               | R1            |
++---------------------+---------------+
+| 2025-03-04 12:27:58 | 4th Tue Mar 3 |
++---------------------+---------------+
+1 row in set (0.00 sec)
+
+mysql> select ename, date_format(hiredate, 'Hello %a') from emp;
++----------+-----------------------------------+
+| ename    | date_format(hiredate, 'Hello %a') |
++----------+-----------------------------------+
+| GITA     | Hello Sun                         |
+| VRUSHALI | Hello Sun                         |
+| SHARMIN  | Hello Sun                         |
+| BANDISH  | Hello Sun                         |
+| SMITH    | Hello Wed                         |
+| AARAV    | Hello Thu                         |
+| THOMAS   | Hello Sun                         |
+| ALLEN    | Hello Fri                         |
+| WARD     | Hello Sun                         |
+| JONES    | Hello Thu                         |
+| MARTIN   | Hello Mon                         |
+| BLAKE    | Hello Fri                         |
+| CLARK    | Hello Tue                         |
+| SCOTT    | Hello Thu                         |
+| KING     | Hello Tue                         |
+| FRED     | Hello Tue                         |
+| TURNER   | Hello Tue                         |
+| ADAMS    | Hello Wed                         |
+| JAMES    | Hello Thu                         |
+| FORD     | Hello Thu                         |
+| HOFFMAN  | Hello Wed                         |
+| GRASS    | Hello Thu                         |
+| MILLER   | Hello Sat                         |
+| AARUSH   | Hello Thu                         |
+| ALEX     | Hello Sun                         |
+| NATASHA  | Hello Sun                         |
+| SANGITA  | Hello Sun                         |
+| SUPRIYA  | Hello Sun                         |
++----------+-----------------------------------+
+28 rows in set (0.00 sec)
+
+mysql> select concat("Mr.", ename ) from emp;
++-----------------------+
+| concat("Mr.", ename ) |
++-----------------------+
+| Mr.GITA               |
+| Mr.VRUSHALI           |
+| Mr.SHARMIN            |
+| Mr.BANDISH            |
+| Mr.SMITH              |
+| Mr.AARAV              |
+| Mr.THOMAS             |
+| Mr.ALLEN              |
+| Mr.WARD               |
+| Mr.JONES              |
+| Mr.MARTIN             |
+| Mr.BLAKE              |
+| Mr.CLARK              |
+| Mr.SCOTT              |
+| Mr.KING               |
+| Mr.FRED               |
+| Mr.TURNER             |
+| Mr.ADAMS              |
+| Mr.JAMES              |
+| Mr.FORD               |
+| Mr.HOFFMAN            |
+| Mr.GRASS              |
+| Mr.MILLER             |
+| Mr.AARUSH             |
+| Mr.ALEX               |
+| Mr.NATASHA            |
+| Mr.SANGITA            |
+| Mr.SUPRIYA            |
++-----------------------+
+28 rows in set (0.00 sec)
+
+mysql> select concat("Mr. ", ename ) from emp;
++------------------------+
+| concat("Mr. ", ename ) |
++------------------------+
+| Mr. GITA               |
+| Mr. VRUSHALI           |
+| Mr. SHARMIN            |
+| Mr. BANDISH            |
+| Mr. SMITH              |
+| Mr. AARAV              |
+| Mr. THOMAS             |
+| Mr. ALLEN              |
+| Mr. WARD               |
+| Mr. JONES              |
+| Mr. MARTIN             |
+| Mr. BLAKE              |
+| Mr. CLARK              |
+| Mr. SCOTT              |
+| Mr. KING               |
+| Mr. FRED               |
+| Mr. TURNER             |
+| Mr. ADAMS              |
+| Mr. JAMES              |
+| Mr. FORD               |
+| Mr. HOFFMAN            |
+| Mr. GRASS              |
+| Mr. MILLER             |
+| Mr. AARUSH             |
+| Mr. ALEX               |
+| Mr. NATASHA            |
+| Mr. SANGITA            |
+| Mr. SUPRIYA            |
++------------------------+
+28 rows in set (0.00 sec)
+
+mysql> select concat("Mr. ", ename, " was hired on " ) from emp;
++------------------------------------------+
+| concat("Mr. ", ename, " was hired on " ) |
++------------------------------------------+
+| Mr. GITA was hired on                    |
+| Mr. VRUSHALI was hired on                |
+| Mr. SHARMIN was hired on                 |
+| Mr. BANDISH was hired on                 |
+| Mr. SMITH was hired on                   |
+| Mr. AARAV was hired on                   |
+| Mr. THOMAS was hired on                  |
+| Mr. ALLEN was hired on                   |
+| Mr. WARD was hired on                    |
+| Mr. JONES was hired on                   |
+| Mr. MARTIN was hired on                  |
+| Mr. BLAKE was hired on                   |
+| Mr. CLARK was hired on                   |
+| Mr. SCOTT was hired on                   |
+| Mr. KING was hired on                    |
+| Mr. FRED was hired on                    |
+| Mr. TURNER was hired on                  |
+| Mr. ADAMS was hired on                   |
+| Mr. JAMES was hired on                   |
+| Mr. FORD was hired on                    |
+| Mr. HOFFMAN was hired on                 |
+| Mr. GRASS was hired on                   |
+| Mr. MILLER was hired on                  |
+| Mr. AARUSH was hired on                  |
+| Mr. ALEX was hired on                    |
+| Mr. NATASHA was hired on                 |
+| Mr. SANGITA was hired on                 |
+| Mr. SUPRIYA was hired on                 |
++------------------------------------------+
+28 rows in set (0.00 sec)
+
+mysql> select concat("Mr. ", ename, " was hired on ", date_format(hiredate, '%a') ) from emp
+;
++-----------------------------------------------------------------------+
+| concat("Mr. ", ename, " was hired on ", date_format(hiredate, '%a') ) |
++-----------------------------------------------------------------------+
+| Mr. GITA was hired on Sun                                             |
+| Mr. VRUSHALI was hired on Sun                                         |
+| Mr. SHARMIN was hired on Sun                                          |
+| Mr. BANDISH was hired on Sun                                          |
+| Mr. SMITH was hired on Wed                                            |
+| Mr. AARAV was hired on Thu                                            |
+| Mr. THOMAS was hired on Sun                                           |
+| Mr. ALLEN was hired on Fri                                            |
+| Mr. WARD was hired on Sun                                             |
+| Mr. JONES was hired on Thu                                            |
+| Mr. MARTIN was hired on Mon                                           |
+| Mr. BLAKE was hired on Fri                                            |
+| Mr. CLARK was hired on Tue                                            |
+| Mr. SCOTT was hired on Thu                                            |
+| Mr. KING was hired on Tue                                             |
+| Mr. FRED was hired on Tue                                             |
+| Mr. TURNER was hired on Tue                                           |
+| Mr. ADAMS was hired on Wed                                            |
+| Mr. JAMES was hired on Thu                                            |
+| Mr. FORD was hired on Thu                                             |
+| Mr. HOFFMAN was hired on Wed                                          |
+| Mr. GRASS was hired on Thu                                            |
+| Mr. MILLER was hired on Sat                                           |
+| Mr. AARUSH was hired on Thu                                           |
+| Mr. ALEX was hired on Sun                                             |
+| Mr. NATASHA was hired on Sun                                          |
+| Mr. SANGITA was hired on Sun                                          |
+| Mr. SUPRIYA was hired on Sun                                          |
++-----------------------------------------------------------------------+
+28 rows in set (0.01 sec)
+
+mysql> select concat("Mr. ", ename, " was hired on ", date_format(hiredate, '%a') ) from emp;
++-----------------------------------------------------------------------+
+| concat("Mr. ", ename, " was hired on ", date_format(hiredate, '%a') ) |
++-----------------------------------------------------------------------+
+| Mr. GITA was hired on Sun                                             |
+| Mr. VRUSHALI was hired on Sun                                         |
+| Mr. SHARMIN was hired on Sun                                          |
+| Mr. BANDISH was hired on Sun                                          |
+| Mr. SMITH was hired on Wed                                            |
+| Mr. AARAV was hired on Thu                                            |
+| Mr. THOMAS was hired on Sun                                           |
+| Mr. ALLEN was hired on Fri                                            |
+| Mr. WARD was hired on Sun                                             |
+| Mr. JONES was hired on Thu                                            |
+| Mr. MARTIN was hired on Mon                                           |
+| Mr. BLAKE was hired on Fri                                            |
+| Mr. CLARK was hired on Tue                                            |
+| Mr. SCOTT was hired on Thu                                            |
+| Mr. KING was hired on Tue                                             |
+| Mr. FRED was hired on Tue                                             |
+| Mr. TURNER was hired on Tue                                           |
+| Mr. ADAMS was hired on Wed                                            |
+| Mr. JAMES was hired on Thu                                            |
+| Mr. FORD was hired on Thu                                             |
+| Mr. HOFFMAN was hired on Wed                                          |
+| Mr. GRASS was hired on Thu                                            |
+| Mr. MILLER was hired on Sat                                           |
+| Mr. AARUSH was hired on Thu                                           |
+| Mr. ALEX was hired on Sun                                             |
+| Mr. NATASHA was hired on Sun                                          |
+| Mr. SANGITA was hired on Sun                                          |
+| Mr. SUPRIYA was hired on Sun                                          |
++-----------------------------------------------------------------------+
+28 rows in set (0.00 sec)
+
+mysql>
+mysql>
+mysql>
+mysql>
+mysql> select ascii('s');
++------------+
+| ascii('s') |
++------------+
+|        115 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select ascii('saleel');
++-----------------+
+| ascii('saleel') |
++-----------------+
+|             115 |
++-----------------+
+1 row in set (0.00 sec)
+
+mysql> select 12345, lpad(12345,10,'*');
++-------+--------------------+
+| 12345 | lpad(12345,10,'*') |
++-------+--------------------+
+| 12345 | *****12345         |
++-------+--------------------+
+1 row in set (0.01 sec)
+
+mysql> select phone from emp;
++------------+
+| phone      |
++------------+
+| NULL       |
+| NULL       |
+| NULL       |
+| NULL       |
+| 7032300023 |
+| 7032300084 |
+| 7032300011 |
+| 7032300096 |
+| 7132300034 |
+| 7132300039 |
+| 7132300050 |
+| 7132300027 |
+| 7032300001 |
+| NULL       |
+| 7132300081 |
+| NULL       |
+| NULL       |
+| 7132300086 |
+| 7132300042 |
+| NULL       |
+| NULL       |
+| NULL       |
+| 7132300055 |
+| NULL       |
+| 7156567183 |
+| NULL       |
+| NULL       |
+| NULL       |
++------------+
+28 rows in set (0.00 sec)
+
+mysql> select left('saleel', 2);
++-------------------+
+| left('saleel', 2) |
++-------------------+
+| sa                |
++-------------------+
+1 row in set (0.00 sec)
+
+mysql> select right('saleel', 2);
++--------------------+
+| right('saleel', 2) |
++--------------------+
+| el                 |
++--------------------+
+1 row in set (0.00 sec)
+
+mysql> select ename, left(ename, 2) from emp;
++----------+----------------+
+| ename    | left(ename, 2) |
++----------+----------------+
+| GITA     | GI             |
+| VRUSHALI | VR             |
+| SHARMIN  | SH             |
+| BANDISH  | BA             |
+| SMITH    | SM             |
+| AARAV    | AA             |
+| THOMAS   | TH             |
+| ALLEN    | AL             |
+| WARD     | WA             |
+| JONES    | JO             |
+| MARTIN   | MA             |
+| BLAKE    | BL             |
+| CLARK    | CL             |
+| SCOTT    | SC             |
+| KING     | KI             |
+| FRED     | FR             |
+| TURNER   | TU             |
+| ADAMS    | AD             |
+| JAMES    | JA             |
+| FORD     | FO             |
+| HOFFMAN  | HO             |
+| GRASS    | GR             |
+| MILLER   | MI             |
+| AARUSH   | AA             |
+| ALEX     | AL             |
+| NATASHA  | NA             |
+| SANGITA  | SA             |
+| SUPRIYA  | SU             |
++----------+----------------+
+28 rows in set (0.00 sec)
+
+mysql> select phone, right(phone, 4) from emp;
++------------+-----------------+
+| phone      | right(phone, 4) |
++------------+-----------------+
+| NULL       | NULL            |
+| NULL       | NULL            |
+| NULL       | NULL            |
+| NULL       | NULL            |
+| 7032300023 | 0023            |
+| 7032300084 | 0084            |
+| 7032300011 | 0011            |
+| 7032300096 | 0096            |
+| 7132300034 | 0034            |
+| 7132300039 | 0039            |
+| 7132300050 | 0050            |
+| 7132300027 | 0027            |
+| 7032300001 | 0001            |
+| NULL       | NULL            |
+| 7132300081 | 0081            |
+| NULL       | NULL            |
+| NULL       | NULL            |
+| 7132300086 | 0086            |
+| 7132300042 | 0042            |
+| NULL       | NULL            |
+| NULL       | NULL            |
+| NULL       | NULL            |
+| 7132300055 | 0055            |
+| NULL       | NULL            |
+| 7156567183 | 7183            |
+| NULL       | NULL            |
+| NULL       | NULL            |
+| NULL       | NULL            |
++------------+-----------------+
+28 rows in set (0.00 sec)
+
+mysql> select phone, concat('******',right(phone, 4)) from emp;
++------------+----------------------------------+
+| phone      | concat('******',right(phone, 4)) |
++------------+----------------------------------+
+| NULL       | NULL                             |
+| NULL       | NULL                             |
+| NULL       | NULL                             |
+| NULL       | NULL                             |
+| 7032300023 | ******0023                       |
+| 7032300084 | ******0084                       |
+| 7032300011 | ******0011                       |
+| 7032300096 | ******0096                       |
+| 7132300034 | ******0034                       |
+| 7132300039 | ******0039                       |
+| 7132300050 | ******0050                       |
+| 7132300027 | ******0027                       |
+| 7032300001 | ******0001                       |
+| NULL       | NULL                             |
+| 7132300081 | ******0081                       |
+| NULL       | NULL                             |
+| NULL       | NULL                             |
+| 7132300086 | ******0086                       |
+| 7132300042 | ******0042                       |
+| NULL       | NULL                             |
+| NULL       | NULL                             |
+| NULL       | NULL                             |
+| 7132300055 | ******0055                       |
+| NULL       | NULL                             |
+| 7156567183 | ******7183                       |
+| NULL       | NULL                             |
+| NULL       | NULL                             |
+| NULL       | NULL                             |
++------------+----------------------------------+
+28 rows in set (0.00 sec)
+
+mysql> select ename, substr(ename,2,2) R1 from emp;
++----------+------+
+| ename    | R1   |
++----------+------+
+| GITA     | IT   |
+| VRUSHALI | RU   |
+| SHARMIN  | HA   |
+| BANDISH  | AN   |
+| SMITH    | MI   |
+| AARAV    | AR   |
+| THOMAS   | HO   |
+| ALLEN    | LL   |
+| WARD     | AR   |
+| JONES    | ON   |
+| MARTIN   | AR   |
+| BLAKE    | LA   |
+| CLARK    | LA   |
+| SCOTT    | CO   |
+| KING     | IN   |
+| FRED     | RE   |
+| TURNER   | UR   |
+| ADAMS    | DA   |
+| JAMES    | AM   |
+| FORD     | OR   |
+| HOFFMAN  | OF   |
+| GRASS    | RA   |
+| MILLER   | IL   |
+| AARUSH   | AR   |
+| ALEX     | LE   |
+| NATASHA  | AT   |
+| SANGITA  | AN   |
+| SUPRIYA  | UP   |
++----------+------+
+28 rows in set (0.00 sec)
+
+mysql> select ename, substr(ename,2) R1 from emp;
++----------+---------+
+| ename    | R1      |
++----------+---------+
+| GITA     | ITA     |
+| VRUSHALI | RUSHALI |
+| SHARMIN  | HARMIN  |
+| BANDISH  | ANDISH  |
+| SMITH    | MITH    |
+| AARAV    | ARAV    |
+| THOMAS   | HOMAS   |
+| ALLEN    | LLEN    |
+| WARD     | ARD     |
+| JONES    | ONES    |
+| MARTIN   | ARTIN   |
+| BLAKE    | LAKE    |
+| CLARK    | LARK    |
+| SCOTT    | COTT    |
+| KING     | ING     |
+| FRED     | RED     |
+| TURNER   | URNER   |
+| ADAMS    | DAMS    |
+| JAMES    | AMES    |
+| FORD     | ORD     |
+| HOFFMAN  | OFFMAN  |
+| GRASS    | RASS    |
+| MILLER   | ILLER   |
+| AARUSH   | ARUSH   |
+| ALEX     | LEX     |
+| NATASHA  | ATASHA  |
+| SANGITA  | ANGITA  |
+| SUPRIYA  | UPRIYA  |
++----------+---------+
+28 rows in set (0.00 sec)
+
+mysql> select ename, substr(ename,-2) R1 from emp;
++----------+------+
+| ename    | R1   |
++----------+------+
+| GITA     | TA   |
+| VRUSHALI | LI   |
+| SHARMIN  | IN   |
+| BANDISH  | SH   |
+| SMITH    | TH   |
+| AARAV    | AV   |
+| THOMAS   | AS   |
+| ALLEN    | EN   |
+| WARD     | RD   |
+| JONES    | ES   |
+| MARTIN   | IN   |
+| BLAKE    | KE   |
+| CLARK    | RK   |
+| SCOTT    | TT   |
+| KING     | NG   |
+| FRED     | ED   |
+| TURNER   | ER   |
+| ADAMS    | MS   |
+| JAMES    | ES   |
+| FORD     | RD   |
+| HOFFMAN  | AN   |
+| GRASS    | SS   |
+| MILLER   | ER   |
+| AARUSH   | SH   |
+| ALEX     | EX   |
+| NATASHA  | HA   |
+| SANGITA  | TA   |
+| SUPRIYA  | YA   |
++----------+------+
+28 rows in set (0.00 sec)
+
+mysql> select ename, substr(ename,-2,1) R1 from emp;
++----------+------+
+| ename    | R1   |
++----------+------+
+| GITA     | T    |
+| VRUSHALI | L    |
+| SHARMIN  | I    |
+| BANDISH  | S    |
+| SMITH    | T    |
+| AARAV    | A    |
+| THOMAS   | A    |
+| ALLEN    | E    |
+| WARD     | R    |
+| JONES    | E    |
+| MARTIN   | I    |
+| BLAKE    | K    |
+| CLARK    | R    |
+| SCOTT    | T    |
+| KING     | N    |
+| FRED     | E    |
+| TURNER   | E    |
+| ADAMS    | M    |
+| JAMES    | E    |
+| FORD     | R    |
+| HOFFMAN  | A    |
+| GRASS    | S    |
+| MILLER   | E    |
+| AARUSH   | S    |
+| ALEX     | E    |
+| NATASHA  | H    |
+| SANGITA  | T    |
+| SUPRIYA  | Y    |
++----------+------+
+28 rows in set (0.00 sec)
+
+mysql> select 1- 300;
++--------+
+| 1- 300 |
++--------+
+|   -299 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select abs(1- 300);
++-------------+
+| abs(1- 300) |
++-------------+
+|         299 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select 1234.456, round(1234.456);
++----------+-----------------+
+| 1234.456 | round(1234.456) |
++----------+-----------------+
+| 1234.456 |            1234 |
++----------+-----------------+
+1 row in set (0.01 sec)
+
+mysql> select 1234.656, round(1234.656);
++----------+-----------------+
+| 1234.656 | round(1234.656) |
++----------+-----------------+
+| 1234.656 |            1235 |
++----------+-----------------+
+1 row in set (0.00 sec)
+
+mysql> select 1234.656, round(1234.656, 2);
++----------+--------------------+
+| 1234.656 | round(1234.656, 2) |
++----------+--------------------+
+| 1234.656 |            1234.66 |
++----------+--------------------+
+1 row in set (0.00 sec)
+
+mysql> select 1234.656, round(1234.651, 2);
++----------+--------------------+
+| 1234.656 | round(1234.651, 2) |
++----------+--------------------+
+| 1234.656 |            1234.65 |
++----------+--------------------+
+1 row in set (0.00 sec)
+
+mysql> select 1234.656, round(1234.651, -2);
++----------+---------------------+
+| 1234.656 | round(1234.651, -2) |
++----------+---------------------+
+| 1234.656 |                1200 |
++----------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> select 1234.656, round(1254.651, -2);
++----------+---------------------+
+| 1234.656 | round(1254.651, -2) |
++----------+---------------------+
+| 1234.656 |                1300 |
++----------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> select 1234.656, round(1245.651, -2);
++----------+---------------------+
+| 1234.656 | round(1245.651, -2) |
++----------+---------------------+
+| 1234.656 |                1200 |
++----------+---------------------+
+1 row in set (0.00 sec)
+
+mysql>

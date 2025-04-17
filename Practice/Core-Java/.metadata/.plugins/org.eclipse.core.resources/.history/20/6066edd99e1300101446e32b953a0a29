@@ -1,0 +1,13 @@
+package Assignment04;
+
+public class Product {
+	protected int pId;
+	protected float price;
+	protected int quantity;
+	
+	public void salestax()
+	{
+		
+	}
+
+}

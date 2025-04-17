@@ -1,0 +1,32 @@
+1. Write a program that creates 2 threads to perform following
+	operations:
+	The first thread prints all the English alphabets
+	in Uppercase
+
+	The second thread prints the values of the alphabets
+
+	E.g.
+	First Thread: A, B, C and so on
+	Second Thread: 65, 66, 67 and so on
+	Both the threads must print their values using a same
+	time gap.
+
+2. Create a class PaytmAccount with following attributes:
+	mobileNo (String)
+	name (String)
+	balance (int)
+
+	Implement 2 additional methods:
+		void addMoney(int)
+		void makePayment(int)
+
+Write a program that creates 2 threads in such a way that both
+the threads use the same object of PaytmAccount and one thread
+adds the money whereas the another thread makes the payment.
+
+Display messages with current balance using some time gap
+while performing both the transactions.
+
+Note***
+(When one thread is using the object, access should be denied 
+for the other thread.)

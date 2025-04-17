@@ -1,0 +1,42 @@
+
+.pos-rel{
+    border: 5px solid red;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    left: 197px;
+    position: relative;
+}
+.parent{
+    border: 5px solid green;
+    width: 314px;
+    height: 200px;
+    left: 100px;
+    position: relative;
+}
+.child{
+    border: 5px solid red;
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    left: 21px;
+}
+.container{
+    border: 2px solid blue;
+    width: 50px;
+    position: fixed;
+    right: 0px;
+    z-index: 1;
+}
+
+.container img{
+    width: 50px;
+}
+.pos-sticky{
+    border: 3px solid brown;
+    text-align: center;
+    font-size: 20px;
+    background-color: aquamarine;
+    position: sticky;
+    top: 0px;
+}

@@ -1,0 +1,689 @@
+mysql> source c:\abc\pl1.sql
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> set @z;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
+mysql>
+mysql>
+mysql> set @z = '';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select @z;
++------+
+| @z   |
++------+
+|      |
++------+
+1 row in set (0.00 sec)
+
+mysql> call pro5(@z);
+ERROR 1406 (22001): Data too long for column 'x' at row 1
+mysql> source c:\abc\pl1.sql
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> call pro5(@z);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select @z;
++------------------------------------------------+
+| @z                                             |
++------------------------------------------------+
+| DEpartment number is present in employee table |
++------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> source c:\abc\pl1.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'varchar(1000)
+DETERMINISTIC
+begin
+        return 'DEpartment number is present in emplo' at line 1
+mysql> source c:\abc\pl1.sql
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> source c:\abc\pl1.sql
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> set @z:='';
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select fn1();
++--------------------------------------------------------------+
+| fn1()                                                        |
++--------------------------------------------------------------+
+| DEpartment number is present in employee table from function |
++--------------------------------------------------------------+
+1 row in set (0.01 sec)
+
+mysql> call pro5(@z);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select @z;
++----------------------------------------------------------------+
+| @z                                                             |
++----------------------------------------------------------------+
+| DEpartment number is present in employee table from procedure  |
++----------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> source c:\abc\pl1.sql
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+ERROR 1415 (0A000): Not allowed to return a result set from a trigger
+mysql> source c:\abc\pl1.sql
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> select @x;
++------------+
+| @x         |
++------------+
+| NULL       |
++------------+
+1 row in set (0.00 sec)
+
+mysql> insert into dept values(1,1,1,1,1);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|      1 | 1          | 1        | 1          | 1          |
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
++--------+------------+----------+------------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select @x;
++-------------+
+| @x          |
++-------------+
+| hello world |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> source c:\abc\pl1.sql
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into dept values(2,1,1,1,1);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select @x;
++-------------------------+
+| @x                      |
++-------------------------+
+| hello world from saleel |
++-------------------------+
+1 row in set (0.00 sec)
+
+mysql> delete from dept where deptno <10;
+Query OK, 2 rows affected (0.02 sec)
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
++--------+------------+----------+------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> create table d (deptno int, dname varchar(10));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table dbk1 (deptno int, dname varchar(10));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> create table dbk2 (deptno int, dname varchar(10));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> source c:\abc\pl1.sql
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into d values(10, 'purchase');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into d values(20, 'sales');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from d;
++--------+----------+
+| deptno | dname    |
++--------+----------+
+|     10 | purchase |
+|     20 | sales    |
++--------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from dbk1;;
++--------+----------+
+| deptno | dname    |
++--------+----------+
+|     10 | purchase |
+|     20 | sales    |
++--------+----------+
+2 rows in set (0.00 sec)
+
+ERROR:
+No query specified
+
+mysql> select * from dbk1;
++--------+----------+
+| deptno | dname    |
++--------+----------+
+|     10 | purchase |
+|     20 | sales    |
++--------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from dbk2;
++--------+----------+
+| deptno | dname    |
++--------+----------+
+|     10 | purchase |
+|     20 | sales    |
++--------+----------+
+2 rows in set (0.00 sec)
+
+mysql> create table log as select * from d where 1=2;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc log;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| deptno | int         | YES  |     | NULL    |       |
+| dname  | varchar(10) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+2 rows in set (0.02 sec)
+
+mysql> source c:\abc\pl1.sql
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from d;
++--------+----------+
+| deptno | dname    |
++--------+----------+
+|     10 | purchase |
+|     20 | sales    |
++--------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from dbk1;
++--------+----------+
+| deptno | dname    |
++--------+----------+
+|     10 | purchase |
+|     20 | sales    |
++--------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from dbk2;
++--------+----------+
+| deptno | dname    |
++--------+----------+
+|     10 | purchase |
+|     20 | sales    |
++--------+----------+
+2 rows in set (0.00 sec)
+
+mysql> insert into d values(1,1);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from d;
++--------+----------+
+| deptno | dname    |
++--------+----------+
+|     10 | purchase |
+|     20 | sales    |
+|      1 | 1        |
++--------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from dbk1;
++--------+----------+
+| deptno | dname    |
++--------+----------+
+|     10 | purchase |
+|     20 | sales    |
+|      1 | 1        |
++--------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from dbk2;
++--------+----------+
+| deptno | dname    |
++--------+----------+
+|     10 | purchase |
+|     20 | sales    |
+|      1 | 1        |
++--------+----------+
+3 rows in set (0.00 sec)
+
+mysql> select * from log;
+Empty set (0.00 sec)
+
+mysql> delete from d where deptno=1;
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from log;
++--------+-------+
+| deptno | dname |
++--------+-------+
+|      1 | 1     |
++--------+-------+
+1 row in set (0.00 sec)
+
+mysql> select * from d;
++--------+----------+
+| deptno | dname    |
++--------+----------+
+|     10 | purchase |
+|     20 | sales    |
++--------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from dbk2;
++--------+----------+
+| deptno | dname    |
++--------+----------+
+|     10 | purchase |
+|     20 | sales    |
+|      1 | 1        |
++--------+----------+
+3 rows in set (0.00 sec)
+
+mysql> desc log;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| deptno | int         | YES  |     | NULL    |       |
+| dname  | varchar(10) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> alter table log add (onDate date, onTime time, who varchar(50));
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc log;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| deptno | int         | YES  |     | NULL    |       |
+| dname  | varchar(10) | YES  |     | NULL    |       |
+| onDate | date        | YES  |     | NULL    |       |
+| onTime | time        | YES  |     | NULL    |       |
+| who    | varchar(50) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> select user();
++----------------+
+| user()         |
++----------------+
+| root@localhost |
++----------------+
+1 row in set (0.01 sec)
+
+mysql> select curdate(), user();
++------------+----------------+
+| curdate()  | user()         |
++------------+----------------+
+| 2025-03-12 | root@localhost |
++------------+----------------+
+1 row in set (0.01 sec)
+
+mysql> select curdate(), curtime(), user();
++------------+-----------+----------------+
+| curdate()  | curtime() | user()         |
++------------+-----------+----------------+
+| 2025-03-12 | 09:59:31  | root@localhost |
++------------+-----------+----------------+
+1 row in set (0.00 sec)
+
+mysql> source c:\abc\pl1.sql
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from d;
++--------+----------+
+| deptno | dname    |
++--------+----------+
+|     10 | purchase |
+|     20 | sales    |
++--------+----------+
+2 rows in set (0.00 sec)
+
+mysql> select * from log;
++--------+-------+--------+--------+------+
+| deptno | dname | onDate | onTime | who  |
++--------+-------+--------+--------+------+
+|      1 | 1     | NULL   | NULL   | NULL |
++--------+-------+--------+--------+------+
+1 row in set (0.00 sec)
+
+mysql> delete from d;
+Query OK, 2 rows affected (0.01 sec)
+
+mysql> select * from d;
+Empty set (0.00 sec)
+
+mysql> select * from log;
++--------+----------+------------+----------+----------------+
+| deptno | dname    | onDate     | onTime   | who            |
++--------+----------+------------+----------+----------------+
+|      1 | 1        | NULL       | NULL     | NULL           |
+|     10 | purchase | 2025-03-12 | 10:01:07 | root@localhost |
+|     20 | sales    | 2025-03-12 | 10:01:07 | root@localhost |
++--------+----------+------------+----------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> source c:\abc\pl1.sql
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delete from log where deptno=1;
+ERROR 1644 (42000): Records cannot be deleted
+mysql> delete from log;
+ERROR 1644 (42000): Records cannot be deleted
+mysql> DROP trigger IF EXISTS tr4;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> delete from log where deptno=1;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from log;
++--------+----------+------------+----------+----------------+
+| deptno | dname    | onDate     | onTime   | who            |
++--------+----------+------------+----------+----------------+
+|     10 | purchase | 2025-03-12 | 10:01:07 | root@localhost |
+|     20 | sales    | 2025-03-12 | 10:01:07 | root@localhost |
++--------+----------+------------+----------+----------------+
+2 rows in set (0.00 sec)
+
+mysql> source c:\abc\pl1.sql
+Query OK, 0 rows affected, 1 warning (0.00 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> delete from log;
+ERROR 1644 (42000): Records cannot be deleted
+mysql> select * from d;
+Empty set (0.00 sec)
+
+mysql> drop trigger tr1;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> drop trigger tr2;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> drop trigger tr3;
+ERROR 1360 (HY000): Trigger does not exist
+mysql> drop trigger tr4;
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> drop trigger tr5;
+ERROR 1360 (HY000): Trigger does not exist
+mysql> select * from d;
+Empty set (0.00 sec)
+
+mysql> select count(*) from d;
++----------+
+| count(*) |
++----------+
+|        0 |
++----------+
+1 row in set (0.01 sec)
+
+mysql> source c:\abc\pl1.sql
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into d values(1,1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into d values(2,1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into d values(3,1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into d values(4,1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into d values(5,1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into d values(5,1);
+ERROR 1644 (42000): Records cannot be inserted
+mysql> select * from d;
++--------+-------+
+| deptno | dname |
++--------+-------+
+|      1 | 1     |
+|      2 | 1     |
+|      3 | 1     |
+|      4 | 1     |
+|      5 | 1     |
++--------+-------+
+5 rows in set (0.00 sec)
+
+mysql> source c:\abc\pl1.sql
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> truncate table d;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into d values(1,1);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into d values(2,1);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into d values3,1);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'values3,1)' at line 1
+mysql> insert into d values(3,1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select count(*) from d;
++----------+
+| count(*) |
++----------+
+|        3 |
++----------+
+1 row in set (0.02 sec)
+
+mysql> insert into d values(4,1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into d values(5,1);
+ERROR 1644 (42000): Records cannot be inserted
+mysql> select * from d;
++--------+-------+
+| deptno | dname |
++--------+-------+
+|      1 | 1     |
+|      2 | 1     |
+|      3 | 1     |
+|      4 | 1     |
++--------+-------+
+4 rows in set (0.00 sec)
+
+mysql> source c:\abc\pl1.sql
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
++--------+------------+----------+------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> insert into dept(dname) values('saleel');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into dept(dname) values('saleel');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into dept(dname) values('saleel');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     51 | saleel     | NULL     | NULL       | NULL       |
+|     52 | saleel     | NULL     | NULL       | NULL       |
+|     53 | saleel     | NULL     | NULL       | NULL       |
++--------+------------+----------+------------+------------+
+8 rows in set (0.00 sec)
+
+mysql> insert into dept(dname) values('saleel');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     51 | saleel     | NULL     | NULL       | NULL       |
+|     52 | saleel     | NULL     | NULL       | NULL       |
+|     53 | saleel     | NULL     | NULL       | NULL       |
+|     54 | saleel     | NULL     | NULL       | NULL       |
++--------+------------+----------+------------+------------+
+9 rows in set (0.00 sec)
+
+mysql> source c:\abc\pl1.sql
+Query OK, 0 rows affected (0.02 sec)
+
+ERROR 1362 (HY000): Updating of NEW row is not allowed in after trigger
+mysql> source c:\abc\pl1.sql
+Query OK, 0 rows affected, 1 warning (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into dept(dname) values('saleel');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into dept(dname) values('saleel');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     51 | saleel     | NULL     | NULL       | NULL       |
+|     52 | saleel     | NULL     | NULL       | NULL       |
+|     53 | saleel     | NULL     | NULL       | NULL       |
+|     54 | saleel     | NULL     | NULL       | NULL       |
+|     58 | saleel     | NULL     | NULL       | NULL       |
+|     62 | saleel     | NULL     | NULL       | NULL       |
++--------+------------+----------+------------+------------+
+11 rows in set (0.00 sec)
+
+mysql> source c:\abc\pl1.sql
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into dept(dname) values('saleel');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from dept;
++--------+------------+----------+------------+------------+
+| DEPTNO | DNAME      | LOC      | PWD        | STARTEDON  |
++--------+------------+----------+------------+------------+
+|     10 | ACCOUNTING | NEW YORK | r50mpm     | 24/03/1989 |
+|     20 | RESEARCH   | DALLAS   | a12recmpm  | 12/04/1989 |
+|     30 | SALES      | CHICAGO  | sales@2017 | 13/04/1989 |
+|     40 | OPERATIONS | BOSTON   | opr@123    | 12/07/1989 |
+|     50 | HR         | PUNE     | PUN@8877   | 22/12/1989 |
+|     51 | saleel     | NULL     | NULL       | NULL       |
+|     52 | saleel     | NULL     | NULL       | NULL       |
+|     53 | saleel     | NULL     | NULL       | NULL       |
+|     54 | saleel     | NULL     | NULL       | NULL       |
+|     58 | saleel     | NULL     | NULL       | NULL       |
+|     62 | saleel     | NULL     | NULL       | NULL       |
+|     66 | SALEEL     | NULL     | NULL       | NULL       |
++--------+------------+----------+------------+------------+
+12 rows in set (0.00 sec)
+
+mysql> source c:\abc\pl1.sql
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> insert into dept(dname) values('saleel');
+ERROR 1644 (42000): Invvalid data
+mysql>

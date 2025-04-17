@@ -1,0 +1,25 @@
+package session_10;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class FileDemo3 {
+	
+	public static void main(String[] args) throws IOException {
+		
+		FileWriter fr=new FileWriter("xyz.txt");
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter String:-");
+		String str=s.nextLine();
+		
+		byte[] b=str.getBytes();
+		
+		fr.write(str);
+		
+		System.out.println("Success");
+		
+		
+	}
+
+}

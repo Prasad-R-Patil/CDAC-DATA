@@ -1,0 +1,16 @@
+package Assignment04;
+
+public  class Circle extends Processor {
+
+	@Override
+	public void Process() {
+		// TODO Auto-generated method stub
+		
+		for(int i=1;i<data;i++)
+		{
+			i=i*i;
+		}
+		
+	}
+
+}

@@ -1,0 +1,24 @@
+Time Limit: 45 Minutes
+
+Create a class Score with following attributes:
+	int runs
+	boolean notOut
+Create another class Batter with following attributes:
+	String name
+	List<Score> scores
+
+Implement an additional method in the Batter class as per the following:
+	public float getBattingAverage()
+
+Write a main program that creates at least 2 objects of Batter and prints their names along
+with batting averages.
+
+(Note: If the Batter remains NOTOUT through out the series, batting average must be displayed
+	as "Infinity".  To handle this, write any algorithm of your choice.
+		Scores are for 5 match series.)
+
+Total Runs: 165
+Not Out: 2 Times then Avg: 55
+Not Out: 0 times then Avg: 33
+Not Out: 5 times then Avg: Infinity
+	

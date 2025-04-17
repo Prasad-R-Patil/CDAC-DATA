@@ -1,0 +1,16 @@
+package Assignment04;
+
+public abstract class Taxable {
+    protected final float salesTax = 7.0f;
+    protected final float incomeTax = 19.5f;
+
+    // Abstract method to calculate tax
+    public abstract void calTax();
+
+    // Method to calculate tax for an array of taxable items
+    public void calTax(Taxable[] items) {
+        for (Taxable item : items) {
+            item.calTax();
+        }
+    }
+}

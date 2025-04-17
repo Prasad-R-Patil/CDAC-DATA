@@ -1,0 +1,18 @@
+package Assignment04;
+
+public class Processor {
+	
+	protected int data;
+	
+	public abstract Processor()
+	{
+		
+	}
+	
+	
+	public void showData()
+	{
+		
+	}
+
+}

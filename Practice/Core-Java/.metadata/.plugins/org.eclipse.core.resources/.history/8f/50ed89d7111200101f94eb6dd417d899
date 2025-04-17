@@ -1,0 +1,11 @@
+package Assignment04;
+
+public class Factorial extends Processor {
+
+	@Override
+	public void Process() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

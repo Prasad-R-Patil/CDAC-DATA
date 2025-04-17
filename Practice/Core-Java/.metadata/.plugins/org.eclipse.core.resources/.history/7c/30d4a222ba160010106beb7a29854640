@@ -1,0 +1,45 @@
+package session_10;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class FileDemo2 {
+	
+	public static void main(String[] args) throws IOException {
+		//int no=65;
+//		Scanner s=new Scanner(System.in);
+//		FileOutputStream  fos=null;
+//		System.out.print("Enter String:--->  ");
+//		String str=s.nextLine();
+//		
+//		
+//		
+//		
+//		
+//		fos=new FileOutputStream("abc.txt",true);
+//		
+//		//fos.write(no);
+//		
+//		byte[] b=str.getBytes();
+//		fos.write(b);
+//		
+//		System.out.println("Success");
+		
+		FileReader f1 = new FileReader("abc.txt");
+		int i=0;
+		int cout=0;
+		while((i=f1.read())!=-1)
+		{
+			System.out.println( (char)i);
+			
+			
+		}
+		
+		
+		
+	}
+
+}

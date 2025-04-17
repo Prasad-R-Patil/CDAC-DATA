@@ -1,0 +1,10 @@
+package bank;
+
+public class Sevings extends Bank{
+
+	public Sevings(long accountNo, String name, float balance, String branch) {
+		super(accountNo, name, balance, branch);
+		// TODO Auto-generated constructor stub
+	}
+
+}

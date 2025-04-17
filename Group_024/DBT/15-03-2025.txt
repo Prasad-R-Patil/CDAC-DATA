@@ -1,0 +1,2919 @@
+Microsoft Windows [Version 10.0.26100.3476]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\SALEEL>mongosh --host=192.168.2.112 --port=27017 db1
+Current Mongosh Log ID: 67d4d9516148f6e83ab67518
+Connecting to:          mongodb://192.168.2.112:27017/db1?directConnection=true&appName=mongosh+2.0.2
+Using MongoDB:          7.0.2
+Using Mongosh:          2.0.2
+mongosh 2.4.2 is available for download: https://www.mongodb.com/try/download/shell
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+------
+   The server generated these startup warnings when booting
+   2025-03-15T07:04:56.629+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+------
+
+Enterprise db1> db.movies.aggregate({$project:{_id:0 movie_title:true}})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:37)
+
+> 1 | db.movies.aggregate({$project:{_id:0 movie_title:true}})
+    |                                      ^
+  2 |
+
+Enterprise db1> db.movies.aggregate({$project:{_id:0, movie_title:true}})
+[
+  { movie_title: 'Avatar' },
+  { movie_title: "Pirates of the Caribbean: At World's End" },
+  { movie_title: 'Spectre' },
+  { movie_title: 'Star Wars: Episode VII - The Force Awakens' },
+  { movie_title: 'Spider-Man 3' },
+  { movie_title: 'Tangled' },
+  { movie_title: 'The Dark Knight Rises' },
+  { movie_title: 'John Carter' },
+  { movie_title: 'Avengers: Age of Ultron' },
+  { movie_title: 'Batman v Superman: Dawn of Justice' },
+  { movie_title: 'Superman Returns' },
+  { movie_title: 'Quantum of Solace' },
+  { movie_title: "Pirates of the Caribbean: Dead Man's Chest" },
+  { movie_title: 'The Lone Ranger' },
+  { movie_title: 'Man of Steel' },
+  { movie_title: 'Harry Potter and the Half-Blood Prince' },
+  { movie_title: 'The Chronicles of Narnia: Prince Caspian' },
+  { movie_title: 'The Avengers' },
+  { movie_title: 'Pirates of the Caribbean: On Stranger Tides' },
+  { movie_title: 'Men in Black 3' }
+]
+Type "it" for more
+Enterprise db1> edit db.movies.aggregate({$project:{_id:0, movie_title:true}}, {$setWindowFields:{sortBy:"movie_title"}})
+Opening an editor...
+
+Enterprise db1> db.movies.aggregate({ $project: { _id: 0, movie_title: true } }, { $setWindowFields: { sortBy: "movie_title", output: { x: { $documentNumber: {} } } } })
+MongoServerError: BSON field '$setWindowFields.sortBy' is the wrong type 'string', expected type 'object'
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.movies.aggregate({ $project: { _id: 0, movie_title: true } }, { $setWindowFields: { sortBy: { "movie_title": 1 }, output: { x: { $documentNumber: {} } } } })
+[
+  { movie_title: 2.13, x: 1 },
+  { movie_title: 3, x: 2 },
+  { movie_title: 9, x: 3 },
+  { movie_title: 11.14, x: 4 },
+  { movie_title: 21, x: 5 },
+  { movie_title: 42, x: 6 },
+  { movie_title: 54, x: 7 },
+  { movie_title: 99, x: 8 },
+  { movie_title: 99, x: 9 },
+  { movie_title: 300, x: 10 },
+  { movie_title: 1408, x: 11 },
+  { movie_title: 1776, x: 12 },
+  { movie_title: 1911, x: 13 },
+  { movie_title: 1920, x: 14 },
+  { movie_title: 1920, x: 15 },
+  { movie_title: 1941, x: 16 },
+  { movie_title: 1982, x: 17 },
+  { movie_title: 2012, x: 18 },
+  { movie_title: 2046, x: 19 },
+  { movie_title: '#Horror', x: 20 }
+]
+Type "it" for more
+Enterprise db1> db.movies.aggregate({ $project: { _id: 0, movie_title: true } }, { $setWindowFields: { sortBy: { "_id": 1 }, output: { x: { $documentNumber: {} } } } })
+[
+  { movie_title: 'Avatar', x: 1 },
+  { movie_title: "Pirates of the Caribbean: At World's End", x: 2 },
+  { movie_title: 'Spectre', x: 3 },
+  { movie_title: 'Star Wars: Episode VII - The Force Awakens', x: 4 },
+  { movie_title: 'Spider-Man 3', x: 5 },
+  { movie_title: 'Tangled', x: 6 },
+  { movie_title: 'The Dark Knight Rises', x: 7 },
+  { movie_title: 'John Carter', x: 8 },
+  { movie_title: 'Avengers: Age of Ultron', x: 9 },
+  { movie_title: 'Batman v Superman: Dawn of Justice', x: 10 },
+  { movie_title: 'Superman Returns', x: 11 },
+  { movie_title: 'Quantum of Solace', x: 12 },
+  { movie_title: "Pirates of the Caribbean: Dead Man's Chest", x: 13 },
+  { movie_title: 'The Lone Ranger', x: 14 },
+  { movie_title: 'Man of Steel', x: 15 },
+  { movie_title: 'Harry Potter and the Half-Blood Prince', x: 16 },
+  { movie_title: 'The Chronicles of Narnia: Prince Caspian', x: 17 },
+  { movie_title: 'The Avengers', x: 18 },
+  { movie_title: 'Pirates of the Caribbean: On Stranger Tides', x: 19 },
+  { movie_title: 'Men in Black 3', x: 20 }
+]
+Type "it" for more
+Enterprise db1> db.movies.aggregate({ $project: { _id: 0, movie_title: true } }, { $setWindowFields: { sortBy: { null: 1 }, output: { x: { $documentNumber: {} } } } })
+[
+  { movie_title: 'Avatar', x: 1 },
+  { movie_title: "Pirates of the Caribbean: At World's End", x: 2 },
+  { movie_title: 'Spectre', x: 3 },
+  { movie_title: 'Star Wars: Episode VII - The Force Awakens', x: 4 },
+  { movie_title: 'Spider-Man 3', x: 5 },
+  { movie_title: 'Tangled', x: 6 },
+  { movie_title: 'The Dark Knight Rises', x: 7 },
+  { movie_title: 'John Carter', x: 8 },
+  { movie_title: 'Avengers: Age of Ultron', x: 9 },
+  { movie_title: 'Batman v Superman: Dawn of Justice', x: 10 },
+  { movie_title: 'Superman Returns', x: 11 },
+  { movie_title: 'Quantum of Solace', x: 12 },
+  { movie_title: "Pirates of the Caribbean: Dead Man's Chest", x: 13 },
+  { movie_title: 'The Lone Ranger', x: 14 },
+  { movie_title: 'Man of Steel', x: 15 },
+  { movie_title: 'Harry Potter and the Half-Blood Prince', x: 16 },
+  { movie_title: 'The Chronicles of Narnia: Prince Caspian', x: 17 },
+  { movie_title: 'The Avengers', x: 18 },
+  { movie_title: 'Pirates of the Caribbean: On Stranger Tides', x: 19 },
+  { movie_title: 'Men in Black 3', x: 20 }
+]
+Type "it" for more
+Enterprise db1> db.movies.aggregate({ $project: { _id: 0, movie_title: true } });
+[
+  { movie_title: 'Avatar' },
+  { movie_title: "Pirates of the Caribbean: At World's End" },
+  { movie_title: 'Spectre' },
+  { movie_title: 'Star Wars: Episode VII - The Force Awakens' },
+  { movie_title: 'Spider-Man 3' },
+  { movie_title: 'Tangled' },
+  { movie_title: 'The Dark Knight Rises' },
+  { movie_title: 'John Carter' },
+  { movie_title: 'Avengers: Age of Ultron' },
+  { movie_title: 'Batman v Superman: Dawn of Justice' },
+  { movie_title: 'Superman Returns' },
+  { movie_title: 'Quantum of Solace' },
+  { movie_title: "Pirates of the Caribbean: Dead Man's Chest" },
+
+Enterprise db1> db.movies.aggregate({ $project: { _id: 0, movie_title: true } });
+[
+  { movie_title: 'Avatar' },
+  { movie_title: "Pirates of the Caribbean: At World's End" },
+  { movie_title: 'Spectre' },
+  { movie_title: 'Star Wars: Episode VII - The Force Awakens' },
+  { movie_title: 'Spider-Man 3' },
+  { movie_title: 'Tangled' },
+  { movie_title: 'The Dark Knight Rises' },
+  { movie_title: 'John Carter' },
+  { movie_title: 'Avengers: Age of Ultron' },
+  { movie_title: 'Batman v Superman: Dawn of Justice' },
+  { movie_title: 'Superman Returns' },
+  { movie_title: 'Quantum of Solace' },
+  { movie_title: "Pirates of the Caribbean: Dead Man's Chest" },
+  { movie_title: 'The Lone Ranger' },
+  { movie_title: 'Man of Steel' },
+  { movie_title: 'Harry Potter and the Half-Blood Prince' },
+  { movie_title: 'The Chronicles of Narnia: Prince Caspian' },
+  { movie_title: 'The Avengers' },
+  { movie_title: 'Pirates of the Caribbean: On Stranger Tides' },
+  { movie_title: 'Men in Black 3' }
+]
+Type "it" for more
+Enterprise db1> db.movies.aggregate({ $project: { _id: 0, movie_title: true } }, { $setWindowFields: { sortBy: { null: 1 }, output: { x: { $documentNumber: {} } } } })
+[
+  { movie_title: 'Avatar', x: 1 },
+  { movie_title: "Pirates of the Caribbean: At World's End", x: 2 },
+  { movie_title: 'Spectre', x: 3 },
+  { movie_title: 'Star Wars: Episode VII - The Force Awakens', x: 4 },
+  { movie_title: 'Spider-Man 3', x: 5 },
+  { movie_title: 'Tangled', x: 6 },
+  { movie_title: 'The Dark Knight Rises', x: 7 },
+  { movie_title: 'John Carter', x: 8 },
+  { movie_title: 'Avengers: Age of Ultron', x: 9 },
+  { movie_title: 'Batman v Superman: Dawn of Justice', x: 10 },
+  { movie_title: 'Superman Returns', x: 11 },
+  { movie_title: 'Quantum of Solace', x: 12 },
+  { movie_title: "Pirates of the Caribbean: Dead Man's Chest", x: 13 },
+  { movie_title: 'The Lone Ranger', x: 14 },
+  { movie_title: 'Man of Steel', x: 15 },
+  { movie_title: 'Harry Potter and the Half-Blood Prince', x: 16 },
+  { movie_title: 'The Chronicles of Narnia: Prince Caspian', x: 17 },
+  { movie_title: 'The Avengers', x: 18 },
+  { movie_title: 'Pirates of the Caribbean: On Stranger Tides', x: 19 },
+  { movie_title: 'Men in Black 3', x: 20 }
+]
+Type "it" for more
+Enterprise db1> db.aggregate.document([{_id:1, ename:'saleel'},{_id:2, ename:'sharmin'}])
+TypeError: db.aggregate.document is not a function
+
+Enterprise db1> edit db.aggregate([])
+Opening an editor...
+
+Enterprise db1> db.aggregate([{ _id: 1, ename: 'saleel', city: 'baroda', state: 'GJ', phone: [1111, 222] }, { _id: 2, ename: 'sharmin', city: 'pune', state: 'MH' }])
+MongoServerError: A pipeline stage specification object must contain exactly one field.
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.aggregate([$docuents{ _id: 1, ename: 'saleel', city: 'baroda', state: 'GJ', phone: [1111, 222] }, { _id: 2, ename: 'sharmin', city: 'pune', state: 'MH' }])
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:23)
+
+> 1 | db.aggregate([$docuents{ _id: 1, ename: 'saleel', city: 'baroda', state: 'GJ', phone: [1111, 222] }, { _id: 2, ename: 'sharmin', city: 'pune', state: 'MH' }])
+    |                        ^
+  2 |
+
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.aggregate([$documents { _id: 1, ename: 'saleel', city: 'baroda', state: 'GJ', phone: [1111, 222] }, { _id: 2, ename: 'sharmin', city: 'pune', state: 'MH' }])
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:25)
+
+> 1 | db.aggregate([$documents { _id: 1, ename: 'saleel', city: 'baroda', state: 'GJ', phone: [1111, 222] }, { _id: 2, ename: 'sharmin', city: 'pune', state: 'MH' }])
+    |                          ^
+  2 |
+
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.aggregate([$document: { _id: 1, ename: 'saleel', city: 'baroda', state: 'GJ', phone: [1111, 222] }, { _id: 2, ename: 'sharmin', city: 'pune', state: 'MH' }])
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:23)
+
+> 1 | db.aggregate([$document: { _id: 1, ename: 'saleel', city: 'baroda', state: 'GJ', phone: [1111, 222] }, { _id: 2, ename: 'sharmin', city: 'pune', state: 'MH' }])
+    |                        ^
+  2 |
+
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.aggregate([$documents: { _id: 1, ename: 'saleel', city: 'baroda', state: 'GJ', phone: [1111, 222] }, { _id: 2, ename: 'sharmin', city: 'pune', state: 'MH' }])
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:24)
+
+> 1 | db.aggregate([$documents: { _id: 1, ename: 'saleel', city: 'baroda', state: 'GJ', phone: [1111, 222] }, { _id: 2, ename: 'sharmin', city: 'pune', state: 'MH' }])
+    |                         ^
+  2 |
+
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.aggregate([$documents: { _id: 1, ename: 'saleel', city: 'baroda', state: 'GJ', phone: [1111, 222] }, { _id: 2, ename: 'sharmin', city: 'pune', state: 'MH' }])
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:24)
+
+> 1 | db.aggregate([$documents: { _id: 1, ename: 'saleel', city: 'baroda', state: 'GJ', phone: [1111, 222] }, { _id: 2, ename: 'sharmin', city: 'pune', state: 'MH' }])
+    |                         ^
+  2 |
+
+Enterprise db1>
+
+Enterprise db1>
+
+Enterprise db1>
+
+Enterprise db1>
+
+Enterprise db1>
+
+Enterprise db1>
+
+Enterprise db1>
+
+Enterprise db1> db.aggregate([{$documents:[{_id:1}]}])
+[ { _id: 1 } ]
+Enterprise db1> edit db.aggregate([{$documents:[{_id:1}]}])
+Opening an editor...
+
+Enterprise db1> db.aggregate([{ $documents: [{ _id: 1, ename: 'saleel' }, { _id: 2, enameename: 'sharmin' }] }])
+[ { _id: 1, ename: 'saleel' }, { _id: 2, ename: 'sharmin' } ]
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.aggregate([{ $documents: [{ _id: 1, ename: 'saleel', city: 'baroda' }, { _id: 2, ename: 'sharmin' }] }])
+[
+  { _id: 1, ename: 'saleel', city: 'baroda' },
+  { _id: 2, ename: 'sharmin' }
+]
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.aggregate([{ $documents: [{ _id: 1, ename: 'saleel', city: 'baroda' }, { _id: 2, ename: 'sharmin' }] }, { $match: { _id: 2 } }])
+[ { _id: 2, ename: 'sharmin' } ]
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $match: { job: 'manager' } }]);
+[
+  {
+    _id: ObjectId("67d27818893a488152e4d676"),
+    empid: 1029,
+    ename: 'bob',
+    address: {
+      building: '2300',
+      coord: [ -73.8786113, 40.8502883 ],
+      street: 'Southern Boulevard',
+      zipcode: '10460'
+    },
+    isDocActive: false,
+    gender: 'male',
+    canVote: true,
+    canDrive: true,
+    color: [ 'Copper' ],
+    fruit: [],
+    cards: [
+      { aadhar: { 'aadhar-No': '73122', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'manager',
+    mgr: 1020,
+    hiredate: ISODate("1980-12-17T00:00:00.000Z"),
+    sal: 4900,
+    comm: null,
+    deptno: 30
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d680"),
+    empid: 1022,
+    ename: 'james',
+    address: {
+      building: '351',
+      coord: [ -73.98513559999999, 40.7676919 ],
+      street: 'West   57 Street',
+      zipcode: '10019'
+    },
+    isDocActive: true,
+    gender: 'male',
+    canVote: true,
+    canDrive: true,
+    color: [ 'Red', 'Blue', 'Green', 'Yellow' ],
+    fruit: [ 'Indian Fig' ],
+    cards: [
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { aadhar: { 'aadhar-No': '73826', isActive: true } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'manager',
+    mgr: 1020,
+    hiredate: ISODate("1981-07-09T00:00:00.000Z"),
+    sal: 4700,
+    comm: null,
+    deptno: 20
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d687"),
+    empid: 1021,
+    ename: 'smith',
+    address: {
+      building: '469',
+      coord: [ -73.961704, 40.662942 ],
+      street: 'Flatbush Avenue',
+      zipcode: '11225'
+    },
+    isDocActive: false,
+    gender: 'male',
+    canVote: true,
+    canDrive: true,
+    color: [ 'red', 'cyan', 'gray' ],
+    fruit: [ 'grapes', 'Orange' ],
+    cards: [
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      },
+      { PAN: { 'PAN-No': 'smh838', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      { aadhar: { 'aadhar-No': '43564', isActive: true } }
+    ],
+    job: 'manager',
+    mgr: 1020,
+    hiredate: ISODate("1981-05-01T00:00:00.000Z"),
+    sal: 3400,
+    comm: null,
+    deptno: 10
+  }
+]
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $match: { sal: { $gt: 4000 } } }])
+[
+  {
+    _id: ObjectId("67d27818893a488152e4d676"),
+    empid: 1029,
+    ename: 'bob',
+    address: {
+      building: '2300',
+      coord: [ -73.8786113, 40.8502883 ],
+      street: 'Southern Boulevard',
+      zipcode: '10460'
+    },
+    isDocActive: false,
+    gender: 'male',
+    canVote: true,
+    canDrive: true,
+    color: [ 'Copper' ],
+    fruit: [],
+    cards: [
+      { aadhar: { 'aadhar-No': '73122', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'manager',
+    mgr: 1020,
+    hiredate: ISODate("1980-12-17T00:00:00.000Z"),
+    sal: 4900,
+    comm: null,
+    deptno: 30
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d67d"),
+    empid: 1038,
+    ename: 'neel',
+    address: {
+      building: '284',
+      coord: [ -73.9829239, 40.6580753 ],
+      street: 'Prospect Park West',
+      zipcode: '11215'
+    },
+    isDocActive: true,
+    gender: 'male',
+    canVote: true,
+    canDrive: true,
+    color: [ 'Apple Green' ],
+    fruit: [],
+    cards: [
+      { OCI: { country: 'usa', state: 'IN', isActive: true } },
+      { aadhar: { 'aadhar-No': '00098', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'administrator',
+    mgr: 1030,
+    hiredate: ISODate("1983-03-14T00:00:00.000Z"),
+    sal: 4200,
+    comm: null,
+    deptno: 10
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d680"),
+    empid: 1022,
+    ename: 'james',
+    address: {
+      building: '351',
+      coord: [ -73.98513559999999, 40.7676919 ],
+      street: 'West   57 Street',
+      zipcode: '10019'
+    },
+    isDocActive: true,
+    gender: 'male',
+    canVote: true,
+    canDrive: true,
+    color: [ 'Red', 'Blue', 'Green', 'Yellow' ],
+    fruit: [ 'Indian Fig' ],
+    cards: [
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { aadhar: { 'aadhar-No': '73826', isActive: true } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'manager',
+    mgr: 1020,
+    hiredate: ISODate("1981-07-09T00:00:00.000Z"),
+    sal: 4700,
+    comm: null,
+    deptno: 20
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d688"),
+    empid: 1032,
+    ename: 'vrushali',
+    address: {
+      building: '1',
+      coord: [ -73.96926909999999, 40.7685235 ],
+      street: 'East   66 Street',
+      zipcode: '10065'
+    },
+    isDocActive: true,
+    gender: 'female',
+    canVote: true,
+    canDrive: true,
+    color: [ 'Iceberg' ],
+    fruit: [ 'Orange', 'Papaya', 'Kiwi' ],
+    cards: [
+      { aadhar: { 'aadhar-No': '22343', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'analyst',
+    mgr: 1030,
+    hiredate: ISODate("1982-02-23T00:00:00.000Z"),
+    sal: 4999,
+    comm: null,
+    deptno: 20
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d690"),
+    empid: 2002,
+    ename: 'priti',
+    address: {
+      building: '625',
+      coord: [ -73.990494, 40.7569545 ],
+      street: '8 Avenue',
+      zipcode: '10018'
+    },
+    isDocActive: false,
+    gender: 'female',
+    canVote: true,
+    canDrive: true,
+    color: [ 'Violet' ],
+    fruit: [],
+    cards: [
+      { aadhar: { 'aadhar-No': '55565', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'Computer Programmer',
+    mgr: 1037,
+    hiredate: ISODate("1983-07-17T00:00:00.000Z"),
+    sal: 5500,
+    comm: null,
+    deptno: 20
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d692"),
+    empid: 1020,
+    ename: 'king',
+    address: {
+      building: '1007',
+      coord: [ -73.856077, 40.848447 ],
+      street: 'Morris Park Ave',
+      zipcode: '10462'
+    },
+    isDocActive: false,
+    gender: 'male',
+    canVote: true,
+    canDrive: true,
+    color: [ 'blue', 'black' ],
+    fruit: [],
+    cards: [
+      { aadhar: { 'aadhar-No': '93478', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'president',
+    mgr: null,
+    hiredate: ISODate("1981-11-17T00:00:00.000Z"),
+    sal: 5000,
+    comm: null,
+    deptno: 10
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d694"),
+    empid: 2004,
+    ename: 'sangu',
+    address: {
+      building: '405',
+      coord: [ -73.97534999999999, 40.7516269 ],
+      street: 'Lexington Avenue',
+      zipcode: '10174'
+    },
+    isDocActive: true,
+    gender: 'female',
+    canVote: true,
+    canDrive: true,
+    color: [ 'Apple Green' ],
+    fruit: [ 'Passion Fruit' ],
+    cards: [
+      { aadhar: { 'aadhar-No': '33321', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'Computer Programmer',
+    mgr: 2002,
+    hiredate: ISODate("1980-07-17T00:00:00.000Z"),
+    sal: 6000,
+    comm: null,
+    deptno: 10
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d695"),
+    empid: 2005,
+    ename: 'laxman',
+    address: {
+      building: '2491',
+      coord: [ -74.1459332, 40.6103714 ],
+      street: 'Victory Boulevard',
+      zipcode: '10314'
+    },
+    isDocActive: false,
+    gender: 'male',
+    canVote: true,
+    canDrive: true,
+    color: [ 'India Green' ],
+    fruit: [],
+    cards: [
+      { aadhar: { 'aadhar-No': '76565', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01'
+        }
+      }
+    ],
+    job: 'Computer Programmer',
+    mgr: 2001,
+    hiredate: ISODate("1980-11-17T00:00:00.000Z"),
+    sal: 6500,
+    comm: null,
+    deptno: 20
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d697"),
+    empid: 2009,
+    ename: 'janhavi',
+    address: {
+      building: '464',
+      coord: [ -73.9791458, 40.744328 ],
+      street: '3 Avenue',
+      zipcode: '10016'
+    },
+    isDocActive: false,
+    gender: 'female',
+    canVote: true,
+    canDrive: true,
+    color: [ 'Violet' ],
+    fruit: [ 'Papaya' ],
+    cards: [
+      { aadhar: { 'aadhar-No': '11117', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'Computer Programmer',
+    mgr: 2002,
+    hiredate: ISODate("1983-08-17T00:00:00.000Z"),
+    sal: 4700,
+    comm: null,
+    deptno: 40
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d699"),
+    empid: 2007,
+    ename: 'raj',
+    address: {
+      building: '87-69',
+      coord: [ -73.8309503, 40.7001121 ],
+      street: 'Lefferts Boulevard',
+      zipcode: '11418'
+    },
+    isDocActive: false,
+    gender: 'male',
+    canVote: true,
+    canDrive: true,
+    color: [ 'Dark Orange' ],
+    fruit: [ 'Papaya' ],
+    cards: [
+      { aadhar: { 'aadhar-No': '87767', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'Computer Programmer',
+    mgr: 1039,
+    hiredate: ISODate("1981-08-17T00:00:00.000Z"),
+    sal: 7000,
+    comm: null,
+    deptno: 40
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d69a"),
+    empid: 2012,
+    ename: 'rupal',
+    address: {
+      building: '1111',
+      coord: [ -74.0796436, 40.59878339999999 ],
+      street: 'Hylan Boulevard',
+      zipcode: '10305'
+    },
+    isDocActive: false,
+    gender: 'female',
+    canVote: true,
+    canDrive: true,
+    color: [ 'Violet' ],
+    fruit: [ 'grapes' ],
+    cards: [
+      { aadhar: { 'aadhar-No': '12374', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'WEB Programmer',
+    mgr: 1037,
+    hiredate: ISODate("1983-07-17T00:00:00.000Z"),
+    sal: 6500,
+    comm: null,
+    deptno: 20
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d69e"),
+    empid: 2006,
+    ename: 'rahsmi',
+    address: {
+      building: '7905',
+      coord: [ -73.8740217, 40.7135015 ],
+      street: 'Metropolitan Avenue',
+      zipcode: '11379'
+    },
+    isDocActive: true,
+    gender: 'female',
+    canVote: true,
+    canDrive: true,
+    color: [ 'Orange' ],
+    fruit: [ 'Peach' ],
+    cards: [
+      { aadhar: { 'aadhar-No': '77625', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'Computer Programmer',
+    mgr: 2002,
+    hiredate: ISODate("1982-05-17T00:00:00.000Z"),
+    sal: 5600,
+    comm: null,
+    deptno: 30
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d69f"),
+    empid: 2015,
+    ename: 'ram',
+    address: {
+      building: '364',
+      coord: [ -73.96084119999999, 40.8014307 ],
+      street: 'West  110 Street',
+      zipcode: '10025'
+    },
+    isDocActive: false,
+    gender: 'male',
+    canVote: true,
+    canDrive: true,
+    color: [ 'India Green' ],
+    fruit: [ 'cherry', 'grapes' ],
+    cards: [
+      { aadhar: { 'aadhar-No': '00600', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'WEB Programmer',
+    mgr: 2001,
+    hiredate: ISODate("1980-11-17T00:00:00.000Z"),
+    sal: 6200,
+    comm: null,
+    deptno: 20
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d6a0"),
+    empid: 2010,
+    ename: 'jasu',
+    address: {
+      building: '437',
+      coord: [ -73.975393, 40.757365 ],
+      street: 'Madison Avenue',
+      zipcode: '10022'
+    },
+    isDocActive: false,
+    gender: 'male',
+    canVote: true,
+    canDrive: true,
+    color: [ 'Lawn Green' ],
+    fruit: [ 'Fig', 'apple' ],
+    cards: [
+      { aadhar: { 'aadhar-No': '44446', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'Computer Programmer',
+    mgr: 2007,
+    hiredate: ISODate("1983-04-17T00:00:00.000Z"),
+    sal: 5800,
+    comm: null,
+    deptno: 40
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d6a1"),
+    empid: 1031,
+    ename: 'sharmin',
+    address: {
+      building: '1269',
+      coord: [ -73.871194, 40.6730975 ],
+      street: 'Sutter Avenue',
+      zipcode: '11208'
+    },
+    isDocActive: false,
+    gender: 'female',
+    canVote: true,
+    canDrive: true,
+    color: [ 'Cream' ],
+    fruit: [ 'Indian Fig' ],
+    cards: [
+      { aadhar: { 'aadhar-No': '16523', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'programmer',
+    mgr: 1020,
+    hiredate: ISODate("1983-01-12T00:00:00.000Z"),
+    sal: 4999,
+    comm: null,
+    deptno: 40
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d6a3"),
+    empid: 2016,
+    ename: 'aditi',
+    address: {
+      building: '1423',
+      coord: [ -73.9615132, 40.6253268 ],
+      street: 'Avenue J',
+      zipcode: '11230'
+    },
+    isDocActive: true,
+    gender: 'female',
+    canVote: true,
+    canDrive: true,
+    color: [ 'Orange' ],
+    fruit: [ 'lime', 'Guava' ],
+    cards: [
+      { aadhar: { 'aadhar-No': '88788', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'WEB Programmer',
+    mgr: 2002,
+    hiredate: ISODate("1982-05-17T00:00:00.000Z"),
+    sal: 5700,
+    comm: null,
+    deptno: 30
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d6a4"),
+    empid: 2013,
+    ename: 'bandish',
+    address: {
+      building: '976',
+      coord: [ -73.92701509999999, 40.6620192 ],
+      street: 'Rutland Road',
+      zipcode: '11212'
+    },
+    isDocActive: true,
+    gender: 'female',
+    canVote: true,
+    canDrive: true,
+    color: [ 'Snow White' ],
+    fruit: [ 'mango' ],
+    cards: [
+      { aadhar: { 'aadhar-No': '93710', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01'
+        }
+      }
+    ],
+    job: 'WEB Programmer',
+    mgr: 2001,
+    hiredate: ISODate("1983-07-17T00:00:00.000Z"),
+    sal: 7000,
+    comm: null,
+    deptno: 30
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d6a5"),
+    empid: 2022,
+    ename: 'Emma',
+    address: {
+      building: '2031',
+      coord: [ -78.15235919457, 47.5568756 ],
+      street: 'Keesey Street',
+      zipcode: '11310'
+    },
+    isDocActive: false,
+    gender: 'female',
+    canVote: false,
+    canDrive: true,
+    color: [ 'Lawn Green', 'Sky Blue' ],
+    fruit: [ 'Avocado', 'Grapes', 'Orance' ],
+    cards: [
+      { aadhar: { 'aadhar-No': '23232', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'salesman',
+    mgr: 2001,
+    hiredate: ISODate("1982-08-17T00:00:00.000Z"),
+    sal: 7000,
+    comm: null,
+    deptno: 10
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d6a6"),
+    empid: 2014,
+    ename: 'madhavi',
+    address: {
+      building: '148',
+      coord: [ -73.9806854, 40.7778589 ],
+      street: 'West   72 Street',
+      zipcode: '10023'
+    },
+    isDocActive: true,
+    gender: 'female',
+    canVote: true,
+    canDrive: true,
+    color: [ 'Apple Green' ],
+    fruit: [ 'mango' ],
+    cards: [
+      { aadhar: { 'aadhar-No': '00900', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'salesman',
+    mgr: 2002,
+    hiredate: ISODate("1980-07-17T00:00:00.000Z"),
+    sal: 6900,
+    comm: 6800,
+    deptno: 10
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d6a7"),
+    empid: 2023,
+    ename: 'Olivia',
+    address: {
+      building: '031',
+      coord: [ -78.15231429456999, 42.5560956 ],
+      street: 'Hazel Grove',
+      zipcode: '133038'
+    },
+    isDocActive: true,
+    gender: 'female',
+    canVote: false,
+    canDrive: true,
+    color: [ 'Lawn Green', 'Sky Blue' ],
+    fruit: [ 'Banana', 'Grapes', 'Orance' ],
+    cards: [
+      { aadhar: { 'aadhar-No': '23435', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'WEB Programmer',
+    mgr: 2001,
+    hiredate: ISODate("1981-06-17T00:00:00.000Z"),
+    sal: 9000,
+    comm: null,
+    deptno: 10
+  }
+]
+Type "it" for more
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $match: { sal: { $gt: 4000 } } }, { $project: { _id: 0, ename: true, job: true, sal: true } }])
+[
+  { ename: 'bob', job: 'manager', sal: 4900 },
+  { ename: 'neel', job: 'administrator', sal: 4200 },
+  { ename: 'james', job: 'manager', sal: 4700 },
+  { ename: 'vrushali', job: 'analyst', sal: 4999 },
+  { ename: 'priti', job: 'Computer Programmer', sal: 5500 },
+  { ename: 'king', job: 'president', sal: 5000 },
+  { ename: 'sangu', job: 'Computer Programmer', sal: 6000 },
+  { ename: 'laxman', job: 'Computer Programmer', sal: 6500 },
+  { ename: 'janhavi', job: 'Computer Programmer', sal: 4700 },
+  { ename: 'raj', job: 'Computer Programmer', sal: 7000 },
+  { ename: 'rupal', job: 'WEB Programmer', sal: 6500 },
+  { ename: 'rahsmi', job: 'Computer Programmer', sal: 5600 },
+  { ename: 'ram', job: 'WEB Programmer', sal: 6200 },
+  { ename: 'jasu', job: 'Computer Programmer', sal: 5800 },
+  { ename: 'sharmin', job: 'programmer', sal: 4999 },
+  { ename: 'aditi', job: 'WEB Programmer', sal: 5700 },
+  { ename: 'bandish', job: 'WEB Programmer', sal: 7000 },
+  { ename: 'Emma', job: 'salesman', sal: 7000 },
+  { ename: 'madhavi', job: 'salesman', sal: 6900 },
+  { ename: 'Olivia', job: 'WEB Programmer', sal: 9000 }
+]
+Type "it" for more
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $match: { sal: { $gt: 4000 } } }, { $project: { _id: 0, ename: true, job: true, sal: true } }, { $sort: { ename: 1 } }])
+[
+  { ename: 'Emily', job: 'WEB Programmer', sal: 7600 },
+  { ename: 'Emma', job: 'salesman', sal: 7000 },
+  { ename: 'Emma', job: 'WEB Programmer', sal: 7700 },
+  { ename: 'Mia', job: 'WEB Programmer', sal: 9500 },
+  { ename: 'Olivia', job: 'WEB Programmer', sal: 9000 },
+  { ename: 'aditi', job: 'WEB Programmer', sal: 5700 },
+  { ename: 'bandish', job: 'WEB Programmer', sal: 7000 },
+  { ename: 'bob', job: 'manager', sal: 4900 },
+  { ename: 'james', job: 'manager', sal: 4700 },
+  { ename: 'janhavi', job: 'Computer Programmer', sal: 4700 },
+  { ename: 'jasu', job: 'Computer Programmer', sal: 5800 },
+  { ename: 'king', job: 'president', sal: 5000 },
+  { ename: 'laxman', job: 'Computer Programmer', sal: 6500 },
+  { ename: 'madhavi', job: 'salesman', sal: 6900 },
+  { ename: 'neel', job: 'administrator', sal: 4200 },
+  { ename: 'neeraj', job: 'salesman', sal: 7700 },
+  { ename: 'priti', job: 'Computer Programmer', sal: 5500 },
+  { ename: 'rahsmi', job: 'Computer Programmer', sal: 5600 },
+  { ename: 'raj', job: 'Computer Programmer', sal: 7000 },
+  { ename: 'ram', job: 'WEB Programmer', sal: 6200 }
+]
+Type "it" for more
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $match: { sal: { $gt: 4000 } } }, { $project: { _id: 0, ename: true, job: true, sal: true } }, { $sort: { sal: 1 } }])
+[
+  { ename: 'neel', job: 'administrator', sal: 4200 },
+  { ename: 'james', job: 'manager', sal: 4700 },
+  { ename: 'janhavi', job: 'Computer Programmer', sal: 4700 },
+  { ename: 'bob', job: 'manager', sal: 4900 },
+  { ename: 'vrushali', job: 'analyst', sal: 4999 },
+  { ename: 'sharmin', job: 'programmer', sal: 4999 },
+  { ename: 'king', job: 'president', sal: 5000 },
+  { ename: 'priti', job: 'Computer Programmer', sal: 5500 },
+  { ename: 'rahsmi', job: 'Computer Programmer', sal: 5600 },
+  { ename: 'aditi', job: 'WEB Programmer', sal: 5700 },
+  { ename: 'tanvi', job: 'WEB Programmer', sal: 5700 },
+  { ename: 'jasu', job: 'Computer Programmer', sal: 5800 },
+  { ename: 'sangu', job: 'Computer Programmer', sal: 6000 },
+  { ename: 'ram', job: 'WEB Programmer', sal: 6200 },
+  { ename: 'laxman', job: 'Computer Programmer', sal: 6500 },
+  { ename: 'rupal', job: 'WEB Programmer', sal: 6500 },
+  { ename: 'madhavi', job: 'salesman', sal: 6900 },
+  { ename: 'raj', job: 'Computer Programmer', sal: 7000 },
+  { ename: 'bandish', job: 'WEB Programmer', sal: 7000 },
+  { ename: 'Emma', job: 'salesman', sal: 7000 }
+]
+Type "it" for more
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $match: { sal: { $gt: 4000 } } }, { $project: { _id: 0, ename: true, job: true, sal: true } }, { $addFields: { x: 'saleel' } }, { $sort: { salsal: 1 } }])
+[
+  { ename: 'neel', job: 'administrator', sal: 4200, x: 'saleel' },
+  { ename: 'james', job: 'manager', sal: 4700, x: 'saleel' },
+  {
+    ename: 'janhavi',
+    job: 'Computer Programmer',
+    sal: 4700,
+    x: 'saleel'
+  },
+  { ename: 'bob', job: 'manager', sal: 4900, x: 'saleel' },
+  { ename: 'vrushali', job: 'analyst', sal: 4999, x: 'saleel' },
+  { ename: 'sharmin', job: 'programmer', sal: 4999, x: 'saleel' },
+  { ename: 'king', job: 'president', sal: 5000, x: 'saleel' },
+  {
+    ename: 'priti',
+    job: 'Computer Programmer',
+    sal: 5500,
+    x: 'saleel'
+  },
+  {
+    ename: 'rahsmi',
+    job: 'Computer Programmer',
+    sal: 5600,
+    x: 'saleel'
+  },
+  { ename: 'aditi', job: 'WEB Programmer', sal: 5700, x: 'saleel' },
+  { ename: 'tanvi', job: 'WEB Programmer', sal: 5700, x: 'saleel' },
+  { ename: 'jasu', job: 'Computer Programmer', sal: 5800, x: 'saleel' },
+  {
+    ename: 'sangu',
+    job: 'Computer Programmer',
+    sal: 6000,
+    x: 'saleel'
+  },
+  { ename: 'ram', job: 'WEB Programmer', sal: 6200, x: 'saleel' },
+  {
+    ename: 'laxman',
+    job: 'Computer Programmer',
+    sal: 6500,
+    x: 'saleel'
+  },
+  { ename: 'rupal', job: 'WEB Programmer', sal: 6500, x: 'saleel' },
+  { ename: 'madhavi', job: 'salesman', sal: 6900, x: 'saleel' },
+  { ename: 'raj', job: 'Computer Programmer', sal: 7000, x: 'saleel' },
+  { ename: 'bandish', job: 'WEB Programmer', sal: 7000, x: 'saleel' },
+  { ename: 'Emma', job: 'salesman', sal: 7000, x: 'saleel' }
+]
+Type "it" for more
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $match: { sal: { $gt: 4000 } } }, { $project: { _id: 0, ename: true, job: true, sal: true } }, { $addFields: { x: 'saleel', y: 1001 } }, { $so$sort: { sal: 1 } }])
+[
+  {
+    ename: 'neel',
+    job: 'administrator',
+    sal: 4200,
+    x: 'saleel',
+    y: 1001
+  },
+  { ename: 'james', job: 'manager', sal: 4700, x: 'saleel', y: 1001 },
+  {
+    ename: 'janhavi',
+    job: 'Computer Programmer',
+    sal: 4700,
+    x: 'saleel',
+    y: 1001
+  },
+  { ename: 'bob', job: 'manager', sal: 4900, x: 'saleel', y: 1001 },
+  {
+    ename: 'vrushali',
+    job: 'analyst',
+    sal: 4999,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'sharmin',
+    job: 'programmer',
+    sal: 4999,
+    x: 'saleel',
+    y: 1001
+  },
+  { ename: 'king', job: 'president', sal: 5000, x: 'saleel', y: 1001 },
+  {
+    ename: 'priti',
+    job: 'Computer Programmer',
+    sal: 5500,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'rahsmi',
+    job: 'Computer Programmer',
+    sal: 5600,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'aditi',
+    job: 'WEB Programmer',
+    sal: 5700,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'tanvi',
+    job: 'WEB Programmer',
+    sal: 5700,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'jasu',
+    job: 'Computer Programmer',
+    sal: 5800,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'sangu',
+    job: 'Computer Programmer',
+    sal: 6000,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'ram',
+    job: 'WEB Programmer',
+    sal: 6200,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'laxman',
+    job: 'Computer Programmer',
+    sal: 6500,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'rupal',
+    job: 'WEB Programmer',
+    sal: 6500,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'madhavi',
+    job: 'salesman',
+    sal: 6900,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'raj',
+    job: 'Computer Programmer',
+    sal: 7000,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'bandish',
+    job: 'WEB Programmer',
+    sal: 7000,
+    x: 'saleel',
+    y: 1001
+  },
+  { ename: 'Emma', job: 'salesman', sal: 7000, x: 'saleel', y: 1001 }
+]
+Type "it" for more
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $match: { sal: { $gt: 4000 } } }, { $project: { _id: 0, ename: true, job: true, sal: true, z: 1234 } }, { $addFields: { x: 'saleel', y: 1001 } }, { $sort: { sal: 1 } }])
+[
+  {
+    ename: 'neel',
+    job: 'administrator',
+    sal: 4200,
+    x: 'saleel',
+    y: 1001
+  },
+  { ename: 'james', job: 'manager', sal: 4700, x: 'saleel', y: 1001 },
+  {
+    ename: 'janhavi',
+    job: 'Computer Programmer',
+    sal: 4700,
+    x: 'saleel',
+    y: 1001
+  },
+  { ename: 'bob', job: 'manager', sal: 4900, x: 'saleel', y: 1001 },
+  {
+    ename: 'vrushali',
+    job: 'analyst',
+    sal: 4999,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'sharmin',
+    job: 'programmer',
+    sal: 4999,
+    x: 'saleel',
+    y: 1001
+  },
+  { ename: 'king', job: 'president', sal: 5000, x: 'saleel', y: 1001 },
+  {
+    ename: 'priti',
+    job: 'Computer Programmer',
+    sal: 5500,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'rahsmi',
+    job: 'Computer Programmer',
+    sal: 5600,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'aditi',
+    job: 'WEB Programmer',
+    sal: 5700,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'tanvi',
+    job: 'WEB Programmer',
+    sal: 5700,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'jasu',
+    job: 'Computer Programmer',
+    sal: 5800,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'sangu',
+    job: 'Computer Programmer',
+    sal: 6000,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'ram',
+    job: 'WEB Programmer',
+    sal: 6200,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'laxman',
+    job: 'Computer Programmer',
+    sal: 6500,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'rupal',
+    job: 'WEB Programmer',
+    sal: 6500,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'madhavi',
+    job: 'salesman',
+    sal: 6900,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'raj',
+    job: 'Computer Programmer',
+    sal: 7000,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'bandish',
+    job: 'WEB Programmer',
+    sal: 7000,
+    x: 'saleel',
+    y: 1001
+  },
+  { ename: 'Emma', job: 'salesman', sal: 7000, x: 'saleel', y: 1001 }
+]
+Type "it" for more
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $match: { sal: { $gt: 4000 } } }, { $project: { _id: 0, ename: true, job: true, sal: true, z: '1234' } }, { $addFields: { x: 'saleel', y: 1001 } }, { $sort: { sal: 1 } }])
+[
+  {
+    ename: 'neel',
+    job: 'administrator',
+    sal: 4200,
+    z: '1234',
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'james',
+    job: 'manager',
+    sal: 4700,
+    z: '1234',
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'janhavi',
+    job: 'Computer Programmer',
+    sal: 4700,
+    z: '1234',
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'bob',
+    job: 'manager',
+    sal: 4900,
+    z: '1234',
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'vrushali',
+    job: 'analyst',
+    sal: 4999,
+    z: '1234',
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'sharmin',
+    job: 'programmer',
+    sal: 4999,
+    z: '1234',
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'king',
+    job: 'president',
+    sal: 5000,
+    z: '1234',
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'priti',
+    job: 'Computer Programmer',
+    sal: 5500,
+    z: '1234',
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'rahsmi',
+    job: 'Computer Programmer',
+    sal: 5600,
+    z: '1234',
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'aditi',
+    job: 'WEB Programmer',
+    sal: 5700,
+    z: '1234',
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'tanvi',
+    job: 'WEB Programmer',
+    sal: 5700,
+    z: '1234',
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'jasu',
+    job: 'Computer Programmer',
+    sal: 5800,
+    z: '1234',
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'sangu',
+    job: 'Computer Programmer',
+    sal: 6000,
+    z: '1234',
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'ram',
+    job: 'WEB Programmer',
+    sal: 6200,
+    z: '1234',
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'laxman',
+    job: 'Computer Programmer',
+    sal: 6500,
+    z: '1234',
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'rupal',
+    job: 'WEB Programmer',
+    sal: 6500,
+    z: '1234',
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'madhavi',
+    job: 'salesman',
+    sal: 6900,
+    z: '1234',
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'raj',
+    job: 'Computer Programmer',
+    sal: 7000,
+    z: '1234',
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'bandish',
+    job: 'WEB Programmer',
+    sal: 7000,
+    z: '1234',
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'Emma',
+    job: 'salesman',
+    sal: 7000,
+    z: '1234',
+    x: 'saleel',
+    y: 1001
+  }
+]
+Type "it" for more
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $match: { sal: { $gt: 4000 } } }, { $project: { _id: 0, ename: true, job: true, sal: true, z: { $literal: 1234 } } }, { $addFields: { x: 'saleel', y: 1001 } }, { $sort: { sal: 1 } }])
+[
+  {
+    ename: 'neel',
+    job: 'administrator',
+    sal: 4200,
+    z: 1234,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'james',
+    job: 'manager',
+    sal: 4700,
+    z: 1234,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'janhavi',
+    job: 'Computer Programmer',
+    sal: 4700,
+    z: 1234,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'bob',
+    job: 'manager',
+    sal: 4900,
+    z: 1234,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'vrushali',
+    job: 'analyst',
+    sal: 4999,
+    z: 1234,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'sharmin',
+    job: 'programmer',
+    sal: 4999,
+    z: 1234,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'king',
+    job: 'president',
+    sal: 5000,
+    z: 1234,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'priti',
+    job: 'Computer Programmer',
+    sal: 5500,
+    z: 1234,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'rahsmi',
+    job: 'Computer Programmer',
+    sal: 5600,
+    z: 1234,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'aditi',
+    job: 'WEB Programmer',
+    sal: 5700,
+    z: 1234,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'tanvi',
+    job: 'WEB Programmer',
+    sal: 5700,
+    z: 1234,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'jasu',
+    job: 'Computer Programmer',
+    sal: 5800,
+    z: 1234,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'sangu',
+    job: 'Computer Programmer',
+    sal: 6000,
+    z: 1234,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'ram',
+    job: 'WEB Programmer',
+    sal: 6200,
+    z: 1234,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'laxman',
+    job: 'Computer Programmer',
+    sal: 6500,
+    z: 1234,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'rupal',
+    job: 'WEB Programmer',
+    sal: 6500,
+    z: 1234,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'madhavi',
+    job: 'salesman',
+    sal: 6900,
+    z: 1234,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'raj',
+    job: 'Computer Programmer',
+    sal: 7000,
+    z: 1234,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'bandish',
+    job: 'WEB Programmer',
+    sal: 7000,
+    z: 1234,
+    x: 'saleel',
+    y: 1001
+  },
+  {
+    ename: 'Emma',
+    job: 'salesman',
+    sal: 7000,
+    z: 1234,
+    x: 'saleel',
+    y: 1001
+  }
+]
+Type "it" for more
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $sample: { size: 3 } }])
+[
+  {
+    _id: ObjectId("67d27818893a488152e4d69b"),
+    empid: 2008,
+    ename: 'roselin',
+    address: {
+      building: '1418',
+      coord: [ -73.95685019999999, 40.7753401 ],
+      street: 'Third Avenue',
+      zipcode: '10028'
+    },
+    isDocActive: true,
+    gender: 'female',
+    canVote: true,
+    canDrive: true,
+    color: [ 'White' ],
+    fruit: [ 'watermelon', 'mango' ],
+    cards: [
+      { aadhar: { 'aadhar-No': '22223', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'Computer Programmer',
+    mgr: 2005,
+    hiredate: ISODate("1983-02-17T00:00:00.000Z"),
+    sal: 800,
+    comm: null,
+    deptno: 30
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d6a0"),
+    empid: 2010,
+    ename: 'jasu',
+    address: {
+      building: '437',
+      coord: [ -73.975393, 40.757365 ],
+      street: 'Madison Avenue',
+      zipcode: '10022'
+    },
+    isDocActive: false,
+    gender: 'male',
+    canVote: true,
+    canDrive: true,
+    color: [ 'Lawn Green' ],
+    fruit: [ 'Fig', 'apple' ],
+    cards: [
+      { aadhar: { 'aadhar-No': '44446', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'Computer Programmer',
+    mgr: 2007,
+    hiredate: ISODate("1983-04-17T00:00:00.000Z"),
+    sal: 5800,
+    comm: null,
+    deptno: 40
+  },
+  {
+    _id: ObjectId("67d27818893a488152e4d672"),
+    empid: 1026,
+    ename: 'blake',
+    address: {
+      building: '7114',
+      coord: [ -73.9068506, 40.6199034 ],
+      street: 'Avenue U',
+      zipcode: '11234'
+    },
+    isDocActive: false,
+    gender: 'male',
+    canVote: true,
+    canDrive: true,
+    color: [ 'Brass', 'Bright Green' ],
+    fruit: [],
+    cards: [
+      { aadhar: { 'aadhar-No': '12321', isActive: true } },
+      { PAN: { 'PAN-No': 'Kinj093', isActive: false } },
+      { voter: { voterID: 'Ind03o3', isActive: true } },
+      {
+        licence: {
+          'licence-No': 'LMV9478',
+          issueDate: '2020-01-01',
+          expireDate: '2040-01-01',
+          isActive: true
+        }
+      }
+    ],
+    job: 'clerk',
+    mgr: 1024,
+    hiredate: ISODate("1981-12-03T00:00:00.000Z"),
+    sal: 3000,
+    comm: null,
+    deptno: 30
+  }
+]
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $sample: { size: 3 } }, { $project: { _id: 0, ename: true } }])
+[ { ename: 'richards' }, { ename: 'james' }, { ename: 'priti' } ]
+Enterprise db1> db.emp.aggregate([{ $sample: { size: 3 } }, { $project: { _id: 0, ename: true } }])
+[ { ename: 'Emma' }, { ename: 'madhavi' }, { ename: 'martin' } ]
+Enterprise db1> db.emp.aggregate([{ $sample: { size: 3 } }, { $project: { _id: 0, ename: true } }])
+[ { ename: 'bandish' }, { ename: 'dinesh' }, { ename: 'crow' } ]
+Enterprise db1> db.emp.aggregate([{ $sample: { size: 3 } }, { $project: { _id: 0, ename: true } }])
+[ { ename: 'king' }, { ename: 'gita' }, { ename: 'neel' } ]
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $sample: { size: 3 } }, { $project: { _id: 0, ename: true } }, { $addFields: { x: 'dddd' } }])
+[
+  { ename: 'Olivia', x: 'dddd' },
+  { ename: 'raju', x: 'dddd' },
+  { ename: 'james', x: 'dddd' }
+]
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $project: { _id: 0, ename: true, sal:true } }, { $add
+$addFields: { newSalary: $add:['$sal', 1000] } }])
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:98)
+
+> 1 | db.emp.aggregate([{ $project: { _id: 0, ename: true, sal:true } }, { $addFields: { newSalary: $add:['$sal', 1000] } }])
+    |
+               ^
+  2 |
+
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $project: { _id: 0, ename: true, sal: true } }, { $ad$addFields: { newSalary: { $add: ['$sal', 1000] } } }])
+[
+  { ename: 'blake', sal: 3000, newSalary: 4000 },
+  { ename: 'richards', sal: 1500, newSalary: 2500 },
+  { ename: 'saleel', sal: 2900, newSalary: 3900 },
+  { ename: 'vasu', sal: 2200, newSalary: 3200 },
+  { ename: 'bob', sal: 4900, newSalary: 5900 },
+  { ename: 'peter', sal: 3500, newSalary: 4500 },
+  { ename: 'jack', sal: 2700, newSalary: 3700 },
+  { ename: 'vasant', sal: 2200, newSalary: 3200 },
+  { ename: 'saleel', sal: 3700, newSalary: 4700 },
+  { ename: 'raju', sal: 3400, newSalary: 4400 },
+  { ename: 'amit', sal: 3500, newSalary: 4500 },
+  { ename: 'neel', sal: 4200, newSalary: 5200 },
+  { ename: 'rahul', sal: 1200, newSalary: 2200 },
+  { ename: 'dinesh', sal: 3500, newSalary: 4500 },
+  { ename: 'james', sal: 4700, newSalary: 5700 },
+  { ename: 'ramu', sal: 1400, newSalary: 2400 },
+  { ename: 'rudra', sal: 2400, newSalary: 3400 },
+  { ename: 'amit', sal: 3500, newSalary: 4500 },
+  { ename: 'amol', sal: 3800, newSalary: 4800 },
+  { ename: 'nitish', sal: 1300, newSalary: 2300 }
+]
+Type "it" for more
+Enterprise db1> db.emp.aggregate([{ $project: { _id: 0, ename: true, sal: true } }, { $addFields: { newSalary: { $add: ['$sal', 1000] } } }])
+[
+  { ename: 'blake', sal: 3000, newSalary: 4000 },
+  { ename: 'richards', sal: 1500, newSalary: 2500 },
+  { ename: 'saleel', sal: 2900, newSalary: 3900 },
+  { ename: 'vasu', sal: 2200, newSalary: 3200 },
+  { ename: 'bob', sal: 4900, newSalary: 5900 },
+  { ename: 'peter', sal: 3500, newSalary: 4500 },
+  { ename: 'jack', sal: 2700, newSalary: 3700 },
+  { ename: 'vasant', sal: 2200, newSalary: 3200 },
+  { ename: 'saleel', sal: 3700, newSalary: 4700 },
+  { ename: 'raju', sal: 3400, newSalary: 4400 },
+  { ename: 'amit', sal: 3500, newSalary: 4500 },
+  { ename: 'neel', sal: 4200, newSalary: 5200 },
+  { ename: 'rahul', sal: 1200, newSalary: 2200 },
+  { ename: 'dinesh', sal: 3500, newSalary: 4500 },
+  { ename: 'james', sal: 4700, newSalary: 5700 },
+  { ename: 'ramu', sal: 1400, newSalary: 2400 },
+  { ename: 'rudra', sal: 2400, newSalary: 3400 },
+  { ename: 'amit', sal: 3500, newSalary: 4500 },
+  { ename: 'amol', sal: 3800, newSalary: 4800 },
+  { ename: 'nitish', sal: 1300, newSalary: 2300 }
+]
+Type "it" for more
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $project: { _id: 0, ename: true, sal: true, comm: trutrue } }, { $addFields: { newSalary: { $add: ['$sal', '$comm'] } } }])
+[
+  { ename: 'blake', sal: 3000, comm: null, newSalary: null },
+  { ename: 'richards', sal: 1500, comm: null, newSalary: null },
+  { ename: 'saleel', sal: 2900, comm: null, newSalary: null },
+  { ename: 'vasu', sal: 2200, comm: 6250, newSalary: 8450 },
+  { ename: 'bob', sal: 4900, comm: null, newSalary: null },
+  { ename: 'peter', sal: 3500, comm: null, newSalary: null },
+  { ename: 'jack', sal: 2700, comm: null, newSalary: null },
+  { ename: 'vasant', sal: 2200, comm: 0, newSalary: 2200 },
+  { ename: 'saleel', sal: 3700, comm: null, newSalary: null },
+  { ename: 'raju', sal: 3400, comm: null, newSalary: null },
+  { ename: 'amit', sal: 3500, comm: null, newSalary: null },
+  { ename: 'neel', sal: 4200, comm: null, newSalary: null },
+  { ename: 'rahul', sal: 1200, comm: null, newSalary: null },
+  { ename: 'dinesh', sal: 3500, comm: null, newSalary: null },
+  { ename: 'james', sal: 4700, comm: null, newSalary: null },
+  { ename: 'ramu', sal: 1400, comm: null, newSalary: null },
+  { ename: 'rudra', sal: 2400, comm: null, newSalary: null },
+  { ename: 'amit', sal: 3500, comm: null, newSalary: null },
+  { ename: 'amol', sal: 3800, comm: null, newSalary: null },
+  { ename: 'nitish', sal: 1300, comm: 1200, newSalary: 2500 }
+]
+Type "it" for more
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $project: { _id: 0, ename: true, sal: true, comm: trutrue } }, { $addFields: { newSalary: { $add: ['$sal', ifNull:['$comm',0] } } }])
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:130)
+
+> 1 | db.emp.aggregate([{ $project: { _id: 0, ename: true, sal: true, comm: true } }, { $addFields: { newSalary: { $add: ['$sal', ifNull:['$comm',0] } } }])
+    |
+                                               ^
+  2 |
+
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $project: { _id: 0, ename: true, sal: true, comm: trutrue } }, { $addFields: { newSalary: { $add: ['$sal', $ifNull: ['$comm', 0] } } }])
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:131)
+
+> 1 | db.emp.aggregate([{ $project: { _id: 0, ename: true, sal: true, comm: true } }, { $addFields: { newSalary: { $add: ['$sal', $ifNull: ['$comm', 0] } } }])
+    |
+                                                ^
+  2 |
+
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $project: { _id: 0, ename: true, sal: true, comm: tru
+true } }, { $addFields: { newSalary: { $add: ['$sal', { $ifNull:['$comm', 0] } } } }])
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:149)
+
+> 1 | db.emp.aggregate([{ $project: { _id: 0, ename: true, sal: true, comm: true } }, { $addFields: { newSalary: { $add: ['$sal', { $ifNull:['$comm', 0] } } } }])
+    |
+                                                                  ^
+  2 |
+
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $project: { _id: 0, ename: true, sal: true, comm: trutrue } }, { $addFields: { newSalary: { $add: ['$sal', { $ifNull: ['$comm', 0] }] } } }])
+[
+  { ename: 'blake', sal: 3000, comm: null, newSalary: 3000 },
+  { ename: 'richards', sal: 1500, comm: null, newSalary: 1500 },
+  { ename: 'saleel', sal: 2900, comm: null, newSalary: 2900 },
+  { ename: 'vasu', sal: 2200, comm: 6250, newSalary: 8450 },
+  { ename: 'bob', sal: 4900, comm: null, newSalary: 4900 },
+  { ename: 'peter', sal: 3500, comm: null, newSalary: 3500 },
+  { ename: 'jack', sal: 2700, comm: null, newSalary: 2700 },
+  { ename: 'vasant', sal: 2200, comm: 0, newSalary: 2200 },
+  { ename: 'saleel', sal: 3700, comm: null, newSalary: 3700 },
+  { ename: 'raju', sal: 3400, comm: null, newSalary: 3400 },
+  { ename: 'amit', sal: 3500, comm: null, newSalary: 3500 },
+  { ename: 'neel', sal: 4200, comm: null, newSalary: 4200 },
+  { ename: 'rahul', sal: 1200, comm: null, newSalary: 1200 },
+  { ename: 'dinesh', sal: 3500, comm: null, newSalary: 3500 },
+  { ename: 'james', sal: 4700, comm: null, newSalary: 4700 },
+  { ename: 'ramu', sal: 1400, comm: null, newSalary: 1400 },
+  { ename: 'rudra', sal: 2400, comm: null, newSalary: 2400 },
+  { ename: 'amit', sal: 3500, comm: null, newSalary: 3500 },
+  { ename: 'amol', sal: 3800, comm: null, newSalary: 3800 },
+  { ename: 'nitish', sal: 1300, comm: 1200, newSalary: 2500 }
+]
+Type "it" for more
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $project: { _id: 0, ename: true, sal: true, comm: trutrue } }, { $addFields: { newSalary: { $add: ['$sal', { $ifNull: ['$comm', 0] }] } } }])
+[
+  { ename: 'blake', sal: 3000, comm: null, newSalary: 3000 },
+  { ename: 'richards', sal: 1500, comm: null, newSalary: 1500 },
+  { ename: 'saleel', sal: 2900, comm: null, newSalary: 2900 },
+  { ename: 'vasu', sal: 2200, comm: 6250, newSalary: 8450 },
+  { ename: 'bob', sal: 4900, comm: null, newSalary: 4900 },
+  { ename: 'peter', sal: 3500, comm: null, newSalary: 3500 },
+  { ename: 'jack', sal: 2700, comm: null, newSalary: 2700 },
+  { ename: 'vasant', sal: 2200, comm: 0, newSalary: 2200 },
+  { ename: 'saleel', sal: 3700, comm: null, newSalary: 3700 },
+  { ename: 'raju', sal: 3400, comm: null, newSalary: 3400 },
+  { ename: 'amit', sal: 3500, comm: null, newSalary: 3500 },
+  { ename: 'neel', sal: 4200, comm: null, newSalary: 4200 },
+  { ename: 'rahul', sal: 1200, comm: null, newSalary: 1200 },
+  { ename: 'dinesh', sal: 3500, comm: null, newSalary: 3500 },
+  { ename: 'james', sal: 4700, comm: null, newSalary: 4700 },
+  { ename: 'ramu', sal: 1400, comm: null, newSalary: 1400 },
+  { ename: 'rudra', sal: 2400, comm: null, newSalary: 2400 },
+  { ename: 'amit', sal: 3500, comm: null, newSalary: 3500 },
+  { ename: 'amol', sal: 3800, comm: null, newSalary: 3800 },
+  { ename: 'nitish', sal: 1300, comm: 1200, newSalary: 2500 }
+]
+Type "it" for more
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $project: { _id: 0, ename: true, sal: true, comm: truEnterprise db1> db.emp.aggregate([{ $project: { _id: 0, ename: true, sal: true, comm: true } }, { $addFields: { newSalary: { $add: ['$sal', { $ifNull: ['$comm', 0] }] } }, y: 'saleel' }])
+MongoServerError: A pipeline stage specification object must contain exactly one field.
+Enterprise db1> edirt
+ReferenceError: edirt is not defined
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $project: { _id: 0, ename: true, sal: true, comm: truEnterprise db1> db.emp.aggregate([{ $project: { _id: 0, ename: true, sal: true, comm: true } }, { $addFields: { newSalary: { $add: ['$sal', { $ifNull: ['$comm', 0] }] }, y: 'saleel' } }])
+[
+  {
+    ename: 'blake',
+    sal: 3000,
+    comm: null,
+    newSalary: 3000,
+    y: 'saleel'
+  },
+  {
+    ename: 'richards',
+    sal: 1500,
+    comm: null,
+    newSalary: 1500,
+    y: 'saleel'
+  },
+  {
+    ename: 'saleel',
+    sal: 2900,
+    comm: null,
+    newSalary: 2900,
+    y: 'saleel'
+  },
+  {
+    ename: 'vasu',
+    sal: 2200,
+    comm: 6250,
+    newSalary: 8450,
+    y: 'saleel'
+  },
+  { ename: 'bob', sal: 4900, comm: null, newSalary: 4900, y: 'saleel' },
+  {
+    ename: 'peter',
+    sal: 3500,
+    comm: null,
+    newSalary: 3500,
+    y: 'saleel'
+  },
+  {
+    ename: 'jack',
+    sal: 2700,
+    comm: null,
+    newSalary: 2700,
+    y: 'saleel'
+  },
+  { ename: 'vasant', sal: 2200, comm: 0, newSalary: 2200, y: 'saleel' },
+  {
+    ename: 'saleel',
+    sal: 3700,
+    comm: null,
+    newSalary: 3700,
+    y: 'saleel'
+  },
+  {
+    ename: 'raju',
+    sal: 3400,
+    comm: null,
+    newSalary: 3400,
+    y: 'saleel'
+  },
+  {
+    ename: 'amit',
+    sal: 3500,
+    comm: null,
+    newSalary: 3500,
+    y: 'saleel'
+  },
+  {
+    ename: 'neel',
+    sal: 4200,
+    comm: null,
+    newSalary: 4200,
+    y: 'saleel'
+  },
+  {
+    ename: 'rahul',
+    sal: 1200,
+    comm: null,
+    newSalary: 1200,
+    y: 'saleel'
+  },
+  {
+    ename: 'dinesh',
+    sal: 3500,
+    comm: null,
+    newSalary: 3500,
+    y: 'saleel'
+  },
+  {
+    ename: 'james',
+    sal: 4700,
+    comm: null,
+    newSalary: 4700,
+    y: 'saleel'
+  },
+  {
+    ename: 'ramu',
+    sal: 1400,
+    comm: null,
+    newSalary: 1400,
+    y: 'saleel'
+  },
+  {
+    ename: 'rudra',
+    sal: 2400,
+    comm: null,
+    newSalary: 2400,
+    y: 'saleel'
+  },
+  {
+    ename: 'amit',
+    sal: 3500,
+    comm: null,
+    newSalary: 3500,
+    y: 'saleel'
+  },
+  {
+    ename: 'amol',
+    sal: 3800,
+    comm: null,
+    newSalary: 3800,
+    y: 'saleel'
+  },
+  {
+    ename: 'nitish',
+    sal: 1300,
+    comm: 1200,
+    newSalary: 2500,
+    y: 'saleel'
+  }
+]
+Type "it" for more
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $project: { _id: 0, ename: true, sal: true, comm: truEnterprise db1> db.emp.aggregate([{ $project: { _id: 0, ename: true, sal: true, comm: true } }, { $addFields: { newSalary: { $add: ['$sal', { $ifNull: ['$comm', 0] }] }, y: { $to$toUpper: 'saleel' } } }])
+[
+  {
+    ename: 'blake',
+    sal: 3000,
+    comm: null,
+    newSalary: 3000,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'richards',
+    sal: 1500,
+    comm: null,
+    newSalary: 1500,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'saleel',
+    sal: 2900,
+    comm: null,
+    newSalary: 2900,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'vasu',
+    sal: 2200,
+    comm: 6250,
+    newSalary: 8450,
+    y: 'SALEEL'
+  },
+  { ename: 'bob', sal: 4900, comm: null, newSalary: 4900, y: 'SALEEL' },
+  {
+    ename: 'peter',
+    sal: 3500,
+    comm: null,
+    newSalary: 3500,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'jack',
+    sal: 2700,
+    comm: null,
+    newSalary: 2700,
+    y: 'SALEEL'
+  },
+  { ename: 'vasant', sal: 2200, comm: 0, newSalary: 2200, y: 'SALEEL' },
+  {
+    ename: 'saleel',
+    sal: 3700,
+    comm: null,
+    newSalary: 3700,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'raju',
+    sal: 3400,
+    comm: null,
+    newSalary: 3400,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'amit',
+    sal: 3500,
+    comm: null,
+    newSalary: 3500,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'neel',
+    sal: 4200,
+    comm: null,
+    newSalary: 4200,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'rahul',
+    sal: 1200,
+    comm: null,
+    newSalary: 1200,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'dinesh',
+    sal: 3500,
+    comm: null,
+    newSalary: 3500,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'james',
+    sal: 4700,
+    comm: null,
+    newSalary: 4700,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'ramu',
+    sal: 1400,
+    comm: null,
+    newSalary: 1400,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'rudra',
+    sal: 2400,
+    comm: null,
+    newSalary: 2400,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'amit',
+    sal: 3500,
+    comm: null,
+    newSalary: 3500,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'amol',
+    sal: 3800,
+    comm: null,
+    newSalary: 3800,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'nitish',
+    sal: 1300,
+    comm: 1200,
+    newSalary: 2500,
+    y: 'SALEEL'
+  }
+]
+Type "it" for more
+Enterprise db1> db.x.aggregate();
+[
+  {
+    _id: 1,
+    ename: 'saleel',
+    colors: [ 'blue', 'green' ],
+    address: { city: 'baroda', state: 'GJ' }
+  },
+  {
+    _id: 2,
+    ename: 'sharmin',
+    colors: [ 'blue', 'green', 'pink' ],
+    address: { city: 'pune', state: 'MH' },
+    phone: [ 1111, 222 ]
+  },
+  {
+    _id: 3,
+    ename: 'ruhan',
+    colors: [ 'yellow', 'yellow', 'red', 'blue', 'blue', 'pink' ],
+    address: { city: 'pune', state: 'MH' },
+    sal: 5000
+  }
+]
+Enterprise db1> db.x.aggregate([{$project:{_id:0, colors:1}}]);
+[
+  { colors: [ 'blue', 'green' ] },
+  { colors: [ 'blue', 'green', 'pink' ] },
+  { colors: [ 'yellow', 'yellow', 'red', 'blue', 'blue', 'pink' ] }
+]
+Enterprise db1> db.x.aggregate([{$project:{_id:0, colors:1, x: {$size:'$colors'} }}]);
+[
+  { colors: [ 'blue', 'green' ], x: 2 },
+  { colors: [ 'blue', 'green', 'pink' ], x: 3 },
+  {
+    colors: [ 'yellow', 'yellow', 'red', 'blue', 'blue', 'pink' ],
+    x: 6
+  }
+]
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $project: { _id: 0, ename: true, sal: true, comm: true } }, { $addFi$addFields: { newSalary: { $add: ['$sal', { $ifNull: ['$comm', 0] }] }, y: { $toUpper: 'saleel' } } }])
+[
+  {
+    ename: 'blake',
+    sal: 3000,
+    comm: null,
+    newSalary: 3000,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'richards',
+    sal: 1500,
+    comm: null,
+    newSalary: 1500,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'saleel',
+    sal: 2900,
+    comm: null,
+    newSalary: 2900,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'vasu',
+    sal: 2200,
+    comm: 6250,
+    newSalary: 8450,
+    y: 'SALEEL'
+  },
+  { ename: 'bob', sal: 4900, comm: null, newSalary: 4900, y: 'SALEEL' },
+  {
+    ename: 'peter',
+    sal: 3500,
+    comm: null,
+    newSalary: 3500,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'jack',
+    sal: 2700,
+    comm: null,
+    newSalary: 2700,
+    y: 'SALEEL'
+  },
+  { ename: 'vasant', sal: 2200, comm: 0, newSalary: 2200, y: 'SALEEL' },
+  {
+    ename: 'saleel',
+    sal: 3700,
+    comm: null,
+    newSalary: 3700,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'raju',
+    sal: 3400,
+    comm: null,
+    newSalary: 3400,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'amit',
+    sal: 3500,
+    comm: null,
+    newSalary: 3500,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'neel',
+    sal: 4200,
+    comm: null,
+    newSalary: 4200,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'rahul',
+    sal: 1200,
+    comm: null,
+    newSalary: 1200,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'dinesh',
+    sal: 3500,
+    comm: null,
+    newSalary: 3500,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'james',
+    sal: 4700,
+    comm: null,
+    newSalary: 4700,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'ramu',
+    sal: 1400,
+    comm: null,
+    newSalary: 1400,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'rudra',
+    sal: 2400,
+    comm: null,
+    newSalary: 2400,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'amit',
+    sal: 3500,
+    comm: null,
+    newSalary: 3500,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'amol',
+    sal: 3800,
+    comm: null,
+    newSalary: 3800,
+    y: 'SALEEL'
+  },
+  {
+    ename: 'nitish',
+    sal: 1300,
+    comm: 1200,
+    newSalary: 2500,
+    y: 'SALEEL'
+  }
+]
+Type "it" for more
+Enterprise db1>
+
+Enterprise db1>
+
+Enterprise db1> edit db.x.aggregate([{$project:{_id:0, colors:1, x: {$size:'$colors'} }}]);
+Opening an editor...
+
+Enterprise db1>
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+Enterprise db1> db.x.aggregate([{ $project: { _id: 0, colors: 1, x: { $size: '$colors' } } }]);
+[
+  { colors: [ 'blue', 'green' ], x: 2 },
+  { colors: [ 'blue', 'green', 'pink' ], x: 3 },
+  {
+    colors: [ 'yellow', 'yellow', 'red', 'blue', 'blue', 'pink' ],
+    x: 6
+  }
+]
+Enterprise db1> db.x.aggregate([{ $project: { colors: 1, x: { $size: '$colors' } } }]);
+[
+  { _id: 1, colors: [ 'blue', 'green' ], x: 2 },
+  { _id: 2, colors: [ 'blue', 'green', 'pink' ], x: 3 },
+  {
+    _id: 3,
+    colors: [ 'yellow', 'yellow', 'red', 'blue', 'blue', 'pink' ],
+    x: 6
+  }
+]
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.x.aggregate([{ x: 6 }, { $project: { _id: 0, colors: 1, x: { $size: '$colors' } } }]);
+MongoServerError: Unrecognized pipeline stage name: 'x'
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.x.aggregate([ { $project: { _id: 0, colors: 1, x: { $size: '$colors' } } }, { $match:
+ { x: 6 } }] );
+[
+  {
+    colors: [ 'yellow', 'yellow', 'red', 'blue', 'blue', 'pink' ],
+    x: 6
+  }
+]
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.x.aggregate([{ $group: { _id: '$job' } }] );
+[ { _id: null } ]
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.x.aggregate([{ $group: { _id: '$job', x: { $count: {} } } }]);
+[ { _id: null, x: 3 } ]
+Enterprise db1> db.emp.aggregate([{ $group: { _id: '$job', x: { $count: {} } } }]);
+[
+  { _id: 'manager', x: 3 },
+  { _id: 'accountant', x: 1 },
+  { _id: 'clerk', x: 4 },
+  { _id: 'writer', x: 2 },
+  { _id: 'Computer Programmer', x: 10 },
+  { _id: 'analyst', x: 3 },
+  { _id: 'auditor', x: 3 },
+  { _id: 'programmer', x: 9 },
+  { _id: 'salesman', x: 9 },
+  { _id: 'WEB Programmer', x: 11 },
+  { _id: 'president', x: 1 },
+  { _id: 'administrator', x: 4 }
+]
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.x.aggregate([{ $group: { _id: '$job', x: { $count: {} } } }, { $match: { x: 3 } }]);
+[ { _id: null, x: 3 } ]
+Enterprise db1> db.emp.aggregate([{ $group: { _id: '$job', x: { $count: {} } } }, { $match: { x: 3 } }]);
+[
+  { _id: 'analyst', x: 3 },
+  { _id: 'auditor', x: 3 },
+  { _id: 'manager', x: 3 }
+]
+Enterprise db1> edit db.emp.aggregate([{ $group: { _id: '$job', x: { $count: {} } } }, { $match: { x: 3 } }]);
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $group: { _id: '$job', x: { $count: {} } } }, { $match: { x: { $gt: 5 } } }]);
+[
+  { _id: 'Computer Programmer', x: 10 },
+  { _id: 'WEB Programmer', x: 11 },
+  { _id: 'programmer', x: 9 },
+  { _id: 'salesman', x: 9 }
+]
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $group: { _id: '$job', x: { $count: {} }, y: { $sum: '$sal' } } }, {
+ $match: { x: { $gt: 5 } } }]);
+[
+  { _id: 'Computer Programmer', x: 10, y: 48900 },
+  { _id: 'programmer', x: 9, y: 26299 },
+  { _id: 'salesman', x: 9, y: 37100 },
+  { _id: 'WEB Programmer', x: 11, y: 69401 }
+]
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([$project:{ _id:0, ename:true }, { $setWindowFields:{ sortBy: { ename:1 }, x:{ $documentNumber:{} } } }}]);
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:26)
+
+> 1 | db.emp.aggregate([$project:{ _id:0, ename:true }, { $setWindowFields:{ sortBy: { ename:1 }, x:{ $documentNumber:{} } } }}]);
+    |                           ^
+  2 |
+
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([ { $project: { _id: 0, ename: true }}, { $setWindowFields: { sortBy: {
+ ename: 1 }, x: { $documentNumber: {} } } } }]);
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:132)
+
+> 1 | db.emp.aggregate([ { $project: { _id: 0, ename: true }}, { $setWindowFields: { sortBy: { ename: 1 }, x: { $documentNumber: {} } } } }]);
+    |
+                                  ^
+  2 |
+
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([ { $project: { _id: 0, ename: true } }, { $setWindowFields: { sortBy: { ename: 1 }, x: { $documentNumber: {} } } }] );
+MongoServerError: BSON field '$setWindowFields.x' is an unknown field.
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $project: { _id: 0, ename: true } }, { $setWindowFields: { sortBy: {
+ ename: 1 }, output: { x: { $documentNumber: {} } } } }]);
+[
+  { ename: 'Emily', x: 1 },
+  { ename: 'Emma', x: 2 },
+  { ename: 'Emma', x: 3 },
+  { ename: 'Mia', x: 4 },
+  { ename: 'Olivia', x: 5 },
+  { ename: 'aditi', x: 6 },
+  { ename: 'amit', x: 7 },
+  { ename: 'amit', x: 8 },
+  { ename: 'amol', x: 9 },
+  { ename: 'anoop', x: 10 },
+  { ename: 'arjun', x: 11 },
+  { ename: 'bandish', x: 12 },
+  { ename: 'blake', x: 13 },
+  { ename: 'bob', x: 14 },
+  { ename: 'crow', x: 15 },
+  { ename: 'dinesh', x: 16 },
+  { ename: 'dinesh', x: 17 },
+  { ename: 'gita', x: 18 },
+  { ename: 'jack', x: 19 },
+  { ename: 'james', x: 20 }
+]
+Type "it" for more
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $project: { _id: 0, ename: true } }, { $setWindowFields: { sortBy: {
+ ename: 1 }, output: { x: { $documentNumber: {} } } } }]);
+[
+  { ename: 'Emily', x: 1 },
+  { ename: 'Emma', x: 2 },
+  { ename: 'Emma', x: 3 },
+  { ename: 'Mia', x: 4 },
+  { ename: 'Olivia', x: 5 },
+  { ename: 'aditi', x: 6 },
+  { ename: 'amit', x: 7 },
+  { ename: 'amit', x: 8 },
+  { ename: 'amol', x: 9 },
+  { ename: 'anoop', x: 10 },
+  { ename: 'arjun', x: 11 },
+  { ename: 'bandish', x: 12 },
+  { ename: 'blake', x: 13 },
+  { ename: 'bob', x: 14 },
+  { ename: 'crow', x: 15 },
+  { ename: 'dinesh', x: 16 },
+  { ename: 'dinesh', x: 17 },
+  { ename: 'gita', x: 18 },
+  { ename: 'jack', x: 19 },
+  { ename: 'james', x: 20 }
+]
+Type "it" for more
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $project: { _id: 0, ename: true } }, { $setWindowFields: { sortBy: {
+ ename: 1 }, output: { x: { $documentNumber: {} } } } }, { $match: { x: 7 } }]);
+[ { ename: 'amit', x: 7 } ]
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.emp.aggregate([{ $project: { _id: 0, ename: true } }, { $setWindowFields: { sortBy: {
+ ename: 1 }, output: { x: { $documentNumber: {} } } } }, { $match: { x: 7 } }]);
+[ { ename: 'amit', x: 7 } ]
+Enterprise db1>
+
+Enterprise db1>
+
+Enterprise db1>
+
+Enterprise db1>
+
+Enterprise db1>
+
+Enterprise db1>
+
+Enterprise db1>
+
+Enterprise db1>
+
+Enterprise db1>
+
+Enterprise db1> db.parent.insertMany([{ _id:1, ename:'saleel'}, {_id:2, ename:'sharmin'}]);
+{ acknowledged: true, insertedIds: { '0': 1, '1': 2 } }
+Enterprise db1> db.passport.insertMany({_id:1, passportOf:'saleel', num:'dfdfdfd'}, {_id:2,passportOf:'sharmin', num:'sfjisdjdhdsj'});
+MongoInvalidArgumentError: Argument "docs" must be an array of documents
+Enterprise db1> db.passport.insertMany({_id:1, passportOf:'saleel', num:'dfdfdfd'}, {_id:2,passportOf:'sharmin', num:'sfjisdjdhdsj'}]);
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:116)
+
+> 1 | db.passport.insertMany({_id:1, passportOf:'saleel', num:'dfdfdfd'}, {_id:2,passportOf:'sharmin', num:'sfjisdjdhdsj'}]);
+    |
+                  ^
+  2 |
+
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.passport.insertMany([{_id:1, passportOf:'saleel', num:'dfdfdfd'}, {_id:2,passportOf:'sharmin', num:'sfjisdjdhdsj'}]);
+{ acknowledged: true, insertedIds: { '0': 1, '1': 2 } }
+Enterprise db1> db.parent.find();
+[ { _id: 1, ename: 'saleel' }, { _id: 2, ename: 'sharmin' } ]
+Enterprise db1> db.passport.find();
+[
+  { _id: 1, passportOf: 'saleel', num: 'dfdfdfd' },
+  { _id: 2, passportOf: 'sharmin', num: 'sfjisdjdhdsj' }
+]
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.parent.aggregate([ { $lookup: { from: "passport" localField:"ename" foreignField:"passportOf" as: "Passport Details"  } } ])
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:52)
+
+> 1 | db.parent.aggregate([ { $lookup: { from: "passport" localField:"ename" foreignField:"passportOf" as: "Passport Details"  } } ])
+    |                                                     ^
+  2 |
+
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.parent.aggregate([{ $lookup: { from: "passport", localField: "ename", foreignField: "passportOf", as: "Passport Details" } }])
+[
+  {
+    _id: 1,
+    ename: 'saleel',
+    'Passport Details': [ { _id: 1, passportOf: 'saleel', num: 'dfdfdfd' } ]
+  },
+  {
+    _id: 2,
+    ename: 'sharmin',
+    'Passport Details': [ { _id: 2, passportOf: 'sharmin', num: 'sfjisdjdhdsj' } ]
+  }
+]
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.parent.aggregate([{ $lookup: { from: "passport", localField: "ename", foreignField: "passportOf", as: "Passport Details" } }])
+[
+  {
+    _id: 1,
+    ename: 'saleel',
+    'Passport Details': [ { _id: 1, passportOf: 'saleel', num: 'dfdfdfd' } ]
+  },
+  {
+    _id: 2,
+    ename: 'sharmin',
+    'Passport Details': [ { _id: 2, passportOf: 'sharmin', num: 'sfjisdjdhdsj' } ]
+  }
+]
+Enterprise db1> db.passport.insertOne({_id:2, passportOf:'saleel', num:'shdfjksdhfkjhdfkjhjfh'})
+MongoServerError: E11000 duplicate key error collection: db1.passport index: _id_ dup key: { _id: 2 }
+Enterprise db1> db.passport.insertOne({_id:3, passportOf:'saleel', num:'shdfjksdhfkjhdfkjhjfh'})
+{ acknowledged: true, insertedId: 3 }
+Enterprise db1> edit
+Opening an editor...
+
+Enterprise db1> db.parent.aggregate([{ $lookup: { from: "passport", localField: "ename", foreignField: "passportOf", as: "Passport Details" } }])
+[
+  {
+    _id: 1,
+    ename: 'saleel',
+    'Passport Details': [
+      { _id: 1, passportOf: 'saleel', num: 'dfdfdfd' },
+      { _id: 3, passportOf: 'saleel', num: 'shdfjksdhfkjhdfkjhjfh' }
+    ]
+  },
+  {
+    _id: 2,
+    ename: 'sharmin',
+    'Passport Details': [ { _id: 2, passportOf: 'sharmin', num: 'sfjisdjdhdsj' } ]
+  }
+]
+Enterprise db1> exit
+
+C:\Users\SALEEL>^A

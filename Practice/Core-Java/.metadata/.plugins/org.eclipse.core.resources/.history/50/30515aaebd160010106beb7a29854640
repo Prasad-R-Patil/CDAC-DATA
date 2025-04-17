@@ -1,0 +1,23 @@
+package session_10;
+
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class FileDemo3 {
+	
+	public static void main(String[] args) throws IOException {
+		
+		FileWriter fr=new FileWriter("xyz.txt",true);
+		Scanner s=new Scanner(System.in);
+		
+		String str=s.nextLine();
+		
+		byte[] b=str.getBytes();
+		
+		fr.write(str);
+		
+		
+	}
+
+}

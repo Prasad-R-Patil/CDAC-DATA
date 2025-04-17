@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class strinclass {
+	
+	public void count(String ss)
+	{
+		int count=0;
+		String sa=ss.toLowerCase();
+		  for (int i = 0; i < sa.length(); i++) {
+	            char ch = sa.charAt(i);
+	            if ("aeiou".indexOf(ch) != -1) {
+	                count++;
+	            }
+	        }
+	}
+	
+	public static void main(String[] args) {
+		Scanner s=new Scanner(System.in);
+		System.out.println("Enter Name String==");
+		
+		String ss=s.next();
+		
+		
+		
+		
+		
+		
+		
+	}
+	
+	
+
+}
