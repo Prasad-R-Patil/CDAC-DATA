@@ -1,0 +1,298 @@
+*******************************************************************************************************************Q1------>
+
+select t.membername,count(m.mvname) movie_count from team t join movie_team mt on t.memberno=mt.memberno join movie m on mt.mvno=m.mvno where membername='Amitabh Bachchan';
++------------------+-------------+
+| membername       | movie_count |
++------------------+-------------+
+| Amitabh Bachchan |          12 |
++------------------+-------------+
+1 row in set (0.00 sec)
+
+*******************************************************************************************************************Q2------>
+
+
+select count(t.membername) c,m.mvname from team t join movie_team mt on t.memberno=mt.memberno join movie m on mt.mvno=m.mvno group by m.mvname having c>=5;
++---+--------+
+| c | mvname |
++---+--------+
+| 5 | Sholay |
++---+--------+
+1 row in set (0.00 sec)
+*******************************************************************************************************************Q3------>
+select t.membername,m.mvname from team t join movie_team mt on t.memberno=mt.memberno join movie m on mt.mvno=m.mvno where m.mvname like 'd%';
++------------------+---------+
+| membername       | mvname  |
++------------------+---------+
+| Amitabh Bachchan | Don     |
+| Zeenat Aman      | Don     |
+| Amitabh Bachchan | Deewaar |
+| Pran             | Deewaar |
++------------------+---------+
+4 rows in set (0.00 sec)
+
+
+
+*******************************************************************************************************************Q4------>
+
+
+ select t.membername,m.mvname from team t join movie_team mt on t.memberno=mt.memberno join movie m on mt.mvno=m.mvno where t.membername='Amitabh Bachchan' and (m.releaseyear between 1978 and 1980);
++------------------+----------------------+
+| membername       | mvname               |
++------------------+----------------------+
+| Amitabh Bachchan | Shaan                |
+| Amitabh Bachchan | Don                  |
+| Amitabh Bachchan | Trishul              |
+| Amitabh Bachchan | Muqaddar Ka Sikandar |
++------------------+----------------------+
+4 rows in set (0.00 sec)
+
+*******************************************************************************************************************Q5------>
+
+
+select t.membername,m.mvname,m.releaseyear from team t join movie_team mt on t.memberno=mt.memberno join movie m on mt.mvno=m.mvno ;
++------------------+----------------------+-------------+
+| membername       | mvname               | releaseyear |
++------------------+----------------------+-------------+
+| Amitabh Bachchan | Sholay               |        1975 |
+| Shashi Kapoor    | Sholay               |        1975 |
+| Hema Malini      | Sholay               |        1975 |
+| Ramesh Sippy     | Sholay               |        1975 |
+| G. P. Sippy      | Sholay               |        1975 |
+| Amitabh Bachchan | Shaan                |        1980 |
+| Hema Malini      | Shaan                |        1980 |
+| Ramesh Sippy     | Shaan                |        1980 |
+| G. P. Sippy      | Shaan                |        1980 |
+| Amitabh Bachchan | Don                  |        1978 |
+| Zeenat Aman      | Don                  |        1978 |
+| Amitabh Bachchan | Khel Khel Mein       |        1975 |
+| Neetu Singh      | Khel Khel Mein       |        1975 |
+| Rishi Kapoor     | Khel Khel Mein       |        1975 |
+| Amitabh Bachchan | Trishul              |        1978 |
+| Shashi Kapoor    | Trishul              |        1978 |
+| Yash Chopra      | Trishul              |        1978 |
+| Amitabh Bachchan | Deewaar              |        1975 |
+| Pran             | Deewaar              |        1975 |
+| Amitabh Bachchan | Amar Akbar Anthony   |        1977 |
+| Vinod Khanna     | Amar Akbar Anthony   |        1977 |
+| Manmohan Desai   | Amar Akbar Anthony   |        1977 |
+| G. P. Sippy      | Amar Akbar Anthony   |        1977 |
+| Amitabh Bachchan | Kabhi Kabhie         |        1976 |
+| Rekha            | Kabhi Kabhie         |        1976 |
+| Yash Chopra      | Kabhi Kabhie         |        1976 |
+| Yash Chopra      | Kabhi Kabhie         |        1976 |
+| Amitabh Bachchan | Muqaddar Ka Sikandar |        1978 |
+| Jaya Bhaduri     | Muqaddar Ka Sikandar |        1978 |
+| Rekha            | Muqaddar Ka Sikandar |        1978 |
+| Amitabh Bachchan | Silsila              |        1981 |
+| Rekha            | Silsila              |        1981 |
+| Jaya Bhaduri     | Silsila              |        1981 |
+| Yash Chopra      | Silsila              |        1981 |
+| Amitabh Bachchan | Zanjeer              |        1973 |
+| Prakash Mehra    | Zanjeer              |        1973 |
+| Kader Khan       | Zanjeer              |        1973 |
+| Amitabh Bachchan | Namak Halaal         |        1982 |
+| Parveen Babi     | Namak Halaal         |        1982 |
+| Smita Patil      | Namak Halaal         |        1982 |
+| Yash Johar       | Namak Halaal         |        1982 |
++------------------+----------------------+-------------+
+41 rows in set (0.00 sec)
+
+*******************************************************************************************************************Q6------>
+
+select t.membername,t.membertype,count(t.membername) from team t join movie_team mt on t.memberno=mt.memberno join movie m on mt.mvno=m.mvno where t.membertype='producer' group by t.membername;
++---------------+------------+---------------------+
+| membername    | membertype | count(t.membername) |
++---------------+------------+---------------------+
+| G. P. Sippy   | producer   |                   3 |
+| Prakash Mehra | producer   |                   1 |
+| Yash Johar    | producer   |                   1 |
+| Yash Chopra   | producer   |                   1 |
++---------------+------------+---------------------+
+4 rows in set (0.00 sec)
+
+
+
+
+*******************************************************************************************************************Q7------>
+
+select t.membername,t.membertype,m.mvname from team t join movie_team mt on t.memberno=mt.memberno join movie m on mt.mvno=m.mvno where m.mvname='shaan';
++------------------+------------+--------+
+| membername       | membertype | mvname |
++------------------+------------+--------+
+| Amitabh Bachchan | actor      | Shaan  |
+| Hema Malini      | actress    | Shaan  |
+| Ramesh Sippy     | director   | Shaan  |
+| G. P. Sippy      | producer   | Shaan  |
++------------------+------------+--------+
+4 rows in set (0.00 sec)
+
+
+
+
+*******************************************************************************************************************Q8------>
+
+select m.mvname,count(t.membername) from team t join movie_team mt on t.memberno=mt.memberno join movie m on mt.mvno=m.mvno group by m.mvname;
++----------------------+---------------------+
+| mvname               | count(t.membername) |
++----------------------+---------------------+
+| Sholay               |                   5 |
+| Shaan                |                   4 |
+| Don                  |                   2 |
+| Khel Khel Mein       |                   3 |
+| Trishul              |                   3 |
+| Deewaar              |                   2 |
+| Amar Akbar Anthony   |                   4 |
+| Kabhi Kabhie         |                   4 |
+| Muqaddar Ka Sikandar |                   3 |
+| Silsila              |                   4 |
+| Zanjeer              |                   3 |
+| Namak Halaal         |                   4 |
++----------------------+---------------------+
+12 rows in set (0.00 sec)
+
+
+
+
+*******************************************************************************************************************Q9------>
+
+ select m.mvname,t.membername,t.membertype from team t join movie_team mt on t.memberno=mt.memberno join movie m on mt.mvno=m.mvno where m.mvname='Khel Khel Mein';
++----------------+------------------+------------+
+| mvname         | membername       | membertype |
++----------------+------------------+------------+
+| Khel Khel Mein | Amitabh Bachchan | actor      |
+| Khel Khel Mein | Neetu Singh      | actress    |
+| Khel Khel Mein | Rishi Kapoor     | actor      |
++----------------+------------------+------------+
+3 rows in set (0.00 sec)
+
+
+
+
+*******************************************************************************************************************Q10------>
+
+select t.membername from team t join movie_team mt on t.memberno=mt.memberno join movie m on mt.mvno=m.mvno where m.mvname in (select m.mvname from team t join movie_team mt on t.memberno=mt.memberno join movie m on mt.mvno=m.mvno where t.membername='Amitabh Bachchan');
++------------------+
+| membername       |
++------------------+
+| Amitabh Bachchan |
+| Shashi Kapoor    |
+| Hema Malini      |
+| Ramesh Sippy     |
+| G. P. Sippy      |
+| Amitabh Bachchan |
+| Hema Malini      |
+| Ramesh Sippy     |
+| G. P. Sippy      |
+| Amitabh Bachchan |
+| Zeenat Aman      |
+| Amitabh Bachchan |
+| Neetu Singh      |
+| Rishi Kapoor     |
+| Amitabh Bachchan |
+| Shashi Kapoor    |
+| Yash Chopra      |
+| Amitabh Bachchan |
+| Pran             |
+| Amitabh Bachchan |
+| Vinod Khanna     |
+| Manmohan Desai   |
+| G. P. Sippy      |
+| Amitabh Bachchan |
+| Rekha            |
+| Yash Chopra      |
+| Yash Chopra      |
+| Amitabh Bachchan |
+| Jaya Bhaduri     |
+| Rekha            |
+| Amitabh Bachchan |
+| Rekha            |
+| Jaya Bhaduri     |
+| Yash Chopra      |
+| Amitabh Bachchan |
+| Prakash Mehra    |
+| Kader Khan       |
+| Amitabh Bachchan |
+| Parveen Babi     |
+| Smita Patil      |
+| Yash Johar       |
++------------------+
+41 rows in set (0.00 sec)
+
+
+
+
+*******************************************************************************************************************Q11------>
+
+
+
+ select t.membername,count(m.mvname) from team t join movie_team mt on t.memberno=mt.memberno join movie m on mt.mvno=m.mvno where t.membertype='actor' group by t.membername;
++------------------+-----------------+
+| membername       | count(m.mvname) |
++------------------+-----------------+
+| Amitabh Bachchan |              12 |
+| Shashi Kapoor    |               2 |
+| Rishi Kapoor     |               1 |
+| Pran             |               1 |
+| Vinod Khanna     |               1 |
+| Kader Khan       |               1 |
++------------------+-----------------+
+6 rows in set (0.00 sec)
+
+
+*******************************************************************************************************************Q12------>
+
+select t.membername,m.mvname from team t join movie_team mt on t.memberno=mt.memberno join movie m on mt.mvno=m.mvno where t.membername='G. P. Sippy';
++-------------+--------------------+
+| membername  | mvname             |
++-------------+--------------------+
+| G. P. Sippy | Sholay             |
+| G. P. Sippy | Shaan              |
+| G. P. Sippy | Amar Akbar Anthony |
++-------------+--------------------+
+3 rows in set (0.00 sec)
+
+
+
+
+*******************************************************************************************************************Q13------>
+
+select m.* from team t join movie_team mt on t.memberno=mt.memberno join movie m on mt.mvno=m.mvno where m.releaseyear=1980;
++------+--------+-------------+
+| mvno | mvname | releaseyear |
++------+--------+-------------+
+|    2 | Shaan  |        1980 |
+|    2 | Shaan  |        1980 |
+|    2 | Shaan  |        1980 |
+|    2 | Shaan  |        1980 |
++------+--------+-------------+
+4 rows in set (0.00 sec)
+
+
+
+*******************************************************************************************************************Q14------>
+
+ Select distinct membername from team, movie_team where team.memberno = movie_team.memberno and movie_team.mvno in (select mvno from team, movie_team where team.memberno = movie_team.memberno and membername = 'Amitabh Bachchan') and membertype = 'actress';
++--------------+
+| membername   |
++--------------+
+| Hema Malini  |
+| Zeenat Aman  |
+| Neetu Singh  |
+| Rekha        |
+| Jaya Bhaduri |
+| Smita Patil  |
+| Parveen Babi |
++--------------+
+7 rows in set (0.00 sec)
+
+
+*******************************************************************************************************************Q15------>
+Select count(*) from team, movie_team where team.memberno = movie_team.memberno and team. Membername = 'Amitabh Bachchan';
++----------+
+| count(*) |
++----------+
+|       12 |
++----------+
+1 row in set (0.00 sec)
+
+

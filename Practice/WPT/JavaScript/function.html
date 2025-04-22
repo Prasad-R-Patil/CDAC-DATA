@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //1. default function..........
+
+        function greeting()
+        {
+            return "Good Morning .....<br>";
+        }
+        document.write(greeting());
+
+         //2. Parameterize function..........
+
+        function welcome(name1)
+        {
+            return "WelCome You " +name1+ ".....<br>";
+        }
+       
+        document.write(welcome("PP"));
+        document.write(welcome("SM"));
+        document.write(welcome("AK"));
+
+        //3. multi Parameterize function..........
+
+        function welcome1(name1,name2,name3)
+        {
+            return "WelCome You " +name1+" "+name2+" "+name3+ ".....<br>";
+        }
+        document.write(welcome1("PP","AK","SM"));
+
+         //3. return String function..........
+
+         function toStr(name1,name2,name3)
+        {
+            return `WelCome You ${"name1"},${"name2"},${"name3"}<br>`;
+        }
+        document.write(welcome1("PP","AK","SM"));
+
+
+        //4. Anonymous function : function with no name
+
+     let add =  function (num1,num2)
+                {
+                    return `Addition is ${num1+num2} <br>`;
+                }
+            document.write(add(100,200) );
+
+
+            //5. Arrow function :- function which has no name and no function keyword
+
+
+            let sub = (num1,num2) => {return `Substraction is ${num1-num2} <br> ` };
+            document.write(sub(100,200));
+
+
+            let sub1 = (num1,num2) => `Substraction is ${num1-num2} <br> ` ;
+            document.write(sub(500,200));
+
+
+            // 6.optional parameterize function in this function no need to pass parameter value ,optional parameter always at lest place
+
+            let fullname = (fname,lname,mname="")=>
+            {
+                return fname + mname + lname;
+            };
+
+            document.write(fullname(" Prasad"," Patil"),"<br>");
+
+
+
+            // 7. rest parameterize function : when we don`t how many parameters required inside function while executing . in this we use spred operator(...)
+
+
+            let stList = (...std) => {return std; };
+            document.write(stList(" PP","AK","SM","TV","VK"),"<br>");
+            console.log(stList(" PP","AK","SM","TV","VK"),"<br>");
+
+
+    </script>
+</body>
+</html>

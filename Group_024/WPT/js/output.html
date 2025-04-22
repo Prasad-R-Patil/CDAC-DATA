@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="d1">Panchashil Wankhede</h1>
+    <h1 id="d2"></h1>
+    <h1 id="d3">Infoway CDAC</h1>
+    <p id="d4"></p>
+    <script>
+        // by using dom assign value inside an element 
+        document.getElementById("d2").innerHTML = "Teaja D";
+        document.getElementById("d4").innerHTML = "Suraj A";
+        // by using dom we apply css property 
+        document.getElementById("d1").style.color = "blue";
+        document.getElementById("d3").style.backgroundColor = "red";
+        // by using dom we get values from elemnet.
+        let data = document.getElementById("d3").innerHTML;
+        console.log(data);
+
+        // 1.document.write()
+        document.write("Good Morning Students <br>");
+        document.write(5 + 6);
+
+        //2.window.alert() 
+        // window.alert("Welcome You All In infoway CDAC");
+        // window.alert(5*8);
+
+        // 3.console.log()
+        console.log("display out in browser console");
+        console.log(100 - 50);
+    </script>
+</body>
+
+</html>

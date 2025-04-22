@@ -1,0 +1,84 @@
+22/4/25
+
+*Intoduction of nodejs 
+*Advantages of nodejs 
+*How to install nodejs 
+*what is REPl environment
+*how tp perform Read,Eval,print ,Loop
+
+*how to enter into REPl environment
+ in terminal write node (press enter)
+*how to save REPL environment code in file 
+.save filename.js
+*how to open or load js file code in REPL environment
+.load filename.js
+
+Types of Module in node js
+1-core module : module provide by nodejs to us. 
+2-local module : user define module  
+3-third party module: module developed by third party vender.
+
+Note: to use core module , first er hve to import it 
+syntax: const variableName = require('moduleName');
+
+*path module :
+-it will return file or directory information
+-in node js __dirname provide current directory path.
+-in node js __filename provide current file path.
+
+*os module : it will gives information about operating system.
+
+*local Module :
+- it is created by developer in their node app
+- to send it in another file we use module.exports or expots 
+- to access in in another fle we have to use require() method
+
+Task1: create a module with cube which which return cube any number.
+Task2: create a module with areaOfCircle  which return areaOfCircle any number.
+Task3: create a module with square  which return square any number.
+Task4: create a module which will check number is even or odd and return.
+Task5: create a module with fullname will fullname by taking two values from user.
+
+*thirdparty Module :
+-the module developed by third party vender.
+step1:fist we have to install it. (npmjs.com)
+step2: import it 
+step3: use it 
+
+
+*node_modules folder: all modules, library, dependency will install in this folder.
+*package.json file: all install modules,library or dependency entry will found here.
+*package-lock.json file: it include detail descripton of all module.
+
+* chalk module 
+npm install chalk
+
+* use of validator module 
+npm i validator
+
+*use of propmt : it allows usert to get input 
+npm i prompt
+
+*Blocking and Non-blocking code 
+*What is callback function 
+*What is event 
+
+*File operation(read,write,create,delete file )
+
+*read and write file synchronously.
+*read and write file asynchronously.
+
+*Directory Operation 
+*how to remove file 
+*how to Create new Directory file 
+*how to remove Directory file  
+
+*http module : it is use for creating server.
+
+Task6: remove director having one or more file in it.
+Task7: create a server by using http module and display output for black request, home ,about,service,gallary,contact,help,
+
+
+
+
+

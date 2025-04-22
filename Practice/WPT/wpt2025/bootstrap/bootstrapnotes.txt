@@ -1,0 +1,59 @@
+16/4/25
+
+
+*Bootstrap:
+-it is html,css and javascript framework.
+-it is use to make web app attractive , responsive and mobile friendly.
+-it is open sourse(free to use)
+-latest verion Bootstrap is Bootstrap5
+
+
+*there are two ways to use Bootstrap
+1.By using CDN(Content Delivery Network) Link: internet must be required to use it.
+2.By Downloading: no need to internet connection to use it.
+
+*official website for Bootstrap
+www.getbootstrap.com 
+
+*heading classes 
+.display-1 to .display-6
+.container : it will apply 15px margin from left and right of screen.
+*text color classes 
+*background color classes 
+*button classes 
+
+*images classes
+*tables classes
+*use of nav bar
+*use of Carousel bar
+*use of accordian bar
+
+
+*grid in Bootstrap
+it is use to manage element layout accordian to different screen width.
+-in grid we can create columan with 12 size , if its size exeeded then remaining columan will start on new line.
+-in grid we use two classes 1.row and 2.col 
+
+
+screen width >=1200px    .xl
+screen width >=992px     .lg
+screen width >=768px     .md
+screen width >=576px     .sm
+
+*card classes.
+
+*form and form validation classes.
+label : .form-label 
+input : .form-control
+
+validation classes
+1.was-validated: it will display error before submitting form data.
+2.need-validation:it will display error after submitting form data.
+
+error message 
+.invalid-feedback: it will execute ehen error occure
+.valid-feedback:it will execute when there is no error.
+
+*how to use inbuilt template 
+
+

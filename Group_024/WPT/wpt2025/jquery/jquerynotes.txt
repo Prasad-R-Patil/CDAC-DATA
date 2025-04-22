@@ -1,0 +1,76 @@
+19/4/25
+
+
+Jquery: 
+-it is javascript library.
+-it is use to make javascript code easy.
+-it is easy to learn 
+
+*how to Jquery
+1. By using CDN link:
+2. by Downloading:
+
+*features of jquery 
+1. dom manipulation
+2. apply customize css 
+3. use we can use timers 
+
+*Syntax to use jquery 
+$(document).ready(function (){
+    logical code
+});
+
+
+$: it is pre-processor
+document: it is object represent current document 
+ready : it is method which is use to prevent execution of jquery code before loading of document code.
+
+*selector in jquery:
+-it play very much important to select an element.
+1. element name selector  
+2. id selector 
+3. class selecto 
+4. this select : it represent current element, this selector will never work with arrow functionin jquery.
+
+*Official website form jquery is 
+jquery.com 
+
+*click,dbclick,hide,show 
+*use of css 
+*use of on() method : this method allows us to add one or more event handler for selected element.
+
+*jquery Effects
+-hide,show,toggle 
+-fadein,fadeOut,fadetoggle
+-slideup,slidedown,slidetoggle 
+
+*Animation: 
+-with jquery we can apply custome Animation
+-before applying animate change element property postion:relative
+
+Syntax: $(selector).animate({params},speed,callbackfunction);
+
+params : in this we write css code 
+speed: slow,fast, or millisecond 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

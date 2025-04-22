@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="d1">Panchashil Wankhede</h1>
+
+    <input type="text" id="txt1" name="userData">
+
+    <script>
+        $(document).ready(function (){
+            $("#txt1").on({
+            mouseenter:function (){
+                $(this).css({"border":"3px solid red","background-color":"aqua"})
+            },
+            mouseleave:function (){
+                $(this).css({"border":"3px solid green","background-color":"violet"})
+            },
+            click:function (){
+                $(this).css({"border":"5px solid yellow","background-color":"blue"})
+            }
+        });
+
+        //   $("#d1").mouseenter(function (){
+        //     $(this).css({"color":"blue","background-color":"aqua","text-align":"center"});
+        //   });
+
+        //   $("#d1").mouseleave(function (){
+        //     $(this).css({"color":"red","background-color":"aqua","text-align":"center"});
+        //   })
+        });
+    </script>
+
+</body>
+</html>

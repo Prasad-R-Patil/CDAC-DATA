@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // 1. default function
+        function greeting() {
+            return "Good Morning Students <br>";
+        }
+        document.write(greeting());
+
+        //2. parameterize function 
+        function welcome(name1, name2, name3) {
+            // return "Welcome You "+name1+name2+name3+" <br>";
+            return `Welcome You ${name1} ${name2} ${name3} <br>`;
+        }
+        document.write(welcome("Suraj ", "Tejas ", "Abhijit"));
+
+        //3.anonymous function: function with no name.
+        let add = function (num1, num2) {
+            return `addition of ${num1} + ${num2} = ${num1 + num2} <br>`;
+        }
+        document.write(add(100, 300));
+        //4.arrow function: function which has no name and no function kewyword.
+        // let sub = (num1, num2) => {
+        //     return `Subtraction of ${num1} - ${num2} = ${num1 - num2} <br>`;
+        // }
+
+        let sub = (num1, num2) => `Subtraction of ${num1} - ${num2} = ${num1 - num2} <br>`;
+
+        document.write(sub(500, 300));
+
+        //5.optional parameterize function: in ithis function no need to pass parameter value, optional parameter always at last place.
+
+        let fullname = (fname, lname, mname = "") => {
+            return fname + mname + lname;
+        }
+        document.write(fullname("Panchashil ", "Wankhede"), "<br>");
+        document.write(fullname("Panchashil ", "Wankhede", "M. "), "<br>");
+        //6.rest parameterize function : when we don't how many parameers required inside function while executing. in this we use spred operator(...)
+        let studentList = (...std) => {
+            return std;
+        };
+        document.write(studentList("Suraj", "Tejas", "Abhijit", "Omkar", "Sidesh"));
+        console.log(studentList("Suraj", "Tejas", "Abhijit", "Omkar", "Sidesh"));
+
+    </script>
+</body>
+
+</html>

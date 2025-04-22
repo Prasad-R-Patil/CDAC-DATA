@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        let std = {
+            id: 101,
+            name: "Ashwin",
+            contact: 55555,
+            single: true,
+            address: {
+                city: "Pune",
+                pin: 410014,
+                state: "Maharashtra"
+            },
+            detals: function () {
+                return `Id:${this.id} Name:${this.name} Contact:${this.contact} Single:${this.single} <br>`;
+            }
+        };
+        // accesing object data outside object
+        document.write(`Id:${std.id} Name:${std.name} Contact:${std.contact} Single:${std.single} <br>`);
+       // accessing object data avaiable inside object
+        document.write(`City:${std.address.city} Pine-${std.address.pin} State:${std.address.state} <br>`);
+
+       document.write(std.detals());
+
+    </script>
+</body>
+
+</html>

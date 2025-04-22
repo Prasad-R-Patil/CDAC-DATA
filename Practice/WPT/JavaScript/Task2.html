@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    
+    <title>Toggle</title>
+    <style>
+        img{
+
+            width: 400px;
+            height: 400px;
+
+        }
+
+        .rx{
+            border: 10px solid red;
+            border-radius: 10px;
+            width: 420px;
+            height: 500px;
+            margin: 0 auto;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+<div class="container mt-5 ">
+    <div class="center align-center text-center rx">
+        <img src="../BootStrap/images/facebook.png" id="ig" width="400px">
+        <h2 id="nm">FaceBook</h2>
+        <button type="button" onclick="changed()">Toggle Image</button>
+        
+    </div>
+</div>
+
+
+
+<script>
+
+
+    let isFacebook = true;
+
+    const changed = () => {
+        const image = document.getElementById("ig");
+        const text = document.getElementById("nm");
+
+        if (isFacebook) {
+            image.src = "../BootStrap/images/instagrame.jfif";
+            text.innerHTML = "Instagram";
+        } else {
+            image.src = "../BootStrap/images/facebook.png";
+            text.innerHTML = "Facebook";
+        }
+
+        isFacebook = !isFacebook;
+    };
+
+
+
+
+
+
+
+    // let changed = () =>{
+    //     let i1 = document.getElementById("ig");
+        
+    //     if(i1 == ig)
+    //     document.getElementById("ig").src=("../BootStrap/images/instagrame.jfif");
+    //     document.getElementById("nm").innerHTML="Instagram";
+    // }
+
+    
+
+</script>
+
+    
+</body>
+</html>

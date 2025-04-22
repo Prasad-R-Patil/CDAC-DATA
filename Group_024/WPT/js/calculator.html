@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        .myform {
+            border: 5px solid blue;
+            width: 400px;
+            padding: 10px;
+            border-radius: 10px;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+
+   
+        <form class="myform mt-5">
+            <input type="text" name="num1" id="num1" class="form-control" placeholder="Enter First Number"><br>
+
+            <input type="text" name="num2" id="num2" class="form-control" placeholder="Enter second Number"><br>
+
+            <button type="button" onclick="add()" class="btn btn-outline-primary">+Add</button>
+        </form>
+        <hr>
+
+        <div class="text-center">
+            <img src="../assetes/images/dosa.jpg" id="m1" alt="dosa" style="height: 200px;width: 300px;"><br><br>
+
+            <button type="button" onclick="changeImge()" class="btn btn-danger">change Img</button>
+        </div>
+        <script>
+
+            function changeImge(){
+               document.getElementById("m1").src="../assetes/images/vadapav.jpg";
+            }
+
+            function add(){
+                // window.alert("hi");
+              let no1 = document.getElementById("num1").value;
+              let no2 = document.getElementById("num2").value;
+              console.log(parseInt(no1)+parseInt(no2));
+            }
+        </script>
+
+
+
+</body>
+
+</html>

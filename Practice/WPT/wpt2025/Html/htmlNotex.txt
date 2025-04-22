@@ -1,0 +1,106 @@
+14/4/25
+
+HTML: 
+-it is use to create structure of wbpage or website.
+-it is use to display to user on browser.
+-it stand stand for HYper text markup language.
+-latest version of html is html 5.2
+
+-it is tag basis language.
+<tag>
+-in html we have two typs of tag
+1.paied tag: <startTag></endtag>
+2.unpaired tag:<singletag>
+
+
+step to create webpage 
+step1: create html fule with filename.html ot .htm 
+step2: write code in it.
+step3: execute file on browser.
+
+<!DOCTYPE html> : it tells search engine it is html type of document belong to version html5
+head part : it contain exterlink and meta data in it. 
+body part : it is use to display data on webpage. 
+
+*how to comment in html : to provide hint to user in code and it will never run 
+<!-- commen -->
+
+Types of html element
+-there are two types of element:
+
+<startTag attribute="value" > content </endtag>
+
+*attribute:-it gives you additional information about tag.
+          -it always write in starting tag.
+          -it write in key value paireformate.
+
+1. block element: the element which takes 100% width of its screen 
+                 -it always start on new line.
+                 -ex: h1-h6,p,table,list, form 
+
+2. inline element: the element which will takes required width of it. 
+                  -it will never start on new line.
+                  -ex: b,i,u,img,a
+
+*List : it is collection of items 
+1-in html 5 there are three types of list 
+1. Ordered List(ol): types : number,A,B,C,a,b,c,I,II,III,i,ii,iii
+2. Unordered list (ul): types : disc, circle, square ,none
+3. Description List(dl):
+               dl: description list.
+               dt:define yterm term.
+               dd:define description.
+
+
+*how to insert images into webpage. 
+*how to insert video into webpage. 
+*how to insert audio into webpage. 
+
+*iframe : it is use to create small window into web app.
+-there are three uses of it
+1. insert google map location.
+2. insert youtube video.
+3. insert one website into another.
+
+*how to create link in html page.
+-by using anchor tag
+
+*use of table : it is collection rows and columan 
+-in table first we create row and the columan
+
+*form : it is use to get data from user. 
+-there are two method to submit form data.
+get: 
+-form submited data will be vissible on browser.
+-we can not submit confidentail data by using get method.
+-there is character limitation that is 1024 character.
+
+post:
+-form submited data will be not vissible in browser.
+-we can submit confidentail data by using it.
+-there is no character limitation , 
+-data storein request body.
+
+*new input type 
+password,email,date,number,tel,color,date-tilme-local,url,search,
+*new attribute
+pattern, required,autofocus,maxlength,minlength,
+*new tag in html5
+iframe,strong,pre,em,ins,abbr,address,audio,video 
+
+
+*special Scode and symbol in html5 
+
+
+Task1: perform ordered list and unordered list all type.
+Task2: create nested list as shown in image.
+Task3: Table : display three table as shown in diagrame.
+Task4: insert 5 images in webpage and when you click on image it must redirect you to its description page.
+Task5: Bookmark : create 10 chapter which redirect us to pertucular section and each section must have one link which will you to top.
+
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+<script>
+ 
+ function greet(){
+    // return "Good Afternoon You all Students";
+    console.log("Good Afternoon You all Students")
+ };
+
+//console.log(greet());
+
+function welcome(para1){
+          
+    return "Welcome You All in infoway"+para1();
+}
+console.log(welcome(greet));
+// settimeOut(): it call another method only onetime after perticulat time interval.
+setTimeout(greet,2000);
+//setInterval(): it call another method multiple time after perticulat time interval.
+setInterval(()=>{console.log("My Name is panchashil")},1000)
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            border: 5px solid red;
+            width: 256px;
+            text-align: center;
+            padding: 10px;
+            margin: auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="../assetes/images/vadapav.jpg" id="img1" alt=""><br>
+        <button type="button" onclick="hideAndShow('none')">hide img</button>
+        <button type="button" onclick="hideAndShow('inline')">show img</button>
+        <!-- <button type="button" onclick="showImg()">show img</button> -->
+    </div>
+    <script>
+        function hideAndShow(val) {
+            document.getElementById("img1").style.display =val;
+        }
+
+        // function hideImg(){
+        //     document.getElementById("img1").style.display="none";
+        // }
+        // function showImg(){
+        //     document.getElementById("img1").style.display="inline";
+        // }
+    </script>
+
+</body>
+
+</html>

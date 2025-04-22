@@ -1,0 +1,20 @@
+
+.form-validation{
+    border: 5px solid #0811a4;
+    outline: 3px solid #ffee00;
+    width: 400px;
+    text-align: center;
+    padding: 12px;
+    border-radius: 7px;
+    margin: auto;
+    box-shadow: 10px 10px 5px black;
+}
+.form-validation input{
+    width: 350px;
+    height: 26px;
+    border-radius: 7px;
+    font-size: 18px;
+    text-align: center;
+    color: blue;
+    font-weight: 700;
+}

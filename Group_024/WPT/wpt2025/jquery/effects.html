@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Jquery Effects</h1>
+    <img id="img1" src="../assetes/images/samosa.jpg" alt="samosa"> <br><br>
+    <button type="button" id="btnhide">Hide</button>&nbsp;&nbsp;
+    <button type="button" id="btnshow">Show</button>&nbsp;&nbsp;
+    <button type="button" id="btntoggle">Toggle</button>&nbsp;&nbsp;
+    <hr>
+    <img id="img2" src="../assetes/images/vadapav.jpg" alt="samosa"> <br><br>
+    <button type="button" id="btn2">FadOut</button>&nbsp;&nbsp;
+    <button type="button" id="btn1">fadeIn</button>&nbsp;&nbsp;
+    <button type="button" id="btn3">FadeToggle</button>&nbsp;&nbsp;
+    <hr>
+    <button type="button" id="btn4">slideUp</button>&nbsp;&nbsp;
+    <button type="button" id="btn5">slideDown</button>&nbsp;&nbsp;
+    <button type="button" id="btn6">slideToggle</button>&nbsp;&nbsp;
+    <p id="p1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, minus. Qui quasi labore maiores quas obcaecati neque, quos ab adipisci repellat minima. Impedit molestias nam quos vitae repellat rerum facere. Mollitia voluptatibus similique asperiores saepe sit exercitationem laudantium voluptate nostrum, voluptatem quasi, velit ut minima qui delectus earum perspiciatis enim nihil. Exercitationem ut, dolor error fugit eligendi dolores atque. Pariatur ipsam modi dicta repellat at vero voluptatibus aut! Fuga natus facere quo aspernatur veniam eos harum maiores sapiente laboriosam consequatur. Totam amet vitae corporis repellendus reprehenderit doloremque excepturi, laudantium dicta fugit perspiciatis fuga consectetur, ut voluptatibus voluptatem consequuntur quo ipsa!
+    </p>
+
+<script>
+$(document).ready(function (){
+
+   //code for slide  effect 
+   $("#btn4").click(()=>{
+    $("#p1").slideUp();
+   });
+   $("#btn5").click(()=>{
+    $("#p1").slideDown();
+   });
+   $("#btn6").click(()=>{
+    $("#p1").slideToggle();
+   });
+
+   //  code for fade effect 
+   $("#btn1").click(()=>{
+    $("#img2").fadeIn(2000);
+   })
+   $("#btn2").click(()=>{
+    $("#img2").fadeOut(2000);
+   })
+   $("#btn3").click(()=>{
+    $("#img2").fadeToggle(2000);
+   })
+
+
+
+   $("#btnhide").click(()=>{
+    $("#img1").hide(2000,()=>{window.alert("image hide successfully")});
+   });
+   $("#btnshow").click(()=>{
+    $("#img1").show(2000,()=>{window.alert("image show successfully")});
+   });
+   $("#btntoggle").click(()=>{
+    $("#img1").toggle(2000);
+   });
+   
+});
+
+</script>
+
+</body>
+</html>

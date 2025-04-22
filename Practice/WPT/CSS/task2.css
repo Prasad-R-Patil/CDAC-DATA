@@ -1,0 +1,138 @@
+.ig1{
+    border: 5px solid ;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    margin: 10px;
+    box-shadow: 5px 3px 4px black;
+    transition: transform 2s;
+    
+}
+
+.ig1:hover{
+    transform: rotateY(360deg);
+}
+
+/* .ig2{
+
+    border: 5px solid black;
+    width: 450px;
+    height: 300px;
+    margin-left: 32%;
+} */
+
+
+.ig2 {
+    border: 5px solid black;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+
+
+.container{
+
+    padding: 20px;
+    margin: 10px;
+    position: relative;
+    width: 170px;
+    /* margin: 0px auto; */
+    border: 5px solid red;
+    background-color: aquamarine;
+    position: fixed;
+    float: left;
+}
+.list{
+    font-size: 25px;
+    transition: transform 2s;
+    
+}
+
+.list:hover{
+    color: red;
+}
+
+
+.info{
+    background-color: blue;
+    width: 83%;
+    margin-left: 240px;
+    margin-top: 10px;
+    border: 5px solid red;
+    background-color:darkcyan;
+
+    
+}
+.main{
+    background-color: aqua;
+    padding: 10px;
+    
+}
+#hm1{
+    text-align: center;
+    color: black;
+    font-size: 20px;
+    margin: 30px;
+    padding: 5px;
+    border: 5px double black;
+    background-color: darkcyan;
+   
+    
+}
+h2{
+    padding-top: 10px;
+    text-align: center;
+    color: darkred;
+    font-size: 40px;
+    transition: transform 2s;
+
+}
+.h2:hover{
+    color: red;
+}
+
+p{
+    padding: 25px;
+    font-size: 20px;
+    border: 2px solid black;
+}
+
+@media (max-width: 768px) {
+    .container {
+        position: relative;
+        width: 100%;
+        float: none;
+        margin: 0 auto;
+    }
+
+    .info {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .list {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .ig1 {
+        height: 100px;
+        width: 100px;
+        margin: 10px auto;
+        display: block;
+    }
+}
+
+@media (max-width: 480px) {
+    p {
+        font-size: 16px;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+}

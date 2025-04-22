@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="d1"></div>
+    <div id="d2"></div>
+    <div id="d3"></div>
+    <div id="d4"></div>
+    <div id="d5"></div>
+    <div id="d6"></div>
+    <div id="d7"></div>
+    <div id="d8"></div>
+    <div id="d9"></div>
+    <div id="d10"></div>
+    <div id="d11"></div>
+    <div id="d12"></div>
+    <div id="d13"></div>
+    <div id="d14"></div>
+    <div id="d15"></div>
+    <div id="d16"></div>
+    <div id="d17"></div>
+    <div id="d18"></div>
+    <div id="d19"></div>
+    <div id="d20"></div>
+    <div id="d21"></div>
+    <div id="d22"></div>
+
+    <script>
+  let msg = "you all are good students, all the best students for your future";
+document.getElementById("d1").innerHTML = msg;
+document.getElementById("d2").innerHTML =` length : ${msg.length}`;
+// 1.indexOf(searchingString,startIndex):
+document.getElementById("d3").innerHTML =msg.indexOf("all");
+document.getElementById("d4").innerHTML =msg.indexOf("all",7);
+document.getElementById("d5").innerHTML =msg.indexOf("infoway");
+
+// 2.lastIndxOf(searchingString,startIndex):
+document.getElementById("d6").innerHTML =msg.lastIndexOf("students",);
+document.getElementById("d7").innerHTML =msg.lastIndexOf("students",38);
+
+// 3.search(searchingString):
+document.getElementById("d8").innerHTML =msg.search("good");
+
+// 4.slice(startIndex,endIndex):
+document.getElementById("d9").innerHTML =msg.slice(20);
+document.getElementById("d10").innerHTML =msg.slice(10,20);
+document.getElementById("d11").innerHTML =msg.slice(-20);
+document.getElementById("d12").innerHTML =msg.slice(-20,-5);
+
+// 5.subString(startIndex,endIndex):
+document.getElementById("d13").innerHTML =msg.substring(5);
+document.getElementById("d14").innerHTML =msg.substring(5,15);
+// 6.subStr(startIndex,total-numner-of-character):
+document.getElementById("d15").innerHTML =msg.substr(5,5);
+
+// replace(oldString,newstring,): it is use to replace string
+document.getElementById("d16").innerHTML =msg.replace("students","FRIENDS");
+document.getElementById("d17").innerHTML =msg.replace(/students/g,"FRIENDS");
+document.getElementById("d18").innerHTML =msg.replace(/Students/ig,"FRIENDS");
+
+document.getElementById("d19").innerHTML =msg.replaceAll("students","FRIENDS");
+
+//split(seperator): it is use to convert string data into array.
+console.log(msg.split());
+console.log(msg.split(" "));
+
+
+
+    </script>
+</body>
+</html>

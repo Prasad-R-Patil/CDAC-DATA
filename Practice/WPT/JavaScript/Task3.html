@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    
+    <title>Toggle</title>
+    <style>
+        img{
+
+            width: 400px;
+            height: 400px;
+
+        }
+
+        .rx{
+            border: 10px solid red;
+            border-radius: 10px;
+            width: 420px;
+            height: 500px;
+            margin: 0 auto;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+<div class="container mt-5 ">
+    <div class="center align-center text-center rx">
+        <img src="../BootStrap/images/whatsapp.png" id="ig" width="400px">
+        <h2 id="nm">WhatsAap</h2>
+        <button type="button" onclick="changed1()">Vadapav</button>
+        <button type="button" onclick="changed2()">Samosa </button>
+        <button type="button" onclick="changed3()">Dosa</button>
+        <button type="button" onclick="changed4()">Instagram</button>
+    </div>
+</div>
+
+
+
+<script>
+
+    let changed1 = () =>{
+        document.getElementById("ig").src=("../BootStrap/images/vadapav.jpg");
+        document.getElementById("nm").innerHTML="Vadapav";
+    }
+
+    let changed2 = () =>{
+        document.getElementById("ig").src=("../BootStrap/images/samosa.jpg");
+        document.getElementById("nm").innerHTML="Samosa";
+    }
+
+    let changed3 = () =>{
+        document.getElementById("ig").src=("../BootStrap/images/dosa.jpg");
+        document.getElementById("nm").innerHTML="Dosa";
+    }
+
+    let changed4 = () =>{
+        document.getElementById("ig").src=("../BootStrap/images/instagrame.jfif");
+        document.getElementById("nm").innerHTML="Instagram";
+    }
+
+</script>
+
+    
+</body>
+</html>

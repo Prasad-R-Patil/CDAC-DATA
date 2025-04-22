@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="parent">
+        <p id="p1">this is para-1</p>
+        <p id="p2">this is para-2</p>
+    </div>
+ <button type="button" onclick="deleteElement()">delete element</button>
+<script>
+      console.log(document.getElementById("parent"));
+      // we can access element
+      let parentElement = document.getElementById("parent");  // we can access element
+         let newParagraph = document.createElement("p"); // we create new element
+         newParagraph.setAttribute("id","p3"); // here we set attribute and value.
+       newParagraph.innerHTML="this is para-3"; // we set value inside an element
+      parentElement.appendChild(newParagraph); // we append child element inside parent element
+
+      function deleteElement(){
+        document.getElementById("p1").remove();// we remove element
+      }
+</script>
+</body>
+</html>

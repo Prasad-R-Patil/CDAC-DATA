@@ -1,0 +1,50 @@
+.p{
+    border : 5px solid Red;
+    position: relative;
+    width: 800px;
+    height: 400px;
+    margin: 0px auto;
+}
+
+.c1{
+    
+     color:darkorange;
+     position: absolute;
+     left: 0%;
+}
+.c2{
+    
+    padding: 0px;
+     color:darkorange;
+     position: absolute;
+     right: 0%;
+}
+.c3{
+    
+    padding: 0px;
+     color:darkorange;
+     position: absolute;
+     bottom: 0%;
+}
+.c4{
+    
+    padding: 0px;
+     color:darkorange;
+     position: absolute;
+     bottom: 0%;
+     right: 0%;
+}
+.c5{
+    
+    padding: 0px;
+     color:darkorange;
+     position: absolute;
+    /* // left: 50%; */
+     top: 50%;
+     width: 100%;
+     text-align: center;
+}
+
+h2{
+    margin: 0%;
+}

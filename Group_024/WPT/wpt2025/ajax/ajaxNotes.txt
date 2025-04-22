@@ -1,0 +1,67 @@
+21/4/25
+
+Ajax:
+-Ajax is not a programming language.
+-Ajax is technique for accessing web-server from a web-page.
+-Ajax stand for Aynchronous javascript and XML.
+-Ajax allows us to send and reveive data asynchronouly without reloading the web-page.
+-becouse it work flow it is fast.
+
+*where it is use.
+-there are too many web applications running on the web  so that are on web-server using ajax like gmail,facebook,googlemap,youtube.
+
+*Ajax just uses as combination javascript and XML 
+- a browser built-in XMlHttRequest object (to make request to server for data from browser).
+- to display Data we use javascript and HTML DOM
+
+-with ajax we can update part of web application without reloading complete webpage.
+
+Step to use Ajax in web-application 
+step1: create object of XMlHttRequest
+       let xmlObj = new XMlHttRequest();
+
+step2: write callback method to handle response.
+         xmlObj.onload = function (){
+            handle response
+         }
+step3: create request by using open method.
+        xmlObj.open("request","server-url");
+
+step4: send request to server 
+       xmlObj.send();
+
+
+*install json-serer 
+npm install -g json-server 
+
+to ru json-file on json servr 
+json-server --watch -p 8888 db.json 
+
+*Jsondata :
+-when we fetch data form web-server in comes in json.
+-in json data is of type text or string. 
+-it will look like javascrpt object.
+-to perform manipulation with json data is not possbile so we -convert json-data into javascript object=> JSON.parse();
+-convert javascript object into json=> JSON.stringify();
+
+*CRUD
+C-(create)- post request 
+R-(Read)- get request 
+U-(Update)- put request 
+D-(Delete)- delete request 
+
+*Task: create array of object for Employee having name,post,salary,location,mode and perform CRUD operation by Using Ajax , amake application good looking and responsive.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

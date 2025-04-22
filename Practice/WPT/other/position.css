@@ -1,0 +1,59 @@
+.logo{
+    height: 300px;
+    width: 300px;
+    border: 5px solid green;
+    border-radius: 50%;
+    box-shadow: 25px 8px 15px black ;
+    margin: 20px;
+    
+}
+
+.mytitale{
+    font-size: 45px;
+    font-weight: 700;
+    color: red;
+    text-shadow: 7px 2px 2px aqua;
+    
+    word-spacing: 10px;
+    letter-spacing: 10px;
+   
+}
+
+.webHead{
+    background: cyan;
+    background-image: url(./toyota-fortuner-black-logo-i1f1tvus0mxjs68q.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: right;
+    background-repeat: no-repeat;
+    border-bottom: 8px double red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px
+}
+
+
+
+
+.pos-rel{
+    border: 5px red;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    left: 150px;
+    top: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

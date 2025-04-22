@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // use of trim() 
+        let msg = "           Hello Friends    ";
+        document.write(msg);
+        console.log(msg);
+        console.log(msg.trim());
+        console.log(msg.trimStart())
+        console.log(msg.trimEnd())
+        document.write(`<br>===============<br>`);
+        let lunch = ["Biryani", "Palak Panner", "Dal Tadka", "chicken-65", "veg-Kolhapuri"];
+
+        //1.forEach(): it call another method once for each array element.
+        lunch.forEach((val, index) => {
+            console.log(val);
+            document.write(`${val},`);
+        });
+        document.write(`<br>===============<br>`);
+        //2.map():it call another method once for each array element and it will return new array after performing manipulation with array data.
+        let num = [1, 2, 4, 5, 7, 8, 10, 12, 14, 15, 7, 19, 20, 22, 25, 30];
+        document.write(num, "<br>");
+        let mapOut = num.map((val, index) => {
+            return val * 2;
+        });
+        document.write(mapOut, "<br>");
+        //3.filter():it call another method once for each array element and it will return new array of those element who satisfy given.
+        let filterOut = num.filter((val,index)=>{
+            return val%2==0;
+        });
+        document.write(filterOut, "<br>");
+        //4.every():it call another method once for each array element and it will return true value if all element staisfy given condition.
+        let everyOut = num.every((val,index)=>{
+            return val > 0;
+        });
+        document.write(everyOut, "<br>");
+        //5.some():it call another method once for each array element and it will return true value if some od array element staisfy given condition.
+        let someOut = num.some((val,index)=>{
+            return val < 10;
+        });
+        document.write(someOut, "<br>");
+        //reduce/ reduceRight : it will return array as single value.it will two parameter, prev,next.
+        let reduceOut = num.reduce((prev,next)=>{
+            return prev+next;
+        });
+        document.write(reduceOut, "<br>");
+    </script>
+</body>
+
+</html>

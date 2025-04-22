@@ -1,0 +1,35 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Laptop",
+      "price": 55000,
+      "company": "HP",
+      "quantity": 10
+    },
+    {
+      "id": "2",
+      "name": "Keyboard",
+      "price": 3000,
+      "company": "Iball",
+      "quantity": 20
+    },
+    {
+      "name": "Mobile",
+      "price": "30000",
+      "company": "Oppo",
+      "quantity": "4",
+      "id": "2721"
+    },
+    {
+      "id": "d628",
+      "name": "USB",
+      "price": "2000",
+      "company": "Sony",
+      "quantity": "8"
+    }
+  ],
+  "Employee":[
+    {"id":1,"ename":"Suraj","epost":"Manager","esalary":10000,"location":"Pune","mode":"online"}
+  ]
+}
