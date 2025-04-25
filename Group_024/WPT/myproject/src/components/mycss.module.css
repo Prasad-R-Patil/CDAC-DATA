@@ -1,0 +1,13 @@
+
+.box{
+    border:2px solid red;
+    background-color: blueviolet;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    transition: transform 2s;
+}
+.box:hover{
+    transform: rotateY(350deg);
+}
+

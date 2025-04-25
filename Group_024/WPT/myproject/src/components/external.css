@@ -1,0 +1,12 @@
+
+
+.txtPrimary{
+    color: dodgerblue;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.txtSuccess{
+    color:mediumaquamarine;
+    text-transform: capitalizes;
+    font-family: Arial, Helvetica, sans-serif;
+}

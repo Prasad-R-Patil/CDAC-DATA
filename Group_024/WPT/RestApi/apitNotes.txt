@@ -1,0 +1,40 @@
+24/4/25
+
+*Rest API By using nodejs and MySQL
+
+WAMPP:(Window,Apache,Mysql,Php,Perl)
+XAMPP:(Any OS,Apache,Mysql,Php,Perl)
+step1:install XAMPP server => it provide server environment and database in it. 
+step2: open xampp and start appache and mysql 
+step3: open phpmyadmin and create database and table init 
+
+
+-creatc server 
+step1:to create package.json 
+      npm init or npm init -y
+step2: install express,dotenv
+       npm i express 
+       npm i dotenv --save 
+step3: install mysql library to create connection with mysql database
+       npm install mysql    
+step4: install body-parser middleware 
+        body-parser : it allows us to get url-encode and json data 
+         npm install body-parser            
+
+step5: how to handle CORS Error 
+-CORS, or Cross-Origin Resource Sharing, is a security mechanism that allows web applications running on one domain to access resources from different domains.
+
+*how to install cors
+npm install cors
+
+
+Task: create rest API by using express and mysql with the hep of XAMPP server 
+     in api you have to implement below request 
+     -get request for all employee
+     -get request for all single employee
+     -delete request for all employee
+     -post request for all employee
+     -put request for all employee
+
+             
+

@@ -77,8 +77,32 @@ npm i prompt
 
 Task6: remove director having one or more file in it.
 Task7: create a server by using http module and display output for black request, home ,about,service,gallary,contact,help,
+=======================================================
+23/4/25
 
+*nodemon: 
+-it will restart your server when it found any chnages in server file.
+-it is third party module to use first have to install it.
+step1: install it 
+       npm install -g nodemon
+step2: run file with nodemon 
+    nodmon file.js  or npx nodemon file.js      
 
+*how to render html pages on server with multuple request.
+*Dotenv module.
+-while working on open environment it allows us to hide your credentials
+-it allows us to keep secreate from from others
+-to use it first install it 
+step1: install nodemon 
+    npm install dotenv --save
+
+step2: create file with name .env  and write credentials in it
+step3: import .env file in requird file by writting 
+    require('dotenv').config()
+    and access .env file credentials by writting process.env.propertyname    
+
+*Expressjs
+npm install express
 
 
 

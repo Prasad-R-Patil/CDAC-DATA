@@ -1,0 +1,112 @@
+   
+25/4/25
+
+*React :
+-it is use to create rich User Interface.
+-it is javascript library, it is not framework.
+-it create Single Page Application(SPA).
+-it works on components.
+-it is developed and maintain by facebook(meta)
+-latest version of react is 19.
+
+
+*technology pre-requisit 
+-html,css,javascript(basic,ES5,ES6,oops)
+*software pre-requisit 
+-nodejs,npm,text-editor(vs code)
+
+*there are multiple ways to create react project 
+1.npx (do not required to install configuration file)
+
+ step1: npx create-react-app appname
+ step2: cd appName
+ step3: npm start
+  
+2.npm (need to install configuration file)
+
+ step1: npm install -g create-react-app
+ step2: create-react-app appname
+ step3: cd appName
+ step4: npm start
+
+3.vite (it will create react project with minimul file)
+  npm create vite@latest my-app -- --template react
+
+
+*In react only single index.html page will display(render)
+
+
+*App.js : it is root component in react app 
+
+node_modules: all dependencies and library will install here.
+package.json: all install dependencies and library entry will be done here.
+package-lock.json: detail description of dependencies will be available here.
+
+*component:
+-it is partial part of react app.
+-component can be re-use multiple time
+-it can be any part of react app.
+-In React While creating component its name must start with capital letter.
+
+*In react there are two types of component
+1.function component:
+ -when your main focus is on UI design in that case we use it.
+2.class component:
+-when we need to deal with complex logic and essestial data in that case we use it.
+
+***JSX(Javascript XML):
+-it makes react code easy and allows us to write html code in rect.
+-in jsx we have to use one parent element to wrap another element.
+-parent element must be block element like div,p.
+
+***props(properties):
+-it is parameter or functional parameter which is use to pass data inside component.
+-it return data in object formate.
+-this is function component we can access props by writting props.propsname 
+-this is class component we can access props by writting this.props.propsname 
+
+Task1: create one function component with name MyDetailComp  and pass props fname,lname,contact,email,address and display it.
+
+Task2: create one class component with name FriendDetailComp  and pass props fname,lname,contact,email,address and display it.
+
+*method and event in react 
+-onclick,onmouseover 
+
+***State in class component:
+-it is use to handle essestial data in class component
+-it return object type of data.
+-in class component we write state inside class constructor.
+-we can access state data outside state by writting this.state.propertyname
+
+-we can use state in function component by using useState Hook.
+*setState() method : it is use to manipulate state data.
+
+*conditional Rendering: display component output on browser on that basis of condition.
+1.if else: it condition id true if block will execute otherwise else block.
+
+2.element as variable: in this we store result in variable display it conditionaly inside element.
+
+3.ternary operator: shorthand syntax for if else. 
+   syntax:    (condition) ? truepart : falsepart;
+
+4.short-circuit(&&): if the condition is true then only it execute code.
+
+*use of css In React 
+1.internal css : in starting tag we use style attribute and write css properties in it.
+2.external css : in this we creatw a seperate css file and import in component
+3.module css : this is use when we have to write css property for specific component . its filename must save with filename.module.css 
+
+CssComp.js  fc 
+
+
+
+
+
+
+
+ 
+
+
+
+
+
